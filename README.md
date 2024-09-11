@@ -9,12 +9,12 @@
 [![tests][tests-src]][tests-href]
 [![codecov][codecov-src]][codecov-href]
 
-PHP package to interact with the [The Movie Database (TMDb) API](https://www.themoviedb.org/documentation/api).
+PHP package to interact with the [The Movie Database (TMDB) API](https://www.themoviedb.org/documentation/api).
 
 > [!IMPORTANT]
-> You need to create an account on [TMDb](https://www.themoviedb.org/) and get an API key to use this package. It's free and easy to do, you can read [this guide](https://developer.themoviedb.org/docs/getting-started) to get started.
+> You need to create an account on [TMDB](https://www.themoviedb.org/) and get an API key to use this package. It's free and easy to do, you can read [this guide](https://developer.themoviedb.org/docs/getting-started) to get started.
 
-_Why this package? All current PHP packages to interact with the TMDb API are outdated and I need a modern and easy-to-use package to interact with the TMDb API. So I decided to create this package._
+_Why this package? All current PHP packages to interact with the TMDB API are outdated and I need a modern and easy-to-use package to interact with the TMDB API. So I decided to create this package._
 
 > [!WARNING]
 > This package is under development.
