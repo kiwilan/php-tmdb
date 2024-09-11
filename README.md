@@ -80,7 +80,7 @@ From <https://developer.themoviedb.org/reference/network-details>
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$company = Tmdb::client('API_KEY')->getNetwork(49); // ?\Kiwilan\Tmdb\Models\Company
+$network = Tmdb::client('API_KEY')->getNetwork(49); // ?\Kiwilan\Tmdb\Models\TvSeries\Network
 ```
 
 ### Search
