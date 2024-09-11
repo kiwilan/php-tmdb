@@ -66,23 +66,4 @@ class Credits extends TmdbModel
 
         return $this->crew;
     }
-
-    /**
-     * Get the directors.
-     *
-     * @return Credits\Crew[]|null
-     */
-    public function getCreators(): ?array
-    {
-        $creators = [];
-        if (isset($this->crew)) {
-            foreach ($this->crew as $crew) {
-                if ($crew->getJob() === 'Creator' || $crew->getJob() === 'Director') {
-                    $creators[] = $crew;
-                }
-            }
-        }
-
-        return $creators;
-    }
 }

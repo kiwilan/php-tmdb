@@ -106,9 +106,6 @@ it('can get movie credits', function () {
     expect($movie->getCredits()->getCrew())->toBeArray();
     expect($movie->getCredits()->getCrew())->not()->toBeEmpty();
     expect($movie->getCredits()->getCrew())->each(fn (Pest\Expectation $crew) => expect($crew->value)->toBeInstanceOf(Crew::class));
-
-    $credits = $movie->getCredits()->getCreators();
-    expect(reset($credits)?->getName())->toBe('Peter Jackson');
 });
 
 it('can get movie spoken languages', function () {
@@ -157,7 +154,6 @@ it('can get movie companies', function () {
     expect($first->getLogoPath())->toBeString();
     expect($first->getName())->toBe('New Line Cinema');
     expect($first->getOriginCountry())->toBe('US');
-    ray($first);
 });
 
 it('can get movie countries', function () {
@@ -170,4 +166,11 @@ it('can get movie countries', function () {
     $first = reset($countries);
     expect($first->getIso31661())->toBe('NZ');
     expect($first->getName())->toBeString('New Zealand');
+});
+
+it('can get directors', function () {
+    $movie = Tmdb::client(apiKey())->getMovie(120, 'credits');
+
+    $directors = $movie->getDirectors();
+    expect(reset($directors)?->getName())->toBe('Peter Jackson');
 });

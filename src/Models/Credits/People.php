@@ -2,13 +2,16 @@
 
 namespace Kiwilan\Tmdb\Models\Credits;
 
-abstract class People
+use Kiwilan\Tmdb\Models\TmdbModel;
+use Kiwilan\Tmdb\Traits\HasId;
+
+abstract class People extends TmdbModel
 {
+    use HasId;
+
     protected bool $adult = false;
 
     protected ?int $gender = null;
-
-    protected ?int $id = null;
 
     protected ?string $known_for_department = null;
 
@@ -24,15 +27,15 @@ abstract class People
 
     public function __construct(array $data)
     {
-        $this->adult = $data['adult'] ? boolval($data['adult']) : false;
-        $this->gender = $data['gender'] ?? null;
-        $this->id = $data['id'] ?? null;
-        $this->known_for_department = $data['known_for_department'] ?? null;
-        $this->name = $data['name'] ?? null;
-        $this->original_name = $data['original_name'] ?? null;
-        $this->popularity = $data['popularity'] ?? null;
-        $this->profile_path = $data['profile_path'] ?? null;
-        $this->credit_id = $data['credit_id'] ?? null;
+        $this->adult = $this->toBool($data, 'adult');
+        $this->gender = $this->toInt($data, 'gender');
+        $this->setId($data);
+        $this->known_for_department = $this->toString($data, 'known_for_department');
+        $this->name = $this->toString($data, 'name');
+        $this->original_name = $this->toString($data, 'original_name');
+        $this->popularity = $this->toFloat($data, 'popularity');
+        $this->profile_path = $this->toString($data, 'profile_path');
+        $this->credit_id = $this->toString($data, 'credit_id');
     }
 
     public function isAdult(): bool
@@ -43,11 +46,6 @@ abstract class People
     public function getGender(): ?int
     {
         return $this->gender;
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     public function getKnownForDepartment(): ?string

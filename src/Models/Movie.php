@@ -3,6 +3,7 @@
 namespace Kiwilan\Tmdb\Models;
 
 use DateTime;
+use Kiwilan\Tmdb\Models\Credits\Crew;
 use Kiwilan\Tmdb\Models\Movie\ReleaseDate;
 
 class Movie extends Media
@@ -141,5 +142,28 @@ class Movie extends Media
     public function getSimilar(): ?Search\SearchMovies
     {
         return $this->similar;
+    }
+
+    /**
+     * Get movie directors, `credits` must be requested.
+     *
+     * @return Crew[]|null
+     */
+    public function getDirectors(): ?array
+    {
+        if (! $this->credits) {
+            return null;
+        }
+
+        $directors = [];
+        if ($this->credits->getCrew()) {
+            foreach ($this->credits->getCrew() as $crew) {
+                if ($crew->getJob() === 'Director') {
+                    $directors[] = $crew;
+                }
+            }
+        }
+
+        return $directors;
     }
 }

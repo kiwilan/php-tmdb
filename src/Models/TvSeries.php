@@ -29,6 +29,8 @@ class TvSeries extends Media
 
     protected ?string $name = null;
 
+    protected ?string $original_name = null;
+
     protected ?Episode $next_episode_to_air = null;
 
     /** @var Network[]|null */
@@ -73,6 +75,7 @@ class TvSeries extends Media
         }
 
         $this->name = $this->toString($data, 'name');
+        $this->original_name = $this->toString($data, 'original_name');
 
         if (isset($data['next_episode_to_air'])) {
             $this->next_episode_to_air = new Episode($data['next_episode_to_air']);
@@ -127,7 +130,7 @@ class TvSeries extends Media
         return $this->first_air_date;
     }
 
-    public function isInProduction(): bool
+    public function inProduction(): bool
     {
         return $this->in_production;
     }
@@ -155,6 +158,11 @@ class TvSeries extends Media
     public function getName(): ?string
     {
         return $this->name;
+    }
+
+    public function getOriginalName(): ?string
+    {
+        return $this->original_name;
     }
 
     public function getNextEpisodeToAir(): ?Episode

@@ -94,7 +94,8 @@ abstract class Media extends TmdbModel
         $this->vote_count = $this->toInt($data, 'vote_count');
 
         $this->validateData($data, 'alternative_titles', function (array $values) {
-            $this->alternative_titles = $this->loopOn($values['titles'] ?? null, AlternativeTitle::class);
+            $alternative_titles = $values['results'] ?? $values['titles'] ?? null;
+            $this->alternative_titles = $this->loopOn($alternative_titles, AlternativeTitle::class);
         });
 
         $this->credits = new Credits($data['credits'] ?? null);

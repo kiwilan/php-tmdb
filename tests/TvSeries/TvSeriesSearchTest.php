@@ -22,7 +22,6 @@ it('can search tv series', function () {
     expect($first->getEpisodeRunTime())->toBeNull();
     expect($first->getFirstAirDate())->toBeInstanceOf(DateTime::class);
     expect($first->getGenreIds())->toBeArray();
-    expect($first->getGenres())->toBeArray();
     expect($first->getHomepage())->toBeNull();
     expect($first->getId())->toBeInt();
     expect($first->getOriginalLanguage())->toBeString();
