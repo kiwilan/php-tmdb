@@ -271,7 +271,7 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [Add Rating](https://developer.themoviedb.org/reference/movie-add-rating)
     -   [ ] [Delete Rating](https://developer.themoviedb.org/reference/movie-delete-rating)
 -   [ ] Networks
-    -   [ ] [Details](https://developer.themoviedb.org/reference/network-details): for v1
+    -   [x] [Details](https://developer.themoviedb.org/reference/network-details): for v1
     -   [ ] [Alternative Names](https://developer.themoviedb.org/reference/details-copy)
     -   [ ] [Images](https://developer.themoviedb.org/reference/alternative-names-copy)
 -   [ ] People Lists
@@ -289,7 +289,7 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
 -   [ ] Reviews
     -   [ ] [Details](https://developer.themoviedb.org/reference/review-details)
 -   [ ] Search
-    -   [ ] [Collection](https://developer.themoviedb.org/reference/search-collection): for v1
+    -   [x] [Collection](https://developer.themoviedb.org/reference/search-collection): for v1
     -   [ ] [Company](https://developer.themoviedb.org/reference/search-company): for v1
     -   [ ] [Keyword](https://developer.themoviedb.org/reference/search-keyword): for v1
     -   [x] [Movie](https://developer.themoviedb.org/reference/search-movie): for v1
