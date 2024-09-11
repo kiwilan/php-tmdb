@@ -15,7 +15,7 @@ use Kiwilan\Tmdb\Tmdb;
 it('can get movie details (tmdb id)', function () {
     $movie = Tmdb::client(apiKey())
         ->movies()
-        ->details(120);
+        ->details(movie_id: 120);
 
     expect($movie)->not()->toBeNull();
     expect($movie)->toBeInstanceOf(Movie::class);

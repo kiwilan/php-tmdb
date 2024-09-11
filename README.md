@@ -58,7 +58,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $collection = Tmdb::client('API_KEY')
     ->collections()
-    ->details(119); // ?\Kiwilan\Tmdb\Models\Collection
+    ->details(collection_id: 119); // ?\Kiwilan\Tmdb\Models\Collection
 ```
 
 ### Movies
@@ -72,7 +72,17 @@ use Kiwilan\Tmdb\Tmdb;
 
 $movie = Tmdb::client('API_KEY')
     ->movies()
-    ->details(120); // ?\Kiwilan\Tmdb\Models\Movie
+    ->details(movie_id: 120); // ?\Kiwilan\Tmdb\Models\Movie
+```
+
+You can use `append_to_response` option to get more details:
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$movie = Tmdb::client('API_KEY')
+    ->movies()
+    ->details(movie_id: 120, append_to_response: 'credits,recommendations'); // ?\Kiwilan\Tmdb\Models\Movie
 ```
 
 ### Networks
@@ -86,7 +96,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $network = Tmdb::client('API_KEY')
     ->networks()
-    ->details(49); // ?\Kiwilan\Tmdb\Models\TvSeries\Network
+    ->details(network_id:49); // ?\Kiwilan\Tmdb\Models\TvSeries\Network
 ```
 
 ### Search
@@ -100,7 +110,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $results = Tmdb::client('API_KEY')
     ->search()
-    ->movie('the lord of the rings');
+    ->movie(query: 'the lord of the rings');
 
 $collections = $results->getResults(); // \Kiwilan\Tmdb\Models\Collection[]
 $firstCollection = $results->getFirstResult(); // ?\Kiwilan\Tmdb\Models\Collection
@@ -114,7 +124,7 @@ use Kiwilan\Tmdb\Query\SearchCollectionQuery;
 
 $results = Tmdb::client('API_KEY')
     ->search()
-    ->collection('le seigneur des anneaux', new SearchCollectionQuery(
+    ->collection(query: 'le seigneur des anneaux', params: new SearchCollectionQuery(
         include_adult: true,
         language: 'fr-FR',
         page: 1,
@@ -131,7 +141,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $results = Tmdb::client('API_KEY')
     ->search()
-    ->movie('the fellowship of the ring');
+    ->movie(query:'the fellowship of the ring');
 
 $movies = $results->getResults(); // \Kiwilan\Tmdb\Models\Movie[]
 $firstMovie = $results->getFirstResult(); // ?\Kiwilan\Tmdb\Models\Movie
@@ -145,7 +155,7 @@ use Kiwilan\Tmdb\Query\SearchMovieQuery;
 
 $results = Tmdb::client('API_KEY')
     ->search()
-    ->movie('le seigneur des anneaux', new SearchMovieQuery(
+    ->movie(query: 'le seigneur des anneaux', params: new SearchMovieQuery(
         include_adult: true,
         language: 'fr-FR',
         primary_release_year: 2001,
@@ -164,7 +174,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $results = Tmdb::client('API_KEY')
     ->search()
-    ->tv('game of thrones');
+    ->tv(query: 'game of thrones');
 
 $tvSeries = $results->getResults(); // \Kiwilan\Tmdb\Models\TvSeries[]
 $firstTvSeries = $results->getFirstResult(); // ?\Kiwilan\Tmdb\Models\TvSeries
@@ -178,7 +188,7 @@ use Kiwilan\Tmdb\Query\SearchTvSeriesQuery;
 
 $results = Tmdb::client('API_KEY')
     ->search()
-    ->tv('game of thrones', new SearchTvSeriesQuery(
+    ->tv(query: 'game of thrones', params: new SearchTvSeriesQuery(
         first_air_date_year: 2011,
         include_adult: true,
         language: 'fr-FR',
@@ -198,7 +208,17 @@ use Kiwilan\Tmdb\Tmdb;
 
 $tvSeries = Tmdb::client('API_KEY')
     ->tvSeries()
-    ->details(1399); // ?\Kiwilan\Tmdb\Models\TvSeries
+    ->details(series_id: 1399); // ?\Kiwilan\Tmdb\Models\TvSeries
+```
+
+You can use `append_to_response` option to get more details:
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$tvSeries = Tmdb::client('API_KEY')
+    ->tvSeries()
+    ->details(series_id: 1399, append_to_response: 'credits,recommendations'); // ?\Kiwilan\Tmdb\Models\TvSeries
 ```
 
 ### TV Seasons
@@ -212,7 +232,17 @@ use Kiwilan\Tmdb\Tmdb;
 
 $season = Tmdb::client('API_KEY')
     ->tvSeasons()
-    ->details(1399, 1); // ?\Kiwilan\Tmdb\Models\Season
+    ->details(series_id: 1399, season_number: 1); // ?\Kiwilan\Tmdb\Models\Season
+```
+
+You can use `append_to_response` option to get more details:
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$season = Tmdb::client('API_KEY')
+    ->tvSeasons()
+    ->details(series_id: 1399, season_number: 1, append_to_response: 'credits'); // ?\Kiwilan\Tmdb\Models\Season
 ```
 
 ### TV Episodes
@@ -226,7 +256,17 @@ use Kiwilan\Tmdb\Tmdb;
 
 $episode = Tmdb::client('API_KEY')
     ->tvEpisodes()
-    ->details(1399, 1, 1); // ?\Kiwilan\Tmdb\Models\Episode
+    ->details(series_id: 1399, season_number: 1, episode_number: 1); // ?\Kiwilan\Tmdb\Models\Episode
+```
+
+You can use `append_to_response` option to get more details:
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$episode = Tmdb::client('API_KEY')
+    ->tvEpisodes()
+    ->details(series_id: 1399, season_number: 1, episode_number: 1, append_to_response: 'credits'); // ?\Kiwilan\Tmdb\Models\Episode
 ```
 
 ## Testing

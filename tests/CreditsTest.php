@@ -49,7 +49,6 @@ it('can get credits cast', function () {
         ->credits()
         ->details('52fe421ac3a36847f800448f');
 
-    ray($credit);
     expect($credit)->not()->toBeNull();
     expect($credit)->toBeInstanceOf(Credit::class);
 
