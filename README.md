@@ -191,7 +191,7 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
 -   [ ] TV Season
     -   [ ] [Details](https://developer.themoviedb.org/reference/tv-season-details): for v1
     -   [ ] [Account States](https://developer.themoviedb.org/reference/tv-season-account-states)
-    -   [ ] [Aggregate Credits](https://developer.themoviedb.org/reference/tv-season-aggregate-credits): for v1
+    -   [ ] [Aggregate Credits](https://developer.themoviedb.org/reference/tv-season-aggregate-credits): for v1.5
     -   [ ] [Changes](https://developer.themoviedb.org/reference/tv-season-changes-by-id)
     -   [ ] [Credits](https://developer.themoviedb.org/reference/tv-season-credits): for v1
     -   [ ] [External IDs](https://developer.themoviedb.org/reference/tv-season-external-ids)
