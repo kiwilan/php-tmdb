@@ -1,8 +1,8 @@
 <?php
 
-namespace Kiwilan\Tmdb\Models;
+namespace Kiwilan\Tmdb\Models\TvSeries;
 
-class Company
+class Network
 {
     protected ?int $id;
 

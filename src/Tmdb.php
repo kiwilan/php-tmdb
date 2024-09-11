@@ -38,7 +38,7 @@ class Tmdb
      * @param  string  $query  The search query
      * @param  Query\SearchMovieQuery  $params  The search query parameters for additional information
      */
-    public function searchMovie(string $query, Query\SearchMovieQuery $params = new Query\SearchMovieQuery): \Kiwilan\Tmdb\Models\Results\SearchMovies
+    public function searchMovie(string $query, Query\SearchMovieQuery $params = new Query\SearchMovieQuery): \Kiwilan\Tmdb\Models\Search\SearchMovies
     {
         $url = 'https://api.themoviedb.org/3/search/movie';
         $queryParams = [
@@ -48,7 +48,7 @@ class Tmdb
 
         $response = $this->execute($url, $queryParams);
 
-        return new \Kiwilan\Tmdb\Models\Results\SearchMovies($response);
+        return new \Kiwilan\Tmdb\Models\Search\SearchMovies($response);
     }
 
     /**
@@ -56,7 +56,6 @@ class Tmdb
      *
      * @param  int  $movieId  The TMDB movie ID
      * @param  string|null  $appendToResponse  To get additional information
-     * @param  string  $language  The language, default is `en-US`
      */
     public function getMovie(int $movieId, ?string $appendToResponse = null): ?\Kiwilan\Tmdb\Models\Movie
     {

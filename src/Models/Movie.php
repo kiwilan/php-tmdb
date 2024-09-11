@@ -61,16 +61,17 @@ class Movie
 
     protected ?int $vote_count = null;
 
-    /** @var AlternativeTitle[]|null */
+    /** @var Movie\AlternativeTitle[]|null */
     protected ?array $alternative_titles = null;
 
     protected ?Credits $credits = null;
 
-    protected ?Movie\ReleaseDates $release_dates = null;
+    /** @var Movie\ReleaseDate[]|null */
+    protected ?array $release_dates = null;
 
-    protected ?Results\SearchMovies $recommendations = null;
+    protected ?Search\SearchMovies $recommendations = null;
 
-    protected ?Results\SearchMovies $similar = null;
+    protected ?Search\SearchMovies $similar = null;
 
     public function __construct(?array $data)
     {
@@ -139,7 +140,10 @@ class Movie
         }
 
         if (isset($data['release_dates'])) {
-            $this->release_dates = new Movie\ReleaseDates($data['release_dates']);
+            $release_dates = $data['release_dates']['results'] ?? [];
+            foreach ($release_dates as $release_date) {
+                $this->release_dates[] = new Movie\ReleaseDate($release_date);
+            }
         }
 
         if (isset($data['recommendations'])) {
@@ -234,7 +238,7 @@ class Movie
     /**
      * Get the production companies.
      *
-     * @return ProductionCompany[]|null
+     * @return Company[]|null
      */
     public function getProductionCompanies(): ?array
     {
@@ -244,7 +248,7 @@ class Movie
     /**
      * Get the production countries.
      *
-     * @return ProductionCountry[]|null
+     * @return Country[]|null
      */
     public function getProductionCountries(): ?array
     {
@@ -309,7 +313,7 @@ class Movie
     /**
      * Get the alternative titles.
      *
-     * @return AlternativeTitle[]|null
+     * @return Movie\AlternativeTitle[]|null
      */
     public function getAlternativeTitles(): ?array
     {
@@ -342,17 +346,37 @@ class Movie
         return $this->credits;
     }
 
-    public function getReleaseDates(): ?Movie\ReleaseDates
+    /**
+     * Get the release dates.
+     *
+     * @return Movie\ReleaseDate[]|null
+     */
+    public function getReleaseDates(): ?array
     {
         return $this->release_dates;
     }
 
-    public function getRecommendations(): ?Results\SearchMovies
+    public function getReleaseDatesSpecific(string $iso_3166_1): ?Movie\ReleaseDate
+    {
+        if (! $this->release_dates) {
+            return null;
+        }
+
+        foreach ($this->release_dates as $release_date) {
+            if ($release_date->getIso31661() === $iso_3166_1) {
+                return $release_date;
+            }
+        }
+
+        return null;
+    }
+
+    public function getRecommendations(): ?Search\SearchMovies
     {
         return $this->recommendations;
     }
 
-    public function getSimilar(): ?Results\SearchMovies
+    public function getSimilar(): ?Search\SearchMovies
     {
         return $this->similar;
     }

@@ -4,17 +4,17 @@ namespace Kiwilan\Tmdb\Models;
 
 class Credits
 {
-    public ?int $id;
+    protected ?int $id;
 
     /**
      * @var Credits\Crew[]
      */
-    public ?array $cast;
+    protected ?array $cast;
 
     /**
      * @var Credits\Crew[]
      */
-    public ?array $crew;
+    protected ?array $crew;
 
     public function __construct(array $data)
     {
@@ -31,5 +31,30 @@ class Credits
                 $this->crew[] = new Credits\Crew($crewData);
             }
         }
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * Get the cast.
+     *
+     * @return Credits\Crew[]|null
+     */
+    public function getCast(): ?array
+    {
+        return $this->cast;
+    }
+
+    /**
+     * Get the crew.
+     *
+     * @return Credits\Crew[]|null
+     */
+    public function getCrew(): ?array
+    {
+        return $this->crew;
     }
 }

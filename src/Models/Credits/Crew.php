@@ -4,33 +4,33 @@ namespace Kiwilan\Tmdb\Models\Credits;
 
 class Crew
 {
-    public ?string $job;
+    protected ?string $job;
 
-    public ?string $department;
+    protected ?string $department;
 
-    public ?string $credit_id;
+    protected ?string $credit_id;
 
-    public ?bool $adult;
+    protected ?bool $adult;
 
-    public ?int $gender;
+    protected ?int $gender;
 
-    public ?int $id;
+    protected ?int $id;
 
-    public ?string $known_for_department;
+    protected ?string $known_for_department;
 
-    public ?string $name;
+    protected ?string $name;
 
-    public ?string $original_name;
+    protected ?string $original_name;
 
-    public ?float $popularity;
+    protected ?float $popularity;
 
-    public ?string $profile_path;
+    protected ?string $profile_path;
 
-    public ?int $cast_id;
+    protected ?int $cast_id;
 
-    public ?string $character;
+    protected ?string $character;
 
-    public ?int $order;
+    protected ?int $order;
 
     public function __construct(array $data)
     {
@@ -48,5 +48,75 @@ class Crew
         $this->cast_id = $data['cast_id'] ?? null;
         $this->character = $data['character'] ?? null;
         $this->order = $data['order'] ?? null;
+    }
+
+    public function getJob(): ?string
+    {
+        return $this->job;
+    }
+
+    public function getDepartment(): ?string
+    {
+        return $this->department;
+    }
+
+    public function getCreditId(): ?string
+    {
+        return $this->credit_id;
+    }
+
+    public function isAdult(): ?bool
+    {
+        return $this->adult;
+    }
+
+    public function getGender(): ?int
+    {
+        return $this->gender;
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getKnownForDepartment(): ?string
+    {
+        return $this->known_for_department;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function getOriginalName(): ?string
+    {
+        return $this->original_name;
+    }
+
+    public function getPopularity(): ?float
+    {
+        return $this->popularity;
+    }
+
+    public function getProfilePath(): ?string
+    {
+        return $this->profile_path;
+    }
+
+    public function getCastId(): ?int
+    {
+        return $this->cast_id;
+    }
+
+    public function getCharacter(): ?string
+    {
+        return $this->character;
+    }
+
+    public function getOrder(): ?int
+    {
+        return $this->order;
     }
 }

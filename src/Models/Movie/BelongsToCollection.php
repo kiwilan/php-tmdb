@@ -8,13 +8,13 @@ class BelongsToCollection
 {
     use HasPoster;
 
-    public ?int $id;
+    protected ?int $id;
 
-    public ?string $name;
+    protected ?string $name;
 
-    public ?string $overview;
+    protected ?string $overview;
 
-    public ?string $backdrop_path;
+    protected ?string $backdrop_path;
 
     public function __construct(array $data)
     {

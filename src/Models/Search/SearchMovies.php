@@ -1,6 +1,6 @@
 <?php
 
-namespace Kiwilan\Tmdb\Models\Results;
+namespace Kiwilan\Tmdb\Models\Search;
 
 class SearchMovies extends SearchResponse
 {
@@ -9,13 +9,11 @@ class SearchMovies extends SearchResponse
 
     public function __construct(array $data)
     {
-        $this->page = $data['page'] ?? 1;
+        parent::__construct($data);
         $results = $data['results'] ?? [];
         foreach ($results as $result) {
             $this->results[] = new \Kiwilan\Tmdb\Models\Movie($result);
         }
-        $this->total_pages = $data['total_pages'] ?? 1;
-        $this->total_results = $data['total_results'] ?? 0;
     }
 
     public function getFirstResult(): ?\Kiwilan\Tmdb\Models\Movie

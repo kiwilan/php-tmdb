@@ -1,6 +1,6 @@
 <?php
 
-namespace Kiwilan\Tmdb\Models\Results;
+namespace Kiwilan\Tmdb\Models\Search;
 
 class SearchResponse
 {

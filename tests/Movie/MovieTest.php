@@ -6,7 +6,8 @@ use Kiwilan\Tmdb\Models\Genre;
 use Kiwilan\Tmdb\Models\Movie;
 use Kiwilan\Tmdb\Models\Movie\AlternativeTitle;
 use Kiwilan\Tmdb\Models\Movie\BelongsToCollection;
-use Kiwilan\Tmdb\Models\Results\SearchMovies;
+use Kiwilan\Tmdb\Models\Movie\ReleaseDate;
+use Kiwilan\Tmdb\Models\Search\SearchMovies;
 use Kiwilan\Tmdb\Tmdb;
 
 it('can search movie', function () {
@@ -79,6 +80,20 @@ it('can get movie alternative titles', function () {
     expect($movie->getAlternativeTitle('FR'))->toBeInstanceOf(AlternativeTitle::class);
     expect($movie->getAlternativeTitle('US'))->toBeInstanceOf(AlternativeTitle::class);
 });
+
+it('can get movie release dates', function () {
+    $movie = Tmdb::client(apiKey())->getMovie(120, 'release_dates');
+
+    expect($movie->getReleaseDates())->not()->toBeNull();
+    $french = $movie->getReleaseDatesSpecific('FR');
+    expect($french)->toBeInstanceOf(ReleaseDate::class);
+    expect($french->getIso31661())->toBe('FR');
+    expect($french->getReleaseDates())->toBeArray();
+    expect($french->getFirstReleaseDate())->toBeInstanceOf(Movie\ReleaseDateItem::class);
+    expect($french->getSpecificReleaseDate('Blu-Ray'))->toBeInstanceOf(Movie\ReleaseDateItem::class);
+});
+
+// credits,recommendations,similar
 
 it('can get null if movie not exists (tmdb id)', function () {
     $movie = Tmdb::client(apiKey())->getMovie(50000000);
