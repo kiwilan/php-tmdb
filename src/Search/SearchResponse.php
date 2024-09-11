@@ -1,6 +1,6 @@
 <?php
 
-namespace Kiwilan\Tmdb\Models\Search;
+namespace Kiwilan\Tmdb\Search;
 
 use Kiwilan\Tmdb\Models\TmdbModel;
 

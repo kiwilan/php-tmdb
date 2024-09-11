@@ -6,7 +6,9 @@ use Kiwilan\Tmdb\Models\TvSeries\Episode;
 use Kiwilan\Tmdb\Tmdb;
 
 it('can find episode', function () {
-    $episode = Tmdb::client(apiKey())->getEpisode(1399, 1, 1);
+    $episode = Tmdb::client(apiKey())
+        ->tvEpisodes()
+        ->details(1399, 1, 1);
 
     expect($episode)->not()->toBeNull();
     expect($episode)->toBeInstanceOf(Episode::class);

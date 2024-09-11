@@ -8,7 +8,9 @@ use Kiwilan\Tmdb\Models\TvSeries\Season;
 use Kiwilan\Tmdb\Tmdb;
 
 it('can find season', function () {
-    $season = Tmdb::client(apiKey())->getSeason(1399, 1);
+    $season = Tmdb::client(apiKey())
+        ->tvSeasons()
+        ->details(1399, 1);
 
     expect($season)->not()->toBeNull();
     expect($season)->toBeInstanceOf(Season::class);
@@ -28,7 +30,9 @@ it('can find season', function () {
 });
 
 it('can find season credits', function () {
-    $season = Tmdb::client(apiKey())->getSeason(1399, 1, 'credits');
+    $season = Tmdb::client(apiKey())
+        ->tvSeasons()
+        ->details(1399, 1, 'credits');
 
     expect($season->getCredits())->toBeInstanceOf(Credits::class);
     expect($season->getCredits()->getCast())->toBeArray();

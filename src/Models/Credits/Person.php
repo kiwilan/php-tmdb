@@ -5,7 +5,7 @@ namespace Kiwilan\Tmdb\Models\Credits;
 use Kiwilan\Tmdb\Models\TmdbModel;
 use Kiwilan\Tmdb\Traits\HasId;
 
-abstract class People extends TmdbModel
+class Person extends TmdbModel
 {
     use HasId;
 
@@ -25,8 +25,12 @@ abstract class People extends TmdbModel
 
     protected ?string $credit_id = null;
 
-    public function __construct(array $data)
+    public function __construct(?array $data)
     {
+        if (! $data) {
+            return;
+        }
+
         $this->adult = $this->toBool($data, 'adult');
         $this->gender = $this->toInt($data, 'gender');
         $this->setId($data);

@@ -3,7 +3,9 @@
 use Kiwilan\Tmdb\Tmdb;
 
 it('can get company details', function () {
-    $company = Tmdb::client(apiKey())->getCompany(12);
+    $company = Tmdb::client(apiKey())
+        ->companies()
+        ->details(12);
 
     expect($company)->not()->toBeNull();
     expect($company->getId())->toBe(12);

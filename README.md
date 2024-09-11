@@ -56,7 +56,9 @@ From <https://developer.themoviedb.org/reference/collection-details>
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$collection = Tmdb::client('API_KEY')->getCollection(119); // ?\Kiwilan\Tmdb\Models\Collection
+$collection = Tmdb::client('API_KEY')
+    ->collections()
+    ->details(119); // ?\Kiwilan\Tmdb\Models\Collection
 ```
 
 ### Movies
@@ -68,7 +70,9 @@ From <https://developer.themoviedb.org/reference/movie-details>
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$movie = Tmdb::client('API_KEY')->findMovie(120); // ?\Kiwilan\Tmdb\Models\Movie
+$movie = Tmdb::client('API_KEY')
+    ->movies()
+    ->details(120); // ?\Kiwilan\Tmdb\Models\Movie
 ```
 
 ### Networks
@@ -80,7 +84,9 @@ From <https://developer.themoviedb.org/reference/network-details>
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$network = Tmdb::client('API_KEY')->getNetwork(49); // ?\Kiwilan\Tmdb\Models\TvSeries\Network
+$network = Tmdb::client('API_KEY')
+    ->networks()
+    ->details(49); // ?\Kiwilan\Tmdb\Models\TvSeries\Network
 ```
 
 ### Search
@@ -92,7 +98,10 @@ From <https://developer.themoviedb.org/reference/search-collection>
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$results = Tmdb::client('API_KEY')->searchCollection('the lord of the rings');
+$results = Tmdb::client('API_KEY')
+    ->search()
+    ->movie('the lord of the rings');
+
 $collections = $results->getResults(); // \Kiwilan\Tmdb\Models\Collection[]
 $firstCollection = $results->getFirstResult(); // ?\Kiwilan\Tmdb\Models\Collection
 ```
@@ -103,12 +112,14 @@ You can use options into your search:
 use Kiwilan\Tmdb\Tmdb;
 use Kiwilan\Tmdb\Query\SearchCollectionQuery;
 
-$results = Tmdb::client('API_KEY')->searchCollections('le seigneur des anneaux', new SearchCollectionQuery(
-    include_adult: true,
-    language: 'fr-FR',
-    page: 1,
-    year: 2001,
-));
+$results = Tmdb::client('API_KEY')
+    ->search()
+    ->collection('le seigneur des anneaux', new SearchCollectionQuery(
+        include_adult: true,
+        language: 'fr-FR',
+        page: 1,
+        year: 2001,
+    ));
 ```
 
 #### Movie
@@ -118,7 +129,10 @@ From <https://developer.themoviedb.org/reference/search-movie>
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$results = Tmdb::client('API_KEY')->searchMovie('the fellowship of the ring');
+$results = Tmdb::client('API_KEY')
+    ->search()
+    ->movie('the fellowship of the ring');
+
 $movies = $results->getResults(); // \Kiwilan\Tmdb\Models\Movie[]
 $firstMovie = $results->getFirstResult(); // ?\Kiwilan\Tmdb\Models\Movie
 ```
@@ -129,14 +143,16 @@ You can use options into your search:
 use Kiwilan\Tmdb\Tmdb;
 use Kiwilan\Tmdb\Query\SearchMovieQuery;
 
-$results = Tmdb::client('API_KEY')->searchMovie('le seigneur des anneaux', new SearchMovieQuery(
-    include_adult: true,
-    language: 'fr-FR',
-    primary_release_year: 2001,
-    page: 1,
-    region: 'en-US',
-    year: 2001,
-));
+$results = Tmdb::client('API_KEY')
+    ->search()
+    ->movie('le seigneur des anneaux', new SearchMovieQuery(
+        include_adult: true,
+        language: 'fr-FR',
+        primary_release_year: 2001,
+        page: 1,
+        region: 'en-US',
+        year: 2001,
+    ));
 ```
 
 #### TV
@@ -146,7 +162,10 @@ From <https://developer.themoviedb.org/reference/search-tv>
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$results = Tmdb::client('API_KEY')->searchTv('game of thrones');
+$results = Tmdb::client('API_KEY')
+    ->search()
+    ->tv('game of thrones');
+
 $tvSeries = $results->getResults(); // \Kiwilan\Tmdb\Models\TvSeries[]
 $firstTvSeries = $results->getFirstResult(); // ?\Kiwilan\Tmdb\Models\TvSeries
 ```
@@ -157,13 +176,15 @@ You can use options into your search:
 use Kiwilan\Tmdb\Tmdb;
 use Kiwilan\Tmdb\Query\SearchTvSeriesQuery;
 
-$results = Tmdb::client('API_KEY')->searchTvSeries('game of thrones', new SearchTvSeriesQuery(
-    first_air_date_year: 2011,
-    include_adult: true,
-    language: 'fr-FR',
-    page: 1,
-    year: 2011,
-));
+$results = Tmdb::client('API_KEY')
+    ->search()
+    ->tv('game of thrones', new SearchTvSeriesQuery(
+        first_air_date_year: 2011,
+        include_adult: true,
+        language: 'fr-FR',
+        page: 1,
+        year: 2011,
+    ));
 ```
 
 ### TV Series
@@ -175,22 +196,9 @@ From <https://developer.themoviedb.org/reference/tv-series-details>
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$tvSeries = Tmdb::client('API_KEY')->findTv(1399); // ?\Kiwilan\Tmdb\Models\TvSeries
-```
-
-You can use options into your search:
-
-```php
-use Kiwilan\Tmdb\Tmdb;
-use Kiwilan\Tmdb\Query\SearchTvSeriesQuery;
-
-$results = Tmdb::client('API_KEY')->searchTvSeries('game of thrones', new SearchTvSeriesQuery(
-    first_air_date_year: 2011,
-    include_adult: true,
-    language: 'fr-FR',
-    page: 1,
-    year: 2011,
-));
+$tvSeries = Tmdb::client('API_KEY')
+    ->tvSeries()
+    ->details(1399); // ?\Kiwilan\Tmdb\Models\TvSeries
 ```
 
 ### TV Seasons
@@ -202,7 +210,9 @@ From <https://developer.themoviedb.org/reference/tv-season-details>
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$season = Tmdb::client('API_KEY')->findTvSeason(1399, 1); // ?\Kiwilan\Tmdb\Models\Season
+$season = Tmdb::client('API_KEY')
+    ->tvSeasons()
+    ->details(1399, 1); // ?\Kiwilan\Tmdb\Models\Season
 ```
 
 ### TV Episodes
@@ -214,7 +224,9 @@ From <https://developer.themoviedb.org/reference/tv-episode-details>
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$episode = Tmdb::client('API_KEY')->findTvEpisode(1399, 1, 1); // ?\Kiwilan\Tmdb\Models\Episode
+$episode = Tmdb::client('API_KEY')
+    ->tvEpisodes()
+    ->details(1399, 1, 1); // ?\Kiwilan\Tmdb\Models\Episode
 ```
 
 ## Testing

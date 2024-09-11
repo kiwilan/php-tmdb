@@ -1,10 +1,10 @@
 <?php
 
-namespace Kiwilan\Tmdb\Models\Search;
+namespace Kiwilan\Tmdb\Search;
 
-class SearchCollections extends SearchResponse
+class SearchMovies extends SearchResponse
 {
-    /** @var \Kiwilan\Tmdb\Models\Collection[] */
+    /** @var \Kiwilan\Tmdb\Models\Movie[] */
     protected array $results = [];
 
     public function __construct(array $data)
@@ -12,11 +12,11 @@ class SearchCollections extends SearchResponse
         parent::__construct($data);
         $results = $data['results'] ?? [];
         foreach ($results as $result) {
-            $this->results[] = new \Kiwilan\Tmdb\Models\Collection($result);
+            $this->results[] = new \Kiwilan\Tmdb\Models\Movie($result);
         }
     }
 
-    public function getFirstResult(): ?\Kiwilan\Tmdb\Models\Collection
+    public function getFirstResult(): ?\Kiwilan\Tmdb\Models\Movie
     {
         return $this->results[0] ?? null;
     }
@@ -24,7 +24,7 @@ class SearchCollections extends SearchResponse
     /**
      * Get the search results
      *
-     * @return \Kiwilan\Tmdb\Models\Collection[]
+     * @return \Kiwilan\Tmdb\Models\Movie[]
      */
     public function getResults(): array
     {

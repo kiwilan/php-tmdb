@@ -8,6 +8,7 @@ use Kiwilan\Tmdb\Models\TvSeries\ContentRating;
 use Kiwilan\Tmdb\Models\TvSeries\Episode;
 use Kiwilan\Tmdb\Models\TvSeries\Network;
 use Kiwilan\Tmdb\Models\TvSeries\Season;
+use Kiwilan\Tmdb\Search\SearchTvSeries;
 
 class TvSeries extends Media
 {
@@ -48,9 +49,9 @@ class TvSeries extends Media
     /** @var ContentRating[]|null */
     protected ?array $content_ratings = null;
 
-    protected ?Search\SearchTvSeries $recommendations = null;
+    protected ?SearchTvSeries $recommendations = null;
 
-    protected ?Search\SearchTvSeries $similar = null;
+    protected ?SearchTvSeries $similar = null;
 
     public function __construct(?array $data)
     {
@@ -99,11 +100,11 @@ class TvSeries extends Media
         });
 
         if (isset($data['recommendations'])) {
-            $this->recommendations = new Search\SearchTvSeries($data['recommendations']);
+            $this->recommendations = new SearchTvSeries($data['recommendations']);
         }
 
         if (isset($data['similar'])) {
-            $this->similar = new Search\SearchTvSeries($data['similar']);
+            $this->similar = new SearchTvSeries($data['similar']);
         }
     }
 
@@ -215,12 +216,12 @@ class TvSeries extends Media
         return $this->content_ratings;
     }
 
-    public function getRecommendations(): ?Search\SearchTvSeries
+    public function getRecommendations(): ?SearchTvSeries
     {
         return $this->recommendations;
     }
 
-    public function getSimilar(): ?Search\SearchTvSeries
+    public function getSimilar(): ?SearchTvSeries
     {
         return $this->similar;
     }

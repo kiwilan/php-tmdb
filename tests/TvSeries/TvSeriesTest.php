@@ -14,8 +14,10 @@ use Kiwilan\Tmdb\Models\TvSeries\Network;
 use Kiwilan\Tmdb\Models\TvSeries\Season;
 use Kiwilan\Tmdb\Tmdb;
 
-it('can search tv series', function () {
-    $tv = Tmdb::client(apiKey())->getTVSeries(1399);
+it('can get tv series details', function () {
+    $tv = Tmdb::client(apiKey())
+        ->tvSeries()
+        ->details(1399);
 
     expect($tv)->not()->toBeNull();
     expect($tv)->toBeInstanceOf(\Kiwilan\Tmdb\Models\TvSeries::class);
@@ -81,7 +83,9 @@ it('can search tv series', function () {
 });
 
 it('can parse alternative titles', function () {
-    $tv = Tmdb::client(apiKey())->getTVSeries(1399, 'alternative_titles');
+    $tv = Tmdb::client(apiKey())
+        ->tvSeries()
+        ->details(1399, 'alternative_titles');
 
     expect($tv->getAlternativeTitles())->toBeArray();
     expect($tv->getAlternativeTitles())->not()->toBeEmpty();
@@ -92,7 +96,9 @@ it('can parse alternative titles', function () {
 });
 
 it('can parse content ratings', function () {
-    $tv = Tmdb::client(apiKey())->getTVSeries(1399, 'content_ratings');
+    $tv = Tmdb::client(apiKey())
+        ->tvSeries()
+        ->details(1399, 'content_ratings');
 
     expect($tv->getContentRatings())->toBeArray();
     expect($tv->getContentRatings())->not()->toBeEmpty();
@@ -100,7 +106,9 @@ it('can parse content ratings', function () {
 });
 
 it('can parse credits', function () {
-    $tv = Tmdb::client(apiKey())->getTVSeries(1399, 'credits');
+    $tv = Tmdb::client(apiKey())
+        ->tvSeries()
+        ->details(1399, 'credits');
 
     $credits = $tv->getCredits();
     expect($credits->getCast())->toBeArray();
@@ -117,7 +125,9 @@ it('can parse credits', function () {
 });
 
 it('can parse recommendations', function () {
-    $tv = Tmdb::client(apiKey())->getTVSeries(1399, 'recommendations');
+    $tv = Tmdb::client(apiKey())
+        ->tvSeries()
+        ->details(1399, 'recommendations');
 
     expect($tv->getRecommendations()->getResults())->toBeArray();
     expect($tv->getRecommendations())->not()->toBeEmpty();
@@ -125,7 +135,9 @@ it('can parse recommendations', function () {
 });
 
 it('can parse similar', function () {
-    $tv = Tmdb::client(apiKey())->getTVSeries(1399, 'similar');
+    $tv = Tmdb::client(apiKey())
+        ->tvSeries()
+        ->details(1399, 'similar');
 
     expect($tv->getSimilar()->getResults())->toBeArray();
     expect($tv->getSimilar()->getResults())->not()->toBeEmpty();

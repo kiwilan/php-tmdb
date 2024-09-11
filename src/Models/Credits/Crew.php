@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Models\Credits;
 
-class Crew extends People
+class Crew extends Person
 {
     protected ?string $department = null;
 

@@ -1,12 +1,14 @@
 <?php
 
 use Kiwilan\Tmdb\Models\Collection;
-use Kiwilan\Tmdb\Models\Search\SearchCollections;
 use Kiwilan\Tmdb\Query\SearchCollectionQuery;
+use Kiwilan\Tmdb\Search\SearchCollections;
 use Kiwilan\Tmdb\Tmdb;
 
 it('can get collection', function () {
-    $results = Tmdb::client(apiKey())->searchCollections('the lord of the rings');
+    $results = Tmdb::client(apiKey())
+        ->search()
+        ->collection('the lord of the rings');
 
     expect($results)->not()->toBeNull();
     expect($results)->toBeInstanceOf(SearchCollections::class);
@@ -29,12 +31,14 @@ it('can get collection', function () {
 });
 
 it('can search collection with options', function () {
-    $results = Tmdb::client(apiKey())->searchCollections('le seigneur des anneaux', new SearchCollectionQuery(
-        include_adult: true,
-        language: 'fr-FR',
-        page: 1,
-        year: 2001,
-    ));
+    $results = Tmdb::client(apiKey())
+        ->search()
+        ->collection('le seigneur des anneaux', new SearchCollectionQuery(
+            include_adult: true,
+            language: 'fr-FR',
+            page: 1,
+            year: 2001,
+        ));
 
     expect($results)->not()->toBeNull();
     expect($results)->toBeInstanceOf(SearchCollections::class);

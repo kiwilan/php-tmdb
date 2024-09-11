@@ -2,4 +2,28 @@
 
 namespace Kiwilan\Tmdb\Repositories;
 
-class NetworksRepository extends Repository {}
+use Kiwilan\Tmdb\Models;
+
+/**
+ * Networks Repository
+ *
+ * @docs https://developer.themoviedb.org/reference/network-details
+ */
+class NetworksRepository extends Repository
+{
+    /**
+     * Get network details
+     *
+     * @param  int  $network_id  The TMDB network ID
+     *
+     * @docs https://developer.themoviedb.org/reference/network-details
+     */
+    public function details(int $network_id): ?Models\TvSeries\Network
+    {
+        $url = $this->getUrl("/network/{$network_id}");
+
+        $response = $this->execute($url);
+
+        return $this->isSuccess ? new Models\TvSeries\Network($response) : null;
+    }
+}

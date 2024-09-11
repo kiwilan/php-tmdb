@@ -5,6 +5,7 @@ namespace Kiwilan\Tmdb\Models;
 use DateTime;
 use Kiwilan\Tmdb\Models\Credits\Crew;
 use Kiwilan\Tmdb\Models\Movie\ReleaseDate;
+use Kiwilan\Tmdb\Search\SearchMovies;
 
 class Movie extends Media
 {
@@ -29,9 +30,9 @@ class Movie extends Media
     /** @var Movie\ReleaseDate[]|null */
     protected ?array $release_dates = null;
 
-    protected ?Search\SearchMovies $recommendations = null;
+    protected ?SearchMovies $recommendations = null;
 
-    protected ?Search\SearchMovies $similar = null;
+    protected ?SearchMovies $similar = null;
 
     public function __construct(?array $data)
     {
@@ -58,11 +59,11 @@ class Movie extends Media
         });
 
         if (isset($data['recommendations'])) {
-            $this->recommendations = new Search\SearchMovies($data['recommendations']);
+            $this->recommendations = new SearchMovies($data['recommendations']);
         }
 
         if (isset($data['similar'])) {
-            $this->similar = new Search\SearchMovies($data['similar']);
+            $this->similar = new SearchMovies($data['similar']);
         }
     }
 
@@ -134,12 +135,12 @@ class Movie extends Media
         return null;
     }
 
-    public function getRecommendations(): ?Search\SearchMovies
+    public function getRecommendations(): ?SearchMovies
     {
         return $this->recommendations;
     }
 
-    public function getSimilar(): ?Search\SearchMovies
+    public function getSimilar(): ?SearchMovies
     {
         return $this->similar;
     }

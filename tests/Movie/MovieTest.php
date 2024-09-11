@@ -13,7 +13,10 @@ use Kiwilan\Tmdb\Models\Movie\ReleaseDate;
 use Kiwilan\Tmdb\Tmdb;
 
 it('can get movie details (tmdb id)', function () {
-    $movie = Tmdb::client(apiKey())->getMovie(120);
+    $movie = Tmdb::client(apiKey())
+        ->movies()
+        ->details(120);
+
     expect($movie)->not()->toBeNull();
     expect($movie)->toBeInstanceOf(Movie::class);
 
@@ -53,7 +56,9 @@ it('can get movie details (tmdb id)', function () {
 });
 
 it('can get movie alternative titles', function () {
-    $movie = Tmdb::client(apiKey())->getMovie(120, 'alternative_titles');
+    $movie = Tmdb::client(apiKey())
+        ->movies()
+        ->details(120, 'alternative_titles');
 
     expect($movie->getAlternativeTitles())->not()->toBeNull();
     expect($movie->getAlternativeTitle('FR'))->toBeInstanceOf(AlternativeTitle::class);
@@ -61,7 +66,9 @@ it('can get movie alternative titles', function () {
 });
 
 it('can get movie posters', function () {
-    $movie = Tmdb::client(apiKey())->getMovie(120);
+    $movie = Tmdb::client(apiKey())
+        ->movies()
+        ->details(120);
 
     expect($movie->getPosterUrl())->toStartWith('https://');
     expect($movie->getBackdropUrl())->toStartWith('https://');
@@ -81,7 +88,9 @@ it('can get movie posters', function () {
 });
 
 it('can get movie release dates', function () {
-    $movie = Tmdb::client(apiKey())->getMovie(120, 'release_dates');
+    $movie = Tmdb::client(apiKey())
+        ->movies()
+        ->details(120, 'release_dates');
 
     expect($movie->getReleaseDates())->not()->toBeNull();
     $french = $movie->getReleaseDatesSpecific('FR');
@@ -93,7 +102,9 @@ it('can get movie release dates', function () {
 });
 
 it('can get movie credits', function () {
-    $movie = Tmdb::client(apiKey())->getMovie(120, 'credits');
+    $movie = Tmdb::client(apiKey())
+        ->movies()
+        ->details(120, 'credits');
 
     expect($movie->getCredits())->not()->toBeNull();
     expect($movie->getCredits()->getCast())->toBeArray();
@@ -106,7 +117,9 @@ it('can get movie credits', function () {
 });
 
 it('can get movie spoken languages', function () {
-    $movie = Tmdb::client(apiKey())->getMovie(120, 'credits');
+    $movie = Tmdb::client(apiKey())
+        ->movies()
+        ->details(120, 'credits');
 
     expect($movie->getSpokenLanguages())->not()->toBeNull();
     expect($movie->getSpokenLanguages())->toBeArray();
@@ -115,7 +128,9 @@ it('can get movie spoken languages', function () {
 });
 
 it('can get movie recommendations', function () {
-    $movie = Tmdb::client(apiKey())->getMovie(120, 'recommendations');
+    $movie = Tmdb::client(apiKey())
+        ->movies()
+        ->details(120, 'recommendations');
     $recommendations = $movie->getRecommendations();
 
     expect($recommendations)->not()->toBeNull();
@@ -125,7 +140,10 @@ it('can get movie recommendations', function () {
 });
 
 it('can get movie similar', function () {
-    $movie = Tmdb::client(apiKey())->getMovie(120, 'similar');
+    $movie = Tmdb::client(apiKey())
+        ->movies()
+        ->details(120, 'similar');
+
     $similar = $movie->getSimilar();
 
     expect($similar)->not()->toBeNull();
@@ -135,12 +153,18 @@ it('can get movie similar', function () {
 });
 
 it('can get null if movie not exists (tmdb id)', function () {
-    $movie = Tmdb::client(apiKey())->getMovie(50000000);
+    $movie = Tmdb::client(apiKey())
+        ->movies()
+        ->details(50000000);
+
     expect($movie)->toBeNull();
 });
 
 it('can get movie companies', function () {
-    $movie = Tmdb::client(apiKey())->getMovie(120);
+    $movie = Tmdb::client(apiKey())
+        ->movies()
+        ->details(120);
+
     $companies = $movie->getProductionCompanies();
     expect($companies)->toBeArray();
     expect($companies)->not()->toBeEmpty();
@@ -154,7 +178,10 @@ it('can get movie companies', function () {
 });
 
 it('can get movie countries', function () {
-    $movie = Tmdb::client(apiKey())->getMovie(120);
+    $movie = Tmdb::client(apiKey())
+        ->movies()
+        ->details(120);
+
     $countries = $movie->getProductionCountries();
     expect($countries)->toBeArray();
     expect($countries)->not()->toBeEmpty();
@@ -166,14 +193,18 @@ it('can get movie countries', function () {
 });
 
 it('can get directors', function () {
-    $movie = Tmdb::client(apiKey())->getMovie(120, 'credits');
+    $movie = Tmdb::client(apiKey())
+        ->movies()
+        ->details(120, 'credits');
 
     $directors = $movie->getDirectors();
     expect(reset($directors)?->getName())->toBe('Peter Jackson');
 });
 
 it('can get belongs to', function () {
-    $movie = Tmdb::client(apiKey())->getMovie(120);
+    $movie = Tmdb::client(apiKey())
+        ->movies()
+        ->details(120);
 
     expect($movie->getBelongsToCollection())->toBeInstanceOf(BelongsToCollection::class);
     expect($movie->getBelongsToCollection()->getId())->toBe(119);

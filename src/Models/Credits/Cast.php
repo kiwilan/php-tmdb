@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Models\Credits;
 
-class Cast extends People
+class Cast extends Person
 {
     protected ?int $cast_id = null;
 

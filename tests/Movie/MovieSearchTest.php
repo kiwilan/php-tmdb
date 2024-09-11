@@ -1,12 +1,14 @@
 <?php
 
 use Kiwilan\Tmdb\Models\Movie;
-use Kiwilan\Tmdb\Models\Search\SearchMovies;
 use Kiwilan\Tmdb\Query\SearchMovieQuery;
+use Kiwilan\Tmdb\Search\SearchMovies;
 use Kiwilan\Tmdb\Tmdb;
 
 it('can search movie', function () {
-    $results = Tmdb::client(apiKey())->searchMovie('the fellowship of the ring');
+    $results = Tmdb::client(apiKey())
+        ->search()
+        ->movie('the fellowship of the ring');
 
     expect($results)->not()->toBeNull();
     expect($results)->toBeInstanceOf(SearchMovies::class);
@@ -35,14 +37,16 @@ it('can search movie', function () {
 });
 
 it('can search movie with options', function () {
-    $results = Tmdb::client(apiKey())->searchMovie('le seigneur des anneaux', new SearchMovieQuery(
-        include_adult: true,
-        language: 'fr-FR',
-        primary_release_year: 2001,
-        page: 1,
-        region: 'en-US',
-        year: 2001,
-    ));
+    $results = Tmdb::client(apiKey())
+        ->search()
+        ->movie('le seigneur des anneaux', new SearchMovieQuery(
+            include_adult: true,
+            language: 'fr-FR',
+            primary_release_year: 2001,
+            page: 1,
+            region: 'en-US',
+            year: 2001,
+        ));
 
     expect($results)->not()->toBeNull();
     expect($results)->toBeInstanceOf(SearchMovies::class);

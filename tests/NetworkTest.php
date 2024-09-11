@@ -3,7 +3,9 @@
 use Kiwilan\Tmdb\Tmdb;
 
 it('can get network details', function () {
-    $network = Tmdb::client(apiKey())->getNetwork(49);
+    $network = Tmdb::client(apiKey())
+        ->networks()
+        ->details(49);
 
     expect($network)->not()->toBeNull();
     expect($network->getId())->toBe(49);

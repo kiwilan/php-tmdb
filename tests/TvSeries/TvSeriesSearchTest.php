@@ -1,12 +1,14 @@
 <?php
 
-use Kiwilan\Tmdb\Models\Search\SearchTvSeries;
 use Kiwilan\Tmdb\Models\TvSeries;
 use Kiwilan\Tmdb\Query\SearchTvSeriesQuery;
+use Kiwilan\Tmdb\Search\SearchTvSeries;
 use Kiwilan\Tmdb\Tmdb;
 
 it('can search tv series', function () {
-    $results = Tmdb::client(apiKey())->searchTvSeries('game of thrones');
+    $results = Tmdb::client(apiKey())
+        ->search()
+        ->tv('game of thrones');
 
     expect($results)->not()->toBeNull();
     expect($results)->toBeInstanceOf(SearchTvSeries::class);
@@ -35,13 +37,15 @@ it('can search tv series', function () {
 });
 
 it('can search movie with options', function () {
-    $results = Tmdb::client(apiKey())->searchTvSeries('game of thrones', new SearchTvSeriesQuery(
-        first_air_date_year: 2011,
-        include_adult: true,
-        language: 'fr-FR',
-        page: 1,
-        year: 2011,
-    ));
+    $results = Tmdb::client(apiKey())
+        ->search()
+        ->tv('game of thrones', new SearchTvSeriesQuery(
+            first_air_date_year: 2011,
+            include_adult: true,
+            language: 'fr-FR',
+            page: 1,
+            year: 2011,
+        ));
 
     expect($results)->not()->toBeNull();
     expect($results)->toBeInstanceOf(SearchTvSeries::class);
