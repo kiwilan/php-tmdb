@@ -30,9 +30,9 @@ PHP 8.1 and later.
 
 ## Features
 
--   🔍 Search Movie and TV Series
--   🎬 Get Movie and TV Series details
--   🖼️ Get Movie and TV Series poster and background
+-   🔍 Search Collection, Movie, TV Series
+-   🎬 Movie and TV Series details
+-   🖼️ Posters, backgrounds, logos, profiles, stills with included methods
 -   🗄️ TMDB models: `AlternativeTitle`, `Collection`, `Company`, `ContentRating`, `Country`, `Credits` (with `Cast`<sup>1</sup> & `Crew`), `Episode`, `Genre`, `Movie`, `Network`, `ReleaseDate`, `Season`, `SpokenLanguage`, `TvSeries`
 
 <sup>1</sup>: Guest stars are included into `Cast`.
@@ -295,12 +295,12 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [Images](https://developer.themoviedb.org/reference/collection-images)
     -   [ ] [Translations](https://developer.themoviedb.org/reference/collection-translations)
 -   [ ] Companies
-    -   [ ] [Details](https://developer.themoviedb.org/reference/company-details): for v1
+    -   [x] [Details](https://developer.themoviedb.org/reference/company-details): for v1
     -   [ ] [Alternative Names](https://developer.themoviedb.org/reference/company-alternative-names)
     -   [ ] [Images](https://developer.themoviedb.org/reference/company-images)
 -   [ ] [Configuration](https://developer.themoviedb.org/reference/configuration-details): not planned
--   [ ] Credits
-    -   [ ] [Details](https://developer.themoviedb.org/reference/credit-details)
+-   [x] Credits
+    -   [x] [Details](https://developer.themoviedb.org/reference/credit-details)
 -   [ ] Discover
     -   [ ] [Movie](https://developer.themoviedb.org/reference/discover-movie)
     -   [ ] [TV](https://developer.themoviedb.org/reference/discover-tv)
