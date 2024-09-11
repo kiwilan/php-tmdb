@@ -76,7 +76,7 @@ You can use options into your search:
 use Kiwilan\Tmdb\Tmdb;
 use Kiwilan\Tmdb\Query\SearchMovieQuery;
 
-$results = Tmdb::client(apiKey())->searchMovie('le seigneur des anneaux', new SearchMovieQuery(
+$results = Tmdb::client('API_KEY')->searchMovie('le seigneur des anneaux', new SearchMovieQuery(
     include_adult: true,
     language: 'fr-FR',
     primary_release_year: 2001,
@@ -102,7 +102,7 @@ $firstTvSeries = $results->getFirstResult(); // ?\Kiwilan\Tmdb\Models\TvSeries
 
 #### Details
 
-From <https://developer.themoviedb.org/reference/search-tv>
+From <https://developer.themoviedb.org/reference/tv-series-details>
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
@@ -116,7 +116,7 @@ You can use options into your search:
 use Kiwilan\Tmdb\Tmdb;
 use Kiwilan\Tmdb\Query\SearchTvSeriesQuery;
 
-$results = Tmdb::client(apiKey())->searchTvSeries('game of thrones', new SearchTvSeriesQuery(
+$results = Tmdb::client('API_KEY')->searchTvSeries('game of thrones', new SearchTvSeriesQuery(
     first_air_date_year: 2011,
     include_adult: true,
     language: 'fr-FR',
