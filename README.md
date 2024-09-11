@@ -44,44 +44,54 @@ composer require kiwilan/php-tmdb
 
 ## Usage
 
+### Movies
+
+#### Details
+
+From <https://developer.themoviedb.org/reference/movie-details>
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$movie = Tmdb::client('API_KEY')->findMovie(120); // ?\Kiwilan\Tmdb\Models\Movie
+```
+
 ### Search
 
-Search a movie by title:
+#### Movie
+
+From <https://developer.themoviedb.org/reference/search-movie>
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
 $results = Tmdb::client('API_KEY')->searchMovie('the fellowship of the ring');
 $movies = $results->getResults(); // \Kiwilan\Tmdb\Models\Movie[]
-$firstMovie = $results->getFirstResult(); // \Kiwilan\Tmdb\Models\Movie
+$firstMovie = $results->getFirstResult(); // ?\Kiwilan\Tmdb\Models\Movie
 ```
 
-Search a TV series by title:
+#### TV
+
+From <https://developer.themoviedb.org/reference/search-tv>
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
 $results = Tmdb::client('API_KEY')->searchTv('game of thrones');
 $tvSeries = $results->getResults(); // \Kiwilan\Tmdb\Models\TvSeries[]
-$firstTvSeries = $results->getFirstResult(); // \Kiwilan\Tmdb\Models\TvSeries
+$firstTvSeries = $results->getFirstResult(); // ?\Kiwilan\Tmdb\Models\TvSeries
 ```
 
-### Find
+### TV Series
 
-Find a movie by ID:
+#### Details
+
+From <https://developer.themoviedb.org/reference/search-tv>
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$movie = Tmdb::client('API_KEY')->findMovie(120); // \Kiwilan\Tmdb\Models\Movie
-```
-
-Find a TV series by ID:
-
-```php
-use Kiwilan\Tmdb\Tmdb;
-
-$tvSeries = Tmdb::client('API_KEY')->findTv(1399); // \Kiwilan\Tmdb\Models\TvSeries
+$tvSeries = Tmdb::client('API_KEY')->findTv(1399); // ?\Kiwilan\Tmdb\Models\TvSeries
 ```
 
 ## Testing
