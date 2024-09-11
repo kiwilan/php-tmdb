@@ -19,8 +19,9 @@
         "guzzlehttp/guzzle": "^7.9"
     },
     "require-dev": {
-        "pestphp/pest": "^2.20",
         "laravel/pint": "^1.0",
+        "pestphp/pest": "^2.20",
+        "phpstan/phpstan": "^1.12",
         "spatie/ray": "^1.28"
     },
     "autoload": {
@@ -36,7 +37,8 @@
     "scripts": {
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage",
-        "format": "vendor/bin/pint"
+        "format": "vendor/bin/pint",
+        "analyse": "phpstan analyse --ansi --memory-limit=4G"
     },
     "config": {
         "sort-packages": true,
