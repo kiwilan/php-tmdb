@@ -61,6 +61,24 @@ $tvSeries = $results->getResults(); // \Kiwilan\Tmdb\Models\TvSeries[]
 $firstTvSeries = $results->getFirstResult(); // \Kiwilan\Tmdb\Models\TvSeries
 ```
 
+### Find
+
+Find a movie by ID:
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$movie = Tmdb::client('API_KEY')->findMovie(120); // \Kiwilan\Tmdb\Models\Movie
+```
+
+Find a TV series by ID:
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$tvSeries = Tmdb::client('API_KEY')->findTv(1399); // \Kiwilan\Tmdb\Models\TvSeries
+```
+
 ## Testing
 
 ```bash
