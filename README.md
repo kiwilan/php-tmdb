@@ -14,7 +14,9 @@ PHP package to interact with the [The Movie Database (TMDb) API](https://www.the
 > [!IMPORTANT]
 > You need to create an account on [TMDb](https://www.themoviedb.org/) and get an API key to use this package. It's free and easy to do, you can read [this guide](https://developer.themoviedb.org/docs/getting-started) to get started.
 
-//
+> Why this package?
+>
+> All current PHP packages to interact with the TMDb API are outdated and I need a modern and easy-to-use package to interact with the TMDb API. So I decided to create this package.
 
 ## Requirements
 
