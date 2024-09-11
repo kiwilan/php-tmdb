@@ -36,11 +36,11 @@ it('can search movie', function () {
 
 it('can search movie with options', function () {
     $results = Tmdb::client(apiKey())->searchMovie('le seigneur des anneaux', new SearchMovieQuery(
-        primaryReleaseYear: 2001,
-        region: 'en-US',
+        include_adult: true,
         language: 'fr-FR',
-        includeAdult: true,
+        primary_release_year: 2001,
         page: 1,
+        region: 'en-US',
         year: 2001,
     ));
 

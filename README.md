@@ -70,6 +70,22 @@ $movies = $results->getResults(); // \Kiwilan\Tmdb\Models\Movie[]
 $firstMovie = $results->getFirstResult(); // ?\Kiwilan\Tmdb\Models\Movie
 ```
 
+You can use options into your search:
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+use Kiwilan\Tmdb\Query\SearchMovieQuery;
+
+$results = Tmdb::client(apiKey())->searchMovie('le seigneur des anneaux', new SearchMovieQuery(
+    include_adult: true,
+    language: 'fr-FR',
+    primary_release_year: 2001,
+    page: 1,
+    region: 'en-US',
+    year: 2001,
+));
+```
+
 #### TV
 
 From <https://developer.themoviedb.org/reference/search-tv>
@@ -92,6 +108,21 @@ From <https://developer.themoviedb.org/reference/search-tv>
 use Kiwilan\Tmdb\Tmdb;
 
 $tvSeries = Tmdb::client('API_KEY')->findTv(1399); // ?\Kiwilan\Tmdb\Models\TvSeries
+```
+
+You can use options into your search:
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+use Kiwilan\Tmdb\Query\SearchTvSeriesQuery;
+
+$results = Tmdb::client(apiKey())->searchTvSeries('game of thrones', new SearchTvSeriesQuery(
+    first_air_date_year: 2011,
+    include_adult: true,
+    language: 'fr-FR',
+    page: 1,
+    year: 2011,
+));
 ```
 
 ## Testing
