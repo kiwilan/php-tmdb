@@ -7,12 +7,14 @@ use Kiwilan\Tmdb\Models\Common\Company;
 use Kiwilan\Tmdb\Models\Common\Country;
 use Kiwilan\Tmdb\Models\Common\Genre;
 use Kiwilan\Tmdb\Models\Common\SpokenLanguage;
+use Kiwilan\Tmdb\Traits\HasAlternativeTitles;
 use Kiwilan\Tmdb\Traits\HasBackdrop;
 use Kiwilan\Tmdb\Traits\HasId;
 use Kiwilan\Tmdb\Traits\HasPoster;
 
 abstract class Media extends TmdbModel
 {
+    use HasAlternativeTitles;
     use HasBackdrop;
     use HasId;
     use HasPoster;
@@ -93,10 +95,7 @@ abstract class Media extends TmdbModel
         $this->vote_average = $this->toFloat($data, 'vote_average');
         $this->vote_count = $this->toInt($data, 'vote_count');
 
-        $this->validateData($data, 'alternative_titles', function (array $values) {
-            $alternative_titles = $values['results'] ?? $values['titles'] ?? null;
-            $this->alternative_titles = $this->loopOn($alternative_titles, AlternativeTitle::class);
-        });
+        $this->setAlternativeTitles($data);
 
         $this->credits = new Credits($data['credits'] ?? null);
     }
@@ -204,31 +203,6 @@ abstract class Media extends TmdbModel
     public function getVoteCount(): ?int
     {
         return $this->vote_count;
-    }
-
-    /**
-     * Get the alternative titles.
-     *
-     * @return AlternativeTitle[]|null
-     */
-    public function getAlternativeTitles(): ?array
-    {
-        return $this->alternative_titles;
-    }
-
-    public function getAlternativeTitle(string $iso_3166_1): ?AlternativeTitle
-    {
-        if (! $this->alternative_titles) {
-            return null;
-        }
-
-        foreach ($this->alternative_titles as $alternative_title) {
-            if ($alternative_title->getIso31661() === $iso_3166_1) {
-                return $alternative_title;
-            }
-        }
-
-        return null;
     }
 
     public function getCredits(): ?Credits

@@ -9,10 +9,14 @@ trait HasAlternativeTitles
     /** @var AlternativeTitle[]|null */
     protected ?array $alternative_titles = null;
 
-    protected function setAlternativeTitles(?array $data): void
+    protected function setAlternativeTitles(array $data): void
     {
         if (isset($data['alternative_titles'])) {
-            $alternative_titles = $data['alternative_titles']['titles'] ?? [];
+            $alternative_titles = $data['alternative_titles']['results'] ?? $data['alternative_titles']['titles'] ?? [];
+            if (empty($alternative_titles)) {
+                return;
+            }
+
             foreach ($alternative_titles as $alternative_title) {
                 $this->alternative_titles[] = new AlternativeTitle($alternative_title);
             }

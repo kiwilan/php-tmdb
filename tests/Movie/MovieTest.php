@@ -58,6 +58,7 @@ it('can get movie details (tmdb id)', function () {
 
 it('can get movie alternative titles', function () {
     $movie = Tmdb::client(apiKey())->getMovie(120, 'alternative_titles');
+
     expect($movie->getAlternativeTitles())->not()->toBeNull();
     expect($movie->getAlternativeTitle('FR'))->toBeInstanceOf(AlternativeTitle::class);
     expect($movie->getAlternativeTitle('US'))->toBeInstanceOf(AlternativeTitle::class);

@@ -86,6 +86,9 @@ it('can parse alternative titles', function () {
     expect($tv->getAlternativeTitles())->toBeArray();
     expect($tv->getAlternativeTitles())->not()->toBeEmpty();
     expect($tv->getAlternativeTitles())->each(fn (Pest\Expectation $alternativeTitle) => expect($alternativeTitle->value)->toBeInstanceOf(AlternativeTitle::class));
+
+    expect($tv->getAlternativeTitle('FR'))->toBeInstanceOf(AlternativeTitle::class);
+    expect($tv->getAlternativeTitle('US'))->toBeInstanceOf(AlternativeTitle::class);
 });
 
 it('can parse content ratings', function () {
