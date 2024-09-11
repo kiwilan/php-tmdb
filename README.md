@@ -44,6 +44,18 @@ composer require kiwilan/php-tmdb
 
 ## Usage
 
+### Collection
+
+#### Details
+
+From <https://developer.themoviedb.org/reference/collection-details>
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$collection = Tmdb::client('API_KEY')->getCollection(119); // ?\Kiwilan\Tmdb\Models\Collection
+```
+
 ### Movies
 
 #### Details
@@ -147,7 +159,7 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [People List](https://developer.themoviedb.org/reference/changes-people-list)
     -   [ ] [TV List](https://developer.themoviedb.org/reference/changes-tv-list)
 -   [ ] Collections
-    -   [ ] [Details](https://developer.themoviedb.org/reference/collection-details): for v1
+    -   [x] [Details](https://developer.themoviedb.org/reference/collection-details): for v1
     -   [ ] [Images](https://developer.themoviedb.org/reference/collection-images)
     -   [ ] [Translations](https://developer.themoviedb.org/reference/collection-translations)
 -   [ ] Companies

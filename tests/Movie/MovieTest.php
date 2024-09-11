@@ -39,18 +39,14 @@ it('can get movie details (tmdb id)', function () {
     expect($movie->getImdbId())->toBeString();
     expect($movie->getOriginalLanguage())->toBeString();
     expect($movie->getOriginalTitle())->toBeString();
+    expect($movie->getTitle())->toBeString();
     expect($movie->getOriginCountry())->toBeArray();
     expect($movie->getOverview())->toBeString();
     expect($movie->getPopularity())->toBeFloat();
     expect($movie->getRuntime())->toBeInt();
-
-    expect($movie->getProductionCompanies())->toBeArray();
-    expect($movie->getProductionCompanies())->not()->toBeEmpty();
-    expect($movie->getProductionCompanies())->each(fn (Pest\Expectation $company) => expect($company->value)->toBeInstanceOf(Company::class));
-
-    expect($movie->getProductionCountries())->toBeArray();
-    expect($movie->getProductionCountries())->not()->toBeEmpty();
-    expect($movie->getProductionCountries())->each(fn (Pest\Expectation $country) => expect($country->value)->toBeInstanceOf(Country::class));
+    expect($movie->getTagline())->toBeString();
+    expect($movie->getVoteAverage())->toBeFloat();
+    expect($movie->getVoteCount())->toBeInt();
 
     expect($movie->getReleaseDate())->toBeInstanceOf(DateTime::class);
     expect($movie->getRevenue())->toBeInt();

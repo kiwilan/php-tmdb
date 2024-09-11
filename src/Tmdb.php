@@ -45,6 +45,8 @@ class Tmdb
      *
      * @param  string  $query  The search query
      * @param  Query\SearchMovieQuery  $params  The search query parameters for additional information
+     *
+     * @docs https://developer.themoviedb.org/reference/search-tv
      */
     public function searchMovie(string $query, Query\SearchMovieQuery $params = new Query\SearchMovieQuery): SearchMovies
     {
@@ -64,6 +66,8 @@ class Tmdb
      *
      * @param  string  $query  The search query
      * @param  Query\SearchTvSeriesQuery  $params  The search query parameters for additional information
+     *
+     * @docs https://developer.themoviedb.org/reference/movie-details
      */
     public function searchTvSeries(string $query, Query\SearchTvSeriesQuery $params = new Query\SearchTvSeriesQuery): SearchTvSeries
     {
@@ -83,6 +87,8 @@ class Tmdb
      *
      * @param  int  $movie_id  The TMDB movie ID
      * @param  string|null  $appendToResponse  To get additional information
+     *
+     * @docs https://developer.themoviedb.org/reference/movie-details
      */
     public function getMovie(int $movie_id, ?string $appendToResponse = null): ?Movie
     {
@@ -102,6 +108,8 @@ class Tmdb
      *
      * @param  int  $series_id  The TMDB TV series ID
      * @param  string|null  $appendToResponse  To get additional information
+     *
+     * @docs https://developer.themoviedb.org/reference/tv-series-details
      */
     public function getTVSeries(int $series_id, ?string $appendToResponse = null): ?TvSeries
     {
@@ -121,6 +129,8 @@ class Tmdb
      *
      * @param  int  $collection_id  The TMDB collection ID
      * @param  ?string  $language  The language to get the collection details (can override the default language)
+     *
+     * @docs https://developer.themoviedb.org/reference/collection-details
      */
     public function getCollection(int $collection_id, ?string $language = null): ?Collection
     {
@@ -162,11 +172,20 @@ class Tmdb
         return $this->isSuccess ? new Credits($response) : null;
     }
 
+    /**
+     * Merge base URL with the path
+     */
     private function getUrl(string $path): string
     {
         return self::BASE_URL.$path;
     }
 
+    /**
+     * Execute the request
+     *
+     * @param  string  $url  The URL to request
+     * @param  string[]  $queryParams  The query parameters
+     */
     private function execute(string $url, array $queryParams = []): ?array
     {
         $client = new \GuzzleHttp\Client;
