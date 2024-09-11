@@ -1,12 +1,12 @@
 <?php
 
-namespace Kiwilan\Tmdb\Models;
+namespace Kiwilan\Tmdb\Models\Movie;
 
-class MovieReleaseDates
+class ReleaseDates
 {
     public ?int $id;
 
-    /** @var TmdbMovieReleaseDate[] */
+    /** @var ReleaseDate[] */
     public ?array $results = null;
 
     public function __construct(array $data)
@@ -15,13 +15,13 @@ class MovieReleaseDates
         $this->results = [];
         if (isset($data['results']) && is_array($data['results'])) {
             foreach ($data['results'] as $releaseDateData) {
-                $this->results[] = new TmdbMovieReleaseDate($releaseDateData);
+                $this->results[] = new ReleaseDate($releaseDateData);
             }
         }
     }
 }
 
-class TmdbMovieReleaseDate
+class ReleaseDate
 {
     public ?string $iso_3166_1 = null;
 
@@ -34,13 +34,13 @@ class TmdbMovieReleaseDate
         $this->release_dates = [];
         if (isset($data['release_dates']) && is_array($data['release_dates'])) {
             foreach ($data['release_dates'] as $movieData) {
-                $this->release_dates[] = new TmdbMovieReleaseDateItem($movieData);
+                $this->release_dates[] = new ReleaseDateItem($movieData);
             }
         }
     }
 }
 
-class TmdbMovieReleaseDateItem
+class ReleaseDateItem
 {
     public ?string $certification = null;
 

@@ -42,3 +42,44 @@ function apiKey(): string
 {
     return dotenv('TMDB_API_KEY');
 }
+
+function baseApp(): string
+{
+    return __DIR__.'/../';
+}
+
+function mediaPath(string $filename): string
+{
+    return baseApp().'tests/Media/'.$filename;
+}
+
+function fileExists(string $filename): bool
+{
+    return file_exists($filename);
+}
+
+function imageIsValid(string $filename): bool
+{
+    $image = @imagecreatefromstring(file_get_contents($filename));
+
+    return $image !== false;
+}
+
+function imageExists(string $filename): bool
+{
+    return fileExists($filename) && imageIsValid($filename);
+}
+
+function clearMedia(): void
+{
+    $path = baseApp().'tests/Media/';
+    $files = glob($path.'*');
+
+    foreach ($files as $file) {
+        if (is_file($file)) {
+            if ($file !== '.gitignore') {
+                unlink($file);
+            }
+        }
+    }
+}

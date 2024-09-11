@@ -4,17 +4,17 @@ namespace Kiwilan\Tmdb\Models;
 
 class Credits
 {
-    public ?int $id = null;
+    public ?int $id;
 
     /**
-     * @var TmdbCrew[]
+     * @var Credits\Crew[]
      */
-    public ?array $cast = null;
+    public ?array $cast;
 
     /**
-     * @var TmdbCrew[]
+     * @var Credits\Crew[]
      */
-    public ?array $crew = null;
+    public ?array $crew;
 
     public function __construct(array $data)
     {
@@ -22,13 +22,13 @@ class Credits
         if (isset($data['cast']) && is_array($data['cast'])) {
             $this->cast = [];
             foreach ($data['cast'] as $castData) {
-                $this->cast[] = new TmdbCrew($castData);
+                $this->cast[] = new Credits\Crew($castData);
             }
         }
         if (isset($data['crew']) && is_array($data['crew'])) {
             $this->crew = [];
             foreach ($data['crew'] as $crewData) {
-                $this->crew[] = new TmdbCrew($crewData);
+                $this->crew[] = new Credits\Crew($crewData);
             }
         }
     }

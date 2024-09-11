@@ -1,8 +1,8 @@
 <?php
 
-namespace Kiwilan\Tmdb\Models;
+namespace Kiwilan\Tmdb\Models\Credits;
 
-class TmdbCrew
+class Crew
 {
     public ?string $job;
 

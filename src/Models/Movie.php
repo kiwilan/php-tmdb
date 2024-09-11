@@ -34,10 +34,10 @@ class Movie
 
     protected ?string $poster_path = null;
 
-    /** @var ProductionCompany[]|null */
+    /** @var Company[]|null */
     protected ?array $production_companies = null;
 
-    /** @var ProductionCountry[]|null */
+    /** @var Country[]|null */
     protected ?array $production_countries = null;
 
     protected ?string $release_date = null;
@@ -61,15 +61,16 @@ class Movie
 
     protected ?int $vote_count = null;
 
-    protected ?AlternativeTitles $alternative_titles = null;
+    /** @var AlternativeTitle[]|null */
+    protected ?array $alternative_titles = null;
 
     protected ?Credits $credits = null;
 
-    protected ?MovieReleaseDates $release_dates = null;
+    protected ?Movie\ReleaseDates $release_dates = null;
 
-    protected ?MovieRecommendations $recommendations = null;
+    protected ?Results\SearchMovies $recommendations = null;
 
-    protected ?MovieSimilar $similar = null;
+    protected ?Results\SearchMovies $similar = null;
 
     public function __construct(?array $data)
     {
@@ -101,13 +102,13 @@ class Movie
         $this->production_companies = [];
         if (isset($data['production_companies']) && is_array($data['production_companies'])) {
             foreach ($data['production_companies'] as $companyData) {
-                $this->production_companies[] = new ProductionCompany($companyData);
+                $this->production_companies[] = new Company($companyData);
             }
         }
         $this->production_countries = [];
         if (isset($data['production_countries']) && is_array($data['production_countries'])) {
             foreach ($data['production_countries'] as $countryData) {
-                $this->production_countries[] = new ProductionCountry($countryData);
+                $this->production_countries[] = new Country($countryData);
             }
         }
         $this->release_date = $data['release_date'] ?? null;
@@ -127,7 +128,10 @@ class Movie
         $this->vote_count = $data['vote_count'] ?? null;
 
         if (isset($data['alternative_titles'])) {
-            // $this->alternative_titles = new AlternativeTitle($data['alternative_titles']);
+            $alternative_titles = $data['alternative_titles']['titles'] ?? [];
+            foreach ($alternative_titles as $alternative_title) {
+                $this->alternative_titles[] = new Movie\AlternativeTitle($alternative_title);
+            }
         }
 
         if (isset($data['credits'])) {
@@ -135,7 +139,7 @@ class Movie
         }
 
         if (isset($data['release_dates'])) {
-            $this->release_dates = new MovieReleaseDates($data['release_dates']);
+            $this->release_dates = new Movie\ReleaseDates($data['release_dates']);
         }
 
         if (isset($data['recommendations'])) {
@@ -302,9 +306,35 @@ class Movie
         return $this->vote_count;
     }
 
-    public function getAlternativeTitles(): ?AlternativeTitles
+    /**
+     * Get the alternative titles.
+     *
+     * @return AlternativeTitle[]|null
+     */
+    public function getAlternativeTitles(): ?array
     {
         return $this->alternative_titles;
+    }
+
+    /**
+     * Get the alternative title by ISO 3166-1 code.
+     *
+     * - If not found, return null.
+     * - If duplicate, return the first one.
+     */
+    public function getAlternativeTitle(string $iso_3166_1): ?Movie\AlternativeTitle
+    {
+        if (! $this->alternative_titles) {
+            return null;
+        }
+
+        foreach ($this->alternative_titles as $alternative_title) {
+            if ($alternative_title->getIso31661() === $iso_3166_1) {
+                return $alternative_title;
+            }
+        }
+
+        return null;
     }
 
     public function getCredits(): ?Credits
@@ -312,17 +342,17 @@ class Movie
         return $this->credits;
     }
 
-    public function getReleaseDates(): ?MovieReleaseDates
+    public function getReleaseDates(): ?Movie\ReleaseDates
     {
         return $this->release_dates;
     }
 
-    public function getRecommendations(): ?MovieRecommendations
+    public function getRecommendations(): ?Results\SearchMovies
     {
         return $this->recommendations;
     }
 
-    public function getSimilar(): ?MovieSimilar
+    public function getSimilar(): ?Results\SearchMovies
     {
         return $this->similar;
     }

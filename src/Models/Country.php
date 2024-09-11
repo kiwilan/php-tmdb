@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Models;
 
-class ProductionCountry
+class Country
 {
     public ?string $iso_3166_1;
 
