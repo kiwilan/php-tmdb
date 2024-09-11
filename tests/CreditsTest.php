@@ -2,7 +2,7 @@
 
 use Kiwilan\Tmdb\Tmdb;
 
-it('can get company details', function () {
+it('can get credits details', function () {
     $company = Tmdb::client(apiKey())->getCompany(12);
 
     expect($company)->not()->toBeNull();

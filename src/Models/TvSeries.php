@@ -2,182 +2,218 @@
 
 namespace Kiwilan\Tmdb\Models;
 
-class TvSeries
-{
-    protected bool $adult = false;
+use DateTime;
+use Kiwilan\Tmdb\Models\Credits\Crew;
+use Kiwilan\Tmdb\Models\TvSeries\ContentRating;
+use Kiwilan\Tmdb\Models\TvSeries\Episode;
+use Kiwilan\Tmdb\Models\TvSeries\Network;
+use Kiwilan\Tmdb\Models\TvSeries\Season;
 
-    protected ?string $backdrop_path;
+class TvSeries extends Media
+{
+    /** @var Crew[] */
+    protected ?array $created_by;
 
     protected ?array $episode_run_time;
 
-    protected ?string $first_air_date;
-
-    /** @var Genre[]|null */
-    protected ?array $genres;
-
-    protected ?string $homepage;
-
-    protected ?int $id;
+    protected ?DateTime $first_air_date;
 
     protected bool $in_production = false;
 
+    /** @var string[]|null */
     protected ?array $languages;
 
-    protected ?string $last_air_date;
+    protected ?DateTime $last_air_date;
 
-    protected ?TvSeries\EpisodeAir $last_episode_to_air;
+    protected ?Episode $last_episode_to_air;
 
     protected ?string $name;
 
-    protected ?TvSeries\EpisodeAir $next_episode_to_air;
+    protected ?Episode $next_episode_to_air;
 
-    /** @var TvSeries\Network[]|null */
+    /** @var Network[]|null */
     protected ?array $networks;
 
-    protected ?int $number_of_episodes;
+    protected ?int $number_of_episodes = 0;
 
-    protected ?int $number_of_seasons;
+    protected ?int $number_of_seasons = 0;
 
-    /** @var string[]|null */
-    protected ?array $origin_country;
-
-    protected ?string $original_language;
-
-    protected ?string $original_name;
-
-    protected ?string $overview;
-
-    protected ?float $popularity;
-
-    protected ?string $poster_path;
-
-    /** @var Company[]|null */
-    protected ?array $production_companies;
-
-    /** @var Country[]|null */
-    protected ?array $production_countries;
-
-    // /** @var TvShowSeason[]|null */
-    // protected ?array $seasons;
-
-    /** @var SpokenLanguage[]|null */
-    protected ?array $spoken_languages;
-
-    protected ?string $status;
-
-    protected ?string $tagline;
+    /** @var Season[]|null */
+    protected ?array $seasons;
 
     protected ?string $type;
 
-    protected ?float $vote_average;
+    /** @var ContentRating[]|null */
+    protected ?array $content_ratings;
 
-    protected ?int $vote_count;
+    protected ?Search\SearchTvSeries $recommendations = null;
 
-    // protected ?AlternativeTitle $alternative_titles;
+    protected ?Search\SearchTvSeries $similar = null;
 
-    // protected ?TvShowContentRatings $content_ratings;
-
-    // protected ?TmdbCredits $credits;
-
-    /** @var Credits\Crew[] */
-    protected array $created_by = [];
-
-    /** @var Search\SearchTvSeries[] */
-    protected array $recommendations = [];
-
-    public function __construct(array $data)
+    public function __construct(?array $data)
     {
-        $this->adult = $data['adult'] ?? false;
-        $this->backdrop_path = $data['backdrop_path'] ?? null;
-        $this->episode_run_time = $data['episode_run_time'] ?? null;
-        $this->first_air_date = $data['first_air_date'] ?? null;
-        $this->genres = [];
-        if (isset($data['genres']) && is_array($data['genres'])) {
-            foreach ($data['genres'] as $genreData) {
-                $this->genres[] = new Genre($genreData);
-            }
-        }
-        $this->homepage = $data['homepage'] ?? null;
-        $this->id = $data['id'] ?? null;
-        $this->in_production = $data['in_production'] ?? false;
-        $this->languages = $data['languages'] ?? null;
-        $this->last_air_date = $data['last_air_date'] ?? null;
-        $this->last_episode_to_air = new TvSeries\EpisodeAir($data['last_episode_to_air'] ?? null);
-        $this->name = $data['name'] ?? null;
-        $this->next_episode_to_air = new TvSeries\EpisodeAir($data['next_episode_to_air'] ?? null);
-        $this->networks = [];
-        if (isset($data['networks']) && is_array($data['networks'])) {
-            foreach ($data['networks'] as $networkData) {
-                $this->networks[] = new TvSeries\Network($networkData);
-            }
-        }
-        $this->number_of_episodes = $data['number_of_episodes'] ?? null;
-        $this->number_of_seasons = $data['number_of_seasons'] ?? null;
-        $this->origin_country = $data['origin_country'] ?? null;
-        $this->original_language = $data['original_language'] ?? null;
-        $this->original_name = $data['original_name'] ?? null;
-        $this->overview = $data['overview'] ?? null;
-        $this->popularity = $data['popularity'] ?? null;
-        $this->poster_path = $data['poster_path'] ?? null;
-        $this->production_companies = [];
-        if (isset($data['production_companies']) && is_array($data['production_companies'])) {
-            foreach ($data['production_companies'] as $companyData) {
-                // $this->production_companies[] = new ProductionCompany($companyData);
-            }
-        }
-        $this->production_countries = [];
-        if (isset($data['production_countries']) && is_array($data['production_countries'])) {
-            foreach ($data['production_countries'] as $countryData) {
-                // $this->production_countries[] = new ProductionCountry($countryData);
-            }
-        }
-        // $this->seasons = [];
-        if (isset($data['seasons']) && is_array($data['seasons'])) {
-            foreach ($data['seasons'] as $seasonData) {
-                // $this->seasons[] = new TvShowSeason($seasonData);
-            }
-        }
-        $this->spoken_languages = [];
-        if (isset($data['spoken_languages']) && is_array($data['spoken_languages'])) {
-            foreach ($data['spoken_languages'] as $languageData) {
-                $this->spoken_languages[] = new SpokenLanguage($languageData);
-            }
-        }
-        $this->status = $data['status'] ?? null;
-        $this->tagline = $data['tagline'] ?? null;
-        $this->type = $data['type'] ?? null;
-        $this->vote_average = $data['vote_average'] ?? null;
-        $this->vote_count = $data['vote_count'] ?? null;
-
-        if (isset($data['alternative_titles'])) {
-            // $this->alternative_titles = new AlternativeTitle($data['alternative_titles']);
+        if (! $data) {
+            return;
         }
 
-        if (isset($data['content_ratings'])) {
-            // $this->content_ratings = new TvShowContentRatings($data['content_ratings']);
+        parent::__construct($data);
+
+        $this->validateData($data, 'created_by', function (array $values) {
+            $this->created_by = $this->loopOn($values, Crew::class);
+        });
+
+        $this->episode_run_time = $this->toArray($data, 'episode_run_time');
+        $this->first_air_date = $this->toDateTime($data, 'first_air_date');
+        $this->in_production = $this->toBool($data, 'in_production');
+        $this->languages = $this->toArray($data, 'languages');
+        $this->last_air_date = $this->toDateTime($data, 'last_air_date');
+
+        if (isset($data['last_episode_to_air'])) {
+            $this->last_episode_to_air = new Episode($data['last_episode_to_air']);
         }
 
-        if (isset($data['credits'])) {
-            // $this->credits = new Credits($data['credits']);
+        $this->name = $this->toString($data, 'name');
+
+        if (isset($data['next_episode_to_air'])) {
+            $this->next_episode_to_air = new Episode($data['next_episode_to_air']);
         }
+
+        $this->validateData($data, 'networks', function (array $values) {
+            $this->networks = $this->loopOn($values, Network::class);
+        });
+
+        $this->number_of_episodes = $this->toInt($data, 'number_of_episodes');
+        $this->number_of_seasons = $this->toInt($data, 'number_of_seasons');
+
+        $this->validateData($data, 'seasons', function (array $values) {
+            $this->seasons = $this->loopOn($values, Season::class);
+        });
+
+        $this->type = $this->toString($data, 'type');
+
+        $this->validateData($data, 'content_ratings', function (array $values) {
+            $this->content_ratings = $this->loopOn($values, ContentRating::class);
+        });
 
         if (isset($data['recommendations'])) {
-            $results = $data['recommendations']['results'] ?? [];
-            $this->recommendations = [];
-            foreach ($results as $recommendationData) {
-                // $this->recommendations[] = new SearchMovieResult($recommendationData);
-            }
+            $this->recommendations = new Search\SearchTvSeries($data['recommendations']);
         }
 
-        if (isset($data['created_by'])) {
-            $this->created_by = [];
-            // foreach ($data['created_by'] as $creatorData) {
-            //     $crew = new Crew($creatorData);
-            //     $crew->job = 'Creator';
-            //     $crew->department = 'Creator';
-            //     $crew->order = 0;
-            //     $this->created_by[] = $crew;
-            // }
+        if (isset($data['similar'])) {
+            $this->similar = new Search\SearchTvSeries($data['similar']);
         }
+    }
+
+    /**
+     * Get the creators.
+     *
+     * @return Crew[]|null
+     */
+    public function getCreatedBy(): ?array
+    {
+        return $this->created_by;
+    }
+
+    /**
+     * Get the episode run time.
+     */
+    public function getEpisodeRunTime(): ?array
+    {
+        return $this->episode_run_time;
+    }
+
+    public function getFirstAirDate(): ?DateTime
+    {
+        return $this->first_air_date;
+    }
+
+    public function isInProduction(): bool
+    {
+        return $this->in_production;
+    }
+
+    /**
+     * Get the languages.
+     *
+     * @return string[]|null
+     */
+    public function getLanguages(): ?array
+    {
+        return $this->languages;
+    }
+
+    public function getLastAirDate(): ?DateTime
+    {
+        return $this->last_air_date;
+    }
+
+    public function getLastEpisodeToAir(): ?Episode
+    {
+        return $this->last_episode_to_air;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function getNextEpisodeToAir(): ?Episode
+    {
+        return $this->next_episode_to_air;
+    }
+
+    /**
+     * Get the networks.
+     *
+     * @return Network[]|null
+     */
+    public function getNetworks(): ?array
+    {
+        return $this->networks;
+    }
+
+    public function getNumberOfEpisodes(): int
+    {
+        return $this->number_of_episodes;
+    }
+
+    public function getNumberOfSeasons(): int
+    {
+        return $this->number_of_seasons;
+    }
+
+    /**
+     * Get the seasons.
+     *
+     * @return Season[]|null
+     */
+    public function getSeasons(): ?array
+    {
+        return $this->seasons;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    /**
+     * Get the content ratings.
+     *
+     * @return ContentRating[]|null
+     */
+    public function getContentRatings(): ?array
+    {
+        return $this->content_ratings;
+    }
+
+    public function getRecommendations(): ?Search\SearchTvSeries
+    {
+        return $this->recommendations;
+    }
+
+    public function getSimilar(): ?Search\SearchTvSeries
+    {
+        return $this->similar;
     }
 }

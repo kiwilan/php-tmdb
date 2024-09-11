@@ -1,9 +1,13 @@
 <?php
 
-namespace Kiwilan\Tmdb\Models;
+namespace Kiwilan\Tmdb\Models\Common;
+
+use Kiwilan\Tmdb\Traits\HasLogo;
 
 class Company
 {
+    use HasLogo;
+
     protected ?int $id;
 
     protected ?string $logo_path;

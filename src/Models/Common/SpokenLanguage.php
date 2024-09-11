@@ -1,6 +1,6 @@
 <?php
 
-namespace Kiwilan\Tmdb\Models;
+namespace Kiwilan\Tmdb\Models\Common;
 
 class SpokenLanguage
 {

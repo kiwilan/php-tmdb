@@ -2,15 +2,15 @@
 
 namespace Kiwilan\Tmdb\Utils;
 
-use Kiwilan\Tmdb\Enums\PosterSize;
+use Kiwilan\Tmdb\Enums\ProfileSize;
 
-class TmdbPoster extends TmdbImage
+class TmdbProfile extends TmdbImage
 {
     public static function make(string $url): self
     {
         $self = new self;
         $self->imageUrl = $self->fixUrl($url);
-        $self->size = PosterSize::ORIGINAL;
+        $self->size = ProfileSize::ORIGINAL;
 
         return $self;
     }
@@ -18,7 +18,7 @@ class TmdbPoster extends TmdbImage
     /**
      * @param  $size  To override the image size, default is `original`
      */
-    public function size(PosterSize $size = PosterSize::ORIGINAL): self
+    public function size(ProfileSize $size = ProfileSize::ORIGINAL): self
     {
         $this->size = $size;
 

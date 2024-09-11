@@ -1,0 +1,307 @@
+<?php
+
+namespace Kiwilan\Tmdb\Models;
+
+use Closure;
+use DateTime;
+use Kiwilan\Tmdb\Models\Common\AlternativeTitle;
+use Kiwilan\Tmdb\Models\Common\Company;
+use Kiwilan\Tmdb\Models\Common\Country;
+use Kiwilan\Tmdb\Models\Common\Genre;
+use Kiwilan\Tmdb\Models\Common\SpokenLanguage;
+use Kiwilan\Tmdb\Traits\HasBackdrop;
+use Kiwilan\Tmdb\Traits\HasPoster;
+
+abstract class Media
+{
+    use HasBackdrop;
+    use HasPoster;
+
+    protected bool $adult = false;
+
+    /** @var int[]|null */
+    protected ?array $genre_ids;
+
+    /** @var Genre[]|null */
+    protected ?array $genres;
+
+    protected ?string $homepage;
+
+    protected ?int $id;
+
+    /** @var string[]|null */
+    protected ?array $origin_country;
+
+    protected ?string $original_language;
+
+    protected ?string $overview;
+
+    protected ?float $popularity;
+
+    /** @var Company[]|null */
+    protected ?array $production_companies;
+
+    /** @var Country[]|null */
+    protected ?array $production_countries;
+
+    /** @var SpokenLanguage[]|null */
+    protected ?array $spoken_languages;
+
+    protected ?string $status;
+
+    protected ?string $tagline;
+
+    protected ?float $vote_average;
+
+    protected ?int $vote_count;
+
+    /** @var AlternativeTitle[]|null */
+    protected ?array $alternative_titles;
+
+    protected ?Credits $credits;
+
+    public function __construct(array $data)
+    {
+        $this->adult = $this->toBool($data, 'adult');
+        $this->setBackdropPath($data);
+        $this->setPosterPath($data);
+        $this->genre_ids = $data['genre_ids'] ?? null;
+
+        $this->validateData($data, 'genres', function (array $values) {
+            $this->genres = $this->loopOn($values, Genre::class);
+        });
+
+        $this->homepage = $this->toString($data, 'homepage');
+        $this->id = $this->toInt($data, 'id');
+        $this->origin_country = $this->toArray($data, 'origin_country');
+        $this->original_language = $this->toString($data, 'original_language');
+        $this->overview = $this->toString($data, 'overview');
+        $this->popularity = $this->toFloat($data, 'popularity');
+
+        $this->validateData($data, 'production_companies', function (array $values) {
+            $this->production_companies = $this->loopOn($values, Company::class);
+        });
+
+        $this->validateData($data, 'production_countries', function (array $values) {
+            $this->production_countries = $this->loopOn($values, Country::class);
+        });
+
+        $this->validateData($data, 'spoken_languages', function (array $values) {
+            $this->spoken_languages = $this->loopOn($values, SpokenLanguage::class);
+        });
+
+        $this->status = $this->toString($data, 'status');
+        $this->tagline = $this->toString($data, 'tagline');
+        $this->vote_average = $this->toFloat($data, 'vote_average');
+        $this->vote_count = $this->toInt($data, 'vote_count');
+
+        $this->validateData($data, 'alternative_titles', function (array $values) {
+            $this->alternative_titles = $this->loopOn($values['titles'] ?? null, AlternativeTitle::class);
+        });
+
+        $credits = $data['credits'] ?? null;
+        if (isset($credits)) {
+            $this->credits = new Credits($credits);
+        }
+    }
+
+    public function isAdult(): bool
+    {
+        return $this->adult;
+    }
+
+    /**
+     * Get the genre IDs.
+     *
+     * @return int[]|null
+     */
+    public function getGenreIds(): ?array
+    {
+        return $this->genre_ids;
+    }
+
+    /**
+     * Get the genres.
+     *
+     * @return Genre[]|null
+     */
+    public function getGenres(): ?array
+    {
+        return $this->genres;
+    }
+
+    public function getHomepage(): ?string
+    {
+        return $this->homepage;
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * Get the origin countries.
+     *
+     * @return string[]|null
+     */
+    public function getOriginCountry(): ?array
+    {
+        return $this->origin_country;
+    }
+
+    public function getOriginalLanguage(): ?string
+    {
+        return $this->original_language;
+    }
+
+    public function getOverview(): ?string
+    {
+        return $this->overview;
+    }
+
+    public function getPopularity(): ?float
+    {
+        return $this->popularity;
+    }
+
+    /**
+     * Get the production companies.
+     *
+     * @return Company[]|null
+     */
+    public function getProductionCompanies(): ?array
+    {
+        return $this->production_companies;
+    }
+
+    /**
+     * Get the production countries.
+     *
+     * @return Country[]|null
+     */
+    public function getProductionCountries(): ?array
+    {
+        return $this->production_countries;
+    }
+
+    /**
+     * Get the spoken languages.
+     *
+     * @return SpokenLanguage[]|null
+     */
+    public function getSpokenLanguages(): ?array
+    {
+        return $this->spoken_languages;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function getTagline(): ?string
+    {
+        return $this->tagline;
+    }
+
+    public function getVoteAverage(): ?float
+    {
+        return $this->vote_average;
+    }
+
+    public function getVoteCount(): ?int
+    {
+        return $this->vote_count;
+    }
+
+    /**
+     * Get the alternative titles.
+     *
+     * @return AlternativeTitle[]|null
+     */
+    public function getAlternativeTitles(): ?array
+    {
+        return $this->alternative_titles;
+    }
+
+    public function getAlternativeTitle(string $iso_3166_1): ?AlternativeTitle
+    {
+        if (! $this->alternative_titles) {
+            return null;
+        }
+
+        foreach ($this->alternative_titles as $alternative_title) {
+            if ($alternative_title->getIso31661() === $iso_3166_1) {
+                return $alternative_title;
+            }
+        }
+
+        return null;
+    }
+
+    public function getCredits(): ?Credits
+    {
+        return $this->credits;
+    }
+
+    protected function validateData(array $data, string $key, Closure $closure)
+    {
+        $values = $data[$key] ?? null;
+        if (isset($values) && is_array($values)) {
+            $closure($values);
+        }
+    }
+
+    protected function loopOn(mixed $values, string $class): array
+    {
+        $items = [];
+        foreach ($values as $value) {
+            $items[] = new $class($value);
+        }
+
+        return $items;
+    }
+
+    protected function toDateTime(array $data, string $key): ?DateTime
+    {
+        $date = $data[$key] ?? null;
+
+        return $date ? new DateTime($date) : null;
+    }
+
+    protected function toBool(array $data, string $key): bool
+    {
+        $value = $data[$key] ?? null;
+
+        return $value ? boolval($value) : false;
+    }
+
+    protected function toInt(array $data, string $key): ?int
+    {
+        $value = $data[$key] ?? null;
+
+        return $value ? intval($value) : null;
+    }
+
+    protected function toFloat(array $data, string $key): ?float
+    {
+        $value = $data[$key] ?? null;
+
+        return $value ? floatval($value) : null;
+    }
+
+    protected function toString(array $data, string $key): ?string
+    {
+        $value = $data[$key] ?? null;
+
+        return $value ? strval($value) : null;
+    }
+
+    protected function toArray(array $data, string $key): ?array
+    {
+        $value = $data[$key] ?? null;
+
+        return $value ? (array) $value : null;
+    }
+}

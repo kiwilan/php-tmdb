@@ -1,6 +1,6 @@
 <?php
 
-namespace Kiwilan\Tmdb\Models\Movie;
+namespace Kiwilan\Tmdb\Models\Common;
 
 class AlternativeTitle
 {

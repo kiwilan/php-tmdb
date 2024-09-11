@@ -1,10 +1,13 @@
 <?php
 
-use Kiwilan\Tmdb\Models\Company;
-use Kiwilan\Tmdb\Models\Country;
-use Kiwilan\Tmdb\Models\Genre;
+use Kiwilan\Tmdb\Models\Common\AlternativeTitle;
+use Kiwilan\Tmdb\Models\Common\Company;
+use Kiwilan\Tmdb\Models\Common\Country;
+use Kiwilan\Tmdb\Models\Common\Genre;
+use Kiwilan\Tmdb\Models\Common\SpokenLanguage;
+use Kiwilan\Tmdb\Models\Credits\Cast;
+use Kiwilan\Tmdb\Models\Credits\Crew;
 use Kiwilan\Tmdb\Models\Movie;
-use Kiwilan\Tmdb\Models\Movie\AlternativeTitle;
 use Kiwilan\Tmdb\Models\Movie\BelongsToCollection;
 use Kiwilan\Tmdb\Models\Movie\ReleaseDate;
 use Kiwilan\Tmdb\Tmdb;
@@ -98,11 +101,11 @@ it('can get movie credits', function () {
     expect($movie->getCredits())->not()->toBeNull();
     expect($movie->getCredits()->getCast())->toBeArray();
     expect($movie->getCredits()->getCast())->not()->toBeEmpty();
-    expect($movie->getCredits()->getCast())->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(\Kiwilan\Tmdb\Models\Credits\Cast::class));
+    expect($movie->getCredits()->getCast())->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(Cast::class));
 
     expect($movie->getCredits()->getCrew())->toBeArray();
     expect($movie->getCredits()->getCrew())->not()->toBeEmpty();
-    expect($movie->getCredits()->getCrew())->each(fn (Pest\Expectation $crew) => expect($crew->value)->toBeInstanceOf(\Kiwilan\Tmdb\Models\Credits\Crew::class));
+    expect($movie->getCredits()->getCrew())->each(fn (Pest\Expectation $crew) => expect($crew->value)->toBeInstanceOf(Crew::class));
 
     $credits = $movie->getCredits()->getCreators();
     expect(reset($credits)?->getName())->toBe('Peter Jackson');
@@ -114,7 +117,7 @@ it('can get movie spoken languages', function () {
     expect($movie->getSpokenLanguages())->not()->toBeNull();
     expect($movie->getSpokenLanguages())->toBeArray();
     expect($movie->getSpokenLanguages())->not()->toBeEmpty();
-    expect($movie->getSpokenLanguages())->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(\Kiwilan\Tmdb\Models\SpokenLanguage::class));
+    expect($movie->getSpokenLanguages())->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(SpokenLanguage::class));
 });
 
 it('can get movie recommendations', function () {
@@ -154,6 +157,7 @@ it('can get movie companies', function () {
     expect($first->getLogoPath())->toBeString();
     expect($first->getName())->toBe('New Line Cinema');
     expect($first->getOriginCountry())->toBe('US');
+    ray($first);
 });
 
 it('can get movie countries', function () {

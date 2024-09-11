@@ -21,16 +21,31 @@ trait HasPoster
 
     public function getPosterUrl(?PosterSize $size = null): ?string
     {
-        return TmdbPoster::make($this->poster_path)->getUrl($size);
+        $poster = TmdbPoster::make($this->poster_path);
+        if ($size) {
+            $poster->size($size);
+        }
+
+        return $poster->getUrl();
     }
 
     public function getPosterImage(?PosterSize $size = null): ?string
     {
-        return TmdbPoster::make($this->poster_path)->getImage($size);
+        $poster = TmdbPoster::make($this->poster_path);
+        if ($size) {
+            $poster->size($size);
+        }
+
+        return $poster->getImage();
     }
 
     public function savePosterImage(string $path, ?PosterSize $size = null): bool
     {
-        return TmdbPoster::make($this->poster_path)->saveImage($path, $size);
+        $poster = TmdbPoster::make($this->poster_path);
+        if ($size) {
+            $poster->size($size);
+        }
+
+        return $poster->saveImage($path);
     }
 }

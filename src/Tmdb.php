@@ -2,6 +2,9 @@
 
 namespace Kiwilan\Tmdb;
 
+use Kiwilan\Tmdb\Models\Common\Company;
+use Kiwilan\Tmdb\Models\Credits;
+
 class Tmdb
 {
     const BASE_URL = 'https://api.themoviedb.org/3';
@@ -40,7 +43,7 @@ class Tmdb
      */
     public function searchMovie(string $query, Query\SearchMovieQuery $params = new Query\SearchMovieQuery): \Kiwilan\Tmdb\Models\Search\SearchMovies
     {
-        $url = 'https://api.themoviedb.org/3/search/movie';
+        $url = $this->getUrl('/search/movie');
         $queryParams = [
             'query' => $query,
             ...$params->toQueryParams(),
@@ -57,9 +60,9 @@ class Tmdb
      * @param  string  $query  The search query
      * @param  Query\SearchTvSeriesQuery  $params  The search query parameters for additional information
      */
-    public function searchTvSeries(string $query, Query\SearchTvSeriesQuery $params = new Query\SearchTvSeriesQuery): \Kiwilan\Tmdb\Models\Search\SearchMovies
+    public function searchTvSeries(string $query, Query\SearchTvSeriesQuery $params = new Query\SearchTvSeriesQuery): \Kiwilan\Tmdb\Models\Search\SearchTvSeries
     {
-        $url = ' https://api.themoviedb.org/3/search/tv';
+        $url = $this->getUrl('/search/tv');
         $queryParams = [
             'query' => $query,
             ...$params->toQueryParams(),
@@ -67,18 +70,18 @@ class Tmdb
 
         $response = $this->execute($url, $queryParams);
 
-        return new \Kiwilan\Tmdb\Models\Search\SearchMovies($response);
+        return new \Kiwilan\Tmdb\Models\Search\SearchTvSeries($response);
     }
 
     /**
      * Get movie details
      *
-     * @param  int  $movieId  The TMDB movie ID
+     * @param  int  $movie_id  The TMDB movie ID
      * @param  string|null  $appendToResponse  To get additional information
      */
-    public function getMovie(int $movieId, ?string $appendToResponse = null): ?\Kiwilan\Tmdb\Models\Movie
+    public function getMovie(int $movie_id, ?string $appendToResponse = null): ?\Kiwilan\Tmdb\Models\Movie
     {
-        $url = "https://api.themoviedb.org/3/movie/{$movieId}";
+        $url = $this->getUrl("/movie/{$movie_id}");
         $queryParams = [
             'append_to_response' => $appendToResponse,
             'language' => $this->language,
@@ -87,6 +90,58 @@ class Tmdb
         $response = $this->execute($url, $queryParams);
 
         return $this->isSuccess ? new \Kiwilan\Tmdb\Models\Movie($response) : null;
+    }
+
+    /**
+     * Get TV series details
+     *
+     * @param  int  $series_id  The TMDB TV series ID
+     * @param  string|null  $appendToResponse  To get additional information
+     */
+    public function getTVSeries(int $series_id, ?string $appendToResponse = null): ?\Kiwilan\Tmdb\Models\TvSeries
+    {
+        $url = $this->getUrl("/tv/{$series_id}");
+        $queryParams = [
+            'append_to_response' => $appendToResponse,
+            'language' => $this->language,
+        ];
+
+        $response = $this->execute($url, $queryParams);
+
+        return $this->isSuccess ? new \Kiwilan\Tmdb\Models\TvSeries($response) : null;
+    }
+
+    /**
+     * Get company details
+     *
+     * @param  int  $company_id  The TMDB company ID
+     */
+    public function getCompany(int $company_id): ?Company
+    {
+        $url = $this->getUrl("/company/{$company_id}");
+
+        $response = $this->execute($url);
+
+        return $this->isSuccess ? new Company($response) : null;
+    }
+
+    /**
+     * Get credits details
+     *
+     * @param  int  $credit_id  The TMDB credit ID
+     */
+    public function getCredits(int $credit_id): ?Credits
+    {
+        $url = $this->getUrl("/credit/{$credit_id}");
+
+        $response = $this->execute($url);
+
+        return $this->isSuccess ? new Credits($response) : null;
+    }
+
+    private function getUrl(string $path): string
+    {
+        return self::BASE_URL.$path;
     }
 
     private function execute(string $url, array $queryParams = []): ?array

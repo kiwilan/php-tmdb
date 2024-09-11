@@ -2,8 +2,8 @@
 
 namespace Kiwilan\Tmdb\Traits;
 
-use Kiwilan\Tmdb\Enums\PosterSize;
-use Kiwilan\Tmdb\Utils\TmdbPoster;
+use Kiwilan\Tmdb\Enums\BackdropSize;
+use Kiwilan\Tmdb\Utils\TmdbBackdrop;
 
 trait HasBackdrop
 {
@@ -19,18 +19,33 @@ trait HasBackdrop
         return $this->backdrop_path;
     }
 
-    public function getBackdropUrl(?PosterSize $size = null): ?string
+    public function getBackdropUrl(?BackdropSize $size = null): ?string
     {
-        return TmdbPoster::make($this->backdrop_path)->getUrl($size);
+        $backdrop = TmdbBackdrop::make($this->backdrop_path);
+        if ($size) {
+            $backdrop->size($size);
+        }
+
+        return $backdrop->getUrl();
     }
 
-    public function getBackdropImage(?PosterSize $size = null): ?string
+    public function getBackdropImage(?BackdropSize $size = null): ?string
     {
-        return TmdbPoster::make($this->backdrop_path)->getImage($size);
+        $backdrop = TmdbBackdrop::make($this->backdrop_path);
+        if ($size) {
+            $backdrop->size($size);
+        }
+
+        return $backdrop->getImage();
     }
 
-    public function saveBackdropImage(string $path, ?PosterSize $size = null): bool
+    public function saveBackdropImage(string $path, ?BackdropSize $size = null): bool
     {
-        return TmdbPoster::make($this->backdrop_path)->saveImage($path, $size);
+        $backdrop = TmdbBackdrop::make($this->backdrop_path);
+        if ($size) {
+            $backdrop->size($size);
+        }
+
+        return $backdrop->saveImage($path);
     }
 }
