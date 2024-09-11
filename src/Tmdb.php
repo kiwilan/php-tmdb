@@ -2,8 +2,13 @@
 
 namespace Kiwilan\Tmdb;
 
+use Kiwilan\Tmdb\Models\Collection;
 use Kiwilan\Tmdb\Models\Common\Company;
 use Kiwilan\Tmdb\Models\Credits;
+use Kiwilan\Tmdb\Models\Movie;
+use Kiwilan\Tmdb\Models\Search\SearchMovies;
+use Kiwilan\Tmdb\Models\Search\SearchTvSeries;
+use Kiwilan\Tmdb\Models\TvSeries;
 
 class Tmdb
 {
@@ -41,7 +46,7 @@ class Tmdb
      * @param  string  $query  The search query
      * @param  Query\SearchMovieQuery  $params  The search query parameters for additional information
      */
-    public function searchMovie(string $query, Query\SearchMovieQuery $params = new Query\SearchMovieQuery): \Kiwilan\Tmdb\Models\Search\SearchMovies
+    public function searchMovie(string $query, Query\SearchMovieQuery $params = new Query\SearchMovieQuery): SearchMovies
     {
         $url = $this->getUrl('/search/movie');
         $queryParams = [
@@ -51,7 +56,7 @@ class Tmdb
 
         $response = $this->execute($url, $queryParams);
 
-        return new \Kiwilan\Tmdb\Models\Search\SearchMovies($response);
+        return new SearchMovies($response);
     }
 
     /**
@@ -60,7 +65,7 @@ class Tmdb
      * @param  string  $query  The search query
      * @param  Query\SearchTvSeriesQuery  $params  The search query parameters for additional information
      */
-    public function searchTvSeries(string $query, Query\SearchTvSeriesQuery $params = new Query\SearchTvSeriesQuery): \Kiwilan\Tmdb\Models\Search\SearchTvSeries
+    public function searchTvSeries(string $query, Query\SearchTvSeriesQuery $params = new Query\SearchTvSeriesQuery): SearchTvSeries
     {
         $url = $this->getUrl('/search/tv');
         $queryParams = [
@@ -70,7 +75,7 @@ class Tmdb
 
         $response = $this->execute($url, $queryParams);
 
-        return new \Kiwilan\Tmdb\Models\Search\SearchTvSeries($response);
+        return new SearchTvSeries($response);
     }
 
     /**
@@ -79,7 +84,7 @@ class Tmdb
      * @param  int  $movie_id  The TMDB movie ID
      * @param  string|null  $appendToResponse  To get additional information
      */
-    public function getMovie(int $movie_id, ?string $appendToResponse = null): ?\Kiwilan\Tmdb\Models\Movie
+    public function getMovie(int $movie_id, ?string $appendToResponse = null): ?Movie
     {
         $url = $this->getUrl("/movie/{$movie_id}");
         $queryParams = [
@@ -89,7 +94,7 @@ class Tmdb
 
         $response = $this->execute($url, $queryParams);
 
-        return $this->isSuccess ? new \Kiwilan\Tmdb\Models\Movie($response) : null;
+        return $this->isSuccess ? new Movie($response) : null;
     }
 
     /**
@@ -98,7 +103,7 @@ class Tmdb
      * @param  int  $series_id  The TMDB TV series ID
      * @param  string|null  $appendToResponse  To get additional information
      */
-    public function getTVSeries(int $series_id, ?string $appendToResponse = null): ?\Kiwilan\Tmdb\Models\TvSeries
+    public function getTVSeries(int $series_id, ?string $appendToResponse = null): ?TvSeries
     {
         $url = $this->getUrl("/tv/{$series_id}");
         $queryParams = [
@@ -108,7 +113,25 @@ class Tmdb
 
         $response = $this->execute($url, $queryParams);
 
-        return $this->isSuccess ? new \Kiwilan\Tmdb\Models\TvSeries($response) : null;
+        return $this->isSuccess ? new TvSeries($response) : null;
+    }
+
+    /**
+     * Get collection details
+     *
+     * @param  int  $collection_id  The TMDB collection ID
+     * @param  ?string  $language  The language to get the collection details (can override the default language)
+     */
+    public function getCollection(int $collection_id, ?string $language = null): ?Collection
+    {
+        $url = $this->getUrl("/collection/{$collection_id}");
+        $queryParams = [
+            'language' => $language ?? $this->language,
+        ];
+
+        $response = $this->execute($url, $queryParams);
+
+        return $this->isSuccess ? new Collection($response) : null;
     }
 
     /**

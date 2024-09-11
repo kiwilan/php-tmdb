@@ -15,15 +15,12 @@ class BelongsToCollection extends TmdbModel
 
     protected ?string $name = null;
 
-    protected ?string $overview = null;
-
     protected ?string $backdrop_path = null;
 
     public function __construct(array $data)
     {
         $this->setId($data);
         $this->name = $this->toString($data, 'name');
-        $this->overview = $this->toString($data, 'overview');
         $this->setId($data);
         $this->setPosterPath($data);
         $this->setBackdropPath($data);
@@ -32,10 +29,5 @@ class BelongsToCollection extends TmdbModel
     public function getName(): ?string
     {
         return $this->name;
-    }
-
-    public function getOverview(): ?string
-    {
-        return $this->overview;
     }
 }

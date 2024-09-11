@@ -175,3 +175,13 @@ it('can get directors', function () {
     $directors = $movie->getDirectors();
     expect(reset($directors)?->getName())->toBe('Peter Jackson');
 });
+
+it('can get belongs to', function () {
+    $movie = Tmdb::client(apiKey())->getMovie(120);
+
+    expect($movie->getBelongsToCollection())->toBeInstanceOf(BelongsToCollection::class);
+    expect($movie->getBelongsToCollection()->getId())->toBe(119);
+    expect($movie->getBelongsToCollection()->getName())->toBe('The Lord of the Rings Collection');
+    expect($movie->getBelongsToCollection()->getPosterPath())->toBeString();
+    expect($movie->getBelongsToCollection()->getBackdropPath())->toBeString();
+});
