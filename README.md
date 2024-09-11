@@ -25,6 +25,8 @@ _This is NOT official TMDB API PHP wrapper, you can check [php-tmdb/api](https:/
 
 PHP 8.1 and later.
 
+> [!NOTE] > `guzzlehttp/guzzle` will be installed automatically by Composer.
+
 ## Features
 
 -   🔍 Search Movie and TV Series
