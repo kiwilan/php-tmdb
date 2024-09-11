@@ -269,6 +269,37 @@ $episode = Tmdb::client('API_KEY')
     ->details(series_id: 1399, season_number: 1, episode_number: 1, append_to_response: 'credits'); // ?\Kiwilan\Tmdb\Models\Episode
 ```
 
+## Images
+
+For any model with image (poster, backdrop, logo, profile, still), you can use multiple methods:
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$movie = Tmdb::client('API_KEY')
+    ->movies()
+    ->details(movie_id: 120); // ?\Kiwilan\Tmdb\Models\Movie
+
+$poster_path = $movie->getPosterPath(); // string|null (path to poster)
+$poster_url = $movie->getPosterUrl(); // string|null (URL to poster)
+$poster_image = $movie->getPosterImage(); // string|null (binary image)
+$success = $movie->savePosterImage('path/to/save/poster.jpg'); // bool (true if success)
+```
+
+You can change the size of the image with `size` option, available for `get*Url`, `get*Image` and `save*Image` methods:
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$movie = Tmdb::client('API_KEY')
+    ->movies()
+    ->details(movie_id: 120); // ?\Kiwilan\Tmdb\Models\Movie
+
+$poster_path = $movie->getPosterUrl(size: PosterSize::W500); // string|null (path to poster)
+```
+
+These methods are available for `Poster`, `Backdrop`, `Logo`, `Profile` and `Still`.
+
 ## Testing
 
 ```bash
