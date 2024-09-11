@@ -104,7 +104,8 @@ it('can get movie credits', function () {
     expect($movie->getCredits()->getCrew())->not()->toBeEmpty();
     expect($movie->getCredits()->getCrew())->each(fn (Pest\Expectation $crew) => expect($crew->value)->toBeInstanceOf(\Kiwilan\Tmdb\Models\Credits\Crew::class));
 
-    expect(reset($movie->getCredits()->getCreators())?->getName())->toBe('Peter Jackson');
+    $credits = $movie->getCredits()->getCreators();
+    expect(reset($credits)?->getName())->toBe('Peter Jackson');
 });
 
 it('can get movie spoken languages', function () {
@@ -143,11 +144,12 @@ it('can get null if movie not exists (tmdb id)', function () {
 
 it('can get movie companies', function () {
     $movie = Tmdb::client(apiKey())->getMovie(120);
-    expect($movie->getProductionCompanies())->toBeArray();
-    expect($movie->getProductionCompanies())->not()->toBeEmpty();
-    expect($movie->getProductionCompanies())->each(fn (Pest\Expectation $company) => expect($company->value)->toBeInstanceOf(Company::class));
+    $companies = $movie->getProductionCompanies();
+    expect($companies)->toBeArray();
+    expect($companies)->not()->toBeEmpty();
+    expect($companies)->each(fn (Pest\Expectation $company) => expect($company->value)->toBeInstanceOf(Company::class));
 
-    $first = reset($movie->getProductionCompanies());
+    $first = reset($companies);
     expect($first->getId())->toBe(12);
     expect($first->getLogoPath())->toBeString();
     expect($first->getName())->toBe('New Line Cinema');
@@ -156,11 +158,12 @@ it('can get movie companies', function () {
 
 it('can get movie countries', function () {
     $movie = Tmdb::client(apiKey())->getMovie(120);
-    expect($movie->getProductionCountries())->toBeArray();
-    expect($movie->getProductionCountries())->not()->toBeEmpty();
-    expect($movie->getProductionCountries())->each(fn (Pest\Expectation $country) => expect($country->value)->toBeInstanceOf(Country::class));
+    $countries = $movie->getProductionCountries();
+    expect($countries)->toBeArray();
+    expect($countries)->not()->toBeEmpty();
+    expect($countries)->each(fn (Pest\Expectation $country) => expect($country->value)->toBeInstanceOf(Country::class));
 
-    $first = reset($movie->getProductionCountries());
+    $first = reset($countries);
     expect($first->getIso31661())->toBe('NZ');
     expect($first->getName())->toBeString('New Zealand');
 });
