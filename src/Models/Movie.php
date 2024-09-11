@@ -164,9 +164,8 @@ class Movie
             $this->recommendations = new Search\SearchMovies($data['recommendations']);
         }
 
-        ray($data['similar'] ?? null);
         if (isset($data['similar'])) {
-            $this->recommendations = new Search\SearchMovies($data['similar']);
+            $this->similar = new Search\SearchMovies($data['similar']);
         }
     }
 
