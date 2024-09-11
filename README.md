@@ -1,4 +1,4 @@
-# PHP eBook
+# PHP TMDB
 
 ![Banner with eReader picture in background and PHP eBook title](https://raw.githubusercontent.com/kiwilan/php-tmdb/main/docs/banner.jpg)
 
@@ -9,13 +9,16 @@
 [![tests][tests-src]][tests-href]
 [![codecov][codecov-src]][codecov-href]
 
-PHP package to read metadata and extract covers from eBooks, comics and audiobooks.
+PHP package to interact with the [The Movie Database (TMDb) API](https://www.themoviedb.org/documentation/api).
+
+> [!IMPORTANT]
+> You need to create an account on [TMDb](https://www.themoviedb.org/) and get an API key to use this package. It's free and easy to do, you can read [this guide](https://developer.themoviedb.org/docs/getting-started) to get started.
 
 //
 
 ## Requirements
 
-//
+PHP 8.1 and later.
 
 ## Features
 
@@ -43,6 +46,10 @@ composer require kiwilan/php-tmdb
 composer test
 ```
 
+## Contributing
+
+A fix? A new feature? A typo? You're welcome to contribute to this project. Just open a pull request.
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
@@ -57,7 +64,13 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[<img src="https://user-images.githubusercontent.com/48261459/201463225-0a5a084e-df15-4b11-b1d2-40fafd3555cf.svg" height="120rem" width="100%" />](https://github.com/kiwilan)
+<p align="center">
+    <img
+        src="https://user-images.githubusercontent.com/48261459/201463225-0a5a084e-df15-4b11-b1d2-40fafd3555cf.svg"
+        height="120rem"
+        alt="https://github.com/kiwilan/php-tmdb"
+    />
+</p>
 
 [version-src]: https://img.shields.io/packagist/v/kiwilan/php-tmdb.svg?style=flat&colorA=18181B&colorB=777BB4
 [version-href]: https://packagist.org/packages/kiwilan/php-tmdb
