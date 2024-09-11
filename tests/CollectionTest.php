@@ -65,5 +65,5 @@ it('can get collection details', function () {
     ray($collection);
     expect($collection->getParts())->toBeArray();
     expect($collection->getParts())->not()->toBeEmpty();
-    expect($collection->getParts())->each(fn (Pest\Expectation $part) => expect($part)->toBeInstanceOf(Movie::class));
+    expect($collection->getParts())->each(fn (Pest\Expectation $part) => expect($part->value)->toBeInstanceOf(Movie::class));
 });
