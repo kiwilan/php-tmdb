@@ -21,7 +21,7 @@ class BelongsToCollection extends TmdbModel
 
     public function __construct(array $data)
     {
-        $this->id = $this->toInt($data, 'id');
+        $this->setId($data);
         $this->name = $this->toString($data, 'name');
         $this->overview = $this->toString($data, 'overview');
         $this->setId($data);
