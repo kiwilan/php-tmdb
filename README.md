@@ -73,8 +73,8 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
 
 ### Roadmap
 
--   [Account](https://developer.themoviedb.org/reference/account-details): not planned
--   [Authentication](https://developer.themoviedb.org/reference/authentication-create-guest-session): not planned
+-   [ ] [Account](https://developer.themoviedb.org/reference/account-details): not planned
+-   [ ] [Authentication](https://developer.themoviedb.org/reference/authentication-create-guest-session): not planned
 -   [ ] Certifications
     -   [ ] [Movie Certifications](https://developer.themoviedb.org/reference/certification-movie-list)
     -   [ ] [TV Certifications](https://developer.themoviedb.org/reference/certifications-tv-list)
@@ -90,7 +90,7 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [Details](https://developer.themoviedb.org/reference/company-details): for v1
     -   [ ] [Alternative Names](https://developer.themoviedb.org/reference/company-alternative-names)
     -   [ ] [Images](https://developer.themoviedb.org/reference/company-images)
--   [Configuration](https://developer.themoviedb.org/reference/configuration-details): not planned
+-   [ ] [Configuration](https://developer.themoviedb.org/reference/configuration-details): not planned
 -   [ ] Credits
     -   [ ] [Details](https://developer.themoviedb.org/reference/credit-details)
 -   [ ] Discover
@@ -101,9 +101,9 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
 -   [ ] Genres
     -   [ ] [Movie List](https://developer.themoviedb.org/reference/genre-movie-list)
     -   [ ] [TV List](https://developer.themoviedb.org/reference/genre-tv-list)
--   [Guest Sessions](https://developer.themoviedb.org/reference/guest-session-rated-movies): not planned
--   [Keywords](https://developer.themoviedb.org/reference/keyword-list): not planned
--   [Lists](https://developer.themoviedb.org/reference/list-add-movie): not planned
+-   [ ] [Guest Sessions](https://developer.themoviedb.org/reference/guest-session-rated-movies): not planned
+-   [ ] [Keywords](https://developer.themoviedb.org/reference/keyword-list): not planned
+-   [ ] [Lists](https://developer.themoviedb.org/reference/list-add-movie): not planned
 -   [ ] Movie Lists
     -   [ ] [Now playing](https://developer.themoviedb.org/reference/movie-now-playing-list): for v1
     -   [ ] [Popular](https://developer.themoviedb.org/reference/movie-popular-list): for v1
