@@ -151,6 +151,21 @@ $tvSeries = $results->getResults(); // \Kiwilan\Tmdb\Models\TvSeries[]
 $firstTvSeries = $results->getFirstResult(); // ?\Kiwilan\Tmdb\Models\TvSeries
 ```
 
+You can use options into your search:
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+use Kiwilan\Tmdb\Query\SearchTvSeriesQuery;
+
+$results = Tmdb::client('API_KEY')->searchTvSeries('game of thrones', new SearchTvSeriesQuery(
+    first_air_date_year: 2011,
+    include_adult: true,
+    language: 'fr-FR',
+    page: 1,
+    year: 2011,
+));
+```
+
 ### TV Series
 
 #### Details
