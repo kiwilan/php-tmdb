@@ -110,7 +110,7 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [Top Rated](https://developer.themoviedb.org/reference/movie-top-rated-list): for v1
     -   [ ] [Upcoming](https://developer.themoviedb.org/reference/movie-upcoming-list): for v1
 -   [ ] Movies
-    -   [ ] [Details](https://developer.themoviedb.org/reference/movie-details): for v1
+    -   [x] [Details](https://developer.themoviedb.org/reference/movie-details): for v1
     -   [ ] [Account States](https://developer.themoviedb.org/reference/movie-account-states)
     -   [ ] [Alternative Titles](https://developer.themoviedb.org/reference/movie-alternative-titles): for v1
     -   [ ] [Changes](https://developer.themoviedb.org/reference/movie-changes)
@@ -151,10 +151,10 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [Collection](https://developer.themoviedb.org/reference/search-collection): for v1
     -   [ ] [Company](https://developer.themoviedb.org/reference/search-company): for v1
     -   [ ] [Keyword](https://developer.themoviedb.org/reference/search-keyword): for v1
-    -   [ ] [Movie](https://developer.themoviedb.org/reference/search-movie): for v1
+    -   [x] [Movie](https://developer.themoviedb.org/reference/search-movie): for v1
     -   [ ] [Multi](https://developer.themoviedb.org/reference/search-multi): for v1
     -   [ ] [Person](https://developer.themoviedb.org/reference/search-person): for v1
-    -   [ ] [TV](https://developer.themoviedb.org/reference/search-tv): for v1
+    -   [x] [TV](https://developer.themoviedb.org/reference/search-tv): for v1
 -   [ ] Trending
     -   [ ] [All](https://developer.themoviedb.org/reference/trending-all): for v1.5
     -   [ ] [Movie](https://developer.themoviedb.org/reference/trending-movie): for v1.5
@@ -166,7 +166,7 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [Popular](https://developer.themoviedb.org/reference/tv-series-popular-list): for v1.5
     -   [ ] [Top Rated](https://developer.themoviedb.org/reference/tv-series-top-rated-list): for v1.5
 -   [ ] TV Series
-    -   [ ] [Details](https://developer.themoviedb.org/reference/tv-series-details): for v1
+    -   [x] [Details](https://developer.themoviedb.org/reference/tv-series-details): for v1
     -   [ ] [Account States](https://developer.themoviedb.org/reference/tv-series-account-states)
     -   [ ] [Aggregate Credits](https://developer.themoviedb.org/reference/tv-series-aggregate-credits): for v1.5
     -   [ ] [Alternative Titles](https://developer.themoviedb.org/reference/tv-series-alternative-titles): for v1
