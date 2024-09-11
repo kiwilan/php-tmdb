@@ -292,7 +292,7 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [Add Rating](https://developer.themoviedb.org/reference/tv-series-add-rating): not planned
     -   [ ] [Delete Rating](https://developer.themoviedb.org/reference/tv-series-delete-rating): not planned
 -   [ ] TV Season
-    -   [ ] [Details](https://developer.themoviedb.org/reference/tv-season-details): for v1
+    -   [x] [Details](https://developer.themoviedb.org/reference/tv-season-details): for v1
     -   [ ] [Account States](https://developer.themoviedb.org/reference/tv-season-account-states)
     -   [ ] [Aggregate Credits](https://developer.themoviedb.org/reference/tv-season-aggregate-credits): for v1.5
     -   [ ] [Changes](https://developer.themoviedb.org/reference/tv-season-changes-by-id)
@@ -303,7 +303,7 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [Videos](https://developer.themoviedb.org/reference/tv-season-videos): for v1
     -   [ ] [Watch Providers](https://developer.themoviedb.org/reference/tv-season-watch-providers)
 -   [ ] TV Episode
-    -   [ ] [Details](https://developer.themoviedb.org/reference/tv-episode-details): for v1
+    -   [x] [Details](https://developer.themoviedb.org/reference/tv-episode-details): for v1
     -   [ ] [Account States](https://developer.themoviedb.org/reference/tv-episode-account-states)
     -   [ ] [Changes](https://developer.themoviedb.org/reference/tv-episode-changes-by-id)
     -   [ ] [Credits](https://developer.themoviedb.org/reference/tv-episode-credits): for v1
