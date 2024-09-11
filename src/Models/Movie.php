@@ -29,6 +29,9 @@ class Movie
 
     protected ?string $imdb_id = null;
 
+    /** @var string[]|null */
+    protected ?array $origin_country = null;
+
     protected ?string $original_language = null;
 
     protected ?string $original_title = null;
@@ -91,15 +94,18 @@ class Movie
         $this->belongs_to_collection = $belongs_to_collection ? new Movie\BelongsToCollection($belongs_to_collection) : null;
         $this->budget = $data['budget'] ?? null;
         $this->genre_ids = $data['genre_ids'] ?? null;
+
         $this->genres = [];
         if (isset($data['genres']) && is_array($data['genres'])) {
             foreach ($data['genres'] as $genreData) {
                 $this->genres[] = new Genre($genreData);
             }
         }
+
         $this->homepage = $data['homepage'] ?? null;
         $this->id = $data['id'] ?? null;
         $this->imdb_id = $data['imdb_id'] ?? null;
+        $this->origin_country = $data['origin_country'] ?? null;
         $this->original_language = $data['original_language'] ?? null;
         $this->original_title = $data['original_title'] ?? null;
         $this->overview = $data['overview'] ?? null;
@@ -144,7 +150,7 @@ class Movie
         }
 
         if (isset($data['credits'])) {
-            // $this->credits = new Credits($data['credits']);
+            $this->credits = new Credits($data['credits']);
         }
 
         if (isset($data['release_dates'])) {
@@ -155,11 +161,12 @@ class Movie
         }
 
         if (isset($data['recommendations'])) {
-            // $this->recommendations = new MovieRecommendations($data['recommendations']);
+            $this->recommendations = new Search\SearchMovies($data['recommendations']);
         }
 
+        ray($data['similar'] ?? null);
         if (isset($data['similar'])) {
-            // $this->similar = new MovieSimilar($data['similar']);
+            $this->recommendations = new Search\SearchMovies($data['similar']);
         }
     }
 
@@ -211,6 +218,16 @@ class Movie
     public function getImdbId(): ?string
     {
         return $this->imdb_id;
+    }
+
+    /**
+     * Get the origin country.
+     *
+     * @return string[]|null
+     */
+    public function getOriginCountry(): ?array
+    {
+        return $this->origin_country;
     }
 
     public function getOriginalLanguage(): ?string
