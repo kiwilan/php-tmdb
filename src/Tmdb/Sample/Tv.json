@@ -1,0 +1,155 @@
+{
+  "adult": false,
+  "backdrop_path": "/tt8aYosM0P4henWHc9SMdNlX1Gj.jpg",
+  "created_by": [
+    {
+      "id": 932248,
+      "credit_id": "60548b4042f19f003c9a3393",
+      "name": "Fede Álvarez",
+      "gender": 2,
+      "profile_path": "/f8KjBkmqAyNGTUkZh1oYIURP4id.jpg"
+    }
+  ],
+  "episode_run_time": [17],
+  "first_air_date": "2021-03-19",
+  "genres": [
+    {
+      "id": 9648,
+      "name": "Mystery"
+    },
+    {
+      "id": 18,
+      "name": "Drama"
+    },
+    {
+      "id": 10765,
+      "name": "Sci-Fi & Fantasy"
+    }
+  ],
+  "homepage": "https://tv.apple.com/show/umc.cmc.7hp8sparfsxo0l4f712f3mf2r",
+  "id": 119934,
+  "in_production": false,
+  "languages": ["en"],
+  "last_air_date": "2021-03-19",
+  "last_episode_to_air": {
+    "id": 2768480,
+    "name": "Leap Year Girl",
+    "overview": "\"Please put your daddy issues aside, okay? The fate of the world depends on it.\"",
+    "vote_average": 5.2,
+    "vote_count": 9,
+    "air_date": "2021-03-19",
+    "episode_number": 9,
+    "episode_type": "finale",
+    "production_code": "",
+    "runtime": 21,
+    "season_number": 1,
+    "show_id": 119934,
+    "still_path": "/xgoeJMvCUKDZSXu708XoKr3TGfr.jpg"
+  },
+  "name": "Calls",
+  "next_episode_to_air": null,
+  "networks": [
+    {
+      "id": 2552,
+      "logo_path": "/4KAy34EHvRM25Ih8wb82AuGU7zJ.png",
+      "name": "Apple TV+",
+      "origin_country": ""
+    }
+  ],
+  "number_of_episodes": 9,
+  "number_of_seasons": 1,
+  "origin_country": ["US"],
+  "original_language": "en",
+  "original_name": "Calls",
+  "overview": "A series of interconnected phone conversations chronicling the mysterious story of a group of strangers whose lives are thrown into disarray in the lead-up to an apocalyptic event.",
+  "popularity": 28.633,
+  "poster_path": "/lzb4SwMTwNZPaifi0qDc9U0imzG.jpg",
+  "production_companies": [
+    {
+      "id": 104,
+      "logo_path": "/9aotxauvc9685tq9pTcRJszuT06.png",
+      "name": "Canal+",
+      "origin_country": "FR"
+    },
+    {
+      "id": 694,
+      "logo_path": "/5LEHONGkZBIoWvp1ygHOF8iyi1M.png",
+      "name": "StudioCanal",
+      "origin_country": "FR"
+    },
+    {
+      "id": 125512,
+      "logo_path": null,
+      "name": "Bad Hombre Films",
+      "origin_country": "US"
+    },
+    {
+      "id": 17754,
+      "logo_path": null,
+      "name": "Logan",
+      "origin_country": ""
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "FR",
+      "name": "France"
+    },
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "seasons": [
+    {
+      "air_date": "2021-03-19",
+      "episode_count": 9,
+      "id": 184108,
+      "name": "Season 1",
+      "overview": "",
+      "poster_path": "/lzb4SwMTwNZPaifi0qDc9U0imzG.jpg",
+      "season_number": 1,
+      "vote_average": 5.5
+    }
+  ],
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Ended",
+  "tagline": "It's all in your head.",
+  "type": "Scripted",
+  "vote_average": 7.116,
+  "vote_count": 129,
+  "alternative_titles": {
+    "results": [
+      {
+        "iso_3166_1": "FR",
+        "title": "Calls US",
+        "type": ""
+      },
+      {
+        "iso_3166_1": "JP",
+        "title": "Calls コール",
+        "type": ""
+      }
+    ]
+  },
+  "content_ratings": {
+    "results": [
+      {
+        "descriptors": [],
+        "iso_3166_1": "US",
+        "rating": "TV-MA"
+      },
+      {
+        "descriptors": [],
+        "iso_3166_1": "DE",
+        "rating": "12"
+      }
+    ]
+  }
+}

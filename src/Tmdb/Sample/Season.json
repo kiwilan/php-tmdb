@@ -1,0 +1,98 @@
+{
+  "_id": "62ca4ac2498bc20698a198f3",
+  "air_date": "2023-09-28",
+  "episodes": [
+    {
+      "air_date": "2023-09-28",
+      "episode_number": 1,
+      "episode_type": "standard",
+      "id": 3829025,
+      "name": "God U.",
+      "overview": "Congratulations! You have been chosen for admission to Godolkin University! We're thrilled to be a part of your journey to discovering what kind of super you are! Since its founding in 1965, God U has produced some of the best and brightest superheroes the world has ever known, including three members of The Seven! And who knows? Maybe you'll be next!",
+      "production_code": "BYSO 101",
+      "runtime": 59,
+      "season_number": 1,
+      "show_id": 205715,
+      "still_path": "/tzWMqlYUprbPSSdcsg9cea2p4oI.jpg",
+      "vote_average": 7.4,
+      "vote_count": 9,
+      "crew": [
+        {
+          "job": "Writer",
+          "department": "Writing",
+          "credit_id": "62ca4e93eea34d004d73fad2",
+          "adult": false,
+          "gender": 2,
+          "id": 58922,
+          "known_for_department": "Writing",
+          "name": "Craig Rosenberg",
+          "original_name": "Craig Rosenberg",
+          "popularity": 7.921,
+          "profile_path": null
+        },
+        {
+          "job": "Director",
+          "department": "Directing",
+          "credit_id": "6516753f93bd690138fcc7e5",
+          "adult": false,
+          "gender": 2,
+          "id": 959352,
+          "known_for_department": "Camera",
+          "name": "Nelson Cragg",
+          "original_name": "Nelson Cragg",
+          "popularity": 5.389,
+          "profile_path": "/rQlWQmPTlMUSFzjNljUx6NTIiEQ.jpg"
+        }
+      ],
+      "guest_stars": [
+        {
+          "character": "Madelyn Stillwell",
+          "credit_id": "651673179b861600ff68897d",
+          "order": 500,
+          "adult": false,
+          "gender": 1,
+          "id": 1951,
+          "known_for_department": "Acting",
+          "name": "Elisabeth Shue",
+          "original_name": "Elisabeth Shue",
+          "popularity": 36.963,
+          "profile_path": "/1pmjDSLvOuqKW1P2KRPlpFMeUFe.jpg"
+        },
+        {
+          "character": "A-Train",
+          "credit_id": "651673239b861600c5ca5aa4",
+          "order": 501,
+          "adult": false,
+          "gender": 2,
+          "id": 198847,
+          "known_for_department": "Acting",
+          "name": "Jessie T. Usher",
+          "original_name": "Jessie T. Usher",
+          "popularity": 26.742,
+          "profile_path": "/igRE9td7cO3j8YFMO7t1QrHYFxG.jpg"
+        }
+      ]
+    },
+    {
+      "air_date": "2023-09-28",
+      "episode_number": 2,
+      "episode_type": "standard",
+      "id": 4591456,
+      "name": "First Day",
+      "overview": "The Godolkin University Mental Health Hotline would like to remind students at this difficult time that you are not alone. You might be bulletproof on the outside, but you're not on the inside. Our caring staff is trained to deal with the specific emotional needs of superheroes and they're here to help you. If you need to talk to someone, help is just a phone call or vMessage away. #GodUCares",
+      "production_code": "BYSO 102",
+      "runtime": 50,
+      "season_number": 1,
+      "show_id": 205715,
+      "still_path": "/jZI9jDanZtpUVXvMvMhwM2SsTA8.jpg",
+      "vote_average": 8.0,
+      "vote_count": 7
+    }
+  ],
+  "name": "Season 1",
+  "overview": "",
+  "id": 300323,
+  "poster_path": "/uuot1N5AgZ7xRCKgm4ZCwOhgIJu.jpg",
+  "season_number": 1,
+  "vote_average": 8.1
+}

@@ -10,3 +10,4 @@ psalm.xml
 vendor
 .php-cs-fixer.cache
 .DS_Store
+.env
