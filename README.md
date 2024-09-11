@@ -16,6 +16,9 @@ PHP package to interact with the [The Movie Database (TMDb) API](https://www.the
 
 _Why this package? All current PHP packages to interact with the TMDb API are outdated and I need a modern and easy-to-use package to interact with the TMDb API. So I decided to create this package._
 
+> [!WARNING]
+> This package is under development.
+
 ## Requirements
 
 PHP 8.1 and later.
