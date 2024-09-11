@@ -71,7 +71,45 @@ use Kiwilan\Tmdb\Tmdb;
 $movie = Tmdb::client('API_KEY')->findMovie(120); // ?\Kiwilan\Tmdb\Models\Movie
 ```
 
+### Networks
+
+#### Details
+
+From <https://developer.themoviedb.org/reference/network-details>
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$company = Tmdb::client('API_KEY')->getNetwork(49); // ?\Kiwilan\Tmdb\Models\Company
+```
+
 ### Search
+
+#### Collection
+
+From <https://developer.themoviedb.org/reference/search-collection>
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$results = Tmdb::client('API_KEY')->searchCollection('the lord of the rings');
+$collections = $results->getResults(); // \Kiwilan\Tmdb\Models\Collection[]
+$firstCollection = $results->getFirstResult(); // ?\Kiwilan\Tmdb\Models\Collection
+```
+
+You can use options into your search:
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+use Kiwilan\Tmdb\Query\SearchCollectionQuery;
+
+$results = Tmdb::client('API_KEY')->searchCollections('le seigneur des anneaux', new SearchCollectionQuery(
+    include_adult: true,
+    language: 'fr-FR',
+    page: 1,
+    year: 2001,
+));
+```
 
 #### Movie
 

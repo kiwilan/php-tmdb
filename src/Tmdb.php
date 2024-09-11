@@ -6,10 +6,12 @@ use Kiwilan\Tmdb\Models\Collection;
 use Kiwilan\Tmdb\Models\Common\Company;
 use Kiwilan\Tmdb\Models\Credits;
 use Kiwilan\Tmdb\Models\Movie;
+use Kiwilan\Tmdb\Models\Search\SearchCollections;
 use Kiwilan\Tmdb\Models\Search\SearchMovies;
 use Kiwilan\Tmdb\Models\Search\SearchTvSeries;
 use Kiwilan\Tmdb\Models\TvSeries;
 use Kiwilan\Tmdb\Models\TvSeries\Episode;
+use Kiwilan\Tmdb\Models\TvSeries\Network;
 use Kiwilan\Tmdb\Models\TvSeries\Season;
 
 class Tmdb
@@ -48,7 +50,7 @@ class Tmdb
      * @param  string  $query  The search query
      * @param  Query\SearchMovieQuery  $params  The search query parameters for additional information
      *
-     * @docs https://developer.themoviedb.org/reference/search-tv
+     * @docs https://developer.themoviedb.org/reference/search-movie
      */
     public function searchMovie(string $query, Query\SearchMovieQuery $params = new Query\SearchMovieQuery): SearchMovies
     {
@@ -69,7 +71,7 @@ class Tmdb
      * @param  string  $query  The search query
      * @param  Query\SearchTvSeriesQuery  $params  The search query parameters for additional information
      *
-     * @docs https://developer.themoviedb.org/reference/movie-details
+     * @docs https://developer.themoviedb.org/reference/search-tv
      */
     public function searchTvSeries(string $query, Query\SearchTvSeriesQuery $params = new Query\SearchTvSeriesQuery): SearchTvSeries
     {
@@ -82,6 +84,43 @@ class Tmdb
         $response = $this->execute($url, $queryParams);
 
         return new SearchTvSeries($response);
+    }
+
+    /**
+     * Search collections
+     *
+     * @param  string  $query  The search query
+     * @param  Query\SearchCollectionQuery  $params  The search query parameters for additional information
+     *
+     * @docs https://developer.themoviedb.org/reference/search-collection
+     */
+    public function searchCollections(string $query, Query\SearchCollectionQuery $params = new Query\SearchCollectionQuery): SearchCollections
+    {
+        $url = $this->getUrl('/search/collection');
+        $queryParams = [
+            'query' => $query,
+            ...$params->toQueryParams(),
+        ];
+
+        $response = $this->execute($url, $queryParams);
+
+        return new SearchCollections($response);
+    }
+
+    /**
+     * Get network details
+     *
+     * @param  int  $network_id  The TMDB network ID
+     *
+     * @docs https://developer.themoviedb.org/reference/network-details
+     */
+    public function getNetwork(int $network_id): ?Network
+    {
+        $url = $this->getUrl("/network/{$network_id}");
+
+        $response = $this->execute($url);
+
+        return $this->isSuccess ? new Network($response) : null;
     }
 
     /**

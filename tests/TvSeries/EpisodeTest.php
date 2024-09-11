@@ -29,5 +29,12 @@ it('can find episode', function () {
     expect($episode->getVoteAverage())->toBeFloat();
     expect($episode->getVoteCount())->toBeInt();
     expect($episode->getId())->toBeInt();
+
     expect($episode->getStillPath())->toBeString();
+    expect($episode->getStillUrl())->toBeString();
+    expect($episode->getStillImage())->toBeString();
+
+    $path = mediaPath('/still-original.jpg');
+    expect($episode->saveStillImage($path))->toBeTrue();
+    expect(imageExists($path))->toBeTrue();
 });

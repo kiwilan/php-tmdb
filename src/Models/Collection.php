@@ -16,6 +16,12 @@ class Collection extends TmdbModel
 
     protected ?string $overview = null;
 
+    protected ?string $original_language = null;
+
+    protected ?string $original_name = null;
+
+    protected bool $adult = false;
+
     /** @var Movie[]|null */
     protected ?array $parts = null;
 
@@ -28,6 +34,9 @@ class Collection extends TmdbModel
         $this->setId($data);
         $this->name = $this->toString($data, 'name');
         $this->overview = $this->toString($data, 'overview');
+        $this->original_language = $this->toString($data, 'original_language');
+        $this->original_name = $this->toString($data, 'original_name');
+        $this->adult = $this->toBool($data, 'adult');
         $this->setPosterPath($data);
         $this->setBackdropPath($data);
 
@@ -44,6 +53,21 @@ class Collection extends TmdbModel
     public function getOverview(): string
     {
         return $this->overview;
+    }
+
+    public function getOriginalLanguage(): string
+    {
+        return $this->original_language;
+    }
+
+    public function getOriginalName(): string
+    {
+        return $this->original_name;
+    }
+
+    public function isAdult(): bool
+    {
+        return $this->adult;
     }
 
     /**

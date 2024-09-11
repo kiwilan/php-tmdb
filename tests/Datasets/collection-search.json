@@ -1,0 +1,37 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": null,
+            "id": 1173608,
+            "name": "The Making of The Lord of the Rings Collection",
+            "original_language": "en",
+            "original_name": "The Making of The Lord of the Rings Collection",
+            "overview": "Created by filmmaker Costa Botes (personally selected by Peter Jackson), this documentary uses raw footage to reveal the inside story on how the greatest adventure film franchise was born. Originally included as a bonus feature with \"The Lord of the Rings - Limited Edition\" DVD sets, later rarely released again.",
+            "poster_path": "/735CejHhLMNQFz7bw6weRbIRYVl.jpg"
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/8rKJzqBVUbcshKROW4pamVSt1UO.jpg",
+            "id": 141290,
+            "name": "The Lord of the Rings (Animated) Collection",
+            "original_language": "en",
+            "original_name": "The Lord of the Rings (Animated) Collection",
+            "overview": "A collection of the animated The Lord of the Rings movies by Rankin/Bass.",
+            "poster_path": "/yLzL7Pv4ZAJ81QD6esn0AqdNgzr.jpg"
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/bccR2CGTWVVSZAG0yqmy3DIvhTX.jpg",
+            "id": 119,
+            "name": "The Lord of the Rings Collection",
+            "original_language": "en",
+            "original_name": "The Lord of the Rings Collection",
+            "overview": "The Lord of the Rings trilogy consists of three epic fantasy films, based on the influential novels written by J. R. R. Tolkien, directed by Peter Jackson.",
+            "poster_path": "/oENY593nKRVL2PnxXsMtlh8izb4.jpg"
+        }
+    ],
+    "total_pages": 1,
+    "total_results": 3
+}

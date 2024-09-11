@@ -15,12 +15,18 @@ class Network extends TmdbModel
 
     protected ?string $origin_country = null;
 
+    protected ?string $headquarters = null;
+
+    protected ?string $homepage = null;
+
     public function __construct(array $data)
     {
         $this->setId($data);
         $this->setLogoPath($data);
         $this->name = $this->toString($data, 'name');
         $this->origin_country = $this->toString($data, 'origin_country');
+        $this->headquarters = $this->toString($data, 'headquarters');
+        $this->homepage = $this->toString($data, 'homepage');
     }
 
     public function getName(): ?string
@@ -31,5 +37,15 @@ class Network extends TmdbModel
     public function getOriginCountry(): ?string
     {
         return $this->origin_country;
+    }
+
+    public function getHeadquarters(): ?string
+    {
+        return $this->headquarters;
+    }
+
+    public function getHomepage(): ?string
+    {
+        return $this->homepage;
     }
 }
