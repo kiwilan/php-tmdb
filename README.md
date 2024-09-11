@@ -33,6 +33,9 @@ PHP 8.1 and later.
 -   🔍 Search Movie and TV Series
 -   🎬 Get Movie and TV Series details
 -   🖼️ Get Movie and TV Series poster and background
+-   🗄️ TMDB models: `AlternativeTitle`, `Collection`, `Company`, `ContentRating`, `Country`, `Credits` (with `Cast`<sup>1</sup> & `Crew`), `Episode`, `Genre`, `Movie`, `Network`, `ReleaseDate`, `Season`, `SpokenLanguage`, `TvSeries`
+
+<sup>1</sup>: Guest stars are included into `Cast`.
 
 ## Installation
 
@@ -135,6 +138,30 @@ $results = Tmdb::client('API_KEY')->searchTvSeries('game of thrones', new Search
     page: 1,
     year: 2011,
 ));
+```
+
+### TV Seasons
+
+#### Details
+
+From <https://developer.themoviedb.org/reference/tv-season-details>
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$season = Tmdb::client('API_KEY')->findTvSeason(1399, 1); // ?\Kiwilan\Tmdb\Models\Season
+```
+
+### TV Episodes
+
+#### Details
+
+From <https://developer.themoviedb.org/reference/tv-episode-details>
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$episode = Tmdb::client('API_KEY')->findTvEpisode(1399, 1, 1); // ?\Kiwilan\Tmdb\Models\Episode
 ```
 
 ## Testing

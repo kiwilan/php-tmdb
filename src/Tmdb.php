@@ -9,6 +9,8 @@ use Kiwilan\Tmdb\Models\Movie;
 use Kiwilan\Tmdb\Models\Search\SearchMovies;
 use Kiwilan\Tmdb\Models\Search\SearchTvSeries;
 use Kiwilan\Tmdb\Models\TvSeries;
+use Kiwilan\Tmdb\Models\TvSeries\Episode;
+use Kiwilan\Tmdb\Models\TvSeries\Season;
 
 class Tmdb
 {
@@ -86,15 +88,15 @@ class Tmdb
      * Get movie details
      *
      * @param  int  $movie_id  The TMDB movie ID
-     * @param  string|null  $appendToResponse  To get additional information
+     * @param  string|null  $append_to_response  To get additional information
      *
      * @docs https://developer.themoviedb.org/reference/movie-details
      */
-    public function getMovie(int $movie_id, ?string $appendToResponse = null): ?Movie
+    public function getMovie(int $movie_id, ?string $append_to_response = null): ?Movie
     {
         $url = $this->getUrl("/movie/{$movie_id}");
         $queryParams = [
-            'append_to_response' => $appendToResponse,
+            'append_to_response' => $append_to_response,
             'language' => $this->language,
         ];
 
@@ -107,21 +109,66 @@ class Tmdb
      * Get TV series details
      *
      * @param  int  $series_id  The TMDB TV series ID
-     * @param  string|null  $appendToResponse  To get additional information
+     * @param  string|null  $append_to_response  To get additional information
      *
      * @docs https://developer.themoviedb.org/reference/tv-series-details
      */
-    public function getTVSeries(int $series_id, ?string $appendToResponse = null): ?TvSeries
+    public function getTVSeries(int $series_id, ?string $append_to_response = null): ?TvSeries
     {
         $url = $this->getUrl("/tv/{$series_id}");
         $queryParams = [
-            'append_to_response' => $appendToResponse,
+            'append_to_response' => $append_to_response,
             'language' => $this->language,
         ];
 
         $response = $this->execute($url, $queryParams);
 
         return $this->isSuccess ? new TvSeries($response) : null;
+    }
+
+    /**
+     * Get season details
+     *
+     * @param  int  $series_id  The TMDB TV series ID
+     * @param  int  $season_number  The season number
+     * @param  string|null  $append_to_response  To get additional information
+     *
+     * @docs https://developer.themoviedb.org/reference/tv-season-details
+     */
+    public function getSeason(int $series_id, int $season_number, ?string $append_to_response = null): ?Season
+    {
+        $url = $this->getUrl("/tv/{$series_id}/season/{$season_number}");
+        $queryParams = [
+            'append_to_response' => $append_to_response,
+            'language' => $this->language,
+        ];
+
+        $response = $this->execute($url, $queryParams);
+
+        return $this->isSuccess ? new Season($response) : null;
+    }
+
+    /**
+     * Get episode details
+     *
+     * @param  int  $series_id  The TMDB TV series ID
+     * @param  int  $season_number  The season number
+     * @param  int  $episode_number  The episode number
+     * @param  string|null  $append_to_response  To get additional information
+     *
+     * @docs https://developer.themoviedb.org/reference/tv-episode-details
+     */
+    public function getEpisode(int $series_id, int $season_number, int $episode_number, ?string $append_to_response = null): ?Episode
+    {
+        $url = $this->getUrl("/tv/{$series_id}/season/{$season_number}/episode/{$episode_number}");
+        $queryParams = [
+            'append_to_response' => $append_to_response,
+            'language' => $this->language,
+        ];
+
+        $response = $this->execute($url, $queryParams);
+
+        return $this->isSuccess ? new Episode($response) : null;
     }
 
     /**
