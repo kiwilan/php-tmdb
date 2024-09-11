@@ -25,7 +25,9 @@ PHP 8.1 and later.
 
 ## Features
 
-//
+-   🔍 Search Movie and TV Series
+-   🎬 Get Movie and TV Series details
+-   🖼️ Get Movie and TV Series poster and background
 
 ### Roadmap
 
@@ -41,7 +43,27 @@ composer require kiwilan/php-tmdb
 
 ## Usage
 
-//
+### Search
+
+Search a movie by title:
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$results = Tmdb::client('API_KEY')->searchMovie('the fellowship of the ring');
+$movies = $results->getResults(); // \Kiwilan\Tmdb\Models\Movie[]
+$firstMovie = $results->getFirstResult(); // \Kiwilan\Tmdb\Models\Movie
+```
+
+Search a TV series by title:
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$results = Tmdb::client('API_KEY')->searchTv('game of thrones');
+$tvSeries = $results->getResults(); // \Kiwilan\Tmdb\Models\TvSeries[]
+$firstTvSeries = $results->getFirstResult(); // \Kiwilan\Tmdb\Models\TvSeries
+```
 
 ## Testing
 

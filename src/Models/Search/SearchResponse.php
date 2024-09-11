@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Models\Search;
 
-class SearchResponse
+abstract class SearchResponse
 {
     protected int $page;
 

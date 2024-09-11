@@ -2,11 +2,16 @@
 
 namespace Kiwilan\Tmdb\Models;
 
+use DateTime;
+use Kiwilan\Tmdb\Traits\HasBackdrop;
+use Kiwilan\Tmdb\Traits\HasPoster;
+
 class Movie
 {
-    protected bool $adult = false;
+    use HasBackdrop;
+    use HasPoster;
 
-    protected ?string $backdrop_path = null;
+    protected bool $adult = false;
 
     protected ?Movie\BelongsToCollection $belongs_to_collection = null;
 
@@ -32,15 +37,13 @@ class Movie
 
     protected ?float $popularity = null;
 
-    protected ?string $poster_path = null;
-
     /** @var Company[]|null */
     protected ?array $production_companies = null;
 
     /** @var Country[]|null */
     protected ?array $production_countries = null;
 
-    protected ?string $release_date = null;
+    protected ?DateTime $release_date = null;
 
     protected ?int $revenue = null;
 
@@ -82,7 +85,9 @@ class Movie
         $belongs_to_collection = $data['belongs_to_collection'] ?? null;
 
         $this->adult = $data['adult'] ? boolval($data['adult']) : false;
-        $this->backdrop_path = $data['backdrop_path'] ?? null;
+
+        $this->setBackdropPath($data);
+
         $this->belongs_to_collection = $belongs_to_collection ? new Movie\BelongsToCollection($belongs_to_collection) : null;
         $this->budget = $data['budget'] ?? null;
         $this->genre_ids = $data['genre_ids'] ?? null;
@@ -99,7 +104,9 @@ class Movie
         $this->original_title = $data['original_title'] ?? null;
         $this->overview = $data['overview'] ?? null;
         $this->popularity = $data['popularity'] ?? null;
-        $this->poster_path = $data['poster_path'] ?? null;
+
+        $this->setPosterPath($data);
+
         $this->production_companies = [];
         if (isset($data['production_companies']) && is_array($data['production_companies'])) {
             foreach ($data['production_companies'] as $companyData) {
@@ -112,7 +119,8 @@ class Movie
                 $this->production_countries[] = new Country($countryData);
             }
         }
-        $this->release_date = $data['release_date'] ?? null;
+        $release_date = $data['release_date'] ?? null;
+        $this->release_date = $release_date ? new DateTime($release_date) : null;
         $this->revenue = $data['revenue'] ?? null;
         $this->runtime = $data['runtime'] ?? null;
         $this->spoken_languages = [];
@@ -158,11 +166,6 @@ class Movie
     public function isAdult(): bool
     {
         return $this->adult;
-    }
-
-    public function getBackdropPath(): ?string
-    {
-        return $this->backdrop_path;
     }
 
     public function getBelongsToCollection(): ?Movie\BelongsToCollection
@@ -230,11 +233,6 @@ class Movie
         return $this->popularity;
     }
 
-    public function getPosterPath(): ?string
-    {
-        return $this->poster_path;
-    }
-
     /**
      * Get the production companies.
      *
@@ -255,7 +253,7 @@ class Movie
         return $this->production_countries;
     }
 
-    public function getReleaseDate(): ?string
+    public function getReleaseDate(): ?DateTime
     {
         return $this->release_date;
     }

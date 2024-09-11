@@ -52,6 +52,25 @@ class Tmdb
     }
 
     /**
+     * Search movies
+     *
+     * @param  string  $query  The search query
+     * @param  Query\SearchTvSeriesQuery  $params  The search query parameters for additional information
+     */
+    public function searchTvSeries(string $query, Query\SearchTvSeriesQuery $params = new Query\SearchTvSeriesQuery): \Kiwilan\Tmdb\Models\Search\SearchMovies
+    {
+        $url = ' https://api.themoviedb.org/3/search/tv';
+        $queryParams = [
+            'query' => $query,
+            ...$params->toQueryParams(),
+        ];
+
+        $response = $this->execute($url, $queryParams);
+
+        return new \Kiwilan\Tmdb\Models\Search\SearchMovies($response);
+    }
+
+    /**
      * Get movie details
      *
      * @param  int  $movieId  The TMDB movie ID
