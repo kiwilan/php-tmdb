@@ -7,7 +7,7 @@ use Kiwilan\Tmdb\Utils\TmdbLogo;
 
 trait HasLogo
 {
-    protected ?string $logo_path;
+    protected ?string $logo_path = null;
 
     protected function setLogoPath(?array $data, string $key = 'logo_path'): void
     {

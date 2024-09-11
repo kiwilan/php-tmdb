@@ -7,7 +7,7 @@ use Kiwilan\Tmdb\Utils\TmdbBackdrop;
 
 trait HasBackdrop
 {
-    protected ?string $backdrop_path;
+    protected ?string $backdrop_path = null;
 
     protected function setBackdropPath(?array $data, string $key = 'backdrop_path'): void
     {

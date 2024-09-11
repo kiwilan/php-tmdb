@@ -2,63 +2,61 @@
 
 namespace Kiwilan\Tmdb\Models;
 
-use Closure;
-use DateTime;
 use Kiwilan\Tmdb\Models\Common\AlternativeTitle;
 use Kiwilan\Tmdb\Models\Common\Company;
 use Kiwilan\Tmdb\Models\Common\Country;
 use Kiwilan\Tmdb\Models\Common\Genre;
 use Kiwilan\Tmdb\Models\Common\SpokenLanguage;
 use Kiwilan\Tmdb\Traits\HasBackdrop;
+use Kiwilan\Tmdb\Traits\HasId;
 use Kiwilan\Tmdb\Traits\HasPoster;
 
-abstract class Media
+abstract class Media extends TmdbModel
 {
     use HasBackdrop;
+    use HasId;
     use HasPoster;
 
     protected bool $adult = false;
 
     /** @var int[]|null */
-    protected ?array $genre_ids;
+    protected ?array $genre_ids = null;
 
     /** @var Genre[]|null */
-    protected ?array $genres;
+    protected ?array $genres = null;
 
-    protected ?string $homepage;
-
-    protected ?int $id;
+    protected ?string $homepage = null;
 
     /** @var string[]|null */
-    protected ?array $origin_country;
+    protected ?array $origin_country = null;
 
-    protected ?string $original_language;
+    protected ?string $original_language = null;
 
-    protected ?string $overview;
+    protected ?string $overview = null;
 
-    protected ?float $popularity;
+    protected ?float $popularity = null;
 
     /** @var Company[]|null */
-    protected ?array $production_companies;
+    protected ?array $production_companies = null;
 
     /** @var Country[]|null */
-    protected ?array $production_countries;
+    protected ?array $production_countries = null;
 
     /** @var SpokenLanguage[]|null */
-    protected ?array $spoken_languages;
+    protected ?array $spoken_languages = null;
 
-    protected ?string $status;
+    protected ?string $status = null;
 
-    protected ?string $tagline;
+    protected ?string $tagline = null;
 
-    protected ?float $vote_average;
+    protected ?float $vote_average = null;
 
-    protected ?int $vote_count;
+    protected ?int $vote_count = null;
 
     /** @var AlternativeTitle[]|null */
-    protected ?array $alternative_titles;
+    protected ?array $alternative_titles = null;
 
-    protected ?Credits $credits;
+    protected ?Credits $credits = null;
 
     public function __construct(array $data)
     {
@@ -72,7 +70,7 @@ abstract class Media
         });
 
         $this->homepage = $this->toString($data, 'homepage');
-        $this->id = $this->toInt($data, 'id');
+        $this->setId($data);
         $this->origin_country = $this->toArray($data, 'origin_country');
         $this->original_language = $this->toString($data, 'original_language');
         $this->overview = $this->toString($data, 'overview');
@@ -99,10 +97,7 @@ abstract class Media
             $this->alternative_titles = $this->loopOn($values['titles'] ?? null, AlternativeTitle::class);
         });
 
-        $credits = $data['credits'] ?? null;
-        if (isset($credits)) {
-            $this->credits = new Credits($credits);
-        }
+        $this->credits = new Credits($data['credits'] ?? null);
     }
 
     public function isAdult(): bool
@@ -133,11 +128,6 @@ abstract class Media
     public function getHomepage(): ?string
     {
         return $this->homepage;
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     /**
@@ -243,65 +233,5 @@ abstract class Media
     public function getCredits(): ?Credits
     {
         return $this->credits;
-    }
-
-    protected function validateData(array $data, string $key, Closure $closure)
-    {
-        $values = $data[$key] ?? null;
-        if (isset($values) && is_array($values)) {
-            $closure($values);
-        }
-    }
-
-    protected function loopOn(mixed $values, string $class): array
-    {
-        $items = [];
-        foreach ($values as $value) {
-            $items[] = new $class($value);
-        }
-
-        return $items;
-    }
-
-    protected function toDateTime(array $data, string $key): ?DateTime
-    {
-        $date = $data[$key] ?? null;
-
-        return $date ? new DateTime($date) : null;
-    }
-
-    protected function toBool(array $data, string $key): bool
-    {
-        $value = $data[$key] ?? null;
-
-        return $value ? boolval($value) : false;
-    }
-
-    protected function toInt(array $data, string $key): ?int
-    {
-        $value = $data[$key] ?? null;
-
-        return $value ? intval($value) : null;
-    }
-
-    protected function toFloat(array $data, string $key): ?float
-    {
-        $value = $data[$key] ?? null;
-
-        return $value ? floatval($value) : null;
-    }
-
-    protected function toString(array $data, string $key): ?string
-    {
-        $value = $data[$key] ?? null;
-
-        return $value ? strval($value) : null;
-    }
-
-    protected function toArray(array $data, string $key): ?array
-    {
-        $value = $data[$key] ?? null;
-
-        return $value ? (array) $value : null;
     }
 }

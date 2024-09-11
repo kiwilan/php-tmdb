@@ -4,11 +4,11 @@ namespace Kiwilan\Tmdb\Models\Credits;
 
 class Cast extends People
 {
-    protected ?int $cast_id;
+    protected ?int $cast_id = null;
 
-    protected ?string $character;
+    protected ?string $character = null;
 
-    protected ?int $order;
+    protected ?int $order = null;
 
     public function __construct(array $data)
     {

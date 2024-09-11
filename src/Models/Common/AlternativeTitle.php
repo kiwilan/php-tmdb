@@ -4,11 +4,11 @@ namespace Kiwilan\Tmdb\Models\Common;
 
 class AlternativeTitle
 {
-    protected ?string $iso_3166_1;
+    protected ?string $iso_3166_1 = null;
 
-    protected ?string $title;
+    protected ?string $title = null;
 
-    protected ?string $type;
+    protected ?string $type = null;
 
     public function __construct(?array $data)
     {
@@ -51,10 +51,10 @@ class AlternativeTitle
     //  * @param  \Tmdb\Model\Movie\AlternativeTitle[]|\Tmdb\Model\Tv\AlternativeTitle[]  $titles
     //  */
     // protected function __construct(
-    //     protected ?array $titles = null,
-    //     protected ?string $french = null,
-    //     protected ?string $english = null,
-    //     protected ?string $original = null,
+    //     protected ?array $titles = null = null,
+    //     protected ?string $french = null = null,
+    //     protected ?string $english = null = null,
+    //     protected ?string $original = null = null,
     // ) {}
 
     // /**

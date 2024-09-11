@@ -2,16 +2,18 @@
 
 namespace Kiwilan\Tmdb\Models\Common;
 
-class Country
-{
-    protected ?string $iso_3166_1;
+use Kiwilan\Tmdb\Models\TmdbModel;
 
-    protected ?string $name;
+class Country extends TmdbModel
+{
+    protected ?string $iso_3166_1 = null;
+
+    protected ?string $name = null;
 
     public function __construct(array $data)
     {
-        $this->iso_3166_1 = $data['iso_3166_1'] ?? null;
-        $this->name = $data['name'] ?? null;
+        $this->iso_3166_1 = $this->toString($data, 'iso_3166_1');
+        $this->name = $this->toString($data, 'name');
     }
 
     public function getIso31661(): ?string

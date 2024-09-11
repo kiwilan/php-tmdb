@@ -7,7 +7,7 @@ use Kiwilan\Tmdb\Utils\TmdbPoster;
 
 trait HasPoster
 {
-    protected ?string $poster_path;
+    protected ?string $poster_path = null;
 
     protected function setPosterPath(?array $data, string $key = 'poster_path'): void
     {

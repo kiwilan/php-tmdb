@@ -2,32 +2,25 @@
 
 namespace Kiwilan\Tmdb\Models\TvSeries;
 
-class Network
+use Kiwilan\Tmdb\Models\TmdbModel;
+use Kiwilan\Tmdb\Traits\HasId;
+use Kiwilan\Tmdb\Traits\HasLogo;
+
+class Network extends TmdbModel
 {
-    protected ?int $id;
+    use HasId;
+    use HasLogo;
 
-    protected ?string $logo_path;
+    protected ?string $name = null;
 
-    protected ?string $name;
-
-    protected ?string $origin_country;
+    protected ?string $origin_country = null;
 
     public function __construct(array $data)
     {
-        $this->id = $data['id'] ?? null;
-        $this->logo_path = $data['logo_path'] ?? null;
-        $this->name = $data['name'] ?? null;
-        $this->origin_country = $data['origin_country'] ?? null;
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function getLogoPath(): ?string
-    {
-        return $this->logo_path;
+        $this->setId($data);
+        $this->setLogoPath($data);
+        $this->name = $this->toString($data, 'name');
+        $this->origin_country = $this->toString($data, 'origin_country');
     }
 
     public function getName(): ?string

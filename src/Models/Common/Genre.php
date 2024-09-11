@@ -2,24 +2,19 @@
 
 namespace Kiwilan\Tmdb\Models\Common;
 
-class Genre
-{
-    protected ?int $id;
+use Kiwilan\Tmdb\Models\TmdbModel;
+use Kiwilan\Tmdb\Traits\HasId;
 
-    protected ?string $name;
+class Genre extends TmdbModel
+{
+    use HasId;
+
+    protected ?string $name = null;
 
     public function __construct(array $data)
     {
-        $this->id = $data['id'] ?? null;
-        $this->name = $data['name'] ?? null;
-    }
-
-    /**
-     * Get the genre ID.
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
+        $this->setId($data);
+        $this->name = $this->toString($data, 'name');
     }
 
     /**

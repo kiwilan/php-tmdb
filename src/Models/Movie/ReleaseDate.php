@@ -2,7 +2,9 @@
 
 namespace Kiwilan\Tmdb\Models\Movie;
 
-class ReleaseDate
+use Kiwilan\Tmdb\Models\TmdbModel;
+
+class ReleaseDate extends TmdbModel
 {
     protected ?string $iso_3166_1 = null;
 
@@ -11,13 +13,11 @@ class ReleaseDate
 
     public function __construct(array $data)
     {
-        $this->iso_3166_1 = $data['iso_3166_1'] ?? null;
-        $this->release_dates = [];
-        if (isset($data['release_dates']) && is_array($data['release_dates'])) {
-            foreach ($data['release_dates'] as $movieData) {
-                $this->release_dates[] = new ReleaseDateItem($movieData);
-            }
-        }
+        $this->iso_3166_1 = $this->toString($data, 'iso_3166_1');
+
+        $this->validateData($data, 'release_dates', function (array $values) {
+            $this->release_dates = $this->loopOn($values, ReleaseDateItem::class);
+        });
     }
 
     /**

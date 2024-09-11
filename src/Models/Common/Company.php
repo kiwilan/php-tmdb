@@ -2,36 +2,36 @@
 
 namespace Kiwilan\Tmdb\Models\Common;
 
+use Kiwilan\Tmdb\Models\TmdbModel;
+use Kiwilan\Tmdb\Traits\HasId;
 use Kiwilan\Tmdb\Traits\HasLogo;
 
-class Company
+class Company extends TmdbModel
 {
+    use HasId;
     use HasLogo;
 
-    protected ?int $id;
+    protected ?string $logo_path = null;
 
-    protected ?string $logo_path;
+    protected ?string $name = null;
 
-    protected ?string $name;
+    protected ?string $origin_country = null;
 
-    protected ?string $origin_country;
-
-    public function __construct(array $data)
+    public function __construct(?array $data)
     {
-        $this->id = $data['id'] ?? null;
-        $this->logo_path = $data['logo_path'] ?? null;
-        $this->name = $data['name'] ?? null;
-        $this->origin_country = $data['origin_country'] ?? null;
+        if (! $data) {
+            return;
+        }
+
+        $this->setId($data);
+        $this->setLogoPath($data);
+        $this->name = $this->toString($data, 'name');
+        $this->origin_country = $this->toString($data, 'origin_country');
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getLogoPath(): ?string
-    {
-        return $this->logo_path;
     }
 
     public function getName(): ?string

@@ -3,8 +3,9 @@
 namespace Kiwilan\Tmdb\Models\Movie;
 
 use DateTime;
+use Kiwilan\Tmdb\Models\TmdbModel;
 
-class ReleaseDateItem
+class ReleaseDateItem extends TmdbModel
 {
     protected ?string $certification = null;
 
@@ -21,15 +22,12 @@ class ReleaseDateItem
 
     public function __construct(array $data)
     {
-        $this->certification = $data['certification'] ?? null;
-        $this->descriptors = $data['descriptors'] ?? null;
-        $this->iso_639_1 = $data['iso_639_1'] ?? null;
-        $this->note = $data['note'] ?? null;
-        $release_date = $data['release_date'] ?? null;
-        if ($release_date) {
-            $this->release_date = new DateTime($release_date);
-        }
-        $this->type = $data['type'] ?? null;
+        $this->certification = $this->toString($data, 'certification');
+        $this->descriptors = $this->toArray($data, 'descriptors');
+        $this->iso_639_1 = $this->toString($data, 'iso_639_1');
+        $this->note = $this->toString($data, 'note');
+        $this->release_date = $this->toDateTime($data, 'release_date');
+        $this->type = $this->toInt($data, 'type');
     }
 
     /**

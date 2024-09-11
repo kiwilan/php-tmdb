@@ -6,21 +6,21 @@ abstract class People
 {
     protected bool $adult = false;
 
-    protected ?int $gender;
+    protected ?int $gender = null;
 
-    protected ?int $id;
+    protected ?int $id = null;
 
-    protected ?string $known_for_department;
+    protected ?string $known_for_department = null;
 
-    protected ?string $name;
+    protected ?string $name = null;
 
-    protected ?string $original_name;
+    protected ?string $original_name = null;
 
-    protected ?float $popularity;
+    protected ?float $popularity = null;
 
-    protected ?string $profile_path;
+    protected ?string $profile_path = null;
 
-    protected ?string $credit_id;
+    protected ?string $credit_id = null;
 
     public function __construct(array $data)
     {

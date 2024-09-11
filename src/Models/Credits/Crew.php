@@ -4,9 +4,9 @@ namespace Kiwilan\Tmdb\Models\Credits;
 
 class Crew extends People
 {
-    protected ?string $department;
+    protected ?string $department = null;
 
-    protected ?string $job;
+    protected ?string $job = null;
 
     public function __construct(array $data)
     {

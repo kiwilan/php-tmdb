@@ -2,19 +2,21 @@
 
 namespace Kiwilan\Tmdb\Models\Common;
 
-class SpokenLanguage
+use Kiwilan\Tmdb\Models\TmdbModel;
+
+class SpokenLanguage extends TmdbModel
 {
-    protected ?string $english_name;
+    protected ?string $english_name = null;
 
-    protected ?string $iso_639_1;
+    protected ?string $iso_639_1 = null;
 
-    protected ?string $name;
+    protected ?string $name = null;
 
     public function __construct(array $data)
     {
-        $this->english_name = $data['english_name'] ?? null;
-        $this->iso_639_1 = $data['iso_639_1'] ?? null;
-        $this->name = $data['name'] ?? null;
+        $this->english_name = $this->toString($data, 'english_name');
+        $this->iso_639_1 = $this->toString($data, 'iso_639_1');
+        $this->name = $this->toString($data, 'name');
     }
 
     public function getEnglishName(): ?string

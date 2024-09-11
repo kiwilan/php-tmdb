@@ -16,6 +16,7 @@ it('can search movie', function () {
     expect($results->getTotalPages())->toBeInt();
     expect($results->getTotalResults())->toBeInt();
     expect($results->getPage())->toBeInt();
+    dump($results);
 
     // #adult: false
     // #backdrop_path: "/zZqpAXxVSBtxV9qPBcscfXBcL2w.jpg"
@@ -53,6 +54,7 @@ it('can search movie', function () {
     // #recommendations: []
 
     $first = $results->getFirstResult();
+    dump($first);
     // expect($first->isAdult())->toBeFalse();
     // expect($first->getBackdropPath())->toBeString();
     // expect($first->getGenreIds())->toBeArray();

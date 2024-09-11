@@ -7,7 +7,7 @@ use Kiwilan\Tmdb\Utils\TmdbProfile;
 
 trait HasProfile
 {
-    protected ?string $profile_path;
+    protected ?string $profile_path = null;
 
     protected function setProfilePath(?array $data, string $key = 'profile_path'): void
     {

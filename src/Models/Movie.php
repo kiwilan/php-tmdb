@@ -26,7 +26,7 @@ class Movie extends Media
     protected mixed $video = false;
 
     /** @var Movie\ReleaseDate[]|null */
-    protected ?array $release_dates;
+    protected ?array $release_dates = null;
 
     protected ?Search\SearchMovies $recommendations = null;
 

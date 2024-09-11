@@ -12,39 +12,39 @@ use Kiwilan\Tmdb\Models\TvSeries\Season;
 class TvSeries extends Media
 {
     /** @var Crew[] */
-    protected ?array $created_by;
+    protected ?array $created_by = null;
 
-    protected ?array $episode_run_time;
+    protected ?array $episode_run_time = null;
 
-    protected ?DateTime $first_air_date;
+    protected ?DateTime $first_air_date = null;
 
     protected bool $in_production = false;
 
     /** @var string[]|null */
-    protected ?array $languages;
+    protected ?array $languages = null;
 
-    protected ?DateTime $last_air_date;
+    protected ?DateTime $last_air_date = null;
 
-    protected ?Episode $last_episode_to_air;
+    protected ?Episode $last_episode_to_air = null;
 
-    protected ?string $name;
+    protected ?string $name = null;
 
-    protected ?Episode $next_episode_to_air;
+    protected ?Episode $next_episode_to_air = null;
 
     /** @var Network[]|null */
-    protected ?array $networks;
+    protected ?array $networks = null;
 
-    protected ?int $number_of_episodes = 0;
+    protected ?int $number_of_episodes = null;
 
-    protected ?int $number_of_seasons = 0;
+    protected ?int $number_of_seasons = null;
 
     /** @var Season[]|null */
-    protected ?array $seasons;
+    protected ?array $seasons = null;
 
-    protected ?string $type;
+    protected ?string $type = null;
 
     /** @var ContentRating[]|null */
-    protected ?array $content_ratings;
+    protected ?array $content_ratings = null;
 
     protected ?Search\SearchTvSeries $recommendations = null;
 

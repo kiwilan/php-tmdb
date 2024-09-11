@@ -7,7 +7,7 @@ use Kiwilan\Tmdb\Utils\TmdbStill;
 
 trait HasStill
 {
-    protected ?string $still_path;
+    protected ?string $still_path = null;
 
     protected function setStillPath(?array $data, string $key = 'still_path'): void
     {

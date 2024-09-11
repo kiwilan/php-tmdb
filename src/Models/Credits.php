@@ -2,40 +2,39 @@
 
 namespace Kiwilan\Tmdb\Models;
 
-class Credits
+use Kiwilan\Tmdb\Models\Credits\Cast;
+use Kiwilan\Tmdb\Models\Credits\Crew;
+use Kiwilan\Tmdb\Traits\HasId;
+
+class Credits extends TmdbModel
 {
-    protected ?int $id;
+    use HasId;
 
     /**
-     * @var Credits\Cast[]
+     * @var Cast[]
      */
-    protected ?array $cast;
+    protected ?array $cast = null;
 
     /**
-     * @var Credits\Crew[]
+     * @var Crew[]
      */
-    protected ?array $crew;
+    protected ?array $crew = null;
 
-    public function __construct(array $data)
+    public function __construct(?array $data)
     {
-        $this->id = $data['id'] ?? null;
-        if (isset($data['cast']) && is_array($data['cast'])) {
-            $this->cast = [];
-            foreach ($data['cast'] as $castData) {
-                $this->cast[] = new Credits\Cast($castData);
-            }
+        if (! $data) {
+            return;
         }
-        if (isset($data['crew']) && is_array($data['crew'])) {
-            $this->crew = [];
-            foreach ($data['crew'] as $crewData) {
-                $this->crew[] = new Credits\Crew($crewData);
-            }
-        }
-    }
 
-    public function getId(): ?int
-    {
-        return $this->id;
+        $this->setId($data);
+
+        $this->validateData($data, 'cast', function (array $values) {
+            $this->cast = $this->loopOn($values, Cast::class);
+        });
+
+        $this->validateData($data, 'crew', function (array $values) {
+            $this->crew = $this->loopOn($values, Crew::class);
+        });
     }
 
     /**
