@@ -50,9 +50,9 @@ composer require kiwilan/php-tmdb
 
 ### Collection
 
-#### Details
+#### [Details](https://developer.themoviedb.org/reference/collection-details)
 
-From <https://developer.themoviedb.org/reference/collection-details>
+Get collection details by ID.
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
@@ -62,55 +62,83 @@ $collection = Tmdb::client('API_KEY')
     ->details(collection_id: 119); // ?\Kiwilan\Tmdb\Models\Collection
 ```
 
+### Companies
+
+#### [Details](https://developer.themoviedb.org/reference/company-details)
+
+Get the company details by ID.
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$collection = Tmdb::client('API_KEY')
+    ->collections()
+    ->details(company_id: 12); // ?\Kiwilan\Tmdb\Models\Company
+```
+
+### Credits
+
+#### [Details](https://developer.themoviedb.org/reference/credit-details)
+
+Get a movie or TV credit details by ID.
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$collection = Tmdb::client('API_KEY')
+    ->collections()
+    ->details(credit_id: '5256c8b219c2956ff6047cd8'); // ?\Kiwilan\Tmdb\Models\Credit
+```
+
 ### Movie Lists
 
-#### Now Playing
+#### [Now Playing](https://developer.themoviedb.org/reference/movie-now-playing-list)
 
-From <https://developer.themoviedb.org/reference/movie-now-playing-list>
+Get a list of movies that are currently in theatres.
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
 $now_playing = Tmdb::client(apiKey())
     ->movieLists()
-    ->nowPlaying(); // ?\Kiwilan\Tmdb\Search\SearchMoviesDates
+    ->nowPlaying(); // ?\Kiwilan\Tmdb\Results\MovieResults
 ```
 
-#### Popular
+#### [Popular](https://developer.themoviedb.org/reference/movie-popular-list)
 
-From <https://developer.themoviedb.org/reference/movie-popular-list>
+Get a list of movies ordered by popularity.
 
 ```php
 $popular = Tmdb::client(apiKey())
     ->movieLists()
-    ->popular(); // ?\Kiwilan\Tmdb\Search\SearchMovies
+    ->popular(); // ?\Kiwilan\Tmdb\Results\MovieResults
 ```
 
-#### Top Rated
+#### [Top Rated](https://developer.themoviedb.org/reference/movie-top-rated-list)
 
-From <https://developer.themoviedb.org/reference/movie-top-rated-list>
+Get a list of movies ordered by rating.
 
 ```php
 $top_rated = Tmdb::client(apiKey())
     ->movieLists()
-    ->topRated(); // ?\Kiwilan\Tmdb\Search\SearchMovies
+    ->topRated(); // ?\Kiwilan\Tmdb\Results\MovieResults
 ```
 
-#### Upcoming
+#### [Upcoming](https://developer.themoviedb.org/reference/movie-upcoming-list)
 
-From <https://developer.themoviedb.org/reference/movie-upcoming-list>
+Get a list of movies that are being released soon.
 
 ```php
 $upcoming = Tmdb::client(apiKey())
     ->movieLists()
-    ->upcoming(); // ?\Kiwilan\Tmdb\Search\SearchMoviesDates
+    ->upcoming(); // ?\Kiwilan\Tmdb\Results\MovieResults
 ```
 
 ### Movies
 
-#### Details
+#### [Details](https://developer.themoviedb.org/reference/movie-details)
 
-From <https://developer.themoviedb.org/reference/movie-details>
+Get the top level details of a movie by ID.
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
@@ -132,9 +160,9 @@ $movie = Tmdb::client('API_KEY')
 
 ### Networks
 
-#### Details
+#### [Details](https://developer.themoviedb.org/reference/network-details)
 
-From <https://developer.themoviedb.org/reference/network-details>
+Get the details of a network by ID.
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
@@ -146,9 +174,9 @@ $network = Tmdb::client('API_KEY')
 
 ### Search
 
-#### Collection
+#### [Collection](https://developer.themoviedb.org/reference/search-collection)
 
-From <https://developer.themoviedb.org/reference/search-collection>
+Search for collections by their original, translated and alternative names.
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
@@ -177,9 +205,9 @@ $results = Tmdb::client('API_KEY')
     ));
 ```
 
-#### Movie
+#### [Movie](https://developer.themoviedb.org/reference/search-movie)
 
-From <https://developer.themoviedb.org/reference/search-movie>
+Search for movies by their original, translated and alternative titles.
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
@@ -210,9 +238,9 @@ $results = Tmdb::client('API_KEY')
     ));
 ```
 
-#### TV
+#### [TV](https://developer.themoviedb.org/reference/search-tv)
 
-From <https://developer.themoviedb.org/reference/search-tv>
+Search for TV shows by their original, translated and also known as names.
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
@@ -242,11 +270,103 @@ $results = Tmdb::client('API_KEY')
     ));
 ```
 
+### Trending
+
+#### [All](https://developer.themoviedb.org/reference/trending-all)
+
+Get the trending movies, TV shows and people.
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$trending = Tmdb::client('API_KEY')
+    ->trending()
+    ->all(); // ?\Kiwilan\Tmdb\Results\MediaResults
+```
+
+#### [Movies](https://developer.themoviedb.org/reference/trending-movies)
+
+Get the trending movies on TMDB.
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$trending = Tmdb::client('API_KEY')
+    ->trending()
+    ->movies(); // ?\Kiwilan\Tmdb\Results\MovieResults
+```
+
+#### [People](https://developer.themoviedb.org/reference/trending-people)
+
+Get the trending people on TMDB.
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$trending = Tmdb::client('API_KEY')
+    ->trending()
+    ->people(); // ?\Kiwilan\Tmdb\Results\PeopleResults
+```
+
+#### [TV](https://developer.themoviedb.org/reference/trending-tv)
+
+Get the trending TV shows on TMDB.
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$trending = Tmdb::client('API_KEY')
+    ->trending()
+    ->tv(); // ?\Kiwilan\Tmdb\Results\TvSerieResults
+```
+
+### TV Series List
+
+#### [Airing Today](https://developer.themoviedb.org/reference/tv-series-airing-today-list)
+
+Get a list of TV shows airing today.
+
+```php
+$all = Tmdb::client(apiKey())
+    ->tvSeriesList()
+    ->airingToday(); // ?\Kiwilan\Tmdb\Results\TvSerieResults
+```
+
+#### [On The Air](https://developer.themoviedb.org/reference/tv-series-on-the-air-list)
+
+Get a list of TV shows that air in the next 7 days.
+
+```php
+$all = Tmdb::client(apiKey())
+    ->tvSeriesList()
+    ->onTheAir(); // ?\Kiwilan\Tmdb\Results\TvSerieResults
+```
+
+#### [Popular](https://developer.themoviedb.org/reference/tv-series-popular-list)
+
+Get a list of TV shows ordered by popularity.
+
+```php
+$all = Tmdb::client(apiKey())
+    ->tvSeriesList()
+    ->popular(); // ?\Kiwilan\Tmdb\Results\TvSerieResults
+```
+
+#### [Top Rated](https://developer.themoviedb.org/reference/tv-series-top-rated-list)
+
+Get a list of TV shows ordered by rating.
+
+```php
+$all = Tmdb::client(apiKey())
+    ->tvSeriesList()
+    ->topRated(); // ?\Kiwilan\Tmdb\Results\TvSerieResults
+```
+
 ### TV Series
 
-#### Details
+#### [Details](https://developer.themoviedb.org/reference/tv-series-details)
 
-From <https://developer.themoviedb.org/reference/tv-series-details>
+Get the details of a TV show.
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
@@ -268,9 +388,9 @@ $tvSeries = Tmdb::client('API_KEY')
 
 ### TV Seasons
 
-#### Details
+#### [Details](https://developer.themoviedb.org/reference/tv-season-details)
 
-From <https://developer.themoviedb.org/reference/tv-season-details>
+Query the details of a TV season.
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
@@ -292,9 +412,9 @@ $season = Tmdb::client('API_KEY')
 
 ### TV Episodes
 
-#### Details
+#### [Details](https://developer.themoviedb.org/reference/tv-episode-details)
 
-From <https://developer.themoviedb.org/reference/tv-episode-details>
+Query the details of a TV episode.
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
