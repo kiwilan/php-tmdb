@@ -164,6 +164,19 @@ it('can get movie videos', function () {
     expect($videos)->toBeArray();
     expect($videos)->not()->toBeEmpty();
     expect($videos)->each(fn (Pest\Expectation $video) => expect($video->value)->toBeInstanceOf(Video::class));
+
+    $first = reset($videos);
+    expect($first->getId())->toBeString();
+    expect($first->getIso6391())->toBeString();
+    expect($first->getIso31661())->toBeString();
+    expect($first->getKey())->toBeString();
+    expect($first->getName())->toBeString();
+    expect($first->getSite())->toBeString();
+    expect($first->getSize())->toBeInt();
+    expect($first->getType())->toBeString();
+    expect($first->isOfficial())->toBeBool();
+    expect($first->getPublishedAt())->toBeInstanceOf(DateTime::class);
+    expect($first->getYouTubeUrl())->toBeString();
 });
 
 it('can get null if movie not exists (tmdb id)', function () {
