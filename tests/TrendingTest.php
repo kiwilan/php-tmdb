@@ -1,7 +1,10 @@
 <?php
 
 use Kiwilan\Tmdb\Enums\TimeWindow;
+use Kiwilan\Tmdb\Models\Credits\Person;
 use Kiwilan\Tmdb\Models\Media;
+use Kiwilan\Tmdb\Models\Movie;
+use Kiwilan\Tmdb\Models\TvSeries;
 use Kiwilan\Tmdb\Results;
 use Kiwilan\Tmdb\Tmdb;
 
@@ -16,32 +19,74 @@ it('can use all', function () {
     expect($all->getResults())->not()->toBeEmpty();
     expect($all->getFirstResult())->toBeInstanceOf(Media::class);
     expect($all->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(Media::class));
+
+    $first = $all->getFirstResult();
+    expect($first->getTitle())->toBeString();
+    expect($first->getOriginalTitle())->toBeString();
+    expect($first->getFirstAirDate())->toBeInstanceOf(DateTime::class);
 });
 
 it('can use media', function () {
     $all = Tmdb::client(apiKey())
         ->trending()
-        ->all(TimeWindow::WEEK, 'fr-FR');
+        ->all();
 
     $first = $all->getFirstResult();
     expect($first)->toBeInstanceOf(Media::class);
-    dump($first);
 
-    //   "title": "Rebel Ridge",
-    //   "original_title": "Rebel Ridge",
-    //   "overview": "A former Marine confronts corruption in a small town when local law enforcement unjustly seizes the bag of cash he needs to post his cousin's bail.",
-    //   "poster_path": "/xEt2GSz9z5rSVpIHMiGdtf0czyf.jpg",
-    //   "media_type": "movie",
-    //   "adult": false,
-    //   "original_language": "en",
-    //   "genre_ids": [
-    //     80,
-    //     28,
-    //     53
-    //   ],
-    //   "popularity": 831.205,
-    //   "release_date": "2024-08-27",
-    //   "video": false,
-    //   "vote_average": 6.8,
-    //   "vote_count": 292
+    expect($first->getId())->toBeInt();
+    expect($first->getTitle())->toBeString();
+    expect($first->getOriginalTitle())->toBeString();
+    expect($first->getOverview())->toBeString();
+    expect($first->getPosterPath())->toBeString();
+    expect($first->getMediaType())->toBeString();
+    expect($first->isAdult())->toBeBool();
+    expect($first->getOriginalLanguage())->toBeString();
+    expect($first->getGenreIds())->toBeArray();
+    expect($first->getPopularity())->toBeFloat();
+    expect($first->getVideos())->toBeNull();
+    expect($first->getVoteAverage())->toBeFloat();
+    expect($first->getVoteCount())->toBeInt();
+    expect($first->getGenreIds())->toBeArray();
+    expect($first->getBackdropPath())->toBeString();
+    expect($first->getReleaseDate())->toBeInstanceOf(DateTime::class);
+});
+
+it('can use movies', function () {
+    $all = Tmdb::client(apiKey())
+        ->trending()
+        ->movies();
+
+    expect($all)->toBeInstanceOf(Results\MovieResults::class);
+
+    expect($all->getResults())->toBeArray();
+    expect($all->getResults())->not()->toBeEmpty();
+    expect($all->getFirstResult())->toBeInstanceOf(Movie::class);
+    expect($all->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(Movie::class));
+});
+
+it('can use people', function () {
+    $all = Tmdb::client(apiKey())
+        ->trending()
+        ->people();
+
+    expect($all)->toBeInstanceOf(Results\PeopleResults::class);
+
+    expect($all->getResults())->toBeArray();
+    expect($all->getResults())->not()->toBeEmpty();
+    expect($all->getFirstResult())->toBeInstanceOf(Person::class);
+    expect($all->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(Person::class));
+});
+
+it('can use tv', function () {
+    $all = Tmdb::client(apiKey())
+        ->trending()
+        ->tv();
+
+    expect($all)->toBeInstanceOf(Results\TvSerieResults::class);
+
+    expect($all->getResults())->toBeArray();
+    expect($all->getResults())->not()->toBeEmpty();
+    expect($all->getFirstResult())->toBeInstanceOf(TvSeries::class);
+    expect($all->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TvSeries::class));
 });

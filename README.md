@@ -451,16 +451,16 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [Multi](https://developer.themoviedb.org/reference/search-multi): for v1
     -   [ ] [Person](https://developer.themoviedb.org/reference/search-person): for v1
     -   [x] ~~[TV](https://developer.themoviedb.org/reference/search-tv)~~
--   [ ] Trending
-    -   [ ] [All](https://developer.themoviedb.org/reference/trending-all): for v1.5
-    -   [ ] [Movie](https://developer.themoviedb.org/reference/trending-movies): for v1.5
-    -   [ ] [TV](https://developer.themoviedb.org/reference/trending-tv): for v1.5
-    -   [ ] [People](https://developer.themoviedb.org/reference/trending-people): for v1.5
--   [ ] TV Series List
-    -   [ ] [Airing Today](https://developer.themoviedb.org/reference/tv-series-airing-today-list): for v1.5
-    -   [ ] [On The Air](https://developer.themoviedb.org/reference/tv-series-on-the-air-list): for v1.5
-    -   [ ] [Popular](https://developer.themoviedb.org/reference/tv-series-popular-list): for v1.5
-    -   [ ] [Top Rated](https://developer.themoviedb.org/reference/tv-series-top-rated-list): for v1.5
+-   [x] ~~Trending~~
+    -   [x] ~~[All](https://developer.themoviedb.org/reference/trending-all)~~
+    -   [x] ~~[Movie](https://developer.themoviedb.org/reference/trending-movies)~~
+    -   [x] ~~[TV](https://developer.themoviedb.org/reference/trending-tv)~~
+    -   [x] ~~[People](https://developer.themoviedb.org/reference/trending-people)~~
+-   [x] ~~TV Series List~~
+    -   [x] ~~[Airing Today](https://developer.themoviedb.org/reference/tv-series-airing-today-list)~~
+    -   [x] ~~[On The Air](https://developer.themoviedb.org/reference/tv-series-on-the-air-list)~~
+    -   [x] ~~[Popular](https://developer.themoviedb.org/reference/tv-series-popular-list)~~
+    -   [x] ~~[Top Rated](https://developer.themoviedb.org/reference/tv-series-top-rated-list)~~
 -   [ ] TV Series
     -   [x] ~~[Details](https://developer.themoviedb.org/reference/tv-series-details)~~
     -   [ ] [Account States](https://developer.themoviedb.org/reference/tv-series-account-states)

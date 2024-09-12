@@ -130,6 +130,16 @@ class Tmdb
     }
 
     /**
+     * Use TVSeasonRepository repository
+     *
+     * @docs https://developer.themoviedb.org/reference/tv-series-airing-today-list
+     */
+    public function tvSeriesList(): Repositories\TVSeriesListRepository
+    {
+        return new Repositories\TVSeriesListRepository($this->apiKey);
+    }
+
+    /**
      * Use TVEpisodeRepository repository
      *
      * @docs https://developer.themoviedb.org/reference/tv-episode-details

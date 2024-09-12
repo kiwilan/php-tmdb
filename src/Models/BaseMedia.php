@@ -17,8 +17,6 @@ abstract class BaseMedia extends TmdbModel
     /** @var int[]|null */
     protected ?array $genre_ids = null;
 
-    protected ?string $original_language = null;
-
     protected ?string $overview = null;
 
     protected ?float $popularity = null;
@@ -26,6 +24,8 @@ abstract class BaseMedia extends TmdbModel
     protected ?float $vote_average = null;
 
     protected ?int $vote_count = null;
+
+    protected ?string $original_language = null;
 
     /** @var string[]|null */
     protected ?array $origin_country = null;

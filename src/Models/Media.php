@@ -22,9 +22,7 @@ class Media extends BaseMedia
 
     public function __construct(array $data)
     {
-        $this->setId($data);
-        $this->setBackdropPath($data);
-        $this->setPosterPath($data);
+        parent::__construct($data);
 
         $this->title = $this->toString($data, 'title');
         if (! $this->title) {
@@ -36,18 +34,6 @@ class Media extends BaseMedia
             $this->original_title = $this->toString($data, 'original_name');
         }
 
-        $this->adult = $this->toBool($data, 'adult');
-        $this->genre_ids = $this->toArray($data, 'genre_ids');
-
-        $this->origin_country = $this->toArray($data, 'origin_country');
-        $this->original_language = $this->toString($data, 'original_language');
-
-        $this->overview = $this->toString($data, 'overview');
-        $this->popularity = $this->toFloat($data, 'popularity');
-
-        $this->vote_average = $this->toFloat($data, 'vote_average');
-        $this->vote_count = $this->toInt($data, 'vote_count');
-
         $this->media_type = $this->toString($data, 'media_type');
         $this->release_date = $this->toDateTime($data, 'release_date');
         $this->first_air_date = $this->toDateTime($data, 'first_air_date');
@@ -55,44 +41,9 @@ class Media extends BaseMedia
         $this->videos = $this->validateData($data, 'videos', fn (array $values) => $this->loopOn($values, Video::class));
     }
 
-    public function isAdult(): bool
-    {
-        return $this->adult;
-    }
-
     /**
-     * @return int[]|null
+     * Get the media type, to know if it's a movie or a tv series. You can use `isMovie()` or `isTv()` to know the type.
      */
-    public function getGenreIds(): ?array
-    {
-        return $this->genre_ids;
-    }
-
-    public function getOriginalLanguage(): ?string
-    {
-        return $this->original_language;
-    }
-
-    public function getOverview(): ?string
-    {
-        return $this->overview;
-    }
-
-    public function getPopularity(): ?float
-    {
-        return $this->popularity;
-    }
-
-    public function getVoteAverage(): ?float
-    {
-        return $this->vote_average;
-    }
-
-    public function getVoteCount(): ?int
-    {
-        return $this->vote_count;
-    }
-
     public function getMediaType(): ?string
     {
         return $this->media_type;
@@ -130,14 +81,6 @@ class Media extends BaseMedia
     public function getOriginalTitle(): ?string
     {
         return $this->original_title;
-    }
-
-    /**
-     * @return string[]|null
-     */
-    public function getOriginCountry(): ?array
-    {
-        return $this->origin_country;
     }
 
     public function isMovie(): bool

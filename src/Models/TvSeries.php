@@ -177,6 +177,9 @@ class TvSeries extends ExtendedMedia
         return $this->seasons;
     }
 
+    /**
+     * Get the type, like `Scripted`.
+     */
     public function getType(): ?string
     {
         return $this->type;
