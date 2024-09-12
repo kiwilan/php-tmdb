@@ -312,8 +312,8 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
 
 ### Roadmap
 
--   [ ] [Account](https://developer.themoviedb.org/reference/account-details): not planned
--   [ ] [Authentication](https://developer.themoviedb.org/reference/authentication-create-guest-session): not planned
+-   [ ] [Account](https://developer.themoviedb.org/reference/account-details)
+-   [ ] [Authentication](https://developer.themoviedb.org/reference/authentication-create-guest-session)
 -   [ ] Certifications
     -   [ ] [Movie Certifications](https://developer.themoviedb.org/reference/certification-movie-list)
     -   [ ] [TV Certifications](https://developer.themoviedb.org/reference/certifications-tv-list)
@@ -329,7 +329,7 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [x] [Details](https://developer.themoviedb.org/reference/company-details): for v1
     -   [ ] [Alternative Names](https://developer.themoviedb.org/reference/company-alternative-names)
     -   [ ] [Images](https://developer.themoviedb.org/reference/company-images)
--   [ ] [Configuration](https://developer.themoviedb.org/reference/configuration-details): not planned
+-   [ ] [Configuration](https://developer.themoviedb.org/reference/configuration-details)
 -   [x] Credits
     -   [x] [Details](https://developer.themoviedb.org/reference/credit-details)
 -   [ ] Discover
@@ -340,9 +340,9 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
 -   [ ] Genres
     -   [ ] [Movie List](https://developer.themoviedb.org/reference/genre-movie-list)
     -   [ ] [TV List](https://developer.themoviedb.org/reference/genre-tv-list)
--   [ ] [Guest Sessions](https://developer.themoviedb.org/reference/guest-session-rated-movies): not planned
--   [ ] [Keywords](https://developer.themoviedb.org/reference/keyword-list): not planned
--   [ ] [Lists](https://developer.themoviedb.org/reference/list-add-movie): not planned
+-   [ ] [Guest Sessions](https://developer.themoviedb.org/reference/guest-session-rated-movies)
+-   [ ] [Keywords](https://developer.themoviedb.org/reference/keyword-list)
+-   [ ] [Lists](https://developer.themoviedb.org/reference/list-add-movie)
 -   [ ] Movie Lists
     -   [ ] [Now playing](https://developer.themoviedb.org/reference/movie-now-playing-list): for v1
     -   [ ] [Popular](https://developer.themoviedb.org/reference/movie-popular-list): for v1
@@ -425,8 +425,8 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [Translations](https://developer.themoviedb.org/reference/tv-series-translations)
     -   [ ] [Videos](https://developer.themoviedb.org/reference/tv-series-videos): for v1
     -   [ ] [Watch Providers](https://developer.themoviedb.org/reference/tv-series-watch-providers)
-    -   [ ] [Add Rating](https://developer.themoviedb.org/reference/tv-series-add-rating): not planned
-    -   [ ] [Delete Rating](https://developer.themoviedb.org/reference/tv-series-delete-rating): not planned
+    -   [ ] [Add Rating](https://developer.themoviedb.org/reference/tv-series-add-rating)
+    -   [ ] [Delete Rating](https://developer.themoviedb.org/reference/tv-series-delete-rating)
 -   [ ] TV Season
     -   [x] [Details](https://developer.themoviedb.org/reference/tv-season-details): for v1
     -   [ ] [Account States](https://developer.themoviedb.org/reference/tv-season-account-states)
@@ -447,8 +447,8 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [Images](https://developer.themoviedb.org/reference/tv-episode-images)
     -   [ ] [Translations](https://developer.themoviedb.org/reference/tv-episode-translations)
     -   [ ] [Videos](https://developer.themoviedb.org/reference/tv-episode-videos): for v1
-    -   [ ] [Add Rating](https://developer.themoviedb.org/reference/tv-episode-add-rating): not planned
-    -   [ ] [Delete Rating](https://developer.themoviedb.org/reference/tv-episode-delete-rating): not planned
+    -   [ ] [Add Rating](https://developer.themoviedb.org/reference/tv-episode-add-rating)
+    -   [ ] [Delete Rating](https://developer.themoviedb.org/reference/tv-episode-delete-rating)
 -   [ ] TV Episode Group
     -   [ ] [Details](https://developer.themoviedb.org/reference/tv-episode-group-details)
 -   [ ] Watch Providers
