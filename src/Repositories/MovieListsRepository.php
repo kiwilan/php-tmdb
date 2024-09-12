@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Repositories;
 
-use Kiwilan\Tmdb\Search;
+use Kiwilan\Tmdb\Results;
 
 /**
  * Movie Lists Repository
@@ -20,7 +20,7 @@ class MovieListsRepository extends Repository
      *
      * @docs https://developer.themoviedb.org/reference/movie-now-playing-list
      */
-    public function nowPlaying(string $language, int $page, string $region): ?Search\SearchMoviesDates
+    public function nowPlaying(string $language, int $page, string $region): ?Results\MovieDateResults
     {
         $url = $this->getUrl('/movie/now_playing', [
             'language' => $language,
@@ -30,7 +30,7 @@ class MovieListsRepository extends Repository
 
         $response = $this->execute($url);
 
-        return $this->isSuccess ? new Search\SearchMoviesDates($response) : null;
+        return $this->isSuccess ? new Results\MovieDateResults($response) : null;
     }
 
     /**
@@ -42,7 +42,7 @@ class MovieListsRepository extends Repository
      *
      * @docs https://developer.themoviedb.org/reference/movie-popular-list
      */
-    public function popular(string $language, int $page, string $region): ?Search\SearchMovies
+    public function popular(string $language, int $page, string $region): ?Results\MovieResults
     {
         $url = $this->getUrl('/movie/popular', [
             'language' => $language,
@@ -52,7 +52,7 @@ class MovieListsRepository extends Repository
 
         $response = $this->execute($url);
 
-        return $this->isSuccess ? new Search\SearchMovies($response) : null;
+        return $this->isSuccess ? new Results\MovieResults($response) : null;
     }
 
     /**
@@ -64,7 +64,7 @@ class MovieListsRepository extends Repository
      *
      * @docs https://developer.themoviedb.org/reference/movie-top-rated-list
      */
-    public function topRated(string $language, int $page, string $region): ?Search\SearchMovies
+    public function topRated(string $language, int $page, string $region): ?Results\MovieResults
     {
         $url = $this->getUrl('/movie/top_rated', [
             'language' => $language,
@@ -74,7 +74,7 @@ class MovieListsRepository extends Repository
 
         $response = $this->execute($url);
 
-        return $this->isSuccess ? new Search\SearchMovies($response) : null;
+        return $this->isSuccess ? new Results\MovieResults($response) : null;
     }
 
     /**
@@ -86,7 +86,7 @@ class MovieListsRepository extends Repository
      *
      * @docs https://developer.themoviedb.org/reference/movie-upcoming-list
      */
-    public function upcoming(string $language, int $page, string $region): ?Search\SearchMoviesDates
+    public function upcoming(string $language, int $page, string $region): ?Results\MovieDateResults
     {
         $url = $this->getUrl('/movie/upcoming', [
             'language' => $language,
@@ -96,6 +96,6 @@ class MovieListsRepository extends Repository
 
         $response = $this->execute($url);
 
-        return $this->isSuccess ? new Search\SearchMoviesDates($response) : null;
+        return $this->isSuccess ? new Results\MovieDateResults($response) : null;
     }
 }

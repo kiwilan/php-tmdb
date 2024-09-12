@@ -1,7 +1,7 @@
 <?php
 
 use Kiwilan\Tmdb\Models\Movie;
-use Kiwilan\Tmdb\Search;
+use Kiwilan\Tmdb\Results;
 use Kiwilan\Tmdb\Tmdb;
 
 it('can use now playing', function () {
@@ -9,9 +9,9 @@ it('can use now playing', function () {
         ->movieLists()
         ->nowPlaying('en-US', 1, 'US');
 
-    expect($now_playing)->toBeInstanceOf(Search\SearchMoviesDates::class);
+    expect($now_playing)->toBeInstanceOf(Results\MovieDateResults::class);
 
-    expect($now_playing->getDates())->toBeInstanceOf(Search\Common\SearchDates::class);
+    expect($now_playing->getDates())->toBeInstanceOf(Results\Common\ResultsDates::class);
     expect($now_playing->getDates()->getMinimum())->toBeInstanceOf(DateTime::class);
     expect($now_playing->getDates()->getMaximum())->toBeInstanceOf(DateTime::class);
 
@@ -26,7 +26,7 @@ it('can use popular', function () {
         ->movieLists()
         ->popular('en-US', 1, 'US');
 
-    expect($popular)->toBeInstanceOf(Search\SearchMovies::class);
+    expect($popular)->toBeInstanceOf(Results\MovieResults::class);
 
     expect($popular->getResults())->toBeArray();
     expect($popular->getResults())->not()->toBeEmpty();
@@ -39,7 +39,7 @@ it('can use top rated', function () {
         ->movieLists()
         ->topRated('en-US', 1, 'US');
 
-    expect($top_rated)->toBeInstanceOf(Search\SearchMovies::class);
+    expect($top_rated)->toBeInstanceOf(Results\MovieResults::class);
 
     expect($top_rated->getResults())->toBeArray();
     expect($top_rated->getResults())->not()->toBeEmpty();
@@ -52,9 +52,9 @@ it('can use upcoming', function () {
         ->movieLists()
         ->upcoming('en-US', 1, 'US');
 
-    expect($upcoming)->toBeInstanceOf(Search\SearchMovies::class);
+    expect($upcoming)->toBeInstanceOf(Results\MovieResults::class);
 
-    expect($upcoming->getDates())->toBeInstanceOf(Search\Common\SearchDates::class);
+    expect($upcoming->getDates())->toBeInstanceOf(Results\Common\ResultsDates::class);
     expect($upcoming->getDates()->getMinimum())->toBeInstanceOf(DateTime::class);
     expect($upcoming->getDates()->getMaximum())->toBeInstanceOf(DateTime::class);
 

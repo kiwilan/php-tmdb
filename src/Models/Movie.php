@@ -6,9 +6,9 @@ use DateTime;
 use Kiwilan\Tmdb\Models\Common\Video;
 use Kiwilan\Tmdb\Models\Credits\Crew;
 use Kiwilan\Tmdb\Models\Movie\ReleaseDate;
-use Kiwilan\Tmdb\Search\SearchMovies;
+use Kiwilan\Tmdb\Results\MovieResults;
 
-class Movie extends Media
+class Movie extends ExtendedMedia
 {
     protected ?Movie\BelongsToCollection $belongs_to_collection = null;
 
@@ -32,9 +32,9 @@ class Movie extends Media
     /** @var Movie\ReleaseDate[]|null */
     protected ?array $release_dates = null;
 
-    protected ?SearchMovies $recommendations = null;
+    protected ?MovieResults $recommendations = null;
 
-    protected ?SearchMovies $similar = null;
+    protected ?MovieResults $similar = null;
 
     public function __construct(?array $data)
     {
@@ -56,8 +56,9 @@ class Movie extends Media
         $this->videos = $this->validateData($data, 'videos', fn (array $values) => $this->loopOn($values['results'] ?? null, Video::class));
         $this->release_dates = $this->validateData($data, 'release_dates', fn (array $values) => $this->loopOn($values['results'] ?? null, ReleaseDate::class));
 
-        $this->recommendations = $this->toModel($data, 'recommendations', SearchMovies::class);
-        $this->similar = $this->toModel($data, 'similar', SearchMovies::class);
+        $this->origin_country = $this->toArray($data, 'origin_country');
+        $this->recommendations = $this->toModel($data, 'recommendations', MovieResults::class);
+        $this->similar = $this->toModel($data, 'similar', MovieResults::class);
     }
 
     public function getBelongsToCollection(): ?Movie\BelongsToCollection
@@ -133,12 +134,12 @@ class Movie extends Media
         return null;
     }
 
-    public function getRecommendations(): ?SearchMovies
+    public function getRecommendations(): ?MovieResults
     {
         return $this->recommendations;
     }
 
-    public function getSimilar(): ?SearchMovies
+    public function getSimilar(): ?MovieResults
     {
         return $this->similar;
     }

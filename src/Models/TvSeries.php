@@ -8,9 +8,9 @@ use Kiwilan\Tmdb\Models\TvSeries\ContentRating;
 use Kiwilan\Tmdb\Models\TvSeries\Episode;
 use Kiwilan\Tmdb\Models\TvSeries\Network;
 use Kiwilan\Tmdb\Models\TvSeries\Season;
-use Kiwilan\Tmdb\Search\SearchTvSeries;
+use Kiwilan\Tmdb\Results\TvSerieResults;
 
-class TvSeries extends Media
+class TvSeries extends ExtendedMedia
 {
     /** @var Crew[] */
     protected ?array $created_by = null;
@@ -49,9 +49,9 @@ class TvSeries extends Media
     /** @var ContentRating[]|null */
     protected ?array $content_ratings = null;
 
-    protected ?SearchTvSeries $recommendations = null;
+    protected ?TvSerieResults $recommendations = null;
 
-    protected ?SearchTvSeries $similar = null;
+    protected ?TvSerieResults $similar = null;
 
     public function __construct(?array $data)
     {
@@ -61,21 +61,22 @@ class TvSeries extends Media
 
         parent::__construct($data);
 
+        $this->name = $this->toString($data, 'name');
+        $this->original_name = $this->toString($data, 'original_name');
         $this->episode_run_time = $this->toArray($data, 'episode_run_time');
         $this->first_air_date = $this->toDateTime($data, 'first_air_date');
         $this->in_production = $this->toBool($data, 'in_production');
         $this->languages = $this->toArray($data, 'languages');
         $this->last_air_date = $this->toDateTime($data, 'last_air_date');
-        $this->name = $this->toString($data, 'name');
-        $this->original_name = $this->toString($data, 'original_name');
         $this->number_of_episodes = $this->toInt($data, 'number_of_episodes');
         $this->number_of_seasons = $this->toInt($data, 'number_of_seasons');
         $this->type = $this->toString($data, 'type');
 
+        $this->origin_country = $this->toArray($data, 'origin_country');
         $this->last_episode_to_air = $this->toModel($data, 'last_episode_to_air', Episode::class);
         $this->next_episode_to_air = $this->toModel($data, 'next_episode_to_air', Episode::class);
-        $this->recommendations = $this->toModel($data, 'recommendations', SearchTvSeries::class);
-        $this->similar = $this->toModel($data, 'similar', SearchTvSeries::class);
+        $this->recommendations = $this->toModel($data, 'recommendations', TvSerieResults::class);
+        $this->similar = $this->toModel($data, 'similar', TvSerieResults::class);
 
         $this->created_by = $this->validateData($data, 'created_by', fn (array $values) => $this->loopOn($values, Crew::class));
         $this->networks = $this->validateData($data, 'networks', fn (array $values) => $this->loopOn($values, Network::class));
@@ -191,12 +192,12 @@ class TvSeries extends Media
         return $this->content_ratings;
     }
 
-    public function getRecommendations(): ?SearchTvSeries
+    public function getRecommendations(): ?TvSerieResults
     {
         return $this->recommendations;
     }
 
-    public function getSimilar(): ?SearchTvSeries
+    public function getSimilar(): ?TvSerieResults
     {
         return $this->similar;
     }

@@ -34,21 +34,18 @@ class TmdbModel
         return $date ? new DateTime($date) : null;
     }
 
-    protected function toBool(array $data, string $key): bool
+    protected function toBool(array $data, string $key, bool $default = false): bool
     {
         $value = $data[$key] ?? null;
 
-        return $value ? boolval($value) : false;
+        return $value ? boolval($value) : $default;
     }
 
     protected function toInt(array $data, string $key, ?int $default = null): ?int
     {
         $value = $data[$key] ?? null;
-        if ($default) {
-            return $value ? intval($value) : $default;
-        }
 
-        return $value ? intval($value) : null;
+        return $value ? intval($value) : $default;
     }
 
     protected function toFloat(array $data, string $key): ?float

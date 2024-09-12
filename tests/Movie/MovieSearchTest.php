@@ -2,7 +2,7 @@
 
 use Kiwilan\Tmdb\Models\Movie;
 use Kiwilan\Tmdb\Query\SearchMovieQuery;
-use Kiwilan\Tmdb\Search\SearchMovies;
+use Kiwilan\Tmdb\Results\MovieResults;
 use Kiwilan\Tmdb\Tmdb;
 
 it('can search movie', function () {
@@ -11,7 +11,7 @@ it('can search movie', function () {
         ->movie('the fellowship of the ring');
 
     expect($results)->not()->toBeNull();
-    expect($results)->toBeInstanceOf(SearchMovies::class);
+    expect($results)->toBeInstanceOf(MovieResults::class);
     expect($results->getResults())->toBeArray();
     expect($results->getResults())->not()->toBeEmpty();
     expect($results->getFirstResult())->toBeInstanceOf(Movie::class);
@@ -48,7 +48,7 @@ it('can search movie with options', function () {
         ));
 
     expect($results)->not()->toBeNull();
-    expect($results)->toBeInstanceOf(SearchMovies::class);
+    expect($results)->toBeInstanceOf(MovieResults::class);
     expect($results->getResults())->toBeArray();
     expect($results->getResults())->not()->toBeEmpty();
     expect($results->getFirstResult())->toBeInstanceOf(Movie::class);

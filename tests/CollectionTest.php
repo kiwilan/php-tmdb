@@ -3,7 +3,7 @@
 use Kiwilan\Tmdb\Models\Collection;
 use Kiwilan\Tmdb\Models\Movie;
 use Kiwilan\Tmdb\Query\SearchCollectionQuery;
-use Kiwilan\Tmdb\Search\SearchCollections;
+use Kiwilan\Tmdb\Results\CollectionResults;
 use Kiwilan\Tmdb\Tmdb;
 
 it('can get collection', function () {
@@ -12,7 +12,7 @@ it('can get collection', function () {
         ->collection(query: 'the lord of the rings');
 
     expect($results)->not()->toBeNull();
-    expect($results)->toBeInstanceOf(SearchCollections::class);
+    expect($results)->toBeInstanceOf(CollectionResults::class);
     expect($results->getResults())->toBeArray();
     expect($results->getResults())->not()->toBeEmpty();
     expect($results->getFirstResult())->toBeInstanceOf(Collection::class);
@@ -42,7 +42,7 @@ it('can search collection with options', function () {
         ));
 
     expect($results)->not()->toBeNull();
-    expect($results)->toBeInstanceOf(SearchCollections::class);
+    expect($results)->toBeInstanceOf(CollectionResults::class);
     expect($results->getResults())->toBeArray();
     expect($results->getResults())->not()->toBeEmpty();
     expect($results->getFirstResult())->toBeInstanceOf(Collection::class);

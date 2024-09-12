@@ -3,7 +3,7 @@
 namespace Kiwilan\Tmdb\Repositories;
 
 use Kiwilan\Tmdb\Enums\TimeWindow;
-use Kiwilan\Tmdb\Search;
+use Kiwilan\Tmdb\Results;
 
 class TrendingRepository extends Repository
 {
@@ -15,7 +15,7 @@ class TrendingRepository extends Repository
      *
      * @docs https://developer.themoviedb.org/reference/trending-all
      */
-    public function all(TimeWindow $time_window = TimeWindow::DAY, string $language = 'en-US'): ?Search\SearchMedias
+    public function all(TimeWindow $time_window = TimeWindow::DAY, string $language = 'en-US'): ?Results\MediaResults
     {
         $url = $this->getUrl("/trending/all/{$time_window->value}", [
             'language' => $language,
@@ -23,6 +23,6 @@ class TrendingRepository extends Repository
 
         $response = $this->execute($url);
 
-        return $this->isSuccess ? new Search\SearchMedias($response) : null;
+        return $this->isSuccess ? new Results\MediaResults($response) : null;
     }
 }

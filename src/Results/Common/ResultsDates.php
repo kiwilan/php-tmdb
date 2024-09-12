@@ -1,11 +1,11 @@
 <?php
 
-namespace Kiwilan\Tmdb\Search\Common;
+namespace Kiwilan\Tmdb\Results\Common;
 
 use DateTime;
 use Kiwilan\Tmdb\Models\TmdbModel;
 
-class SearchDates extends TmdbModel
+class ResultsDates extends TmdbModel
 {
     protected ?DateTime $maximum = null;
 

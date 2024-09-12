@@ -1,10 +1,10 @@
 <?php
 
-namespace Kiwilan\Tmdb\Search;
+namespace Kiwilan\Tmdb\Results;
 
 use Kiwilan\Tmdb\Models\TmdbModel;
 
-abstract class SearchResponse extends TmdbModel
+abstract class Results extends TmdbModel
 {
     protected int $page;
 

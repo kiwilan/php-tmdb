@@ -2,89 +2,57 @@
 
 namespace Kiwilan\Tmdb\Models;
 
-use Kiwilan\Tmdb\Models\Common\AlternativeTitle;
-use Kiwilan\Tmdb\Models\Common\Company;
-use Kiwilan\Tmdb\Models\Common\Country;
-use Kiwilan\Tmdb\Models\Common\Genre;
-use Kiwilan\Tmdb\Models\Common\SpokenLanguage;
-use Kiwilan\Tmdb\Traits\HasAlternativeTitles;
-use Kiwilan\Tmdb\Traits\HasBackdrop;
-use Kiwilan\Tmdb\Traits\HasId;
-use Kiwilan\Tmdb\Traits\HasPoster;
+use DateTime;
+use Kiwilan\Tmdb\Models\Common\Video;
 
-class Media extends TmdbModel
+class Media extends BaseMedia
 {
-    use HasAlternativeTitles;
-    use HasBackdrop;
-    use HasId;
-    use HasPoster;
+    protected ?string $media_type = null;
 
-    protected bool $adult = false;
+    protected ?string $title = null;
 
-    /** @var int[]|null */
-    protected ?array $genre_ids = null;
+    protected ?string $original_title = null;
 
-    /** @var Genre[]|null */
-    protected ?array $genres = null;
+    protected ?DateTime $release_date = null;
 
-    protected ?string $homepage = null;
+    /** @var Video[]|null */
+    protected ?array $videos = null;
 
-    /** @var string[]|null */
-    protected ?array $origin_country = null;
-
-    protected ?string $original_language = null;
-
-    protected ?string $overview = null;
-
-    protected ?float $popularity = null;
-
-    /** @var Company[]|null */
-    protected ?array $production_companies = null;
-
-    /** @var Country[]|null */
-    protected ?array $production_countries = null;
-
-    /** @var SpokenLanguage[]|null */
-    protected ?array $spoken_languages = null;
-
-    protected ?string $status = null;
-
-    protected ?string $tagline = null;
-
-    protected ?float $vote_average = null;
-
-    protected ?int $vote_count = null;
-
-    /** @var AlternativeTitle[]|null */
-    protected ?array $alternative_titles = null;
-
-    protected ?Credits $credits = null;
+    protected ?DateTime $first_air_date = null;
 
     public function __construct(array $data)
     {
         $this->setId($data);
         $this->setBackdropPath($data);
         $this->setPosterPath($data);
-        $this->setAlternativeTitles($data);
+
+        $this->title = $this->toString($data, 'title');
+        if (! $this->title) {
+            $this->title = $this->toString($data, 'name');
+        }
+
+        $this->original_title = $this->toString($data, 'original_title');
+        if (! $this->original_title) {
+            $this->original_title = $this->toString($data, 'original_name');
+        }
 
         $this->adult = $this->toBool($data, 'adult');
-        $this->homepage = $this->toString($data, 'homepage');
+        $this->genre_ids = $this->toArray($data, 'genre_ids');
+
         $this->origin_country = $this->toArray($data, 'origin_country');
         $this->original_language = $this->toString($data, 'original_language');
+
         $this->overview = $this->toString($data, 'overview');
         $this->popularity = $this->toFloat($data, 'popularity');
-        $this->status = $this->toString($data, 'status');
-        $this->tagline = $this->toString($data, 'tagline');
+
         $this->vote_average = $this->toFloat($data, 'vote_average');
         $this->vote_count = $this->toInt($data, 'vote_count');
 
-        $this->genre_ids = $this->toArray($data, 'genre_ids');
-        $this->genres = $this->validateData($data, 'genres', fn (array $values) => $this->loopOn($values, Genre::class));
-        $this->production_companies = $this->validateData($data, 'production_companies', fn (array $values) => $this->loopOn($values, Company::class));
-        $this->production_countries = $this->validateData($data, 'production_countries', fn (array $values) => $this->loopOn($values, Country::class));
-        $this->spoken_languages = $this->validateData($data, 'spoken_languages', fn (array $values) => $this->loopOn($values, SpokenLanguage::class));
+        $this->media_type = $this->toString($data, 'media_type');
+        $this->release_date = $this->toDateTime($data, 'release_date');
+        $this->first_air_date = $this->toDateTime($data, 'first_air_date');
 
-        $this->credits = $this->toModel($data, 'credits', Credits::class);
+        $this->videos = $this->validateData($data, 'videos', fn (array $values) => $this->loopOn($values, Video::class));
     }
 
     public function isAdult(): bool
@@ -93,38 +61,11 @@ class Media extends TmdbModel
     }
 
     /**
-     * Get the genre IDs.
-     *
      * @return int[]|null
      */
     public function getGenreIds(): ?array
     {
         return $this->genre_ids;
-    }
-
-    /**
-     * Get the genres.
-     *
-     * @return Genre[]|null
-     */
-    public function getGenres(): ?array
-    {
-        return $this->genres;
-    }
-
-    public function getHomepage(): ?string
-    {
-        return $this->homepage;
-    }
-
-    /**
-     * Get the origin countries.
-     *
-     * @return string[]|null
-     */
-    public function getOriginCountry(): ?array
-    {
-        return $this->origin_country;
     }
 
     public function getOriginalLanguage(): ?string
@@ -142,46 +83,6 @@ class Media extends TmdbModel
         return $this->popularity;
     }
 
-    /**
-     * Get the production companies.
-     *
-     * @return Company[]|null
-     */
-    public function getProductionCompanies(): ?array
-    {
-        return $this->production_companies;
-    }
-
-    /**
-     * Get the production countries.
-     *
-     * @return Country[]|null
-     */
-    public function getProductionCountries(): ?array
-    {
-        return $this->production_countries;
-    }
-
-    /**
-     * Get the spoken languages.
-     *
-     * @return SpokenLanguage[]|null
-     */
-    public function getSpokenLanguages(): ?array
-    {
-        return $this->spoken_languages;
-    }
-
-    public function getStatus(): ?string
-    {
-        return $this->status;
-    }
-
-    public function getTagline(): ?string
-    {
-        return $this->tagline;
-    }
-
     public function getVoteAverage(): ?float
     {
         return $this->vote_average;
@@ -192,8 +93,60 @@ class Media extends TmdbModel
         return $this->vote_count;
     }
 
-    public function getCredits(): ?Credits
+    public function getMediaType(): ?string
     {
-        return $this->credits;
+        return $this->media_type;
+    }
+
+    public function getReleaseDate(): ?DateTime
+    {
+        return $this->release_date;
+    }
+
+    /**
+     * @return Video[]|null
+     */
+    public function getVideos(): ?array
+    {
+        return $this->videos;
+    }
+
+    public function getFirstAirDate(): ?DateTime
+    {
+        return $this->first_air_date;
+    }
+
+    /**
+     * Get title of movie or name of tv series.
+     */
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    /**
+     * Get original title of movie or original name of tv series.
+     */
+    public function getOriginalTitle(): ?string
+    {
+        return $this->original_title;
+    }
+
+    /**
+     * @return string[]|null
+     */
+    public function getOriginCountry(): ?array
+    {
+        return $this->origin_country;
+    }
+
+    public function isMovie(): bool
+    {
+        return $this->media_type === 'movie';
+    }
+
+    public function isTv(): bool
+    {
+        return $this->media_type === 'tv';
     }
 }

@@ -396,7 +396,9 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [Movie List](https://developer.themoviedb.org/reference/genre-movie-list)
     -   [ ] [TV List](https://developer.themoviedb.org/reference/genre-tv-list)
 -   [ ] [Guest Sessions](https://developer.themoviedb.org/reference/guest-session-rated-movies)
--   [ ] [Keywords](https://developer.themoviedb.org/reference/keyword-list)
+-   [ ] Keywords
+    -   [Details](https://developer.themoviedb.org/reference/keyword-details)
+    -   [Movies](https://developer.themoviedb.org/reference/keyword-movies) (deprecated)
 -   [ ] [Lists](https://developer.themoviedb.org/reference/list-add-movie)
 -   [x] ~~Movie Lists~~
     -   [x] ~~[Now playing](https://developer.themoviedb.org/reference/movie-now-playing-list)~~

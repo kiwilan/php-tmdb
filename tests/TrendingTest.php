@@ -2,7 +2,7 @@
 
 use Kiwilan\Tmdb\Enums\TimeWindow;
 use Kiwilan\Tmdb\Models\Media;
-use Kiwilan\Tmdb\Search;
+use Kiwilan\Tmdb\Results;
 use Kiwilan\Tmdb\Tmdb;
 
 it('can use all', function () {
@@ -10,7 +10,7 @@ it('can use all', function () {
         ->trending()
         ->all(TimeWindow::WEEK, 'fr-FR');
 
-    expect($all)->toBeInstanceOf(Search\SearchMedias::class);
+    expect($all)->toBeInstanceOf(Results\MediaResults::class);
 
     expect($all->getResults())->toBeArray();
     expect($all->getResults())->not()->toBeEmpty();

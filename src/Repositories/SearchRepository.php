@@ -3,7 +3,7 @@
 namespace Kiwilan\Tmdb\Repositories;
 
 use Kiwilan\Tmdb\Query;
-use Kiwilan\Tmdb\Search;
+use Kiwilan\Tmdb\Results;
 
 /**
  * Search repository
@@ -13,6 +13,26 @@ use Kiwilan\Tmdb\Search;
 class SearchRepository extends Repository
 {
     /**
+     * Search for collections by their original, translated and alternative names.
+     *
+     * @param  string  $query  The search query
+     * @param  Query\SearchCollectionQuery  $params  The search query parameters for additional information
+     *
+     * @docs https://developer.themoviedb.org/reference/search-collection
+     */
+    public function collection(string $query, Query\SearchCollectionQuery $params = new Query\SearchCollectionQuery): Results\CollectionResults
+    {
+        $url = $this->getUrl('/search/collection', [
+            'query' => $query,
+            ...$params->toQueryParams(),
+        ]);
+
+        $response = $this->execute($url);
+
+        return new Results\CollectionResults($response);
+    }
+
+    /**
      * Search for movies by their original, translated and alternative titles.
      *
      * @param  string  $query  The search query
@@ -20,7 +40,7 @@ class SearchRepository extends Repository
      *
      * @docs https://developer.themoviedb.org/reference/search-movie
      */
-    public function movie(string $query, Query\SearchMovieQuery $params = new Query\SearchMovieQuery): Search\SearchMovies
+    public function movie(string $query, Query\SearchMovieQuery $params = new Query\SearchMovieQuery): Results\MovieResults
     {
         $url = $this->getUrl('/search/movie', [
             'query' => $query,
@@ -29,7 +49,7 @@ class SearchRepository extends Repository
 
         $response = $this->execute($url);
 
-        return new Search\SearchMovies($response);
+        return new Results\MovieResults($response);
     }
 
     /**
@@ -40,7 +60,7 @@ class SearchRepository extends Repository
      *
      * @docs https://developer.themoviedb.org/reference/search-tv
      */
-    public function tv(string $query, Query\SearchTvSeriesQuery $params = new Query\SearchTvSeriesQuery): Search\SearchTvSeries
+    public function tv(string $query, Query\SearchTvSeriesQuery $params = new Query\SearchTvSeriesQuery): Results\TvSerieResults
     {
         $url = $this->getUrl('/search/tv', [
             'query' => $query,
@@ -49,26 +69,6 @@ class SearchRepository extends Repository
 
         $response = $this->execute($url);
 
-        return new Search\SearchTvSeries($response);
-    }
-
-    /**
-     * Search for collections by their original, translated and alternative names.
-     *
-     * @param  string  $query  The search query
-     * @param  Query\SearchCollectionQuery  $params  The search query parameters for additional information
-     *
-     * @docs https://developer.themoviedb.org/reference/search-collection
-     */
-    public function collection(string $query, Query\SearchCollectionQuery $params = new Query\SearchCollectionQuery): Search\SearchCollections
-    {
-        $url = $this->getUrl('/search/collection', [
-            'query' => $query,
-            ...$params->toQueryParams(),
-        ]);
-
-        $response = $this->execute($url);
-
-        return new Search\SearchCollections($response);
+        return new Results\TvSerieResults($response);
     }
 }

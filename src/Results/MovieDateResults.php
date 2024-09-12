@@ -1,18 +1,18 @@
 <?php
 
-namespace Kiwilan\Tmdb\Search;
+namespace Kiwilan\Tmdb\Results;
 
-use Kiwilan\Tmdb\Search\Common\SearchDates;
+use Kiwilan\Tmdb\Results\Common\ResultsDates;
 
-class SearchMoviesDates extends SearchMovies
+class MovieDateResults extends MovieResults
 {
-    protected ?SearchDates $dates = null;
+    protected ?ResultsDates $dates = null;
 
     public function __construct(array $data)
     {
         parent::__construct($data);
 
-        $this->dates = new SearchDates($data['dates'] ?? []);
+        $this->dates = new ResultsDates($data['dates'] ?? []);
 
         $results = $data['results'] ?? [];
         foreach ($results as $result) {
@@ -20,7 +20,7 @@ class SearchMoviesDates extends SearchMovies
         }
     }
 
-    public function getDates(): ?SearchDates
+    public function getDates(): ?ResultsDates
     {
         return $this->dates;
     }
