@@ -16,10 +16,13 @@ abstract class Repository
 
     /**
      * Merge base URL with the path
+     *
+     * @param  string  $path  The path to merge
+     * @param  string[]  $queryParams  The query parameters
      */
-    protected function getUrl(string $path): string
+    protected function getUrl(string $path, array $queryParams = []): string
     {
-        return self::BASE_URL.$path;
+        return self::BASE_URL.'/'.$path.'?'.http_build_query($queryParams);
     }
 
     /**
@@ -36,13 +39,11 @@ abstract class Repository
      * Execute the request
      *
      * @param  string  $url  The URL to request
-     * @param  string[]  $queryParams  The query parameters
      */
-    protected function execute(string $url, array $queryParams = []): ?array
+    protected function execute(string $url): ?array
     {
         $client = new \GuzzleHttp\Client;
 
-        $url = $url.'?'.http_build_query($queryParams);
         $response = $client->request('GET', $url, [
             'headers' => [
                 'Authorization' => "Bearer {$this->apiKey}",

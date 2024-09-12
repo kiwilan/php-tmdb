@@ -12,7 +12,7 @@ use Kiwilan\Tmdb\Models;
 class TVSeriesRepository extends Repository
 {
     /**
-     * Get TV series details
+     * Get the details of a TV show.
      *
      * @param  int  $series_id  The TMDB TV series ID
      * @param  string[]|null  $append_to_response  To get additional information
@@ -21,13 +21,12 @@ class TVSeriesRepository extends Repository
      */
     public function details(int $series_id, ?array $append_to_response = null): ?Models\TvSeries
     {
-        $url = $this->getUrl("/tv/{$series_id}");
-        $queryParams = [
+        $url = $this->getUrl("/tv/{$series_id}", [
             'append_to_response' => $this->appendToResponse($append_to_response),
             'language' => $this->language,
-        ];
+        ]);
 
-        $response = $this->execute($url, $queryParams);
+        $response = $this->execute($url);
 
         return $this->isSuccess ? new Models\TvSeries($response) : null;
     }

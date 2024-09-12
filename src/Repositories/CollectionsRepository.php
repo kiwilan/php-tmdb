@@ -12,7 +12,7 @@ use Kiwilan\Tmdb\Models;
 class CollectionsRepository extends Repository
 {
     /**
-     * Get collection details
+     * Get collection details by ID.
      *
      * @param  int  $collection_id  The TMDB collection ID
      * @param  ?string  $language  The language to get the collection details (can override the default language)
@@ -21,12 +21,11 @@ class CollectionsRepository extends Repository
      */
     public function details(int $collection_id, ?string $language = null): ?Models\Collection
     {
-        $url = $this->getUrl("/collection/{$collection_id}");
-        $queryParams = [
+        $url = $this->getUrl("/collection/{$collection_id}", [
             'language' => $language ?? $this->language,
-        ];
+        ]);
 
-        $response = $this->execute($url, $queryParams);
+        $response = $this->execute($url);
 
         return $this->isSuccess ? new Models\Collection($response) : null;
     }

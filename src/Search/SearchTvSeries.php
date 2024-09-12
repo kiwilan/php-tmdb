@@ -10,6 +10,7 @@ class SearchTvSeries extends SearchResponse
     public function __construct(array $data)
     {
         parent::__construct($data);
+
         $results = $data['results'] ?? [];
         foreach ($results as $result) {
             $this->results[] = new \Kiwilan\Tmdb\Models\TvSeries($result);

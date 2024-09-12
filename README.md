@@ -332,16 +332,16 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [People List](https://developer.themoviedb.org/reference/changes-people-list)
     -   [ ] [TV List](https://developer.themoviedb.org/reference/changes-tv-list)
 -   [ ] Collections
-    -   ~~[x] [Details](https://developer.themoviedb.org/reference/collection-details)~~
+    -   [x] ~~[Details](https://developer.themoviedb.org/reference/collection-details)~~
     -   [ ] [Images](https://developer.themoviedb.org/reference/collection-images)
     -   [ ] [Translations](https://developer.themoviedb.org/reference/collection-translations)
 -   [ ] Companies
-    -   ~~[x] [Details](https://developer.themoviedb.org/reference/company-details)~~
+    -   [x] ~~[Details](https://developer.themoviedb.org/reference/company-details)~~
     -   [ ] [Alternative Names](https://developer.themoviedb.org/reference/company-alternative-names)
     -   [ ] [Images](https://developer.themoviedb.org/reference/company-images)
 -   [ ] [Configuration](https://developer.themoviedb.org/reference/configuration-details)
--   ~~[x] Credits~~
-    -   ~~[x] [Details](https://developer.themoviedb.org/reference/credit-details)~~
+-   [x] ~~Credits~~
+    -   [x] ~~[Details](https://developer.themoviedb.org/reference/credit-details)~~
 -   [ ] Discover
     -   [ ] [Movie](https://developer.themoviedb.org/reference/discover-movie)
     -   [ ] [TV](https://developer.themoviedb.org/reference/discover-tv)
@@ -353,13 +353,13 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
 -   [ ] [Guest Sessions](https://developer.themoviedb.org/reference/guest-session-rated-movies)
 -   [ ] [Keywords](https://developer.themoviedb.org/reference/keyword-list)
 -   [ ] [Lists](https://developer.themoviedb.org/reference/list-add-movie)
--   [ ] Movie Lists
-    -   [ ] [Now playing](https://developer.themoviedb.org/reference/movie-now-playing-list): for v1
-    -   [ ] [Popular](https://developer.themoviedb.org/reference/movie-popular-list): for v1
-    -   [ ] [Top Rated](https://developer.themoviedb.org/reference/movie-top-rated-list): for v1
-    -   [ ] [Upcoming](https://developer.themoviedb.org/reference/movie-upcoming-list): for v1
+-   [x] ~~Movie Lists~~
+    -   [x] ~~[Now playing](https://developer.themoviedb.org/reference/movie-now-playing-list)~~
+    -   [x] ~~[Popular](https://developer.themoviedb.org/reference/movie-popular-list)~~
+    -   [x] ~~[Top Rated](https://developer.themoviedb.org/reference/movie-top-rated-list)~~
+    -   [x] ~~[Upcoming](https://developer.themoviedb.org/reference/movie-upcoming-list)~~
 -   [ ] Movies
-    -   ~~[x] [Details](https://developer.themoviedb.org/reference/movie-details)~~
+    -   [x] ~~[Details](https://developer.themoviedb.org/reference/movie-details)~~
     -   [ ] [Account States](https://developer.themoviedb.org/reference/movie-account-states)
     -   [ ] [Alternative Titles](https://developer.themoviedb.org/reference/movie-alternative-titles): for v1
     -   [ ] [Changes](https://developer.themoviedb.org/reference/movie-changes)
@@ -379,7 +379,7 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [Add Rating](https://developer.themoviedb.org/reference/movie-add-rating)
     -   [ ] [Delete Rating](https://developer.themoviedb.org/reference/movie-delete-rating)
 -   [ ] Networks
-    -   ~~[x] [Details](https://developer.themoviedb.org/reference/network-details)~~
+    -   [x] ~~[Details](https://developer.themoviedb.org/reference/network-details)~~
     -   [ ] [Alternative Names](https://developer.themoviedb.org/reference/details-copy)
     -   [ ] [Images](https://developer.themoviedb.org/reference/alternative-names-copy)
 -   [ ] People Lists
@@ -397,13 +397,13 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
 -   [ ] Reviews
     -   [ ] [Details](https://developer.themoviedb.org/reference/review-details)
 -   [ ] Search
-    -   ~~[x] [Collection](https://developer.themoviedb.org/reference/search-collection)~~
+    -   [x] ~~[Collection](https://developer.themoviedb.org/reference/search-collection)~~
     -   [ ] [Company](https://developer.themoviedb.org/reference/search-company): for v1
     -   [ ] [Keyword](https://developer.themoviedb.org/reference/search-keyword): for v1
-    -   ~~[x] [Movie](https://developer.themoviedb.org/reference/search-movie)~~
+    -   [x] ~~[Movie](https://developer.themoviedb.org/reference/search-movie)~~
     -   [ ] [Multi](https://developer.themoviedb.org/reference/search-multi): for v1
     -   [ ] [Person](https://developer.themoviedb.org/reference/search-person): for v1
-    -   ~~[x] [TV](https://developer.themoviedb.org/reference/search-tv)~~
+    -   [x] ~~[TV](https://developer.themoviedb.org/reference/search-tv)~~
 -   [ ] Trending
     -   [ ] [All](https://developer.themoviedb.org/reference/trending-all): for v1.5
     -   [ ] [Movie](https://developer.themoviedb.org/reference/trending-movie): for v1.5
@@ -415,7 +415,7 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [Popular](https://developer.themoviedb.org/reference/tv-series-popular-list): for v1.5
     -   [ ] [Top Rated](https://developer.themoviedb.org/reference/tv-series-top-rated-list): for v1.5
 -   [ ] TV Series
-    -   ~~[x] [Details](https://developer.themoviedb.org/reference/tv-series-details)~~
+    -   [x] ~~[Details](https://developer.themoviedb.org/reference/tv-series-details)~~
     -   [ ] [Account States](https://developer.themoviedb.org/reference/tv-series-account-states)
     -   [ ] [Aggregate Credits](https://developer.themoviedb.org/reference/tv-series-aggregate-credits): for v1.5
     -   [ ] [Alternative Titles](https://developer.themoviedb.org/reference/tv-series-alternative-titles): for v1
@@ -438,7 +438,7 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [Add Rating](https://developer.themoviedb.org/reference/tv-series-add-rating)
     -   [ ] [Delete Rating](https://developer.themoviedb.org/reference/tv-series-delete-rating)
 -   [ ] TV Season
-    -   ~~[x] [Details](https://developer.themoviedb.org/reference/tv-season-details)~~
+    -   [x] ~~[Details](https://developer.themoviedb.org/reference/tv-season-details)~~
     -   [ ] [Account States](https://developer.themoviedb.org/reference/tv-season-account-states)
     -   [ ] [Aggregate Credits](https://developer.themoviedb.org/reference/tv-season-aggregate-credits): for v1.5
     -   [ ] [Changes](https://developer.themoviedb.org/reference/tv-season-changes-by-id)
@@ -449,7 +449,7 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [Videos](https://developer.themoviedb.org/reference/tv-season-videos): for v1
     -   [ ] [Watch Providers](https://developer.themoviedb.org/reference/tv-season-watch-providers)
 -   [ ] TV Episode
-    -   ~~[x] [Details](https://developer.themoviedb.org/reference/tv-episode-details)~~
+    -   [x] ~~[Details](https://developer.themoviedb.org/reference/tv-episode-details)~~
     -   [ ] [Account States](https://developer.themoviedb.org/reference/tv-episode-account-states)
     -   [ ] [Changes](https://developer.themoviedb.org/reference/tv-episode-changes-by-id)
     -   [ ] [Credits](https://developer.themoviedb.org/reference/tv-episode-credits): for v1

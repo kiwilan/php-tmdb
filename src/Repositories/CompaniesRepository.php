@@ -12,7 +12,7 @@ use Kiwilan\Tmdb\Models;
 class CompaniesRepository extends Repository
 {
     /**
-     * Get company details
+     * Get the company details by ID.
      *
      * @param  int  $company_id  The TMDB company ID
      */

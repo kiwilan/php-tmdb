@@ -60,6 +60,16 @@ class Tmdb
     }
 
     /**
+     * Use movie lists repository
+     *
+     * @docs https://developer.themoviedb.org/reference/movie-now-playing-list
+     */
+    public function movieLists(): Repositories\MovieListsRepository
+    {
+        return new Repositories\MovieListsRepository($this->apiKey);
+    }
+
+    /**
      * Use movie repository
      *
      * @docs https://developer.themoviedb.org/reference/movie-details

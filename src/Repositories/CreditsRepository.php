@@ -12,7 +12,7 @@ use Kiwilan\Tmdb\Models;
 class CreditsRepository extends Repository
 {
     /**
-     * Get credits details
+     * Get a movie or TV credit details by ID.
      *
      * @param  string  $credit_id  The TMDB credit ID
      */

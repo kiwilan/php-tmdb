@@ -12,7 +12,7 @@ use Kiwilan\Tmdb\Models;
 class NetworksRepository extends Repository
 {
     /**
-     * Get network details
+     * Get details of a network by ID.
      *
      * @param  int  $network_id  The TMDB network ID
      *

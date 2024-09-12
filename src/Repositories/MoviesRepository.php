@@ -12,7 +12,7 @@ use Kiwilan\Tmdb\Models;
 class MoviesRepository extends Repository
 {
     /**
-     * Get movie details
+     * Get the top level details of a movie by ID.
      *
      * @param  int  $movie_id  The TMDB movie ID
      * @param  string[]|null  $append_to_response  To get additional information
@@ -21,13 +21,12 @@ class MoviesRepository extends Repository
      */
     public function details(int $movie_id, ?array $append_to_response = null): ?Models\Movie
     {
-        $url = $this->getUrl("/movie/{$movie_id}");
-        $queryParams = [
+        $url = $this->getUrl("/movie/{$movie_id}", [
             'append_to_response' => $this->appendToResponse($append_to_response),
             'language' => $this->language,
-        ];
+        ]);
 
-        $response = $this->execute($url, $queryParams);
+        $response = $this->execute($url);
 
         return $this->isSuccess ? new Models\Movie($response) : null;
     }
