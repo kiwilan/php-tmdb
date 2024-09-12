@@ -1,6 +1,6 @@
 # PHP TMDB
 
-![Banner with eReader picture in background and PHP eBook title](https://raw.githubusercontent.com/kiwilan/php-tmdb/main/docs/banner.jpg)
+![Banner with The Last of Us picture in background and PHP TMDB title](https://raw.githubusercontent.com/kiwilan/php-tmdb/main/docs/banner.jpg)
 
 [![php][php-version-src]][php-version-href]
 [![version][version-src]][version-href]
@@ -16,7 +16,8 @@ _This is NOT official TMDB API PHP wrapper, you can check [php-tmdb/api](https:/
 > [!IMPORTANT]
 > You need to create an account on [TMDB](https://www.themoviedb.org/) and get an **_API key_** to use this package. It's free and easy to do, you can read [this guide](https://developer.themoviedb.org/docs/getting-started) to get started.
 
-_Why this package? All current PHP packages to interact with the TMDB API are not up-to-date and I need a modern and easy-to-use package to interact with the TMDB API. So I decided to create this package. You can check [Roadmap](#roadmap) to see what I plan to do with this package._
+_Why this package?_
+_All current PHP packages to interact with the TMDB API are not up-to-date and I need a modern and easy-to-use package to interact with the TMDB API. So I decided to create this package. You can check [Roadmap](#roadmap) to see what I plan to do with this package._
 
 > [!WARNING]
 > This package is under development.
@@ -96,7 +97,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $network = Tmdb::client('API_KEY')
     ->networks()
-    ->details(network_id:49); // ?\Kiwilan\Tmdb\Models\TvSeries\Network
+    ->details(network_id: 49); // ?\Kiwilan\Tmdb\Models\TvSeries\Network
 ```
 
 ### Search
@@ -299,6 +300,15 @@ $poster_path = $movie->getPosterUrl(size: PosterSize::W500); // string|null (pat
 ```
 
 These methods are available for `Poster`, `Backdrop`, `Logo`, `Profile` and `Still`.
+
+## Append to response
+
+TMDB offers an easy way to get more details with `append_to_response` option. You can add more data in same request, it's really useful to get all data you need in one request.
+
+> `append_to_response` is an easy and efficient way to append extra requests to any top level namespace. The movie, TV show, TV season, TV episode and person detail methods all support a query parameter called `append_to_response`. This makes it possible to make sub requests within the same namespace in a single HTTP request. Each request will get appended to the response as a new JSON object.
+> From <https://developer.themoviedb.org/docs/append-to-response>
+
+To know which methods support `append_to_response`, check if method has `append_to_response` parameter (always optional and at the end of parameters). And to know what you can add, check the [official documentation](https://developer.themoviedb.org/docs/getting-started).
 
 ## Testing
 
