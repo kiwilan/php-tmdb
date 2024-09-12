@@ -61,51 +61,26 @@ class TvSeries extends Media
 
         parent::__construct($data);
 
-        $this->validateData($data, 'created_by', function (array $values) {
-            $this->created_by = $this->loopOn($values, Crew::class);
-        });
-
         $this->episode_run_time = $this->toArray($data, 'episode_run_time');
         $this->first_air_date = $this->toDateTime($data, 'first_air_date');
         $this->in_production = $this->toBool($data, 'in_production');
         $this->languages = $this->toArray($data, 'languages');
         $this->last_air_date = $this->toDateTime($data, 'last_air_date');
-
-        if (isset($data['last_episode_to_air'])) {
-            $this->last_episode_to_air = new Episode($data['last_episode_to_air']);
-        }
-
         $this->name = $this->toString($data, 'name');
         $this->original_name = $this->toString($data, 'original_name');
-
-        if (isset($data['next_episode_to_air'])) {
-            $this->next_episode_to_air = new Episode($data['next_episode_to_air']);
-        }
-
-        $this->validateData($data, 'networks', function (array $values) {
-            $this->networks = $this->loopOn($values, Network::class);
-        });
-
         $this->number_of_episodes = $this->toInt($data, 'number_of_episodes');
         $this->number_of_seasons = $this->toInt($data, 'number_of_seasons');
-
-        $this->validateData($data, 'seasons', function (array $values) {
-            $this->seasons = $this->loopOn($values, Season::class);
-        });
-
         $this->type = $this->toString($data, 'type');
 
-        $this->validateData($data, 'content_ratings', function (array $values) {
-            $this->content_ratings = $this->loopOn($values, ContentRating::class);
-        });
+        $this->last_episode_to_air = $this->toModel($data, 'last_episode_to_air', Episode::class);
+        $this->next_episode_to_air = $this->toModel($data, 'next_episode_to_air', Episode::class);
+        $this->recommendations = $this->toModel($data, 'recommendations', SearchTvSeries::class);
+        $this->similar = $this->toModel($data, 'similar', SearchTvSeries::class);
 
-        if (isset($data['recommendations'])) {
-            $this->recommendations = new SearchTvSeries($data['recommendations']);
-        }
-
-        if (isset($data['similar'])) {
-            $this->similar = new SearchTvSeries($data['similar']);
-        }
+        $this->created_by = $this->validateData($data, 'created_by', fn (array $values) => $this->loopOn($values, Crew::class));
+        $this->networks = $this->validateData($data, 'networks', fn (array $values) => $this->loopOn($values, Network::class));
+        $this->seasons = $this->validateData($data, 'seasons', fn (array $values) => $this->loopOn($values, Season::class));
+        $this->content_ratings = $this->validateData($data, 'content_ratings', fn (array $values) => $this->loopOn($values, ContentRating::class));
     }
 
     /**

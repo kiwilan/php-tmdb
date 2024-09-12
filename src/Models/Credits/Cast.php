@@ -10,13 +10,17 @@ class Cast extends Person
 
     protected ?int $order = null;
 
-    public function __construct(array $data)
+    public function __construct(?array $data)
     {
+        if (! $data) {
+            return;
+        }
+
         parent::__construct($data);
 
-        $this->cast_id = $data['cast_id'] ?? null;
-        $this->character = $data['character'] ?? null;
-        $this->order = $data['order'] ?? null;
+        $this->cast_id = $this->toInt($data, 'cast_id');
+        $this->character = $this->toString($data, 'character');
+        $this->order = $this->toInt($data, 'order');
     }
 
     public function getCastId(): ?int

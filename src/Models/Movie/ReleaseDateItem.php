@@ -20,8 +20,12 @@ class ReleaseDateItem extends TmdbModel
 
     protected ?int $type = null;
 
-    public function __construct(array $data)
+    public function __construct(?array $data)
     {
+        if (! $data) {
+            return;
+        }
+
         $this->certification = $this->toString($data, 'certification');
         $this->descriptors = $this->toArray($data, 'descriptors');
         $this->iso_639_1 = $this->toString($data, 'iso_639_1');

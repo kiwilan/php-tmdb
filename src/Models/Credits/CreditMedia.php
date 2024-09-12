@@ -80,13 +80,8 @@ class CreditMedia extends TmdbModel
         $this->origin_country = $this->toArray($data, 'origin_country');
         $this->character = $this->toString($data, 'character');
 
-        $this->validateData($data, 'episodes', function (array $values) {
-            $this->episodes = $this->loopOn($values, Episode::class);
-        });
-
-        $this->validateData($data, 'seasons', function (array $values) {
-            $this->seasons = $this->loopOn($values, Season::class);
-        });
+        $this->episodes = $this->validateData($data, 'episodes', fn (array $values) => $this->loopOn($values, Episode::class));
+        $this->seasons = $this->validateData($data, 'seasons', fn (array $values) => $this->loopOn($values, Season::class));
     }
 
     public function getName(): ?string

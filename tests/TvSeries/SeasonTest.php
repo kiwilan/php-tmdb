@@ -24,7 +24,7 @@ it('can find season', function () {
     expect($season->getOverview())->toBeString();
     expect($season->getSeasonNumber())->toBeInt();
     expect($season->getVoteAverage())->toBeFloat();
-    expect($season->getCredits())->toBeInstanceOf(Credits::class);
+    expect($season->getCredits())->toBeNull();
     expect($season->getId())->toBeInt();
     expect($season->getPosterPath())->toBeString();
 });

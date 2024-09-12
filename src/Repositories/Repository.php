@@ -22,7 +22,7 @@ abstract class Repository
      */
     protected function getUrl(string $path, array $queryParams = []): string
     {
-        return self::BASE_URL.'/'.$path.'?'.http_build_query($queryParams);
+        return self::BASE_URL.$path.'?'.http_build_query($queryParams);
     }
 
     /**

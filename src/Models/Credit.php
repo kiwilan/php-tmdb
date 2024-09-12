@@ -30,17 +30,10 @@ class Credit extends TmdbModel
         $this->credit_type = $this->toString($data, 'credit_type');
         $this->department = $this->toString($data, 'department');
         $this->job = $this->toString($data, 'job');
-
-        if (isset($data['media'])) {
-            $this->media = new CreditMedia($data['media']);
-        }
-
         $this->media_type = $this->toString($data, 'media_type');
         $this->id = $this->toString($data, 'id');
-
-        if (isset($data['person'])) {
-            $this->person = new Person($data['person']);
-        }
+        $this->media = $this->toModel($data, 'media', CreditMedia::class);
+        $this->person = $this->toModel($data, 'person', Person::class);
     }
 
     public function getCreditType(): ?string

@@ -27,14 +27,8 @@ class Credits extends TmdbModel
         }
 
         $this->setId($data);
-
-        $this->validateData($data, 'cast', function (array $values) {
-            $this->cast = $this->loopOn($values, Cast::class);
-        });
-
-        $this->validateData($data, 'crew', function (array $values) {
-            $this->crew = $this->loopOn($values, Crew::class);
-        });
+        $this->cast = $this->validateData($data, 'cast', fn (array $values) => $this->loopOn($values, Cast::class));
+        $this->crew = $this->validateData($data, 'crew', fn (array $values) => $this->loopOn($values, Crew::class));
     }
 
     /**

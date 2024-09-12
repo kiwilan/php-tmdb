@@ -31,9 +31,9 @@ class Person extends TmdbModel
             return;
         }
 
+        $this->setId($data);
         $this->adult = $this->toBool($data, 'adult');
         $this->gender = $this->toInt($data, 'gender');
-        $this->setId($data);
         $this->known_for_department = $this->toString($data, 'known_for_department');
         $this->name = $this->toString($data, 'name');
         $this->original_name = $this->toString($data, 'original_name');

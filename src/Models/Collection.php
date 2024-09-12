@@ -32,17 +32,16 @@ class Collection extends TmdbModel
         }
 
         $this->setId($data);
+        $this->setPosterPath($data);
+        $this->setBackdropPath($data);
+
         $this->name = $this->toString($data, 'name');
         $this->overview = $this->toString($data, 'overview');
         $this->original_language = $this->toString($data, 'original_language');
         $this->original_name = $this->toString($data, 'original_name');
         $this->adult = $this->toBool($data, 'adult');
-        $this->setPosterPath($data);
-        $this->setBackdropPath($data);
 
-        $this->validateData($data, 'parts', function (array $values) {
-            $this->parts = $this->loopOn($values, Movie::class);
-        });
+        $this->parts = $this->validateData($data, 'parts', fn (array $values) => $this->loopOn($values, Movie::class));
     }
 
     public function getName(): string

@@ -42,9 +42,7 @@ class Movie extends Media
 
         parent::__construct($data);
 
-        $belongs_to_collection = $this->toArray($data, 'belongs_to_collection');
-        $this->belongs_to_collection = $belongs_to_collection ? new Movie\BelongsToCollection($belongs_to_collection) : null;
-
+        $this->belongs_to_collection = $this->toModel($data, 'belongs_to_collection', Movie\BelongsToCollection::class);
         $this->budget = $this->toInt($data, 'budget');
         $this->imdb_id = $this->toString($data, 'imdb_id');
         $this->original_title = $this->toString($data, 'original_title');
@@ -54,17 +52,9 @@ class Movie extends Media
         $this->runtime = $this->toInt($data, 'runtime');
         $this->video = $data['video'] ?? false;
 
-        $this->validateData($data, 'release_dates', function (array $values) {
-            $this->release_dates = $this->loopOn($values['results'] ?? null, ReleaseDate::class);
-        });
-
-        if (isset($data['recommendations'])) {
-            $this->recommendations = new SearchMovies($data['recommendations']);
-        }
-
-        if (isset($data['similar'])) {
-            $this->similar = new SearchMovies($data['similar']);
-        }
+        $this->release_dates = $this->validateData($data, 'release_dates', fn (array $values) => $this->loopOn($values['results'] ?? null, ReleaseDate::class));
+        $this->recommendations = $this->toModel($data, 'recommendations', SearchMovies::class);
+        $this->similar = $this->toModel($data, 'similar', SearchMovies::class);
     }
 
     public function getBelongsToCollection(): ?Movie\BelongsToCollection

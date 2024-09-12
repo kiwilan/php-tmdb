@@ -12,7 +12,7 @@ use Kiwilan\Tmdb\Traits\HasBackdrop;
 use Kiwilan\Tmdb\Traits\HasId;
 use Kiwilan\Tmdb\Traits\HasPoster;
 
-abstract class Media extends TmdbModel
+class Media extends TmdbModel
 {
     use HasAlternativeTitles;
     use HasBackdrop;
@@ -62,42 +62,29 @@ abstract class Media extends TmdbModel
 
     public function __construct(array $data)
     {
-        $this->adult = $this->toBool($data, 'adult');
+        $this->setId($data);
         $this->setBackdropPath($data);
         $this->setPosterPath($data);
-        $this->genre_ids = $data['genre_ids'] ?? null;
+        $this->setAlternativeTitles($data);
 
-        $this->validateData($data, 'genres', function (array $values) {
-            $this->genres = $this->loopOn($values, Genre::class);
-        });
-
+        $this->adult = $this->toBool($data, 'adult');
         $this->homepage = $this->toString($data, 'homepage');
-        $this->setId($data);
         $this->origin_country = $this->toArray($data, 'origin_country');
         $this->original_language = $this->toString($data, 'original_language');
         $this->overview = $this->toString($data, 'overview');
         $this->popularity = $this->toFloat($data, 'popularity');
-
-        $this->validateData($data, 'production_companies', function (array $values) {
-            $this->production_companies = $this->loopOn($values, Company::class);
-        });
-
-        $this->validateData($data, 'production_countries', function (array $values) {
-            $this->production_countries = $this->loopOn($values, Country::class);
-        });
-
-        $this->validateData($data, 'spoken_languages', function (array $values) {
-            $this->spoken_languages = $this->loopOn($values, SpokenLanguage::class);
-        });
-
         $this->status = $this->toString($data, 'status');
         $this->tagline = $this->toString($data, 'tagline');
         $this->vote_average = $this->toFloat($data, 'vote_average');
         $this->vote_count = $this->toInt($data, 'vote_count');
 
-        $this->setAlternativeTitles($data);
+        $this->genre_ids = $this->toArray($data, 'genre_ids');
+        $this->genres = $this->validateData($data, 'genres', fn (array $values) => $this->loopOn($values, Genre::class));
+        $this->production_companies = $this->validateData($data, 'production_companies', fn (array $values) => $this->loopOn($values, Company::class));
+        $this->production_countries = $this->validateData($data, 'production_countries', fn (array $values) => $this->loopOn($values, Country::class));
+        $this->spoken_languages = $this->validateData($data, 'spoken_languages', fn (array $values) => $this->loopOn($values, SpokenLanguage::class));
 
-        $this->credits = new Credits($data['credits'] ?? null);
+        $this->credits = $this->toModel($data, 'credits', Credits::class);
     }
 
     public function isAdult(): bool

@@ -44,17 +44,18 @@ class Episode extends TmdbModel
             return;
         }
 
+        $this->setId($data);
+        $this->setStillPath($data);
+
         $this->air_date = $this->toDateTime($data, 'air_date');
         $this->crew = $this->loopOn($data['crew'] ?? [], Crew::class);
         $this->episode_number = $this->toInt($data, 'episode_number');
         $this->cast = $this->loopOn($data['guest_stars'] ?? [], Cast::class);
         $this->name = $this->toString($data, 'name');
         $this->overview = $this->toString($data, 'overview');
-        $this->setId($data);
         $this->production_code = $this->toString($data, 'production_code');
         $this->runtime = $this->toInt($data, 'runtime');
         $this->season_number = $this->toInt($data, 'season_number');
-        $this->setStillPath($data);
         $this->vote_average = $this->toFloat($data, 'vote_average');
         $this->vote_count = $this->toInt($data, 'vote_count');
     }

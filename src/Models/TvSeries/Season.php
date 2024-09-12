@@ -34,15 +34,15 @@ class Season extends TmdbModel
             return;
         }
 
+        $this->setId($data);
+        $this->setPosterPath($data);
         $this->air_date = $this->toDateTime($data, 'air_date');
         $this->episodes = $this->loopOn($data['episodes'] ?? [], Episode::class);
         $this->name = $this->toString($data, 'name');
         $this->overview = $this->toString($data, 'overview');
-        $this->setId($data);
-        $this->setPosterPath($data);
         $this->season_number = $this->toInt($data, 'season_number');
         $this->vote_average = $this->toFloat($data, 'vote_average');
-        $this->credits = new Credits($data['credits'] ?? []);
+        $this->credits = $this->toModel($data, 'credits', Credits::class);
     }
 
     public function getAirDate(): ?DateTime
@@ -80,7 +80,7 @@ class Season extends TmdbModel
         return $this->vote_average;
     }
 
-    public function getCredits(): Credits
+    public function getCredits(): ?Credits
     {
         return $this->credits;
     }

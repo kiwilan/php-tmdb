@@ -17,13 +17,16 @@ class BelongsToCollection extends TmdbModel
 
     protected ?string $backdrop_path = null;
 
-    public function __construct(array $data)
+    public function __construct(?array $data)
     {
-        $this->setId($data);
-        $this->name = $this->toString($data, 'name');
+        if (! $data) {
+            return;
+        }
+
         $this->setId($data);
         $this->setPosterPath($data);
         $this->setBackdropPath($data);
+        $this->name = $this->toString($data, 'name');
     }
 
     public function getName(): ?string

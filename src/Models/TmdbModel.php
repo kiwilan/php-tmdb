@@ -7,12 +7,14 @@ use DateTime;
 
 class TmdbModel
 {
-    protected function validateData(array $data, string $key, Closure $closure)
+    protected function validateData(array $data, string $key, Closure $closure): mixed
     {
         $values = $data[$key] ?? null;
         if (isset($values) && is_array($values)) {
-            $closure($values);
+            return $closure($values);
         }
+
+        return null;
     }
 
     protected function loopOn(mixed $values, string $class): array
@@ -68,5 +70,12 @@ class TmdbModel
         $value = $data[$key] ?? null;
 
         return $value ? (array) $value : null;
+    }
+
+    protected function toModel(array $data, string $key, string $class): ?object
+    {
+        $value = $data[$key] ?? null;
+
+        return $value ? new $class($value) : null;
     }
 }

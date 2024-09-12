@@ -8,12 +8,16 @@ class Crew extends Person
 
     protected ?string $job = null;
 
-    public function __construct(array $data)
+    public function __construct(?array $data)
     {
+        if (! $data) {
+            return;
+        }
+
         parent::__construct($data);
 
-        $this->department = $data['department'] ?? null;
-        $this->job = $data['job'] ?? null;
+        $this->department = $this->toString($data, 'department');
+        $this->job = $this->toString($data, 'job');
     }
 
     public function getDepartment(): ?string

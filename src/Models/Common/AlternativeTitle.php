@@ -2,7 +2,9 @@
 
 namespace Kiwilan\Tmdb\Models\Common;
 
-class AlternativeTitle
+use Kiwilan\Tmdb\Models\TmdbModel;
+
+class AlternativeTitle extends TmdbModel
 {
     protected ?string $iso_3166_1 = null;
 
@@ -16,9 +18,9 @@ class AlternativeTitle
             return;
         }
 
-        $this->iso_3166_1 = $data['iso_3166_1'] ?? null;
-        $this->title = $data['title'] ?? null;
-        $this->type = $data['type'] ?? null;
+        $this->iso_3166_1 = $this->toString($data, 'iso_3166_1');
+        $this->title = $this->toString($data, 'title');
+        $this->type = $this->toString($data, 'type');
     }
 
     /**

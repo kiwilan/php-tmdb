@@ -11,13 +11,14 @@ class ReleaseDate extends TmdbModel
     /** @var ReleaseDateItem[] */
     protected ?array $release_dates = null;
 
-    public function __construct(array $data)
+    public function __construct(?array $data)
     {
-        $this->iso_3166_1 = $this->toString($data, 'iso_3166_1');
+        if (! $data) {
+            return;
+        }
 
-        $this->validateData($data, 'release_dates', function (array $values) {
-            $this->release_dates = $this->loopOn($values, ReleaseDateItem::class);
-        });
+        $this->iso_3166_1 = $this->toString($data, 'iso_3166_1');
+        $this->release_dates = $this->validateData($data, 'release_dates', fn (array $values) => $this->loopOn($values, ReleaseDateItem::class));
     }
 
     /**

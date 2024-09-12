@@ -100,6 +100,16 @@ class Tmdb
     }
 
     /**
+     * Use TrendingRepository repository
+     *
+     * @docs https://developer.themoviedb.org/reference/trending-all
+     */
+    public function trending(): Repositories\TrendingRepository
+    {
+        return new Repositories\TrendingRepository($this->apiKey);
+    }
+
+    /**
      * Use TVSeriesRepository repository
      *
      * @docs https://developer.themoviedb.org/reference/tv-series-details

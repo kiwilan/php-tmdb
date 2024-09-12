@@ -22,7 +22,7 @@ class MovieListsRepository extends Repository
      */
     public function nowPlaying(string $language, int $page, string $region): ?Search\SearchMoviesDates
     {
-        $url = $this->getUrl('movie/now_playing', [
+        $url = $this->getUrl('/movie/now_playing', [
             'language' => $language,
             'page' => $page,
             'region' => $region,
@@ -44,7 +44,7 @@ class MovieListsRepository extends Repository
      */
     public function popular(string $language, int $page, string $region): ?Search\SearchMovies
     {
-        $url = $this->getUrl('movie/popular', [
+        $url = $this->getUrl('/movie/popular', [
             'language' => $language,
             'page' => $page,
             'region' => $region,
@@ -66,7 +66,7 @@ class MovieListsRepository extends Repository
      */
     public function topRated(string $language, int $page, string $region): ?Search\SearchMovies
     {
-        $url = $this->getUrl('movie/top_rated', [
+        $url = $this->getUrl('/movie/top_rated', [
             'language' => $language,
             'page' => $page,
             'region' => $region,
@@ -88,7 +88,7 @@ class MovieListsRepository extends Repository
      */
     public function upcoming(string $language, int $page, string $region): ?Search\SearchMoviesDates
     {
-        $url = $this->getUrl('movie/upcoming', [
+        $url = $this->getUrl('/movie/upcoming', [
             'language' => $language,
             'page' => $page,
             'region' => $region,
