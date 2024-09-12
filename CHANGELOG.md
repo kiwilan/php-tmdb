@@ -2,6 +2,12 @@
 
 All notable changes to `php-tmdb` will be documented in this file.
 
+## v0.0.31 - 2024-09-12
+
+- Add Movie Lists
+- Add Trending
+- Add TV Series List
+
 ## v0.0.3 - 2024-09-12
 
 Now `append_to_response` parameter is an array of strings.
