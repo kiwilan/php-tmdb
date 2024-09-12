@@ -450,9 +450,9 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [x] ~~[TV](https://developer.themoviedb.org/reference/search-tv)~~
 -   [ ] Trending
     -   [ ] [All](https://developer.themoviedb.org/reference/trending-all): for v1.5
-    -   [ ] [Movie](https://developer.themoviedb.org/reference/trending-movie): for v1.5
+    -   [ ] [Movie](https://developer.themoviedb.org/reference/trending-movies): for v1.5
     -   [ ] [TV](https://developer.themoviedb.org/reference/trending-tv): for v1.5
-    -   [ ] [Person](https://developer.themoviedb.org/reference/trending-person): for v1.5
+    -   [ ] [People](https://developer.themoviedb.org/reference/trending-people): for v1.5
 -   [ ] TV Series List
     -   [ ] [Airing Today](https://developer.themoviedb.org/reference/tv-series-airing-today-list): for v1.5
     -   [ ] [On The Air](https://developer.themoviedb.org/reference/tv-series-on-the-air-list): for v1.5
