@@ -11,27 +11,27 @@
 
 PHP wrapper package to interact with the [The Movie Database (TMDB) API](https://www.themoviedb.org/documentation/api).
 
+_This is NOT official TMDB API PHP wrapper, you can check [php-tmdb/api](https://github.com/php-tmdb/api) if you want official package._
+
 > [!IMPORTANT]
 > You need to create an account on [TMDB](https://www.themoviedb.org/) and get an **_API key_** to use this package. It's free and easy to do, you can read [this guide](https://developer.themoviedb.org/docs/getting-started) to get started.
 
 _Why this package? All current PHP packages to interact with the TMDB API are not up-to-date and I need a modern and easy-to-use package to interact with the TMDB API. So I decided to create this package. You can check [Roadmap](#roadmap) to see what I plan to do with this package._
-
-_This is NOT official TMDB API PHP wrapper, you can check [php-tmdb/api](https://github.com/php-tmdb/api) if you want official package._
 
 > [!WARNING]
 > This package is under development.
 
 ## Requirements
 
-PHP 8.1 and later.
+**PHP 8.1** and later.
 
 > [!NOTE]
 > Package `guzzlehttp/guzzle` will be installed automatically by Composer.
 
 ## Features
 
--   🔍 Search Collection, Movie, TV Series
--   🎬 Movie and TV Series details
+-   🔍 Search Collections, Movies, TV Series
+-   🎬 Collections, Movies, Networks, TV Series, TV seasons, TV episodes details
 -   🖼️ Posters, backgrounds, logos, profiles, stills with included methods
 -   🗄️ TMDB models: `AlternativeTitle`, `Collection`, `Company`, `ContentRating`, `Country`, `Credits` (with `Cast`<sup>1</sup> & `Crew`), `Episode`, `Genre`, `Movie`, `Network`, `ReleaseDate`, `Season`, `SpokenLanguage`, `TvSeries`
 
