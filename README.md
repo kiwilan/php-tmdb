@@ -46,7 +46,7 @@ You can install the package via composer:
 composer require kiwilan/php-tmdb
 ```
 
-## Usage
+## Usage of API
 
 ### Collection
 
@@ -335,6 +335,7 @@ You can change the size of the image with `size` option, available for `get*Url`
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
+use Kiwilan\Tmdb\Enums\PosterSize;
 
 $movie = Tmdb::client('API_KEY')
     ->movies()

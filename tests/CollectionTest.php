@@ -62,7 +62,6 @@ it('can get collection details', function () {
     expect($collection->getBackdropPath())->toBeString();
     expect($collection->getPosterPath())->toBeString();
 
-    ray($collection);
     expect($collection->getParts())->toBeArray();
     expect($collection->getParts())->not()->toBeEmpty();
     expect($collection->getParts())->each(fn (Pest\Expectation $part) => expect($part->value)->toBeInstanceOf(Movie::class));

@@ -11,8 +11,12 @@ class Genre extends TmdbModel
 
     protected ?string $name = null;
 
-    public function __construct(array $data)
+    public function __construct(?array $data)
     {
+        if (! $data) {
+            return;
+        }
+
         $this->setId($data);
         $this->name = $this->toString($data, 'name');
     }

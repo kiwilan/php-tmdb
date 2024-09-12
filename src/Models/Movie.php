@@ -3,6 +3,7 @@
 namespace Kiwilan\Tmdb\Models;
 
 use DateTime;
+use Kiwilan\Tmdb\Models\Common\Video;
 use Kiwilan\Tmdb\Models\Credits\Crew;
 use Kiwilan\Tmdb\Models\Movie\ReleaseDate;
 use Kiwilan\Tmdb\Search\SearchMovies;
@@ -25,7 +26,8 @@ class Movie extends Media
 
     protected ?int $runtime = null;
 
-    protected mixed $video = false;
+    /** @var Video[]|null */
+    protected ?array $videos = null;
 
     /** @var Movie\ReleaseDate[]|null */
     protected ?array $release_dates = null;
@@ -50,9 +52,10 @@ class Movie extends Media
         $this->release_date = $this->toDateTime($data, 'release_date');
         $this->revenue = $this->toInt($data, 'revenue');
         $this->runtime = $this->toInt($data, 'runtime');
-        $this->video = $data['video'] ?? false;
 
+        $this->videos = $this->validateData($data, 'videos', fn (array $values) => $this->loopOn($values['results'] ?? null, Video::class));
         $this->release_dates = $this->validateData($data, 'release_dates', fn (array $values) => $this->loopOn($values['results'] ?? null, ReleaseDate::class));
+
         $this->recommendations = $this->toModel($data, 'recommendations', SearchMovies::class);
         $this->similar = $this->toModel($data, 'similar', SearchMovies::class);
     }
@@ -97,9 +100,14 @@ class Movie extends Media
         return $this->runtime;
     }
 
-    public function isVideo(): bool
+    /**
+     * Get movie videos, `videos` must be requested.
+     *
+     * @return Video[]|null
+     */
+    public function getVideos(): ?array
     {
-        return $this->video;
+        return $this->videos;
     }
 
     /**

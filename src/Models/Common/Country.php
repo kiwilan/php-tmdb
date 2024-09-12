@@ -10,8 +10,12 @@ class Country extends TmdbModel
 
     protected ?string $name = null;
 
-    public function __construct(array $data)
+    public function __construct(?array $data)
     {
+        if (! $data) {
+            return;
+        }
+
         $this->iso_3166_1 = $this->toString($data, 'iso_3166_1');
         $this->name = $this->toString($data, 'name');
     }

@@ -31,7 +31,6 @@ it('can search movie', function () {
     expect($first->getPosterPath())->toBeString();
     expect($first->getReleaseDate())->toBeInstanceOf(DateTime::class);
     expect($first->getTitle())->toBeString();
-    expect($first->isVideo())->toBeFalse();
     expect($first->getVoteAverage())->toBeFloat();
     expect($first->getVoteCount())->toBeInt();
 });

@@ -12,8 +12,12 @@ class SpokenLanguage extends TmdbModel
 
     protected ?string $name = null;
 
-    public function __construct(array $data)
+    public function __construct(?array $data)
     {
+        if (! $data) {
+            return;
+        }
+
         $this->english_name = $this->toString($data, 'english_name');
         $this->iso_639_1 = $this->toString($data, 'iso_639_1');
         $this->name = $this->toString($data, 'name');

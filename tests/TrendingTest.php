@@ -25,7 +25,7 @@ it('can use media', function () {
 
     $first = $all->getFirstResult();
     expect($first)->toBeInstanceOf(Media::class);
-    // dump($first);
+    dump($first);
 
     //   "title": "Rebel Ridge",
     //   "original_title": "Rebel Ridge",

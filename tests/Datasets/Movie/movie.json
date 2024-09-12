@@ -5601,5 +5601,117 @@
         ],
         "total_pages": 4326,
         "total_results": 86507
+    },
+    "videos": {
+        "results": [
+            {
+                "iso_639_1": "en",
+                "iso_3166_1": "US",
+                "name": "Lord of the Rings - The Fellowship of the Ring (2001) Theatrical Trailer [5.1] [4K] [FTD-1287]",
+                "key": "CbYmZOV3G-Q",
+                "site": "YouTube",
+                "size": 1080,
+                "type": "Trailer",
+                "official": false,
+                "published_at": "2023-10-09T05:00:10.000Z",
+                "id": "66a8588b701443f384abd09e"
+            },
+            {
+                "iso_639_1": "en",
+                "iso_3166_1": "US",
+                "name": "Middle Earth Costume Design",
+                "key": "3JlFHcFDH-w",
+                "site": "YouTube",
+                "size": 1080,
+                "type": "Behind the Scenes",
+                "official": true,
+                "published_at": "2022-06-03T14:59:47.000Z",
+                "id": "62ce1c99d14443004c263524"
+            },
+            {
+                "iso_639_1": "en",
+                "iso_3166_1": "US",
+                "name": "One Ring to Rule Them All",
+                "key": "UXgbHdnoJrg",
+                "site": "YouTube",
+                "size": 1080,
+                "type": "Clip",
+                "official": true,
+                "published_at": "2022-02-07T21:50:21.000Z",
+                "id": "6209e898cb802838de065cce"
+            },
+            {
+                "iso_639_1": "en",
+                "iso_3166_1": "US",
+                "name": "Official Trailer",
+                "key": "_nZdmwHrcnw",
+                "site": "YouTube",
+                "size": 2160,
+                "type": "Trailer",
+                "official": true,
+                "published_at": "2020-12-02T17:33:26.000Z",
+                "id": "5fc8aa7b43999b003b153ed6"
+            },
+            {
+                "iso_639_1": "en",
+                "iso_3166_1": "US",
+                "name": "Lord of the Rings The Fellowship of the Ring Appendices (Part 2)",
+                "key": "wTS7BDMVG18",
+                "site": "YouTube",
+                "size": 1080,
+                "type": "Featurette",
+                "official": false,
+                "published_at": "2020-06-28T13:45:22.000Z",
+                "id": "61956267a0f1a200268079e3"
+            },
+            {
+                "iso_639_1": "en",
+                "iso_3166_1": "US",
+                "name": "Lord of the Rings The Fellowship of the Ring Appendices (Part 1)",
+                "key": "HPmb3Al25pM",
+                "site": "YouTube",
+                "size": 1080,
+                "type": "Featurette",
+                "official": false,
+                "published_at": "2019-11-10T14:45:13.000Z",
+                "id": "619561c11495650063ae22ff"
+            },
+            {
+                "iso_639_1": "en",
+                "iso_3166_1": "US",
+                "name": "Teaser 2",
+                "key": "7HbDcTw7E2g",
+                "published_at": "2018-09-10T02:23:41.000Z",
+                "site": "YouTube",
+                "size": 1080,
+                "type": "Teaser",
+                "official": false,
+                "id": "5b95d6790e0a26198202d0f4"
+            },
+            {
+                "iso_639_1": "en",
+                "iso_3166_1": "US",
+                "name": "Teaser 1",
+                "key": "-7XAdOVcHxE",
+                "published_at": "2018-09-10T01:24:50.000Z",
+                "site": "YouTube",
+                "size": 1080,
+                "type": "Teaser",
+                "official": false,
+                "id": "5b95d666c3a368568103294e"
+            },
+            {
+                "iso_639_1": "en",
+                "iso_3166_1": "US",
+                "name": "The Lord of the Rings: The Fellowship of the Ring Wins Visual Effects: 2002 Oscars",
+                "key": "ojG-bkl8A6o",
+                "site": "YouTube",
+                "size": 480,
+                "type": "Featurette",
+                "official": true,
+                "published_at": "2015-04-01T21:26:09.000Z",
+                "id": "63d159cf9e45860085cd8972"
+            }
+        ]
     }
 }

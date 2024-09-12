@@ -5,6 +5,7 @@ use Kiwilan\Tmdb\Models\Common\Company;
 use Kiwilan\Tmdb\Models\Common\Country;
 use Kiwilan\Tmdb\Models\Common\Genre;
 use Kiwilan\Tmdb\Models\Common\SpokenLanguage;
+use Kiwilan\Tmdb\Models\Common\Video;
 use Kiwilan\Tmdb\Models\Credits\Cast;
 use Kiwilan\Tmdb\Models\Credits\Crew;
 use Kiwilan\Tmdb\Models\Movie;
@@ -50,6 +51,7 @@ it('can get movie details (tmdb id)', function () {
     expect($movie->getTagline())->toBeString();
     expect($movie->getVoteAverage())->toBeFloat();
     expect($movie->getVoteCount())->toBeInt();
+    expect($movie->getVideos())->toBeNull();
 
     expect($movie->getReleaseDate())->toBeInstanceOf(DateTime::class);
     expect($movie->getRevenue())->toBeInt();
@@ -150,6 +152,18 @@ it('can get movie similar', function () {
     expect($similar->getResults())->toBeArray();
     expect($similar->getResults())->not()->toBeEmpty();
     expect($similar->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(Movie::class));
+});
+
+it('can get movie videos', function () {
+    $movie = Tmdb::client(apiKey())
+        ->movies()
+        ->details(120, ['videos']);
+    $videos = $movie->getVideos();
+
+    expect($videos)->not()->toBeNull();
+    expect($videos)->toBeArray();
+    expect($videos)->not()->toBeEmpty();
+    expect($videos)->each(fn (Pest\Expectation $video) => expect($video->value)->toBeInstanceOf(Video::class));
 });
 
 it('can get null if movie not exists (tmdb id)', function () {
