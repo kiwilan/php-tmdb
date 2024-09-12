@@ -83,7 +83,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $movie = Tmdb::client('API_KEY')
     ->movies()
-    ->details(movie_id: 120, append_to_response: 'credits,recommendations'); // ?\Kiwilan\Tmdb\Models\Movie
+    ->details(movie_id: 120, append_to_response: ['credits', 'recommendations']); // ?\Kiwilan\Tmdb\Models\Movie
 ```
 
 ### Networks
@@ -219,7 +219,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $tvSeries = Tmdb::client('API_KEY')
     ->tvSeries()
-    ->details(series_id: 1399, append_to_response: 'credits,recommendations'); // ?\Kiwilan\Tmdb\Models\TvSeries
+    ->details(series_id: 1399, append_to_response: ['credits', 'recommendations']); // ?\Kiwilan\Tmdb\Models\TvSeries
 ```
 
 ### TV Seasons
@@ -243,7 +243,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $season = Tmdb::client('API_KEY')
     ->tvSeasons()
-    ->details(series_id: 1399, season_number: 1, append_to_response: 'credits'); // ?\Kiwilan\Tmdb\Models\Season
+    ->details(series_id: 1399, season_number: 1, append_to_response: ['credits']); // ?\Kiwilan\Tmdb\Models\Season
 ```
 
 ### TV Episodes
@@ -267,7 +267,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $episode = Tmdb::client('API_KEY')
     ->tvEpisodes()
-    ->details(series_id: 1399, season_number: 1, episode_number: 1, append_to_response: 'credits'); // ?\Kiwilan\Tmdb\Models\Episode
+    ->details(series_id: 1399, season_number: 1, episode_number: 1, append_to_response: ['credits']); // ?\Kiwilan\Tmdb\Models\Episode
 ```
 
 ## Images

@@ -23,6 +23,16 @@ abstract class Repository
     }
 
     /**
+     * Append the query parameters
+     *
+     * @param  string[]|null  $append_to_response  To get additional information
+     */
+    protected function appendToResponse(?array $append_to_response): string
+    {
+        return $append_to_response ? implode(',', $append_to_response) : '';
+    }
+
+    /**
      * Execute the request
      *
      * @param  string  $url  The URL to request

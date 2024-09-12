@@ -16,15 +16,15 @@ class TVSeasonsRepository extends Repository
      *
      * @param  int  $series_id  The TMDB TV series ID
      * @param  int  $season_number  The season number
-     * @param  string|null  $append_to_response  To get additional information
+     * @param  string[]|null  $append_to_response  To get additional information
      *
      * @docs https://developer.themoviedb.org/reference/tv-season-details
      */
-    public function details(int $series_id, int $season_number, ?string $append_to_response = null): ?Models\TvSeries\Season
+    public function details(int $series_id, int $season_number, ?array $append_to_response = null): ?Models\TvSeries\Season
     {
         $url = $this->getUrl("/tv/{$series_id}/season/{$season_number}");
         $queryParams = [
-            'append_to_response' => $append_to_response,
+            'append_to_response' => $this->appendToResponse($append_to_response),
             'language' => $this->language,
         ];
 

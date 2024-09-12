@@ -58,7 +58,7 @@ it('can get movie details (tmdb id)', function () {
 it('can get movie alternative titles', function () {
     $movie = Tmdb::client(apiKey())
         ->movies()
-        ->details(120, 'alternative_titles');
+        ->details(120, ['alternative_titles']);
 
     expect($movie->getAlternativeTitles())->not()->toBeNull();
     expect($movie->getAlternativeTitle('FR'))->toBeInstanceOf(AlternativeTitle::class);
@@ -90,7 +90,7 @@ it('can get movie posters', function () {
 it('can get movie release dates', function () {
     $movie = Tmdb::client(apiKey())
         ->movies()
-        ->details(120, 'release_dates');
+        ->details(120, ['release_dates']);
 
     expect($movie->getReleaseDates())->not()->toBeNull();
     $french = $movie->getReleaseDatesSpecific('FR');
@@ -104,7 +104,7 @@ it('can get movie release dates', function () {
 it('can get movie credits', function () {
     $movie = Tmdb::client(apiKey())
         ->movies()
-        ->details(120, 'credits');
+        ->details(120, ['credits']);
 
     expect($movie->getCredits())->not()->toBeNull();
     expect($movie->getCredits()->getCast())->toBeArray();
@@ -119,7 +119,7 @@ it('can get movie credits', function () {
 it('can get movie spoken languages', function () {
     $movie = Tmdb::client(apiKey())
         ->movies()
-        ->details(120, 'credits');
+        ->details(120, ['credits']);
 
     expect($movie->getSpokenLanguages())->not()->toBeNull();
     expect($movie->getSpokenLanguages())->toBeArray();
@@ -130,7 +130,7 @@ it('can get movie spoken languages', function () {
 it('can get movie recommendations', function () {
     $movie = Tmdb::client(apiKey())
         ->movies()
-        ->details(120, 'recommendations');
+        ->details(120, ['recommendations']);
     $recommendations = $movie->getRecommendations();
 
     expect($recommendations)->not()->toBeNull();
@@ -142,7 +142,7 @@ it('can get movie recommendations', function () {
 it('can get movie similar', function () {
     $movie = Tmdb::client(apiKey())
         ->movies()
-        ->details(120, 'similar');
+        ->details(120, ['similar']);
 
     $similar = $movie->getSimilar();
 
@@ -195,7 +195,7 @@ it('can get movie countries', function () {
 it('can get directors', function () {
     $movie = Tmdb::client(apiKey())
         ->movies()
-        ->details(120, 'credits');
+        ->details(120, ['credits']);
 
     $directors = $movie->getDirectors();
     expect(reset($directors)?->getName())->toBe('Peter Jackson');

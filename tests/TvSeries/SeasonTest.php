@@ -32,7 +32,7 @@ it('can find season', function () {
 it('can find season credits', function () {
     $season = Tmdb::client(apiKey())
         ->tvSeasons()
-        ->details(1399, 1, 'credits');
+        ->details(1399, 1, ['credits']);
 
     expect($season->getCredits())->toBeInstanceOf(Credits::class);
     expect($season->getCredits()->getCast())->toBeArray();
