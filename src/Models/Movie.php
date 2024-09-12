@@ -119,7 +119,12 @@ class Movie extends ExtendedMedia
         return $this->release_dates;
     }
 
-    public function getReleaseDatesSpecific(string $iso_3166_1): ?Movie\ReleaseDate
+    /**
+     * Get movie release date specific to a country, `release_dates` must be requested.
+     *
+     * @param  string  $iso_3166_1  The ISO 3166-1 code, like `US`
+     */
+    public function getReleaseDateSpecific(string $iso_3166_1): ?Movie\ReleaseDate
     {
         if (! $this->release_dates) {
             return null;

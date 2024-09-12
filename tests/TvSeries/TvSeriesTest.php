@@ -52,6 +52,7 @@ it('can get tv series details', function () {
 
     expect($tv->getNumberOfEpisodes())->toBeInt();
     expect($tv->getNumberOfSeasons())->toBeInt();
+    expect($tv->getSeasonsCount())->toBeInt();
     expect($tv->getOriginCountry())->toBeArray();
     expect($tv->getOriginalLanguage())->toBeString();
     expect($tv->getOriginalName())->toBeString();
@@ -103,6 +104,11 @@ it('can parse content ratings', function () {
     expect($tv->getContentRatings())->toBeArray();
     expect($tv->getContentRatings())->not()->toBeEmpty();
     expect($tv->getContentRatings())->each(fn (Pest\Expectation $contentRating) => expect($contentRating->value)->toBeInstanceOf(ContentRating::class));
+
+    $us = $tv->getContentRatingSpecific('US');
+    expect($us)->toBeInstanceOf(ContentRating::class);
+    expect($us->getIso31661())->toBe('US');
+    expect($us->getRating())->toBe('TV-MA');
 });
 
 it('can parse credits', function () {

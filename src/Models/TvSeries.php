@@ -81,7 +81,9 @@ class TvSeries extends ExtendedMedia
         $this->created_by = $this->validateData($data, 'created_by', fn (array $values) => $this->loopOn($values, Crew::class));
         $this->networks = $this->validateData($data, 'networks', fn (array $values) => $this->loopOn($values, Network::class));
         $this->seasons = $this->validateData($data, 'seasons', fn (array $values) => $this->loopOn($values, Season::class));
-        $this->content_ratings = $this->validateData($data, 'content_ratings', fn (array $values) => $this->loopOn($values, ContentRating::class));
+
+        $content_ratings = $data['content_ratings']['results'] ?? null;
+        $this->content_ratings = $this->loopOn($content_ratings, ContentRating::class);
     }
 
     /**
@@ -177,6 +179,11 @@ class TvSeries extends ExtendedMedia
         return $this->seasons;
     }
 
+    public function getSeasonsCount(): int
+    {
+        return count($this->seasons);
+    }
+
     /**
      * Get the type, like `Scripted`.
      */
@@ -193,6 +200,27 @@ class TvSeries extends ExtendedMedia
     public function getContentRatings(): ?array
     {
         return $this->content_ratings;
+    }
+
+    /**
+     * Get the content rating specific to the country.
+     *
+     * @param  string  $iso_3166_1  The country code, like `US`
+     */
+    public function getContentRatingSpecific(string $iso_3166_1): ?ContentRating
+    {
+        $content_ratings = $this->content_ratings;
+        if (count($content_ratings) === 0) {
+            return null;
+        }
+
+        $ratings = array_filter($content_ratings, fn (ContentRating $item) => $item->getIso31661() === $iso_3166_1);
+
+        if (! $ratings) {
+            return null;
+        }
+
+        return reset($ratings);
     }
 
     public function getRecommendations(): ?TvSerieResults

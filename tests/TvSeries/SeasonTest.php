@@ -23,6 +23,7 @@ it('can find season', function () {
     expect($season->getName())->toBeString();
     expect($season->getOverview())->toBeString();
     expect($season->getSeasonNumber())->toBeInt();
+    expect($season->getEpisodesCount())->toBeInt();
     expect($season->getVoteAverage())->toBeFloat();
     expect($season->getCredits())->toBeNull();
     expect($season->getId())->toBeInt();

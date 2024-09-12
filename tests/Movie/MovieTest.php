@@ -95,7 +95,7 @@ it('can get movie release dates', function () {
         ->details(120, ['release_dates']);
 
     expect($movie->getReleaseDates())->not()->toBeNull();
-    $french = $movie->getReleaseDatesSpecific('FR');
+    $french = $movie->getReleaseDateSpecific('FR');
     expect($french)->toBeInstanceOf(ReleaseDate::class);
     expect($french->getIso31661())->toBe('FR');
     expect($french->getReleaseDates())->toBeArray();

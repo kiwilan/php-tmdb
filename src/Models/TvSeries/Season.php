@@ -60,6 +60,11 @@ class Season extends TmdbModel
         return $this->episodes;
     }
 
+    public function getEpisodesCount(): int
+    {
+        return count($this->episodes);
+    }
+
     public function getName(): ?string
     {
         return $this->name;
