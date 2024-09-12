@@ -3,6 +3,7 @@
 namespace Kiwilan\Tmdb\Models\TvSeries;
 
 use DateTime;
+use Kiwilan\Tmdb\Models\Credits;
 use Kiwilan\Tmdb\Models\Credits\Cast;
 use Kiwilan\Tmdb\Models\Credits\Crew;
 use Kiwilan\Tmdb\Models\TmdbModel;
@@ -38,6 +39,8 @@ class Episode extends TmdbModel
 
     protected ?int $vote_count = null;
 
+    protected ?Credits $credits = null;
+
     public function __construct(?array $data)
     {
         if (! $data) {
@@ -48,9 +51,7 @@ class Episode extends TmdbModel
         $this->setStillPath($data);
 
         $this->air_date = $this->toDateTime($data, 'air_date');
-        $this->crew = $this->loopOn($data['crew'] ?? [], Crew::class);
         $this->episode_number = $this->toInt($data, 'episode_number');
-        $this->cast = $this->loopOn($data['guest_stars'] ?? [], Cast::class);
         $this->name = $this->toString($data, 'name');
         $this->overview = $this->toString($data, 'overview');
         $this->production_code = $this->toString($data, 'production_code');
@@ -58,6 +59,11 @@ class Episode extends TmdbModel
         $this->season_number = $this->toInt($data, 'season_number');
         $this->vote_average = $this->toFloat($data, 'vote_average');
         $this->vote_count = $this->toInt($data, 'vote_count');
+
+        $this->credits = new Credits([
+            'cast' => $data['guest_stars'] ?? [],
+            'crew' => $data['crew'] ?? [],
+        ]);
     }
 
     public function getAirDate(): ?DateTime
@@ -65,29 +71,9 @@ class Episode extends TmdbModel
         return $this->air_date;
     }
 
-    /**
-     * Get the crew.
-     *
-     * @return Crew[]|null
-     */
-    public function getCrew(): ?array
-    {
-        return $this->crew;
-    }
-
     public function getEpisodeNumber(): ?int
     {
         return $this->episode_number;
-    }
-
-    /**
-     * Get the cast and guest stars.
-     *
-     * @return Cast[]|null
-     */
-    public function getCast(): ?array
-    {
-        return $this->cast;
     }
 
     public function getName(): ?string
@@ -123,5 +109,10 @@ class Episode extends TmdbModel
     public function getVoteCount(): ?int
     {
         return $this->vote_count;
+    }
+
+    public function getCredits(): ?Credits
+    {
+        return $this->credits;
     }
 }

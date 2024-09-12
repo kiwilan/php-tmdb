@@ -14,13 +14,13 @@ it('can find episode', function () {
     expect($episode)->toBeInstanceOf(Episode::class);
     expect($episode->getAirDate())->toBeInstanceOf(DateTime::class);
 
-    expect($episode->getCast())->toBeArray();
-    expect($episode->getCast())->not()->toBeEmpty();
-    expect($episode->getCast())->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(Cast::class));
+    expect($episode->getCredits()->getCast())->toBeArray();
+    expect($episode->getCredits()->getCast())->not()->toBeEmpty();
+    expect($episode->getCredits()->getCast())->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(Cast::class));
 
-    expect($episode->getCrew())->toBeArray();
-    expect($episode->getCrew())->not()->toBeEmpty();
-    expect($episode->getCrew())->each(fn (Pest\Expectation $crew) => expect($crew->value)->toBeInstanceOf(Crew::class));
+    expect($episode->getCredits()->getCrew())->toBeArray();
+    expect($episode->getCredits()->getCrew())->not()->toBeEmpty();
+    expect($episode->getCredits()->getCrew())->each(fn (Pest\Expectation $crew) => expect($crew->value)->toBeInstanceOf(Crew::class));
 
     expect($episode->getEpisodeNumber())->toBeInt();
     expect($episode->getName())->toBeString();
