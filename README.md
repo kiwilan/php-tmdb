@@ -62,6 +62,50 @@ $collection = Tmdb::client('API_KEY')
     ->details(collection_id: 119); // ?\Kiwilan\Tmdb\Models\Collection
 ```
 
+### Movie Lists
+
+#### Now Playing
+
+From <https://developer.themoviedb.org/reference/movie-now-playing-list>
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$now_playing = Tmdb::client(apiKey())
+    ->movieLists()
+    ->nowPlaying(); // ?\Kiwilan\Tmdb\Search\SearchMoviesDates
+```
+
+#### Popular
+
+From <https://developer.themoviedb.org/reference/movie-popular-list>
+
+```php
+$popular = Tmdb::client(apiKey())
+    ->movieLists()
+    ->popular(); // ?\Kiwilan\Tmdb\Search\SearchMovies
+```
+
+#### Top Rated
+
+From <https://developer.themoviedb.org/reference/movie-top-rated-list>
+
+```php
+$top_rated = Tmdb::client(apiKey())
+    ->movieLists()
+    ->topRated(); // ?\Kiwilan\Tmdb\Search\SearchMovies
+```
+
+#### Upcoming
+
+From <https://developer.themoviedb.org/reference/movie-upcoming-list>
+
+```php
+$upcoming = Tmdb::client(apiKey())
+    ->movieLists()
+    ->upcoming(); // ?\Kiwilan\Tmdb\Search\SearchMoviesDates
+```
+
 ### Movies
 
 #### Details
