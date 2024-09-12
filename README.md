@@ -60,7 +60,7 @@ $collection = Tmdb::client('API_KEY')
 
 ### Companies
 
-#### [Details](https://developer.themoviedb.org/reference/company-details)
+#### [Companies: Details](https://developer.themoviedb.org/reference/company-details)
 
 Get the company details by ID.
 
@@ -74,7 +74,7 @@ $collection = Tmdb::client('API_KEY')
 
 ### Credits
 
-#### [Details](https://developer.themoviedb.org/reference/credit-details)
+#### [Credits: Details](https://developer.themoviedb.org/reference/credit-details)
 
 Get a movie or TV credit details by ID.
 
@@ -88,7 +88,7 @@ $collection = Tmdb::client('API_KEY')
 
 ### Movie Lists
 
-#### [Now Playing](https://developer.themoviedb.org/reference/movie-now-playing-list)
+#### [Movie Lists: Now Playing](https://developer.themoviedb.org/reference/movie-now-playing-list)
 
 Get a list of movies that are currently in theatres.
 
@@ -100,7 +100,7 @@ $now_playing = Tmdb::client('API_KEY')
     ->nowPlaying(); // ?\Kiwilan\Tmdb\Results\MovieResults
 ```
 
-#### [Popular](https://developer.themoviedb.org/reference/movie-popular-list)
+#### [Movie Lists: Popular](https://developer.themoviedb.org/reference/movie-popular-list)
 
 Get a list of movies ordered by popularity.
 
@@ -110,7 +110,7 @@ $popular = Tmdb::client('API_KEY')
     ->popular(); // ?\Kiwilan\Tmdb\Results\MovieResults
 ```
 
-#### [Top Rated](https://developer.themoviedb.org/reference/movie-top-rated-list)
+#### [Movie Lists: Top Rated](https://developer.themoviedb.org/reference/movie-top-rated-list)
 
 Get a list of movies ordered by rating.
 
@@ -120,7 +120,7 @@ $top_rated = Tmdb::client('API_KEY')
     ->topRated(); // ?\Kiwilan\Tmdb\Results\MovieResults
 ```
 
-#### [Upcoming](https://developer.themoviedb.org/reference/movie-upcoming-list)
+#### [Movie Lists: Upcoming](https://developer.themoviedb.org/reference/movie-upcoming-list)
 
 Get a list of movies that are being released soon.
 
@@ -132,7 +132,7 @@ $upcoming = Tmdb::client('API_KEY')
 
 ### Movies
 
-#### [Details](https://developer.themoviedb.org/reference/movie-details)
+#### [Movies: Details](https://developer.themoviedb.org/reference/movie-details)
 
 Get the top level details of a movie by ID.
 
@@ -156,7 +156,7 @@ $movie = Tmdb::client('API_KEY')
 
 ### Networks
 
-#### [Details](https://developer.themoviedb.org/reference/network-details)
+#### [Networks: Details](https://developer.themoviedb.org/reference/network-details)
 
 Get the details of a network by ID.
 
@@ -170,7 +170,7 @@ $network = Tmdb::client('API_KEY')
 
 ### Search
 
-#### [Collection](https://developer.themoviedb.org/reference/search-collection)
+#### [Search: Collection](https://developer.themoviedb.org/reference/search-collection)
 
 Search for collections by their original, translated and alternative names.
 
@@ -201,7 +201,7 @@ $results = Tmdb::client('API_KEY')
     ));
 ```
 
-#### [Movie](https://developer.themoviedb.org/reference/search-movie)
+#### [Search: Movie](https://developer.themoviedb.org/reference/search-movie)
 
 Search for movies by their original, translated and alternative titles.
 
@@ -234,7 +234,7 @@ $results = Tmdb::client('API_KEY')
     ));
 ```
 
-#### [TV](https://developer.themoviedb.org/reference/search-tv)
+#### [Search: TV](https://developer.themoviedb.org/reference/search-tv)
 
 Search for TV shows by their original, translated and also known as names.
 
@@ -268,7 +268,7 @@ $results = Tmdb::client('API_KEY')
 
 ### Trending
 
-#### [All](https://developer.themoviedb.org/reference/trending-all)
+#### [Trending: All](https://developer.themoviedb.org/reference/trending-all)
 
 Get the trending movies, TV shows and people.
 
@@ -280,7 +280,7 @@ $trending = Tmdb::client('API_KEY')
     ->all(); // ?\Kiwilan\Tmdb\Results\MediaResults
 ```
 
-#### [Movies](https://developer.themoviedb.org/reference/trending-movies)
+#### [Trending: Movies](https://developer.themoviedb.org/reference/trending-movies)
 
 Get the trending movies on TMDB.
 
@@ -292,7 +292,7 @@ $trending = Tmdb::client('API_KEY')
     ->movies(); // ?\Kiwilan\Tmdb\Results\MovieResults
 ```
 
-#### [People](https://developer.themoviedb.org/reference/trending-people)
+#### [Trending: People](https://developer.themoviedb.org/reference/trending-people)
 
 Get the trending people on TMDB.
 
@@ -304,7 +304,7 @@ $trending = Tmdb::client('API_KEY')
     ->people(); // ?\Kiwilan\Tmdb\Results\PeopleResults
 ```
 
-#### [TV](https://developer.themoviedb.org/reference/trending-tv)
+#### [Trending: TV](https://developer.themoviedb.org/reference/trending-tv)
 
 Get the trending TV shows on TMDB.
 
@@ -318,7 +318,7 @@ $trending = Tmdb::client('API_KEY')
 
 ### TV Series List
 
-#### [Airing Today](https://developer.themoviedb.org/reference/tv-series-airing-today-list)
+#### [TV Series List: Airing Today](https://developer.themoviedb.org/reference/tv-series-airing-today-list)
 
 Get a list of TV shows airing today.
 
@@ -328,7 +328,7 @@ $all = Tmdb::client('API_KEY')
     ->airingToday(); // ?\Kiwilan\Tmdb\Results\TvSerieResults
 ```
 
-#### [On The Air](https://developer.themoviedb.org/reference/tv-series-on-the-air-list)
+#### [TV Series List: On The Air](https://developer.themoviedb.org/reference/tv-series-on-the-air-list)
 
 Get a list of TV shows that air in the next 7 days.
 
@@ -338,7 +338,7 @@ $all = Tmdb::client('API_KEY')
     ->onTheAir(); // ?\Kiwilan\Tmdb\Results\TvSerieResults
 ```
 
-#### [Popular](https://developer.themoviedb.org/reference/tv-series-popular-list)
+#### [TV Series List: Popular](https://developer.themoviedb.org/reference/tv-series-popular-list)
 
 Get a list of TV shows ordered by popularity.
 
@@ -348,7 +348,7 @@ $all = Tmdb::client('API_KEY')
     ->popular(); // ?\Kiwilan\Tmdb\Results\TvSerieResults
 ```
 
-#### [Top Rated](https://developer.themoviedb.org/reference/tv-series-top-rated-list)
+#### [TV Series List: Top Rated](https://developer.themoviedb.org/reference/tv-series-top-rated-list)
 
 Get a list of TV shows ordered by rating.
 
@@ -360,7 +360,7 @@ $all = Tmdb::client('API_KEY')
 
 ### TV Series
 
-#### [Details](https://developer.themoviedb.org/reference/tv-series-details)
+#### [TV Series: Details](https://developer.themoviedb.org/reference/tv-series-details)
 
 Get the details of a TV show.
 
@@ -384,7 +384,7 @@ $tvSeries = Tmdb::client('API_KEY')
 
 ### TV Seasons
 
-#### [Details](https://developer.themoviedb.org/reference/tv-season-details)
+#### [TV Seasons: Details](https://developer.themoviedb.org/reference/tv-season-details)
 
 Query the details of a TV season.
 
@@ -408,7 +408,7 @@ $season = Tmdb::client('API_KEY')
 
 ### TV Episodes
 
-#### [Details](https://developer.themoviedb.org/reference/tv-episode-details)
+#### [TV Episodes: Details](https://developer.themoviedb.org/reference/tv-episode-details)
 
 Query the details of a TV episode.
 
