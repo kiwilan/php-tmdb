@@ -26,13 +26,13 @@ PHP wrapper package to interact with the [The Movie Database (TMDB) API](https:/
 
 ## About
 
-_Why this package?_
-
-_All current PHP packages to interact with the TMDB API are not up-to-date and I need a modern and easy-to-use package to interact with the TMDB API. So I decided to create this package. You can check [Roadmap](#roadmap) to see what I plan to do with this package._
+This package uses repository pattern to interact with the TMDB API. Each repository represents an API category like _Movies_, _Search_, _Trending_, etc. And each endpoint of API is a method in repository, like `details()` for _Movies_, `movie()` for _Search_, `all()` for _Trending_, etc. If you know TMDB API, you will understand this package easily.
 
 _This is NOT official TMDB API PHP wrapper, you can check [php-tmdb/api](https://github.com/php-tmdb/api) if you want official package._
 
-This package uses repository pattern to interact with the TMDB API. Each repository represents an API category like _Movies_, _Search_, _Trending_, etc. And each endpoint of API is a method in repository, like `details()` for _Movies_, `movie()` for _Search_, `all()` for _Trending_, etc. If you know TMDB API, you will understand this package easily.
+_Why this package?_
+
+_All current PHP packages to interact with the TMDB API are not up-to-date and I need a modern and easy-to-use package to interact with the TMDB API. So I decided to create this package. You can check [Roadmap](#roadmap) to see what I plan to do with this package._
 
 ## Installation
 
@@ -95,7 +95,7 @@ Get a list of movies that are currently in theatres.
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$now_playing = Tmdb::client(apiKey())
+$now_playing = Tmdb::client('API_KEY')
     ->movieLists()
     ->nowPlaying(); // ?\Kiwilan\Tmdb\Results\MovieResults
 ```
@@ -105,7 +105,7 @@ $now_playing = Tmdb::client(apiKey())
 Get a list of movies ordered by popularity.
 
 ```php
-$popular = Tmdb::client(apiKey())
+$popular = Tmdb::client('API_KEY')
     ->movieLists()
     ->popular(); // ?\Kiwilan\Tmdb\Results\MovieResults
 ```
@@ -115,7 +115,7 @@ $popular = Tmdb::client(apiKey())
 Get a list of movies ordered by rating.
 
 ```php
-$top_rated = Tmdb::client(apiKey())
+$top_rated = Tmdb::client('API_KEY')
     ->movieLists()
     ->topRated(); // ?\Kiwilan\Tmdb\Results\MovieResults
 ```
@@ -125,7 +125,7 @@ $top_rated = Tmdb::client(apiKey())
 Get a list of movies that are being released soon.
 
 ```php
-$upcoming = Tmdb::client(apiKey())
+$upcoming = Tmdb::client('API_KEY')
     ->movieLists()
     ->upcoming(); // ?\Kiwilan\Tmdb\Results\MovieResults
 ```
@@ -323,7 +323,7 @@ $trending = Tmdb::client('API_KEY')
 Get a list of TV shows airing today.
 
 ```php
-$all = Tmdb::client(apiKey())
+$all = Tmdb::client('API_KEY')
     ->tvSeriesList()
     ->airingToday(); // ?\Kiwilan\Tmdb\Results\TvSerieResults
 ```
@@ -333,7 +333,7 @@ $all = Tmdb::client(apiKey())
 Get a list of TV shows that air in the next 7 days.
 
 ```php
-$all = Tmdb::client(apiKey())
+$all = Tmdb::client('API_KEY')
     ->tvSeriesList()
     ->onTheAir(); // ?\Kiwilan\Tmdb\Results\TvSerieResults
 ```
@@ -343,7 +343,7 @@ $all = Tmdb::client(apiKey())
 Get a list of TV shows ordered by popularity.
 
 ```php
-$all = Tmdb::client(apiKey())
+$all = Tmdb::client('API_KEY')
     ->tvSeriesList()
     ->popular(); // ?\Kiwilan\Tmdb\Results\TvSerieResults
 ```
@@ -353,7 +353,7 @@ $all = Tmdb::client(apiKey())
 Get a list of TV shows ordered by rating.
 
 ```php
-$all = Tmdb::client(apiKey())
+$all = Tmdb::client('API_KEY')
     ->tvSeriesList()
     ->topRated(); // ?\Kiwilan\Tmdb\Results\TvSerieResults
 ```
