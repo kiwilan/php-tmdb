@@ -2,6 +2,11 @@
 
 All notable changes to `php-tmdb` will be documented in this file.
 
+## v0.0.32 - 2024-09-12
+
+- Episode has now `credits()` instead `cast()` and `crew()` for consistency
+- Movie has now `getReleaseDatesSpecific()` instead `getReleaseDateSpecific()` for consistency, add `getContentRatingSpecific()` to get content rating for specific country
+
 ## v0.0.31 - 2024-09-12
 
 - Add Movie Lists
