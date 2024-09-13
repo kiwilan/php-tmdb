@@ -32,11 +32,12 @@ abstract class TmdbImage
     /**
      * Get the image content, as binary.
      */
-    public function getImage(): string
+    public function getImage(): ?string
     {
         $url = $this->getUrl();
+        $contents = file_get_contents($url);
 
-        return file_get_contents($url);
+        return $contents !== false ? $contents : null;
     }
 
     /**
@@ -45,6 +46,9 @@ abstract class TmdbImage
     public function saveImage(string $path): bool
     {
         $contents = $this->getImage();
+        if ($contents === null) {
+            return false;
+        }
 
         return file_put_contents($path, $contents) !== false;
     }

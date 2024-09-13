@@ -417,7 +417,7 @@ $movie = Tmdb::client('API_KEY')
     ->movies()
     ->details(movie_id: 120); // ?\Kiwilan\Tmdb\Models\Movie
 
-$poster_url = $movie->getPosterUrl(size: PosterSize::W500); // string|null (url to poster)
+$poster_url = $movie->getPosterUrl(size: PosterSize::W500); // string|null (URL to poster)
 ```
 
 These methods are available for `Poster`, `Backdrop`, `Logo`, `Profile` and `Still`.
