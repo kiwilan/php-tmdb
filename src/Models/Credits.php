@@ -6,6 +6,9 @@ use Kiwilan\Tmdb\Models\Credits\Cast;
 use Kiwilan\Tmdb\Models\Credits\Crew;
 use Kiwilan\Tmdb\Traits\HasId;
 
+/**
+ * Credits for a movie or TV series, including cast and crew.
+ */
 class Credits extends TmdbModel
 {
     use HasId;

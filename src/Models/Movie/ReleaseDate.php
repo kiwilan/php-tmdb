@@ -4,6 +4,9 @@ namespace Kiwilan\Tmdb\Models\Movie;
 
 use Kiwilan\Tmdb\Models\TmdbModel;
 
+/**
+ * A release date for a movie.
+ */
 class ReleaseDate extends TmdbModel
 {
     protected ?string $iso_3166_1 = null;

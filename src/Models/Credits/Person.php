@@ -5,6 +5,9 @@ namespace Kiwilan\Tmdb\Models\Credits;
 use Kiwilan\Tmdb\Models\TmdbModel;
 use Kiwilan\Tmdb\Traits\HasId;
 
+/**
+ * A person who contributed to a movie or TV series.
+ */
 class Person extends TmdbModel
 {
     use HasId;

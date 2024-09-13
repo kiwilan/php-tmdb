@@ -6,6 +6,9 @@ use Kiwilan\Tmdb\Traits\HasBackdrop;
 use Kiwilan\Tmdb\Traits\HasId;
 use Kiwilan\Tmdb\Traits\HasPoster;
 
+/**
+ * A collection of movies.
+ */
 class Collection extends TmdbModel
 {
     use HasBackdrop;

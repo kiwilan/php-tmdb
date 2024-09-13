@@ -4,6 +4,9 @@ namespace Kiwilan\Tmdb\Models\TvSeries;
 
 use Kiwilan\Tmdb\Models\TmdbModel;
 
+/**
+ * A content rating for a TV series.
+ */
 class ContentRating extends TmdbModel
 {
     /** @var string[]|null */

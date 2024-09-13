@@ -10,6 +10,9 @@ use Kiwilan\Tmdb\Models\TvSeries\Network;
 use Kiwilan\Tmdb\Models\TvSeries\Season;
 use Kiwilan\Tmdb\Results\TvSerieResults;
 
+/**
+ * TV Series
+ */
 class TvSeries extends ExtendedMedia
 {
     /** @var Crew[] */

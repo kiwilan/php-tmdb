@@ -6,6 +6,9 @@ use Kiwilan\Tmdb\Models\TmdbModel;
 use Kiwilan\Tmdb\Traits\HasId;
 use Kiwilan\Tmdb\Traits\HasLogo;
 
+/**
+ * A company that produces movies.
+ */
 class Company extends TmdbModel
 {
     use HasId;

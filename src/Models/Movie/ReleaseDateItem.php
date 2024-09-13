@@ -5,6 +5,9 @@ namespace Kiwilan\Tmdb\Models\Movie;
 use DateTime;
 use Kiwilan\Tmdb\Models\TmdbModel;
 
+/**
+ * A release date item for a movie.
+ */
 class ReleaseDateItem extends TmdbModel
 {
     protected ?string $certification = null;

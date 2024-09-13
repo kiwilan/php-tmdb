@@ -5,6 +5,9 @@ namespace Kiwilan\Tmdb\Models;
 use DateTime;
 use Kiwilan\Tmdb\Models\Common\Video;
 
+/**
+ * Movie or TV Series
+ */
 class Media extends BaseMedia
 {
     protected ?string $media_type = null;

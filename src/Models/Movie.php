@@ -8,6 +8,9 @@ use Kiwilan\Tmdb\Models\Credits\Crew;
 use Kiwilan\Tmdb\Models\Movie\ReleaseDate;
 use Kiwilan\Tmdb\Results\MovieResults;
 
+/**
+ * Movie
+ */
 class Movie extends ExtendedMedia
 {
     protected ?Movie\BelongsToCollection $belongs_to_collection = null;

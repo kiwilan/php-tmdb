@@ -8,6 +8,9 @@ use Kiwilan\Tmdb\Models\TmdbModel;
 use Kiwilan\Tmdb\Traits\HasId;
 use Kiwilan\Tmdb\Traits\HasPoster;
 
+/**
+ * TV Series Season
+ */
 class Season extends TmdbModel
 {
     use HasId;

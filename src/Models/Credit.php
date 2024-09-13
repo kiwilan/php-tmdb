@@ -5,6 +5,9 @@ namespace Kiwilan\Tmdb\Models;
 use Kiwilan\Tmdb\Models\Credits\CreditMedia;
 use Kiwilan\Tmdb\Models\Credits\Person;
 
+/**
+ * A credit for a person in a movie or TV series.
+ */
 class Credit extends TmdbModel
 {
     protected ?string $credit_type = null;

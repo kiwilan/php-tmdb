@@ -10,6 +10,9 @@ use Kiwilan\Tmdb\Models\TmdbModel;
 use Kiwilan\Tmdb\Traits\HasId;
 use Kiwilan\Tmdb\Traits\HasStill;
 
+/**
+ * TV Series Episode
+ */
 class Episode extends TmdbModel
 {
     use HasId;

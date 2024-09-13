@@ -5,6 +5,9 @@ namespace Kiwilan\Tmdb\Models\Common;
 use DateTime;
 use Kiwilan\Tmdb\Models\TmdbModel;
 
+/**
+ * A video of a movie.
+ */
 class Video extends TmdbModel
 {
     protected ?string $iso_639_1 = null;

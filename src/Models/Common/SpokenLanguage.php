@@ -4,6 +4,9 @@ namespace Kiwilan\Tmdb\Models\Common;
 
 use Kiwilan\Tmdb\Models\TmdbModel;
 
+/**
+ * A spoken language of a movie or TV series.
+ */
 class SpokenLanguage extends TmdbModel
 {
     protected ?string $english_name = null;

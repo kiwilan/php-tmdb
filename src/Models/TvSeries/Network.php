@@ -6,6 +6,9 @@ use Kiwilan\Tmdb\Models\TmdbModel;
 use Kiwilan\Tmdb\Traits\HasId;
 use Kiwilan\Tmdb\Traits\HasLogo;
 
+/**
+ * A network that broadcasts TV series.
+ */
 class Network extends TmdbModel
 {
     use HasId;
