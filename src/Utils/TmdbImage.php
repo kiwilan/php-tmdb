@@ -8,7 +8,7 @@ abstract class TmdbImage
 {
     const BASE_URL = 'https://image.tmdb.org/t/p/';
 
-    protected string $imageUrl;
+    protected ?string $imageUrl = null;
 
     protected ?BackedEnum $size = null;
 
@@ -22,8 +22,12 @@ abstract class TmdbImage
     /**
      * Get full poster URL.
      */
-    public function getUrl(): string
+    public function getUrl(): ?string
     {
+        if (! $this->imageUrl) {
+            return null;
+        }
+
         $url = self::BASE_URL;
 
         return "{$url}{$this->size->value}{$this->imageUrl}";
@@ -53,8 +57,12 @@ abstract class TmdbImage
         return file_put_contents($path, $contents) !== false;
     }
 
-    protected function fixUrl(string $url): string
+    protected function fixUrl(?string $url): ?string
     {
+        if (! $url) {
+            return null;
+        }
+
         if (! str_starts_with($url, '/')) {
             $url = "/{$url}";
         }
