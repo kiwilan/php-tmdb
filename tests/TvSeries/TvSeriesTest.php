@@ -12,6 +12,7 @@ use Kiwilan\Tmdb\Models\TvSeries\ContentRating;
 use Kiwilan\Tmdb\Models\TvSeries\Episode;
 use Kiwilan\Tmdb\Models\TvSeries\Network;
 use Kiwilan\Tmdb\Models\TvSeries\Season;
+use Kiwilan\Tmdb\Results\TvSerieResults;
 use Kiwilan\Tmdb\Tmdb;
 
 it('can get tv series details', function () {
@@ -169,4 +170,13 @@ it('can parse seasons', function () {
     expect($second->getVoteAverage())->toBeFloat();
     expect($second->getId())->toBeInt();
     expect($second->getPosterPath())->toBeString();
+});
+
+it('can have null tv series results', function () {
+    $results = new TvSerieResults(null);
+
+    expect($results->getPage())->toBe(1);
+    expect($results->getTotalPages())->toBe(1);
+    expect($results->getTotalResults())->toBe(0);
+    expect($results->getResults())->toBeArray();
 });

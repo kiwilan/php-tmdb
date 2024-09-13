@@ -11,7 +11,7 @@ class CollectionResults extends Results
     {
         parent::__construct($data);
 
-        $this->results = $this->loopOn($data['results'] ?? null, \Kiwilan\Tmdb\Models\Collection::class);
+        $this->results = $this->loopOn($data['results'] ?? [], \Kiwilan\Tmdb\Models\Collection::class, false);
     }
 
     public function getFirstResult(): ?\Kiwilan\Tmdb\Models\Collection

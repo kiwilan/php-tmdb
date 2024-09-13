@@ -1,7 +1,7 @@
 {
     "name": "kiwilan/php-tmdb",
     "description": "PHP wrapper package to interact with the The Movie Database (TMDB) API.",
-    "version": "0.0.33",
+    "version": "0.0.34",
     "keywords": [
         "php",
         "tmdb",

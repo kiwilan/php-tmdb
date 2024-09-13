@@ -13,7 +13,7 @@ class MovieDateResults extends MovieResults
         parent::__construct($data);
 
         $this->dates = new ResultsDates($data['dates'] ?? null);
-        $this->results = $this->loopOn($data['results'] ?? null, \Kiwilan\Tmdb\Models\Movie::class);
+        $this->results = $this->loopOn($data['results'] ?? [], \Kiwilan\Tmdb\Models\Movie::class, false);
     }
 
     public function getDates(): ?ResultsDates

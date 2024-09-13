@@ -5,13 +5,13 @@ namespace Kiwilan\Tmdb\Results;
 class MovieResults extends Results
 {
     /** @var \Kiwilan\Tmdb\Models\Movie[] */
-    protected array $results = [];
+    protected ?array $results = [];
 
-    public function __construct(array $data)
+    public function __construct(?array $data)
     {
         parent::__construct($data);
 
-        $this->results = $this->loopOn($data['results'] ?? null, \Kiwilan\Tmdb\Models\Movie::class);
+        $this->results = $this->loopOn($data['results'] ?? [], \Kiwilan\Tmdb\Models\Movie::class, false);
     }
 
     public function getFirstResult(): ?\Kiwilan\Tmdb\Models\Movie

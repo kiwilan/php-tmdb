@@ -21,10 +21,14 @@ class TmdbModel
         return null;
     }
 
-    protected function loopOn(mixed $values, string $class): ?array
+    protected function loopOn(mixed $values, string $class, bool $nullAsDefault = true): ?array
     {
         if (! $values) {
-            return null;
+            if ($nullAsDefault) {
+                return null;
+            } else {
+                return [];
+            }
         }
 
         $items = [];
@@ -49,7 +53,7 @@ class TmdbModel
         return $value ? boolval($value) : $default;
     }
 
-    protected function toInt(array $data, string $key, ?int $default = null): ?int
+    protected function toInt(?array $data, string $key, ?int $default = null): ?int
     {
         $value = $data[$key] ?? null;
 

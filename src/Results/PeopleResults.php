@@ -11,7 +11,7 @@ class PeopleResults extends Results
     {
         parent::__construct($data);
 
-        $this->results = $this->loopOn($data['results'] ?? null, \Kiwilan\Tmdb\Models\Credits\Person::class);
+        $this->results = $this->loopOn($data['results'] ?? [], \Kiwilan\Tmdb\Models\Credits\Person::class, false);
     }
 
     public function getFirstResult(): ?\Kiwilan\Tmdb\Models\Credits\Person

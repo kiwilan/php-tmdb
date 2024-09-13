@@ -54,3 +54,12 @@ it('can search movie with options', function () {
     expect($results->getFirstResult())->toBeInstanceOf(Movie::class);
     expect($results->getFirstResult()->getTitle())->toBe("Le Seigneur des anneaux : La Communauté de l'anneau");
 });
+
+it('can have null movie results', function () {
+    $results = new MovieResults(null);
+
+    expect($results->getPage())->toBe(1);
+    expect($results->getTotalPages())->toBe(1);
+    expect($results->getTotalResults())->toBe(0);
+    expect($results->getResults())->toBeArray();
+});

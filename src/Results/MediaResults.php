@@ -11,7 +11,7 @@ class MediaResults extends Results
     {
         parent::__construct($data);
 
-        $this->results = $this->loopOn($data['results'] ?? null, \Kiwilan\Tmdb\Models\Media::class);
+        $this->results = $this->loopOn($data['results'] ?? [], \Kiwilan\Tmdb\Models\Media::class, false);
     }
 
     public function getFirstResult(): ?\Kiwilan\Tmdb\Models\Media
