@@ -129,7 +129,7 @@ class Movie extends ExtendedMedia
      */
     public function getReleaseDateSpecific(string $iso_3166_1): ?Movie\ReleaseDate
     {
-        if (! $this->release_dates) {
+        if (! $this->release_dates || empty($this->release_dates)) {
             return null;
         }
 

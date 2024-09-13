@@ -41,7 +41,7 @@ trait HasAlternativeTitles
      */
     public function getAlternativeTitle(string $iso_3166_1): ?AlternativeTitle
     {
-        if (! $this->alternative_titles) {
+        if (! $this->alternative_titles || empty($this->alternative_titles)) {
             return null;
         }
 
