@@ -12,7 +12,7 @@ trait HasAlternativeTitles
     protected function setAlternativeTitles(array $data): void
     {
         if (isset($data['alternative_titles'])) {
-            $alternative_titles = $data['alternative_titles']['results'] ?? $data['alternative_titles']['titles'] ?? [];
+            $alternative_titles = $data['alternative_titles']['results'] ?? $data['alternative_titles']['titles'] ?? null;
             if (empty($alternative_titles)) {
                 return;
             }

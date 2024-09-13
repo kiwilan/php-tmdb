@@ -11,10 +11,7 @@ class TvSerieResults extends Results
     {
         parent::__construct($data);
 
-        $results = $data['results'] ?? [];
-        foreach ($results as $result) {
-            $this->results[] = new \Kiwilan\Tmdb\Models\TvSeries($result);
-        }
+        $this->results = $this->loopOn($data['results'] ?? null, \Kiwilan\Tmdb\Models\TvSeries::class);
     }
 
     public function getFirstResult(): ?\Kiwilan\Tmdb\Models\TvSeries

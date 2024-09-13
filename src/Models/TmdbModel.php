@@ -14,17 +14,17 @@ class TmdbModel
         }
 
         $values = $data[$key] ?? null;
-        if (isset($values) && is_array($values)) {
+        if (isset($values)) {
             return $closure($values);
         }
 
         return null;
     }
 
-    protected function loopOn(mixed $values, string $class): array
+    protected function loopOn(mixed $values, string $class): ?array
     {
         if (! $values) {
-            return [];
+            return null;
         }
 
         $items = [];

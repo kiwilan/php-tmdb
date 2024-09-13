@@ -61,8 +61,8 @@ class Episode extends TmdbModel
         $this->vote_count = $this->toInt($data, 'vote_count');
 
         $this->credits = new Credits([
-            'cast' => $data['guest_stars'] ?? [],
-            'crew' => $data['crew'] ?? [],
+            'cast' => $data['guest_stars'] ?? null,
+            'crew' => $data['crew'] ?? null,
         ]);
     }
 

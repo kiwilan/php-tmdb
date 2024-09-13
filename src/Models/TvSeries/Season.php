@@ -37,7 +37,7 @@ class Season extends TmdbModel
         $this->setId($data);
         $this->setPosterPath($data);
         $this->air_date = $this->toDateTime($data, 'air_date');
-        $this->episodes = $this->loopOn($data['episodes'] ?? [], Episode::class);
+        $this->episodes = $this->loopOn($data['episodes'] ?? null, Episode::class);
         $this->name = $this->toString($data, 'name');
         $this->overview = $this->toString($data, 'overview');
         $this->season_number = $this->toInt($data, 'season_number');

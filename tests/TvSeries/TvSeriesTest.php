@@ -149,3 +149,24 @@ it('can parse similar', function () {
     expect($tv->getSimilar()->getResults())->not()->toBeEmpty();
     expect($tv->getSimilar()->getResults())->each(fn (Pest\Expectation $similar) => expect($similar->value)->toBeInstanceOf(TvSeries::class));
 });
+
+it('can parse seasons', function () {
+    $tv = Tmdb::client(apiKey())
+        ->tvSeries()
+        ->details(1399);
+
+    $seasons = $tv->getSeasons();
+    expect($seasons)->toBeArray();
+    expect($seasons)->not()->toBeEmpty();
+    expect($seasons)->each(fn (Pest\Expectation $similar) => expect($similar->value)->toBeInstanceOf(Season::class));
+
+    $second = $seasons[1];
+    expect($second)->toBeInstanceOf(Season::class);
+    expect($second->getAirDate())->toBeInstanceOf(DateTime::class);
+    expect($second->getName())->toBeString();
+    expect($second->getOverview())->toBeString();
+    expect($second->getSeasonNumber())->toBeInt();
+    expect($second->getVoteAverage())->toBeFloat();
+    expect($second->getId())->toBeInt();
+    expect($second->getPosterPath())->toBeString();
+});
