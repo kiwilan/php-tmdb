@@ -2,6 +2,10 @@
 
 All notable changes to `php-tmdb` will be documented in this file.
 
+## v0.0.33 - 2024-09-13
+
+Some fixes
+
 ## v0.0.32 - 2024-09-12
 
 - Episode has now `credits()` instead `cast()` and `crew()` for consistency
