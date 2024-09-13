@@ -78,9 +78,9 @@ class Season extends TmdbModel
         return $this->overview;
     }
 
-    public function getSeasonNumber(): ?int
+    public function getSeasonNumber(): int
     {
-        return $this->season_number;
+        return $this->season_number ?? 0;
     }
 
     public function getVoteAverage(): ?float
