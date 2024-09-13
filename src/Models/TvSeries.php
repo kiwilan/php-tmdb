@@ -213,7 +213,7 @@ class TvSeries extends ExtendedMedia
     public function getContentRatingSpecific(string $iso_3166_1): ?ContentRating
     {
         $content_ratings = $this->content_ratings;
-        if (count($content_ratings) === 0) {
+        if (! $content_ratings || count($content_ratings) == 0) {
             return null;
         }
 
