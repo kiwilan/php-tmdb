@@ -88,6 +88,4 @@ it('can get credits cast', function () {
     $path = mediaPath('/profile-original.jpg');
     expect($credit->getPerson()->saveProfileImage($path))->toBeTrue();
     expect(imageExists($path))->toBeTrue();
-
-    ray($credit->getPerson())->purple();
 });

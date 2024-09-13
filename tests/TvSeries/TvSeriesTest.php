@@ -129,8 +129,6 @@ it('can parse credits', function () {
     expect($tv->getCreatedBy())->toBeArray();
     expect($tv->getCreatedBy())->not()->toBeEmpty();
     expect($tv->getCreatedBy())->each(fn (Pest\Expectation $creator) => expect($creator->value)->toBeInstanceOf(Crew::class));
-
-    ray($tv)->purple();
 });
 
 it('can parse recommendations', function () {
