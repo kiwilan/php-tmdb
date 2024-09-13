@@ -21,11 +21,9 @@ class CollectionsRepository extends Repository
      */
     public function details(int $collection_id, ?string $language = null): ?Models\Collection
     {
-        $url = $this->getUrl("/collection/{$collection_id}", [
+        $response = $this->get("/collection/{$collection_id}", [
             'language' => $language ?? $this->language,
         ]);
-
-        $response = $this->execute($url);
 
         return $this->isSuccess ? new Models\Collection($response) : null;
     }

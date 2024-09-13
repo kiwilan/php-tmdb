@@ -16,11 +16,9 @@ class TrendingRepository extends Repository
      */
     public function all(TimeWindow $time_window = TimeWindow::DAY, string $language = 'en-US'): ?Results\MediaResults
     {
-        $url = $this->getUrl("/trending/all/{$time_window->value}", [
+        $response = $this->get("/trending/all/{$time_window->value}", [
             'language' => $language,
         ]);
-
-        $response = $this->execute($url);
 
         return $this->isSuccess ? new Results\MediaResults($response) : null;
     }
@@ -34,11 +32,9 @@ class TrendingRepository extends Repository
      */
     public function movies(TimeWindow $time_window = TimeWindow::DAY, string $language = 'en-US'): ?Results\MovieResults
     {
-        $url = $this->getUrl("/trending/movie/{$time_window->value}", [
+        $response = $this->get("/trending/movie/{$time_window->value}", [
             'language' => $language,
         ]);
-
-        $response = $this->execute($url);
 
         return $this->isSuccess ? new Results\MovieResults($response) : null;
     }
@@ -52,11 +48,9 @@ class TrendingRepository extends Repository
      */
     public function people(TimeWindow $time_window = TimeWindow::DAY, string $language = 'en-US'): ?Results\PeopleResults
     {
-        $url = $this->getUrl("/trending/person/{$time_window->value}", [
+        $response = $this->get("/trending/person/{$time_window->value}", [
             'language' => $language,
         ]);
-
-        $response = $this->execute($url);
 
         return $this->isSuccess ? new Results\PeopleResults($response) : null;
     }
@@ -70,11 +64,9 @@ class TrendingRepository extends Repository
      */
     public function tv(TimeWindow $time_window = TimeWindow::DAY, string $language = 'en-US'): ?Results\TvSerieResults
     {
-        $url = $this->getUrl("/trending/tv/{$time_window->value}", [
+        $response = $this->get("/trending/tv/{$time_window->value}", [
             'language' => $language,
         ]);
-
-        $response = $this->execute($url);
 
         return $this->isSuccess ? new Results\TvSerieResults($response) : null;
     }

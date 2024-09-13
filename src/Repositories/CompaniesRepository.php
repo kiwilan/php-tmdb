@@ -18,9 +18,7 @@ class CompaniesRepository extends Repository
      */
     public function details(int $company_id): ?Models\Common\Company
     {
-        $url = $this->getUrl("/company/{$company_id}");
-
-        $response = $this->execute($url);
+        $response = $this->get("/company/{$company_id}");
 
         return $this->isSuccess ? new Models\Common\Company($response) : null;
     }

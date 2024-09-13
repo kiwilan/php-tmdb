@@ -22,13 +22,11 @@ class MovieListsRepository extends Repository
      */
     public function nowPlaying(string $language, int $page, string $region): ?Results\MovieDateResults
     {
-        $url = $this->getUrl('/movie/now_playing', [
+        $response = $this->get('/movie/now_playing', [
             'language' => $language,
             'page' => $page,
             'region' => $region,
         ]);
-
-        $response = $this->execute($url);
 
         return $this->isSuccess ? new Results\MovieDateResults($response) : null;
     }
@@ -44,13 +42,11 @@ class MovieListsRepository extends Repository
      */
     public function popular(string $language, int $page, string $region): ?Results\MovieResults
     {
-        $url = $this->getUrl('/movie/popular', [
+        $response = $this->get('/movie/popular', [
             'language' => $language,
             'page' => $page,
             'region' => $region,
         ]);
-
-        $response = $this->execute($url);
 
         return $this->isSuccess ? new Results\MovieResults($response) : null;
     }
@@ -66,13 +62,11 @@ class MovieListsRepository extends Repository
      */
     public function topRated(string $language, int $page, string $region): ?Results\MovieResults
     {
-        $url = $this->getUrl('/movie/top_rated', [
+        $response = $this->get('/movie/top_rated', [
             'language' => $language,
             'page' => $page,
             'region' => $region,
         ]);
-
-        $response = $this->execute($url);
 
         return $this->isSuccess ? new Results\MovieResults($response) : null;
     }
@@ -88,13 +82,11 @@ class MovieListsRepository extends Repository
      */
     public function upcoming(string $language, int $page, string $region): ?Results\MovieDateResults
     {
-        $url = $this->getUrl('/movie/upcoming', [
+        $response = $this->get('/movie/upcoming', [
             'language' => $language,
             'page' => $page,
             'region' => $region,
         ]);
-
-        $response = $this->execute($url);
 
         return $this->isSuccess ? new Results\MovieDateResults($response) : null;
     }

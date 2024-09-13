@@ -18,9 +18,7 @@ class CreditsRepository extends Repository
      */
     public function details(string $credit_id): ?Models\Credit
     {
-        $url = $this->getUrl("/credit/{$credit_id}");
-
-        $response = $this->execute($url);
+        $response = $this->get("/credit/{$credit_id}");
 
         return $this->isSuccess ? new Models\Credit($response) : null;
     }

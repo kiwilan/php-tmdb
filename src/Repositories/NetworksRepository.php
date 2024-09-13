@@ -20,9 +20,7 @@ class NetworksRepository extends Repository
      */
     public function details(int $network_id): ?Models\TvSeries\Network
     {
-        $url = $this->getUrl("/network/{$network_id}");
-
-        $response = $this->execute($url);
+        $response = $this->get("/network/{$network_id}");
 
         return $this->isSuccess ? new Models\TvSeries\Network($response) : null;
     }

@@ -21,12 +21,10 @@ class TVSeriesRepository extends Repository
      */
     public function details(int $series_id, ?array $append_to_response = null): ?Models\TvSeries
     {
-        $url = $this->getUrl("/tv/{$series_id}", [
+        $response = $this->get("/tv/{$series_id}", [
             'append_to_response' => $this->appendToResponse($append_to_response),
             'language' => $this->language,
         ]);
-
-        $response = $this->execute($url);
 
         return $this->isSuccess ? new Models\TvSeries($response) : null;
     }

@@ -46,7 +46,7 @@ composer require kiwilan/php-tmdb
 
 ### Collection
 
-#### [Details](https://developer.themoviedb.org/reference/collection-details)
+#### [Collection: Details](https://developer.themoviedb.org/reference/collection-details)
 
 Get collection details by ID.
 
@@ -134,7 +134,7 @@ $upcoming = Tmdb::client('API_KEY')
 
 #### [Movies: Details](https://developer.themoviedb.org/reference/movie-details)
 
-Get the top level details of a movie by ID.
+Get the top level details of a movie by ID (you can use `append_to_response` option to get more details).
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
@@ -142,16 +142,6 @@ use Kiwilan\Tmdb\Tmdb;
 $movie = Tmdb::client('API_KEY')
     ->movies()
     ->details(movie_id: 120); // ?\Kiwilan\Tmdb\Models\Movie
-```
-
-You can use `append_to_response` option to get more details:
-
-```php
-use Kiwilan\Tmdb\Tmdb;
-
-$movie = Tmdb::client('API_KEY')
-    ->movies()
-    ->details(movie_id: 120, append_to_response: ['credits', 'recommendations']); // ?\Kiwilan\Tmdb\Models\Movie
 ```
 
 ### Networks
@@ -362,7 +352,7 @@ $all = Tmdb::client('API_KEY')
 
 #### [TV Series: Details](https://developer.themoviedb.org/reference/tv-series-details)
 
-Get the details of a TV show.
+Get the details of a TV show (you can use `append_to_response` option to get more details).
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
@@ -372,21 +362,11 @@ $tvSeries = Tmdb::client('API_KEY')
     ->details(series_id: 1399); // ?\Kiwilan\Tmdb\Models\TvSeries
 ```
 
-You can use `append_to_response` option to get more details:
-
-```php
-use Kiwilan\Tmdb\Tmdb;
-
-$tvSeries = Tmdb::client('API_KEY')
-    ->tvSeries()
-    ->details(series_id: 1399, append_to_response: ['credits', 'recommendations']); // ?\Kiwilan\Tmdb\Models\TvSeries
-```
-
 ### TV Seasons
 
 #### [TV Seasons: Details](https://developer.themoviedb.org/reference/tv-season-details)
 
-Query the details of a TV season.
+Query the details of a TV season (you can use `append_to_response` option to get more details).
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
@@ -396,21 +376,11 @@ $season = Tmdb::client('API_KEY')
     ->details(series_id: 1399, season_number: 1); // ?\Kiwilan\Tmdb\Models\Season
 ```
 
-You can use `append_to_response` option to get more details:
-
-```php
-use Kiwilan\Tmdb\Tmdb;
-
-$season = Tmdb::client('API_KEY')
-    ->tvSeasons()
-    ->details(series_id: 1399, season_number: 1, append_to_response: ['credits']); // ?\Kiwilan\Tmdb\Models\Season
-```
-
 ### TV Episodes
 
 #### [TV Episodes: Details](https://developer.themoviedb.org/reference/tv-episode-details)
 
-Query the details of a TV episode.
+Query the details of a TV episode (you can use `append_to_response` option to get more details).
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
@@ -418,16 +388,6 @@ use Kiwilan\Tmdb\Tmdb;
 $episode = Tmdb::client('API_KEY')
     ->tvEpisodes()
     ->details(series_id: 1399, season_number: 1, episode_number: 1); // ?\Kiwilan\Tmdb\Models\Episode
-```
-
-You can use `append_to_response` option to get more details:
-
-```php
-use Kiwilan\Tmdb\Tmdb;
-
-$episode = Tmdb::client('API_KEY')
-    ->tvEpisodes()
-    ->details(series_id: 1399, season_number: 1, episode_number: 1, append_to_response: ['credits']); // ?\Kiwilan\Tmdb\Models\Episode
 ```
 
 ## Images
@@ -470,6 +430,16 @@ TMDB offers an easy way to get more details with `append_to_response` option. Yo
 > From <https://developer.themoviedb.org/docs/append-to-response>
 
 To know which methods support `append_to_response`, check if method has `append_to_response` parameter (always optional and at the end of parameters). And to know what you can add, check the [official documentation](https://developer.themoviedb.org/docs/getting-started).
+
+Example with `append_to_response`:
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$movie = Tmdb::client('API_KEY')
+    ->movies()
+    ->details(movie_id: 120, append_to_response: ['credits' ,'videos']); // ?\Kiwilan\Tmdb\Models\Movie
+```
 
 ## Testing
 

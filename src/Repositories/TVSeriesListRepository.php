@@ -62,9 +62,7 @@ class TVSeriesListRepository extends Repository
 
     private function fetchData(string $path, array $params = []): ?Results\TvSerieResults
     {
-        $url = $this->getUrl($path, $params);
-
-        $response = $this->execute($url);
+        $response = $this->get($path, $params);
 
         return $this->isSuccess ? new Results\TvSerieResults($response) : null;
     }

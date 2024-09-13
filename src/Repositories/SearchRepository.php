@@ -22,12 +22,10 @@ class SearchRepository extends Repository
      */
     public function collection(string $query, Query\SearchCollectionQuery $params = new Query\SearchCollectionQuery): Results\CollectionResults
     {
-        $url = $this->getUrl('/search/collection', [
+        $response = $this->get('/search/collection', [
             'query' => $query,
             ...$params->toQueryParams(),
         ]);
-
-        $response = $this->execute($url);
 
         return new Results\CollectionResults($response);
     }
@@ -42,12 +40,10 @@ class SearchRepository extends Repository
      */
     public function movie(string $query, Query\SearchMovieQuery $params = new Query\SearchMovieQuery): Results\MovieResults
     {
-        $url = $this->getUrl('/search/movie', [
+        $response = $this->get('/search/movie', [
             'query' => $query,
             ...$params->toQueryParams(),
         ]);
-
-        $response = $this->execute($url);
 
         return new Results\MovieResults($response);
     }
@@ -62,12 +58,10 @@ class SearchRepository extends Repository
      */
     public function tv(string $query, Query\SearchTvSeriesQuery $params = new Query\SearchTvSeriesQuery): Results\TvSerieResults
     {
-        $url = $this->getUrl('/search/tv', [
+        $response = $this->get('/search/tv', [
             'query' => $query,
             ...$params->toQueryParams(),
         ]);
-
-        $response = $this->execute($url);
 
         return new Results\TvSerieResults($response);
     }

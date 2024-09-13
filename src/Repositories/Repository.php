@@ -15,6 +15,17 @@ abstract class Repository
     ) {}
 
     /**
+     * Merge base URL with the path and execute the request
+     *
+     * @param  string  $path  The path to merge
+     * @param  string[]  $queryParams  The query parameters
+     */
+    protected function get(string $path, array $queryParams = []): ?array
+    {
+        return $this->execute($this->getUrl($path, $queryParams));
+    }
+
+    /**
      * Merge base URL with the path
      *
      * @param  string  $path  The path to merge

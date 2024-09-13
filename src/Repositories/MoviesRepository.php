@@ -21,12 +21,10 @@ class MoviesRepository extends Repository
      */
     public function details(int $movie_id, ?array $append_to_response = null): ?Models\Movie
     {
-        $url = $this->getUrl("/movie/{$movie_id}", [
+        $response = $this->get("/movie/{$movie_id}", [
             'append_to_response' => $this->appendToResponse($append_to_response),
             'language' => $this->language,
         ]);
-
-        $response = $this->execute($url);
 
         return $this->isSuccess ? new Models\Movie($response) : null;
     }
