@@ -59,4 +59,35 @@ it('can get credits cast', function () {
     expect($credit->getMediaType())->toBe('movie');
     expect($credit->getId())->toBe('52fe421ac3a36847f800448f');
     expect($credit->getPerson())->toBeInstanceOf(\Kiwilan\Tmdb\Models\Credits\Person::class);
+
+    // #adult: false
+    // #gender: 2
+    // #known_for_department: "Acting"
+    // #name: "Elijah Wood"
+    // #original_name: "Elijah Wood"
+    // #popularity: 28.82
+    // #profile_path: "/7UKRbJBNG7mxBl2QQc5XsAh6F8B.jpg"
+    // #credit_id: null
+    // #id: 109
+
+    expect($credit->getPerson()->isAdult())->toBeFalse();
+    expect($credit->getPerson()->getGender())->toBe(2);
+    expect($credit->getPerson()->getKnownForDepartment())->toBe('Acting');
+    expect($credit->getPerson()->getName())->toBe('Elijah Wood');
+    expect($credit->getPerson()->getOriginalName())->toBe('Elijah Wood');
+    expect($credit->getPerson()->getPopularity())->toBeFloat();
+    expect($credit->getPerson()->getCreditId())->toBeNull();
+    expect($credit->getPerson()->getId())->toBe(109);
+
+    expect($credit->getPerson()->getProfilePath())->toBeString();
+    expect($credit->getPerson()->getProfileUrl())->toStartWith('https://');
+    expect($credit->getPerson()->getProfileImage())->toBeString();
+
+    clearMedia();
+
+    $path = mediaPath('/profile-original.jpg');
+    expect($credit->getPerson()->saveProfileImage($path))->toBeTrue();
+    expect(imageExists($path))->toBeTrue();
+
+    ray($credit->getPerson())->purple();
 });

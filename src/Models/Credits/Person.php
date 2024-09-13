@@ -4,6 +4,7 @@ namespace Kiwilan\Tmdb\Models\Credits;
 
 use Kiwilan\Tmdb\Models\TmdbModel;
 use Kiwilan\Tmdb\Traits\HasId;
+use Kiwilan\Tmdb\Traits\HasProfile;
 
 /**
  * A person who contributed to a movie or TV series.
@@ -11,6 +12,7 @@ use Kiwilan\Tmdb\Traits\HasId;
 class Person extends TmdbModel
 {
     use HasId;
+    use HasProfile;
 
     protected bool $adult = false;
 
@@ -24,8 +26,6 @@ class Person extends TmdbModel
 
     protected ?float $popularity = null;
 
-    protected ?string $profile_path = null;
-
     protected ?string $credit_id = null;
 
     public function __construct(?array $data)
@@ -35,13 +35,13 @@ class Person extends TmdbModel
         }
 
         $this->setId($data);
+        $this->setProfilePath($data);
         $this->adult = $this->toBool($data, 'adult');
         $this->gender = $this->toInt($data, 'gender');
         $this->known_for_department = $this->toString($data, 'known_for_department');
         $this->name = $this->toString($data, 'name');
         $this->original_name = $this->toString($data, 'original_name');
         $this->popularity = $this->toFloat($data, 'popularity');
-        $this->profile_path = $this->toString($data, 'profile_path');
         $this->credit_id = $this->toString($data, 'credit_id');
     }
 
@@ -73,11 +73,6 @@ class Person extends TmdbModel
     public function getPopularity(): ?float
     {
         return $this->popularity;
-    }
-
-    public function getProfilePath(): ?string
-    {
-        return $this->profile_path;
     }
 
     public function getCreditId(): ?string
