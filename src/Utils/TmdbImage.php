@@ -39,6 +39,10 @@ abstract class TmdbImage
     public function getImage(): ?string
     {
         $url = $this->getUrl();
+        if (! $url) {
+            return null;
+        }
+
         $contents = file_get_contents($url);
 
         return $contents !== false ? $contents : null;
@@ -47,8 +51,12 @@ abstract class TmdbImage
     /**
      * Save the image to a file.
      */
-    public function saveImage(string $path): bool
+    public function saveImage(?string $path): bool
     {
+        if (! $path) {
+            return false;
+        }
+
         $contents = $this->getImage();
         if ($contents === null) {
             return false;
