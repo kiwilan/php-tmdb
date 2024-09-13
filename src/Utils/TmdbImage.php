@@ -34,7 +34,7 @@ abstract class TmdbImage
      */
     public function getImage(): string
     {
-        $response = $this->get();
+        $url = $this->getUrl();
 
         return file_get_contents($url);
     }
