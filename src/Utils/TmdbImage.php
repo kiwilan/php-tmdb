@@ -15,9 +15,9 @@ abstract class TmdbImage
     /**
      * Create a new instance.
      *
-     * @param  string  $url  The image path, like `/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg`
+     * @param  ?string  $url  The image path, like `/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg`
      */
-    abstract public static function make(string $url): self;
+    abstract public static function make(?string $url): self;
 
     /**
      * Get full poster URL.

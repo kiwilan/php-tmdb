@@ -6,7 +6,7 @@ use Kiwilan\Tmdb\Enums\StillSize;
 
 class TmdbStill extends TmdbImage
 {
-    public static function make(string $url): self
+    public static function make(?string $url): self
     {
         $self = new self;
         $self->imageUrl = $self->fixUrl($url);

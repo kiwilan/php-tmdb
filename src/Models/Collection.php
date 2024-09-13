@@ -47,22 +47,22 @@ class Collection extends TmdbModel
         $this->parts = $this->validateData($data, 'parts', fn (array $values) => $this->loopOn($values, Movie::class));
     }
 
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function getOverview(): string
+    public function getOverview(): ?string
     {
         return $this->overview;
     }
 
-    public function getOriginalLanguage(): string
+    public function getOriginalLanguage(): ?string
     {
         return $this->original_language;
     }
 
-    public function getOriginalName(): string
+    public function getOriginalName(): ?string
     {
         return $this->original_name;
     }
