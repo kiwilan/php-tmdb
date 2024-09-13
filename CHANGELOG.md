@@ -2,6 +2,10 @@
 
 All notable changes to `php-tmdb` will be documented in this file.
 
+## v0.0.34 - 2024-09-13
+
+Fix on results if null.
+
 ## v0.0.33 - 2024-09-13
 
 Some fixes
