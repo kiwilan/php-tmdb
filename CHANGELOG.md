@@ -2,6 +2,11 @@
 
 All notable changes to `php-tmdb` will be documented in this file.
 
+## v0.0.36 - 2024-09-14
+
+- Add `getTmdbUrl()` for movies, tv shows, seasons, episodes, and people.
+- Add `getVotePercentage()` for all models with `vote_average` entry to get vote percentage.
+
 ## v0.0.35 - 2024-09-13
 
 Some fixes
