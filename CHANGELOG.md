@@ -2,6 +2,10 @@
 
 All notable changes to `php-tmdb` will be documented in this file.
 
+## v0.0.37 - 2024-09-14
+
+Add `getTmdbUrl()` for collections
+
 ## v0.0.36 - 2024-09-14
 
 - Add `getTmdbUrl()` for movies, tv shows, seasons, episodes, and people.
