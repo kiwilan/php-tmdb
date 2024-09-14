@@ -8,7 +8,6 @@ use Kiwilan\Tmdb\Models\TmdbModel;
 use Kiwilan\Tmdb\Traits\HasId;
 use Kiwilan\Tmdb\Traits\HasPoster;
 use Kiwilan\Tmdb\Traits\HasTmdbUrl;
-use Kiwilan\Tmdb\Traits\HasVotes;
 
 /**
  * TV Series Season
@@ -18,7 +17,6 @@ class Season extends TmdbModel
     use HasId;
     use HasPoster;
     use HasTmdbUrl;
-    use HasVotes;
 
     protected ?DateTime $air_date = null;
 
@@ -34,6 +32,8 @@ class Season extends TmdbModel
     protected ?int $season_number = null;
 
     protected ?Credits $credits = null;
+
+    protected ?float $vote_average = null;
 
     public function __construct(?array $data, ?int $season_tv_show_id = null)
     {
