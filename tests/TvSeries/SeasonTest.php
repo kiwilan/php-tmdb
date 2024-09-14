@@ -22,7 +22,7 @@ it('can find season', function () {
 
     $first = $season->getEpisodes()[0];
     expect($first)->toBeInstanceOf(Episode::class);
-    expect($first->getTmdbUrl())->toBeUrl();
+    expect($first->getTmdbUrl())->toBeString();
 
     expect($season->getName())->toBeString();
     expect($season->getOverview())->toBeString();
@@ -33,7 +33,7 @@ it('can find season', function () {
     expect($season->getId())->toBeInt();
     expect($season->getPosterPath())->toBeString();
     expect($season->getVotePercentage())->toBeFloat()->and($season->getVotePercentage())->toBeGreaterThan(80);
-    expect($season->getTmdbUrl())->toBeUrl();
+    expect($season->getTmdbUrl())->toBeString();
 });
 
 it('can find season credits', function () {

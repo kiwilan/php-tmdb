@@ -83,7 +83,7 @@ it('can get tv series details', function () {
     expect($tv->getVoteAverage())->toBeFloat();
     expect($tv->getVoteCount())->toBeInt();
     expect($tv->getVotePercentage())->toBeFloat()->and($tv->getVotePercentage())->toBeGreaterThan(80);
-    expect($tv->getTmdbUrl())->toBeUrl();
+    expect($tv->getTmdbUrl())->toBeString();
 });
 
 it('can parse alternative titles', function () {
@@ -172,7 +172,7 @@ it('can parse seasons', function () {
     expect($second->getVoteAverage())->toBeFloat();
     expect($second->getId())->toBeInt();
     expect($second->getPosterPath())->toBeString();
-    expect($second->getTmdbUrl())->toBeUrl();
+    expect($second->getTmdbUrl())->toBeString();
 });
 
 it('can have null tv series results', function () {

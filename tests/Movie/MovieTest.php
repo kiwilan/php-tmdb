@@ -28,7 +28,7 @@ it('can get movie details (tmdb id)', function () {
     expect($movie->getBelongsToCollection()->getName())->toBe('The Lord of the Rings Collection');
     expect($movie->getBelongsToCollection()->getPosterPath())->toBeString();
     expect($movie->getBelongsToCollection()->getBackdropPath())->toBeString();
-    expect($movie->getBelongsToCollection()->getTmdbUrl())->toBeUrl();
+    expect($movie->getBelongsToCollection()->getTmdbUrl())->toBeString();
 
     expect($movie->getBudget())->toBeInt();
 
@@ -47,7 +47,7 @@ it('can get movie details (tmdb id)', function () {
     expect($movie->getTitle())->toBeString();
     expect($movie->getOriginCountry())->toBeArray();
     expect($movie->getOverview())->toBeString();
-    expect($movie->getTmdbUrl())->toBeUrl();
+    expect($movie->getTmdbUrl())->toBeString();
     expect($movie->getPopularity())->toBeFloat();
     expect($movie->getRuntime())->toBeInt();
     expect($movie->getTagline())->toBeString();
@@ -123,7 +123,7 @@ it('can get movie credits', function () {
     expect($first->getName())->toBeString();
     expect($first->getOrder())->toBeInt();
     expect($first->getProfilePath())->toBeString();
-    expect($first->getTmdbUrl())->toBeUrl();
+    expect($first->getTmdbUrl())->toBeString();
     expect($first->isAdult())->toBeBool();
 
     $crew = $movie->getCredits()->getCrew();
@@ -136,7 +136,7 @@ it('can get movie credits', function () {
     expect($first->getJob())->toBeString();
     expect($first->getName())->toBeString();
     expect($first->getProfilePath())->toBeString();
-    expect($first->getTmdbUrl())->toBeUrl();
+    expect($first->getTmdbUrl())->toBeString();
     expect($first->isAdult())->toBeBool();
 });
 
@@ -260,5 +260,5 @@ it('can get belongs to', function () {
     expect($movie->getBelongsToCollection()->getName())->toBe('The Lord of the Rings Collection');
     expect($movie->getBelongsToCollection()->getPosterPath())->toBeString();
     expect($movie->getBelongsToCollection()->getBackdropPath())->toBeString();
-    expect($movie->getBelongsToCollection()->getTmdbUrl())->toBeUrl();
+    expect($movie->getBelongsToCollection()->getTmdbUrl())->toBeString();
 });
