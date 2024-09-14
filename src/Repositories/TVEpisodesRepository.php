@@ -28,6 +28,6 @@ class TVEpisodesRepository extends Repository
             'language' => $this->language,
         ]);
 
-        return $this->isSuccess ? new Models\TvSeries\Episode($response) : null;
+        return $this->isSuccess ? new Models\TvSeries\Episode($response, $series_id, $season_number) : null;
     }
 }

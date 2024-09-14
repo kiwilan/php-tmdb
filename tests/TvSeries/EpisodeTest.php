@@ -31,6 +31,8 @@ it('can find episode', function () {
     expect($episode->getVoteAverage())->toBeFloat();
     expect($episode->getVoteCount())->toBeInt();
     expect($episode->getId())->toBeInt();
+    expect($episode->getVotePercentage())->toBeFloat()->and($episode->getVotePercentage())->toBeGreaterThan(70);
+    expect($episode->getTmdbUrl())->toBeUrl();
 
     expect($episode->getStillPath())->toBeString();
     expect($episode->getStillUrl())->toBeString();

@@ -5,12 +5,14 @@ namespace Kiwilan\Tmdb\Models;
 use Kiwilan\Tmdb\Traits\HasBackdrop;
 use Kiwilan\Tmdb\Traits\HasId;
 use Kiwilan\Tmdb\Traits\HasPoster;
+use Kiwilan\Tmdb\Traits\HasVotes;
 
 abstract class BaseMedia extends TmdbModel
 {
     use HasBackdrop;
     use HasId;
     use HasPoster;
+    use HasVotes;
 
     protected bool $adult = false;
 
@@ -19,16 +21,12 @@ abstract class BaseMedia extends TmdbModel
 
     protected ?string $overview = null;
 
-    protected ?float $popularity = null;
-
-    protected ?float $vote_average = null;
-
-    protected ?int $vote_count = null;
-
     protected ?string $original_language = null;
 
     /** @var string[]|null */
     protected ?array $origin_country = null;
+
+    protected ?float $popularity = null;
 
     public function __construct(?array $data)
     {
@@ -44,9 +42,8 @@ abstract class BaseMedia extends TmdbModel
         $this->genre_ids = $this->toArray($data, 'genre_ids');
         $this->original_language = $this->toString($data, 'original_language');
         $this->overview = $this->toString($data, 'overview');
+        $this->setVotes($data);
         $this->popularity = $this->toFloat($data, 'popularity');
-        $this->vote_average = $this->toFloat($data, 'vote_average');
-        $this->vote_count = $this->toInt($data, 'vote_count');
     }
 
     public function isAdult(): bool
@@ -83,15 +80,5 @@ abstract class BaseMedia extends TmdbModel
     public function getPopularity(): ?float
     {
         return $this->popularity;
-    }
-
-    public function getVoteAverage(): ?float
-    {
-        return $this->vote_average;
-    }
-
-    public function getVoteCount(): ?int
-    {
-        return $this->vote_count;
     }
 }

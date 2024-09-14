@@ -5,6 +5,7 @@ namespace Kiwilan\Tmdb\Models\Credits;
 use Kiwilan\Tmdb\Models\TmdbModel;
 use Kiwilan\Tmdb\Traits\HasId;
 use Kiwilan\Tmdb\Traits\HasProfile;
+use Kiwilan\Tmdb\Traits\HasTmdbUrl;
 
 /**
  * A person who contributed to a movie or TV series.
@@ -13,6 +14,7 @@ class Person extends TmdbModel
 {
     use HasId;
     use HasProfile;
+    use HasTmdbUrl;
 
     protected bool $adult = false;
 

@@ -28,6 +28,7 @@ it('can get movie details (tmdb id)', function () {
     expect($movie->getBelongsToCollection()->getName())->toBe('The Lord of the Rings Collection');
     expect($movie->getBelongsToCollection()->getPosterPath())->toBeString();
     expect($movie->getBelongsToCollection()->getBackdropPath())->toBeString();
+    expect($movie->getBelongsToCollection()->getTmdbUrl())->toBeUrl();
 
     expect($movie->getBudget())->toBeInt();
 
@@ -46,11 +47,13 @@ it('can get movie details (tmdb id)', function () {
     expect($movie->getTitle())->toBeString();
     expect($movie->getOriginCountry())->toBeArray();
     expect($movie->getOverview())->toBeString();
+    expect($movie->getTmdbUrl())->toBeUrl();
     expect($movie->getPopularity())->toBeFloat();
     expect($movie->getRuntime())->toBeInt();
     expect($movie->getTagline())->toBeString();
     expect($movie->getVoteAverage())->toBeFloat();
     expect($movie->getVoteCount())->toBeInt();
+    expect($movie->getVotePercentage())->toBeFloat()->and($movie->getVotePercentage())->toBeGreaterThan(80);
     expect($movie->getVideos())->toBeNull();
 
     expect($movie->getReleaseDate())->toBeInstanceOf(DateTime::class);
@@ -109,19 +112,38 @@ it('can get movie credits', function () {
         ->details(120, ['credits']);
 
     expect($movie->getCredits())->not()->toBeNull();
-    expect($movie->getCredits()->getCast())->toBeArray();
-    expect($movie->getCredits()->getCast())->not()->toBeEmpty();
-    expect($movie->getCredits()->getCast())->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(Cast::class));
 
-    expect($movie->getCredits()->getCrew())->toBeArray();
-    expect($movie->getCredits()->getCrew())->not()->toBeEmpty();
-    expect($movie->getCredits()->getCrew())->each(fn (Pest\Expectation $crew) => expect($crew->value)->toBeInstanceOf(Crew::class));
+    $cast = $movie->getCredits()->getCast();
+    expect($cast)->toBeArray();
+    expect($cast)->not()->toBeEmpty();
+    expect($cast)->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(Cast::class));
+    $first = reset($cast);
+    expect($first->getId())->toBeInt();
+    expect($first->getCharacter())->toBeString();
+    expect($first->getName())->toBeString();
+    expect($first->getOrder())->toBeInt();
+    expect($first->getProfilePath())->toBeString();
+    expect($first->getTmdbUrl())->toBeUrl();
+    expect($first->isAdult())->toBeBool();
+
+    $crew = $movie->getCredits()->getCrew();
+    expect($crew)->toBeArray();
+    expect($crew)->not()->toBeEmpty();
+    expect($crew)->each(fn (Pest\Expectation $crew) => expect($crew->value)->toBeInstanceOf(Crew::class));
+    $first = reset($crew);
+    expect($first->getId())->toBeInt();
+    expect($first->getDepartment())->toBeString();
+    expect($first->getJob())->toBeString();
+    expect($first->getName())->toBeString();
+    expect($first->getProfilePath())->toBeString();
+    expect($first->getTmdbUrl())->toBeUrl();
+    expect($first->isAdult())->toBeBool();
 });
 
 it('can get movie spoken languages', function () {
     $movie = Tmdb::client(apiKey())
         ->movies()
-        ->details(120, ['credits']);
+        ->details(120);
 
     expect($movie->getSpokenLanguages())->not()->toBeNull();
     expect($movie->getSpokenLanguages())->toBeArray();
@@ -238,4 +260,5 @@ it('can get belongs to', function () {
     expect($movie->getBelongsToCollection()->getName())->toBe('The Lord of the Rings Collection');
     expect($movie->getBelongsToCollection()->getPosterPath())->toBeString();
     expect($movie->getBelongsToCollection()->getBackdropPath())->toBeString();
+    expect($movie->getBelongsToCollection()->getTmdbUrl())->toBeUrl();
 });

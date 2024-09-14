@@ -36,4 +36,9 @@ class BelongsToCollection extends TmdbModel
     {
         return $this->name;
     }
+
+    public function getTmdbUrl(): ?string
+    {
+        return 'https://www.themoviedb.org/collection/'.$this->getId();
+    }
 }

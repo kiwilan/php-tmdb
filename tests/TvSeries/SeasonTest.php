@@ -20,6 +20,10 @@ it('can find season', function () {
     expect($season->getEpisodes())->not()->toBeEmpty();
     expect($season->getEpisodes())->each(fn (Pest\Expectation $episode) => expect($episode->value)->toBeInstanceOf(Episode::class));
 
+    $first = $season->getEpisodes()[0];
+    expect($first)->toBeInstanceOf(Episode::class);
+    expect($first->getTmdbUrl())->toBeUrl();
+
     expect($season->getName())->toBeString();
     expect($season->getOverview())->toBeString();
     expect($season->getSeasonNumber())->toBeInt();
@@ -28,6 +32,8 @@ it('can find season', function () {
     expect($season->getCredits())->toBeNull();
     expect($season->getId())->toBeInt();
     expect($season->getPosterPath())->toBeString();
+    expect($season->getVotePercentage())->toBeFloat()->and($season->getVotePercentage())->toBeGreaterThan(80);
+    expect($season->getTmdbUrl())->toBeUrl();
 });
 
 it('can find season credits', function () {

@@ -9,12 +9,15 @@ use Kiwilan\Tmdb\Models\TvSeries\Episode;
 use Kiwilan\Tmdb\Models\TvSeries\Network;
 use Kiwilan\Tmdb\Models\TvSeries\Season;
 use Kiwilan\Tmdb\Results\TvSerieResults;
+use Kiwilan\Tmdb\Traits\HasTmdbUrl;
 
 /**
  * TV Series
  */
 class TvSeries extends ExtendedMedia
 {
+    use HasTmdbUrl;
+
     /** @var Crew[] */
     protected ?array $created_by = null;
 
@@ -83,7 +86,14 @@ class TvSeries extends ExtendedMedia
 
         $this->created_by = $this->validateData($data, 'created_by', fn (array $values) => $this->loopOn($values, Crew::class));
         $this->networks = $this->validateData($data, 'networks', fn (array $values) => $this->loopOn($values, Network::class));
-        $this->seasons = $this->validateData($data, 'seasons', fn (array $values) => $this->loopOn($values, Season::class));
+        $this->seasons = $this->validateData($data, 'seasons', function (array $values) {
+            $seasons = [];
+            foreach ($values as $season) {
+                $seasons[] = new Season($season, $this->getId());
+            }
+
+            return $seasons;
+        });
 
         $content_ratings = $data['content_ratings']['results'] ?? null;
         $this->content_ratings = $this->loopOn($content_ratings, ContentRating::class);

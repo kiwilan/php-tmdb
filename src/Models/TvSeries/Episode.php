@@ -9,6 +9,8 @@ use Kiwilan\Tmdb\Models\Credits\Crew;
 use Kiwilan\Tmdb\Models\TmdbModel;
 use Kiwilan\Tmdb\Traits\HasId;
 use Kiwilan\Tmdb\Traits\HasStill;
+use Kiwilan\Tmdb\Traits\HasTmdbUrl;
+use Kiwilan\Tmdb\Traits\HasVotes;
 
 /**
  * TV Series Episode
@@ -17,11 +19,17 @@ class Episode extends TmdbModel
 {
     use HasId;
     use HasStill;
+    use HasTmdbUrl;
+    use HasVotes;
 
     protected ?DateTime $air_date = null;
 
     /** @var Crew[]|null */
     protected ?array $crew = null;
+
+    protected ?int $episode_tv_show_id = null;
+
+    protected ?int $episode_season_number = null;
 
     protected ?int $episode_number = null;
 
@@ -38,13 +46,9 @@ class Episode extends TmdbModel
 
     protected ?int $season_number = null;
 
-    protected ?float $vote_average = null;
-
-    protected ?int $vote_count = null;
-
     protected ?Credits $credits = null;
 
-    public function __construct(?array $data)
+    public function __construct(?array $data, ?int $episode_tv_show_id = null, ?int $episode_season_number = null)
     {
         if (! $data) {
             return;
@@ -60,13 +64,15 @@ class Episode extends TmdbModel
         $this->production_code = $this->toString($data, 'production_code');
         $this->runtime = $this->toInt($data, 'runtime');
         $this->season_number = $this->toInt($data, 'season_number');
-        $this->vote_average = $this->toFloat($data, 'vote_average');
-        $this->vote_count = $this->toInt($data, 'vote_count');
+        $this->setVotes($data);
 
         $this->credits = new Credits([
             'cast' => $data['guest_stars'] ?? null,
             'crew' => $data['crew'] ?? null,
         ]);
+
+        $this->episode_tv_show_id = $episode_tv_show_id;
+        $this->episode_season_number = $episode_season_number;
     }
 
     public function getAirDate(): ?DateTime
@@ -102,16 +108,6 @@ class Episode extends TmdbModel
     public function getSeasonNumber(): ?int
     {
         return $this->season_number;
-    }
-
-    public function getVoteAverage(): ?float
-    {
-        return $this->vote_average;
-    }
-
-    public function getVoteCount(): ?int
-    {
-        return $this->vote_count;
     }
 
     public function getCredits(): ?Credits

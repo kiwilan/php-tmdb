@@ -9,12 +9,14 @@ use Kiwilan\Tmdb\Models\TvSeries\Season;
 use Kiwilan\Tmdb\Traits\HasBackdrop;
 use Kiwilan\Tmdb\Traits\HasId;
 use Kiwilan\Tmdb\Traits\HasPoster;
+use Kiwilan\Tmdb\Traits\HasVotes;
 
 class CreditMedia extends TmdbModel
 {
     use HasBackdrop;
     use HasId;
     use HasPoster;
+    use HasVotes;
 
     protected ?string $name = null;
 
@@ -38,10 +40,6 @@ class CreditMedia extends TmdbModel
     protected ?DateTime $release_date = null;
 
     protected mixed $video = null;
-
-    protected ?float $vote_average = null;
-
-    protected ?int $vote_count = null;
 
     /** @var string[]|null */
     protected ?array $origin_country = null;
@@ -75,8 +73,7 @@ class CreditMedia extends TmdbModel
         $this->first_air_date = $this->toDateTime($data, 'first_air_date');
         $this->release_date = $this->toDateTime($data, 'release_date');
         $this->video = $this->toString($data, 'video');
-        $this->vote_average = $this->toFloat($data, 'vote_average');
-        $this->vote_count = $this->toInt($data, 'vote_count');
+        $this->setVotes($data);
         $this->origin_country = $this->toArray($data, 'origin_country');
         $this->character = $this->toString($data, 'character');
 
@@ -140,16 +137,6 @@ class CreditMedia extends TmdbModel
     public function getVideo(): mixed
     {
         return $this->video;
-    }
-
-    public function getVoteAverage(): ?float
-    {
-        return $this->vote_average;
-    }
-
-    public function getVoteCount(): ?int
-    {
-        return $this->vote_count;
     }
 
     /**
