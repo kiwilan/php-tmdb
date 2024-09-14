@@ -6,6 +6,7 @@ use Kiwilan\Tmdb\Models\TmdbModel;
 use Kiwilan\Tmdb\Traits\HasBackdrop;
 use Kiwilan\Tmdb\Traits\HasId;
 use Kiwilan\Tmdb\Traits\HasPoster;
+use Kiwilan\Tmdb\Traits\HasTmdbUrl;
 
 /**
  * A collection of movies.
@@ -15,6 +16,7 @@ class BelongsToCollection extends TmdbModel
     use HasBackdrop;
     use HasId;
     use HasPoster;
+    use HasTmdbUrl;
 
     protected ?string $name = null;
 
@@ -35,10 +37,5 @@ class BelongsToCollection extends TmdbModel
     public function getName(): ?string
     {
         return $this->name;
-    }
-
-    public function getTmdbUrl(): ?string
-    {
-        return 'https://www.themoviedb.org/collection/'.$this->getId();
     }
 }

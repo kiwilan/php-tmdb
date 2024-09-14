@@ -61,6 +61,7 @@ it('can get collection details', function () {
     expect($collection->getOverview())->toBeString();
     expect($collection->getBackdropPath())->toBeString();
     expect($collection->getPosterPath())->toBeString();
+    expect($collection->getTmdbUrl())->toBeString();
 
     expect($collection->getParts())->toBeArray();
     expect($collection->getParts())->not()->toBeEmpty();

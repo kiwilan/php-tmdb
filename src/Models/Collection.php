@@ -5,6 +5,7 @@ namespace Kiwilan\Tmdb\Models;
 use Kiwilan\Tmdb\Traits\HasBackdrop;
 use Kiwilan\Tmdb\Traits\HasId;
 use Kiwilan\Tmdb\Traits\HasPoster;
+use Kiwilan\Tmdb\Traits\HasTmdbUrl;
 
 /**
  * A collection of movies.
@@ -14,6 +15,7 @@ class Collection extends TmdbModel
     use HasBackdrop;
     use HasId;
     use HasPoster;
+    use HasTmdbUrl;
 
     protected ?string $name = null;
 

@@ -22,6 +22,8 @@ trait HasTmdbUrl
             'person' => 'person',
             'cast' => 'person',
             'crew' => 'person',
+            'collection' => 'collection',
+            'belongstocollection' => 'collection',
             default => 'unknown',
         };
     }
@@ -62,6 +64,10 @@ trait HasTmdbUrl
 
         if ($this->getMediaType() === 'person') {
             return "{$this->getBaseURL()}/person/{$this->getId()}";
+        }
+
+        if ($this->getMediaType() === 'collection') {
+            return "{$this->getBaseURL()}/collection/{$this->getId()}";
         }
 
         return null;
