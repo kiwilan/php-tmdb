@@ -20,8 +20,6 @@ class BelongsToCollection extends TmdbModel
 
     protected ?string $name = null;
 
-    protected ?string $backdrop_path = null;
-
     public function __construct(?array $data)
     {
         if (! $data) {
