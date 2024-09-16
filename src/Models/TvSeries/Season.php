@@ -95,6 +95,11 @@ class Season extends TmdbModel
         return $this->season_number ?? 0;
     }
 
+    public function isSpecialSeason(): bool
+    {
+        return $this->getSeasonNumber() === 0;
+    }
+
     public function getVoteAverage(): ?float
     {
         return $this->vote_average;
