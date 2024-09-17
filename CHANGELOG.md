@@ -2,6 +2,11 @@
 
 All notable changes to `php-tmdb` will be documented in this file.
 
+## v0.0.38 - 2024-09-17
+
+- Replace traits names with `Tmdb` prefix to avoid conflicts with other libraries
+- Use `guzzle` to download images
+
 ## v0.0.37 - 2024-09-14
 
 Add `getTmdbUrl()` for collections
