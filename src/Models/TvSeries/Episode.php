@@ -7,20 +7,17 @@ use Kiwilan\Tmdb\Models\Credits;
 use Kiwilan\Tmdb\Models\Credits\Cast;
 use Kiwilan\Tmdb\Models\Credits\Crew;
 use Kiwilan\Tmdb\Models\TmdbModel;
-use Kiwilan\Tmdb\Traits\HasId;
-use Kiwilan\Tmdb\Traits\HasStill;
-use Kiwilan\Tmdb\Traits\HasTmdbUrl;
-use Kiwilan\Tmdb\Traits\HasVotes;
+use Kiwilan\Tmdb\Traits;
 
 /**
  * TV Series Episode
  */
 class Episode extends TmdbModel
 {
-    use HasId;
-    use HasStill;
-    use HasTmdbUrl;
-    use HasVotes;
+    use Traits\TmdbHasId;
+    use Traits\TmdbHasStill;
+    use Traits\TmdbHasTmdbUrl;
+    use Traits\TmdbHasVotes;
 
     protected ?DateTime $air_date = null;
 

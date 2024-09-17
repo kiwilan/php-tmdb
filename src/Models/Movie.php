@@ -7,14 +7,14 @@ use Kiwilan\Tmdb\Models\Common\Video;
 use Kiwilan\Tmdb\Models\Credits\Crew;
 use Kiwilan\Tmdb\Models\Movie\ReleaseDate;
 use Kiwilan\Tmdb\Results\MovieResults;
-use Kiwilan\Tmdb\Traits\HasTmdbUrl;
+use Kiwilan\Tmdb\Traits;
 
 /**
  * Movie
  */
 class Movie extends ExtendedMedia
 {
-    use HasTmdbUrl;
+    use Traits\TmdbHasTmdbUrl;
 
     protected ?Movie\BelongsToCollection $belongs_to_collection = null;
 

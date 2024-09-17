@@ -3,16 +3,15 @@
 namespace Kiwilan\Tmdb\Models\TvSeries;
 
 use Kiwilan\Tmdb\Models\TmdbModel;
-use Kiwilan\Tmdb\Traits\HasId;
-use Kiwilan\Tmdb\Traits\HasLogo;
+use Kiwilan\Tmdb\Traits;
 
 /**
  * A network that broadcasts TV series.
  */
 class Network extends TmdbModel
 {
-    use HasId;
-    use HasLogo;
+    use Traits\TmdbHasId;
+    use Traits\TmdbHasLogo;
 
     protected ?string $name = null;
 

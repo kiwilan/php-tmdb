@@ -5,7 +5,7 @@ namespace Kiwilan\Tmdb\Traits;
 use Kiwilan\Tmdb\Enums\LogoSize;
 use Kiwilan\Tmdb\Utils\TmdbLogo;
 
-trait HasLogo
+trait TmdbHasLogo
 {
     protected ?string $logo_path = null;
 

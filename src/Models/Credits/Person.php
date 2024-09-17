@@ -3,18 +3,16 @@
 namespace Kiwilan\Tmdb\Models\Credits;
 
 use Kiwilan\Tmdb\Models\TmdbModel;
-use Kiwilan\Tmdb\Traits\HasId;
-use Kiwilan\Tmdb\Traits\HasProfile;
-use Kiwilan\Tmdb\Traits\HasTmdbUrl;
+use Kiwilan\Tmdb\Traits;
 
 /**
  * A person who contributed to a movie or TV series.
  */
 class Person extends TmdbModel
 {
-    use HasId;
-    use HasProfile;
-    use HasTmdbUrl;
+    use Traits\TmdbHasId;
+    use Traits\TmdbHasProfile;
+    use Traits\TmdbHasTmdbUrl;
 
     protected bool $adult = false;
 

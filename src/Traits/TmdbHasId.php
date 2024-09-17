@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Traits;
 
-trait HasId
+trait TmdbHasId
 {
     protected ?int $id = null;
 

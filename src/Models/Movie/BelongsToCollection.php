@@ -3,20 +3,17 @@
 namespace Kiwilan\Tmdb\Models\Movie;
 
 use Kiwilan\Tmdb\Models\TmdbModel;
-use Kiwilan\Tmdb\Traits\HasBackdrop;
-use Kiwilan\Tmdb\Traits\HasId;
-use Kiwilan\Tmdb\Traits\HasPoster;
-use Kiwilan\Tmdb\Traits\HasTmdbUrl;
+use Kiwilan\Tmdb\Traits;
 
 /**
  * A collection of movies.
  */
 class BelongsToCollection extends TmdbModel
 {
-    use HasBackdrop;
-    use HasId;
-    use HasPoster;
-    use HasTmdbUrl;
+    use Traits\TmdbHasBackdrop;
+    use Traits\TmdbHasId;
+    use Traits\TmdbHasPoster;
+    use Traits\TmdbHasTmdbUrl;
 
     protected ?string $name = null;
 

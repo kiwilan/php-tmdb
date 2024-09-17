@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Traits;
 
-trait HasTmdbUrl
+trait TmdbHasTmdbUrl
 {
     private function getBaseURL(): string
     {

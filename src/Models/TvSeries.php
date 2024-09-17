@@ -9,14 +9,14 @@ use Kiwilan\Tmdb\Models\TvSeries\Episode;
 use Kiwilan\Tmdb\Models\TvSeries\Network;
 use Kiwilan\Tmdb\Models\TvSeries\Season;
 use Kiwilan\Tmdb\Results\TvSerieResults;
-use Kiwilan\Tmdb\Traits\HasTmdbUrl;
+use Kiwilan\Tmdb\Traits;
 
 /**
  * TV Series
  */
 class TvSeries extends ExtendedMedia
 {
-    use HasTmdbUrl;
+    use Traits\TmdbHasTmdbUrl;
 
     /** @var Crew[] */
     protected ?array $created_by = null;

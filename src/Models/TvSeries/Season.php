@@ -5,18 +5,16 @@ namespace Kiwilan\Tmdb\Models\TvSeries;
 use DateTime;
 use Kiwilan\Tmdb\Models\Credits;
 use Kiwilan\Tmdb\Models\TmdbModel;
-use Kiwilan\Tmdb\Traits\HasId;
-use Kiwilan\Tmdb\Traits\HasPoster;
-use Kiwilan\Tmdb\Traits\HasTmdbUrl;
+use Kiwilan\Tmdb\Traits;
 
 /**
  * TV Series Season
  */
 class Season extends TmdbModel
 {
-    use HasId;
-    use HasPoster;
-    use HasTmdbUrl;
+    use Traits\TmdbHasId;
+    use Traits\TmdbHasPoster;
+    use Traits\TmdbHasTmdbUrl;
 
     protected ?DateTime $air_date = null;
 

@@ -4,14 +4,14 @@ namespace Kiwilan\Tmdb\Models;
 
 use Kiwilan\Tmdb\Models\Credits\Cast;
 use Kiwilan\Tmdb\Models\Credits\Crew;
-use Kiwilan\Tmdb\Traits\HasId;
+use Kiwilan\Tmdb\Traits;
 
 /**
  * Credits for a movie or TV series, including cast and crew.
  */
 class Credits extends TmdbModel
 {
-    use HasId;
+    use Traits\TmdbHasId;
 
     /**
      * @var Cast[]

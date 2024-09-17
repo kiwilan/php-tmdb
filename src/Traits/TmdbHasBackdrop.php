@@ -5,7 +5,7 @@ namespace Kiwilan\Tmdb\Traits;
 use Kiwilan\Tmdb\Enums\BackdropSize;
 use Kiwilan\Tmdb\Utils\TmdbBackdrop;
 
-trait HasBackdrop
+trait TmdbHasBackdrop
 {
     protected ?string $backdrop_path = null;
 

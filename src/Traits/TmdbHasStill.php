@@ -5,7 +5,7 @@ namespace Kiwilan\Tmdb\Traits;
 use Kiwilan\Tmdb\Enums\StillSize;
 use Kiwilan\Tmdb\Utils\TmdbStill;
 
-trait HasStill
+trait TmdbHasStill
 {
     protected ?string $still_path = null;
 

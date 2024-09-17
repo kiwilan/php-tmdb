@@ -3,14 +3,14 @@
 namespace Kiwilan\Tmdb\Models\Common;
 
 use Kiwilan\Tmdb\Models\TmdbModel;
-use Kiwilan\Tmdb\Traits\HasId;
+use Kiwilan\Tmdb\Traits;
 
 /**
  * A genre of a movie or TV series.
  */
 class Genre extends TmdbModel
 {
-    use HasId;
+    use Traits\TmdbHasId;
 
     protected ?string $name = null;
 

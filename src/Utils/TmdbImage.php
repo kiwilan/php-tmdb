@@ -43,9 +43,14 @@ abstract class TmdbImage
             return null;
         }
 
-        $contents = file_get_contents($url);
+        $client = new \GuzzleHttp\Client;
+        $response = $client->request('GET', $url, [
+            'http_errors' => false,
+        ]);
 
-        return $contents !== false ? $contents : null;
+        $contents = $response->getBody()->getContents();
+
+        return $contents !== '' ? $contents : null;
     }
 
     /**

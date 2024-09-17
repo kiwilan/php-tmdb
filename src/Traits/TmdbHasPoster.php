@@ -5,7 +5,7 @@ namespace Kiwilan\Tmdb\Traits;
 use Kiwilan\Tmdb\Enums\PosterSize;
 use Kiwilan\Tmdb\Utils\TmdbPoster;
 
-trait HasPoster
+trait TmdbHasPoster
 {
     protected ?string $poster_path = null;
 

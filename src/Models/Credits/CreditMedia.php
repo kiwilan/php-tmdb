@@ -6,17 +6,14 @@ use DateTime;
 use Kiwilan\Tmdb\Models\TmdbModel;
 use Kiwilan\Tmdb\Models\TvSeries\Episode;
 use Kiwilan\Tmdb\Models\TvSeries\Season;
-use Kiwilan\Tmdb\Traits\HasBackdrop;
-use Kiwilan\Tmdb\Traits\HasId;
-use Kiwilan\Tmdb\Traits\HasPoster;
-use Kiwilan\Tmdb\Traits\HasVotes;
+use Kiwilan\Tmdb\Traits;
 
 class CreditMedia extends TmdbModel
 {
-    use HasBackdrop;
-    use HasId;
-    use HasPoster;
-    use HasVotes;
+    use Traits\TmdbHasBackdrop;
+    use Traits\TmdbHasId;
+    use Traits\TmdbHasPoster;
+    use Traits\TmdbHasVotes;
 
     protected ?string $name = null;
 

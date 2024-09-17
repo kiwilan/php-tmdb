@@ -5,7 +5,7 @@ namespace Kiwilan\Tmdb\Traits;
 use Kiwilan\Tmdb\Enums\ProfileSize;
 use Kiwilan\Tmdb\Utils\TmdbProfile;
 
-trait HasProfile
+trait TmdbHasProfile
 {
     protected ?string $profile_path = null;
 

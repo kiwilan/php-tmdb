@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Traits;
 
-trait HasVotes
+trait TmdbHasVotes
 {
     protected ?float $vote_average = null;
 

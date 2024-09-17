@@ -2,17 +2,14 @@
 
 namespace Kiwilan\Tmdb\Models;
 
-use Kiwilan\Tmdb\Traits\HasBackdrop;
-use Kiwilan\Tmdb\Traits\HasId;
-use Kiwilan\Tmdb\Traits\HasPoster;
-use Kiwilan\Tmdb\Traits\HasVotes;
+use Kiwilan\Tmdb\Traits;
 
 abstract class BaseMedia extends TmdbModel
 {
-    use HasBackdrop;
-    use HasId;
-    use HasPoster;
-    use HasVotes;
+    use Traits\TmdbHasBackdrop;
+    use Traits\TmdbHasId;
+    use Traits\TmdbHasPoster;
+    use Traits\TmdbHasVotes;
 
     protected bool $adult = false;
 

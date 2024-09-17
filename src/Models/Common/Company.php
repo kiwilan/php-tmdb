@@ -3,16 +3,15 @@
 namespace Kiwilan\Tmdb\Models\Common;
 
 use Kiwilan\Tmdb\Models\TmdbModel;
-use Kiwilan\Tmdb\Traits\HasId;
-use Kiwilan\Tmdb\Traits\HasLogo;
+use Kiwilan\Tmdb\Traits;
 
 /**
  * A company that produces movies.
  */
 class Company extends TmdbModel
 {
-    use HasId;
-    use HasLogo;
+    use Traits\TmdbHasId;
+    use Traits\TmdbHasLogo;
 
     protected ?string $logo_path = null;
 

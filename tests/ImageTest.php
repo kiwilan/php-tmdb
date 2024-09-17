@@ -71,3 +71,14 @@ it('can get still', function (StillSize $size) {
     expect($still->saveImage($path))->toBeTrue();
     expect(imageExists($path))->toBeTrue();
 })->with(StillSize::cases());
+
+it('can fail on image downloading', function () {
+    clearMedia();
+
+    $poster = TmdbPoster::make(null);
+    expect($poster->getUrl())->toBeNull();
+    expect($poster->getImage())->toBeNull();
+    $path = mediaPath('/poster.jpg');
+    expect($poster->saveImage($path))->toBeFalse();
+    expect(imageExists($path))->toBeFalse();
+});

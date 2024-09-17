@@ -4,7 +4,7 @@ namespace Kiwilan\Tmdb\Traits;
 
 use Kiwilan\Tmdb\Models\Common\AlternativeTitle;
 
-trait HasAlternativeTitles
+trait TmdbHasAlternativeTitles
 {
     /** @var AlternativeTitle[]|null */
     protected ?array $alternative_titles = null;
