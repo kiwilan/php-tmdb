@@ -1,6 +1,6 @@
 # PHP TMDB
 
-![Banner with The Last of Us picture in background and PHP TMDB title](https://raw.githubusercontent.com/kiwilan/php-tmdb/main/docs/banner.jpg)
+![Banner with a lots of movies and TV series in background and PHP TMDB title](https://raw.githubusercontent.com/kiwilan/php-tmdb/main/docs/banner.jpg)
 
 [![php][php-version-src]][php-version-href]
 [![version][version-src]][version-href]
