@@ -2,13 +2,13 @@
 
 namespace Kiwilan\Tmdb\Models;
 
-use Kiwilan\Tmdb\Models\Credits\CreditMedia;
-use Kiwilan\Tmdb\Models\Credits\Person;
+use Kiwilan\Tmdb\Models\Credits\TmdbCreditMedia;
+use Kiwilan\Tmdb\Models\Credits\TmdbPerson;
 
 /**
  * A credit for a person in a movie or TV series.
  */
-class Credit extends TmdbModel
+class TmdbCredit extends TmdbModel
 {
     protected ?string $credit_type = null;
 
@@ -16,13 +16,13 @@ class Credit extends TmdbModel
 
     protected ?string $job = null;
 
-    protected ?CreditMedia $media = null;
+    protected ?TmdbCreditMedia $media = null;
 
     protected ?string $media_type = null;
 
     protected ?string $id = null;
 
-    protected ?Person $person = null;
+    protected ?TmdbPerson $person = null;
 
     public function __construct(?array $data)
     {
@@ -35,8 +35,8 @@ class Credit extends TmdbModel
         $this->job = $this->toString($data, 'job');
         $this->media_type = $this->toString($data, 'media_type');
         $this->id = $this->toString($data, 'id');
-        $this->media = $this->toModel($data, 'media', CreditMedia::class);
-        $this->person = $this->toModel($data, 'person', Person::class);
+        $this->media = $this->toModel($data, 'media', TmdbCreditMedia::class);
+        $this->person = $this->toModel($data, 'person', TmdbPerson::class);
     }
 
     public function getCreditType(): ?string
@@ -54,7 +54,7 @@ class Credit extends TmdbModel
         return $this->job;
     }
 
-    public function getMedia(): ?CreditMedia
+    public function getMedia(): ?TmdbCreditMedia
     {
         return $this->media;
     }
@@ -69,7 +69,7 @@ class Credit extends TmdbModel
         return $this->id;
     }
 
-    public function getPerson(): ?Person
+    public function getPerson(): ?TmdbPerson
     {
         return $this->person;
     }

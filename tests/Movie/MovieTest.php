@@ -1,16 +1,17 @@
 <?php
 
-use Kiwilan\Tmdb\Models\Common\AlternativeTitle;
-use Kiwilan\Tmdb\Models\Common\Company;
-use Kiwilan\Tmdb\Models\Common\Country;
-use Kiwilan\Tmdb\Models\Common\Genre;
-use Kiwilan\Tmdb\Models\Common\SpokenLanguage;
-use Kiwilan\Tmdb\Models\Common\Video;
-use Kiwilan\Tmdb\Models\Credits\Cast;
-use Kiwilan\Tmdb\Models\Credits\Crew;
-use Kiwilan\Tmdb\Models\Movie;
-use Kiwilan\Tmdb\Models\Movie\BelongsToCollection;
-use Kiwilan\Tmdb\Models\Movie\ReleaseDate;
+use Kiwilan\Tmdb\Models\Common\TmdbAlternativeTitle;
+use Kiwilan\Tmdb\Models\Common\TmdbCompany;
+use Kiwilan\Tmdb\Models\Common\TmdbCountry;
+use Kiwilan\Tmdb\Models\Common\TmdbGenre;
+use Kiwilan\Tmdb\Models\Common\TmdbSpokenLanguage;
+use Kiwilan\Tmdb\Models\Common\TmdbVideo;
+use Kiwilan\Tmdb\Models\Credits\TmdbCast;
+use Kiwilan\Tmdb\Models\Credits\TmdbCrew;
+use Kiwilan\Tmdb\Models\Movie\TmdbBelongsToCollection;
+use Kiwilan\Tmdb\Models\Movie\TmdbReleaseDate;
+use Kiwilan\Tmdb\Models\Movie\TmdbReleaseDateItem;
+use Kiwilan\Tmdb\Models\TmdbMovie;
 use Kiwilan\Tmdb\Tmdb;
 
 it('can get movie details (tmdb id)', function () {
@@ -19,11 +20,11 @@ it('can get movie details (tmdb id)', function () {
         ->details(movie_id: 120);
 
     expect($movie)->not()->toBeNull();
-    expect($movie)->toBeInstanceOf(Movie::class);
+    expect($movie)->toBeInstanceOf(TmdbMovie::class);
 
     expect($movie->isAdult())->toBeFalse();
 
-    expect($movie->getBelongsToCollection())->toBeInstanceOf(BelongsToCollection::class);
+    expect($movie->getBelongsToCollection())->toBeInstanceOf(TmdbBelongsToCollection::class);
     expect($movie->getBelongsToCollection()->getId())->toBe(119);
     expect($movie->getBelongsToCollection()->getName())->toBe('The Lord of the Rings Collection');
     expect($movie->getBelongsToCollection()->getPosterPath())->toBeString();
@@ -34,7 +35,7 @@ it('can get movie details (tmdb id)', function () {
 
     expect($movie->getGenres())->toBeArray();
     expect($movie->getGenres())->not()->toBeEmpty();
-    expect($movie->getGenres())->each(fn (Pest\Expectation $genre) => expect($genre->value)->toBeInstanceOf(Genre::class));
+    expect($movie->getGenres())->each(fn (Pest\Expectation $genre) => expect($genre->value)->toBeInstanceOf(TmdbGenre::class));
 
     expect($movie->getPosterPath())->toStartWith('/');
     expect($movie->getBackdropPath())->toStartWith('/');
@@ -66,8 +67,8 @@ it('can get movie alternative titles', function () {
         ->details(120, ['alternative_titles']);
 
     expect($movie->getAlternativeTitles())->not()->toBeNull();
-    expect($movie->getAlternativeTitle('FR'))->toBeInstanceOf(AlternativeTitle::class);
-    expect($movie->getAlternativeTitle('US'))->toBeInstanceOf(AlternativeTitle::class);
+    expect($movie->getAlternativeTitle('FR'))->toBeInstanceOf(TmdbAlternativeTitle::class);
+    expect($movie->getAlternativeTitle('US'))->toBeInstanceOf(TmdbAlternativeTitle::class);
 });
 
 it('can get movie posters', function () {
@@ -99,11 +100,11 @@ it('can get movie release dates', function () {
 
     expect($movie->getReleaseDates())->not()->toBeNull();
     $french = $movie->getReleaseDateSpecific('FR');
-    expect($french)->toBeInstanceOf(ReleaseDate::class);
+    expect($french)->toBeInstanceOf(TmdbReleaseDate::class);
     expect($french->getIso31661())->toBe('FR');
     expect($french->getReleaseDates())->toBeArray();
-    expect($french->getFirstReleaseDate())->toBeInstanceOf(Movie\ReleaseDateItem::class);
-    expect($french->getSpecificReleaseDate('Blu-Ray'))->toBeInstanceOf(Movie\ReleaseDateItem::class);
+    expect($french->getFirstReleaseDate())->toBeInstanceOf(TmdbReleaseDateItem::class);
+    expect($french->getSpecificReleaseDate('Blu-Ray'))->toBeInstanceOf(TmdbReleaseDateItem::class);
 });
 
 it('can get movie credits', function () {
@@ -116,7 +117,7 @@ it('can get movie credits', function () {
     $cast = $movie->getCredits()->getCast();
     expect($cast)->toBeArray();
     expect($cast)->not()->toBeEmpty();
-    expect($cast)->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(Cast::class));
+    expect($cast)->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(TmdbCast::class));
     $first = reset($cast);
     expect($first->getId())->toBeInt();
     expect($first->getCharacter())->toBeString();
@@ -129,7 +130,7 @@ it('can get movie credits', function () {
     $crew = $movie->getCredits()->getCrew();
     expect($crew)->toBeArray();
     expect($crew)->not()->toBeEmpty();
-    expect($crew)->each(fn (Pest\Expectation $crew) => expect($crew->value)->toBeInstanceOf(Crew::class));
+    expect($crew)->each(fn (Pest\Expectation $crew) => expect($crew->value)->toBeInstanceOf(TmdbCrew::class));
     $first = reset($crew);
     expect($first->getId())->toBeInt();
     expect($first->getDepartment())->toBeString();
@@ -148,7 +149,7 @@ it('can get movie spoken languages', function () {
     expect($movie->getSpokenLanguages())->not()->toBeNull();
     expect($movie->getSpokenLanguages())->toBeArray();
     expect($movie->getSpokenLanguages())->not()->toBeEmpty();
-    expect($movie->getSpokenLanguages())->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(SpokenLanguage::class));
+    expect($movie->getSpokenLanguages())->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(TmdbSpokenLanguage::class));
 });
 
 it('can get movie recommendations', function () {
@@ -160,7 +161,7 @@ it('can get movie recommendations', function () {
     expect($recommendations)->not()->toBeNull();
     expect($recommendations->getResults())->toBeArray();
     expect($recommendations->getResults())->not()->toBeEmpty();
-    expect($recommendations->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(Movie::class));
+    expect($recommendations->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TmdbMovie::class));
 });
 
 it('can get movie similar', function () {
@@ -173,7 +174,7 @@ it('can get movie similar', function () {
     expect($similar)->not()->toBeNull();
     expect($similar->getResults())->toBeArray();
     expect($similar->getResults())->not()->toBeEmpty();
-    expect($similar->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(Movie::class));
+    expect($similar->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TmdbMovie::class));
 });
 
 it('can get movie videos', function () {
@@ -185,7 +186,7 @@ it('can get movie videos', function () {
     expect($videos)->not()->toBeNull();
     expect($videos)->toBeArray();
     expect($videos)->not()->toBeEmpty();
-    expect($videos)->each(fn (Pest\Expectation $video) => expect($video->value)->toBeInstanceOf(Video::class));
+    expect($videos)->each(fn (Pest\Expectation $video) => expect($video->value)->toBeInstanceOf(TmdbVideo::class));
 
     $first = reset($videos);
     expect($first->getId())->toBeString();
@@ -217,7 +218,7 @@ it('can get movie companies', function () {
     $companies = $movie->getProductionCompanies();
     expect($companies)->toBeArray();
     expect($companies)->not()->toBeEmpty();
-    expect($companies)->each(fn (Pest\Expectation $company) => expect($company->value)->toBeInstanceOf(Company::class));
+    expect($companies)->each(fn (Pest\Expectation $company) => expect($company->value)->toBeInstanceOf(TmdbCompany::class));
 
     $first = reset($companies);
     expect($first->getId())->toBe(12);
@@ -234,7 +235,7 @@ it('can get movie countries', function () {
     $countries = $movie->getProductionCountries();
     expect($countries)->toBeArray();
     expect($countries)->not()->toBeEmpty();
-    expect($countries)->each(fn (Pest\Expectation $country) => expect($country->value)->toBeInstanceOf(Country::class));
+    expect($countries)->each(fn (Pest\Expectation $country) => expect($country->value)->toBeInstanceOf(TmdbCountry::class));
 
     $first = reset($countries);
     expect($first->getIso31661())->toBe('NZ');
@@ -255,7 +256,7 @@ it('can get belongs to', function () {
         ->movies()
         ->details(120);
 
-    expect($movie->getBelongsToCollection())->toBeInstanceOf(BelongsToCollection::class);
+    expect($movie->getBelongsToCollection())->toBeInstanceOf(TmdbBelongsToCollection::class);
     expect($movie->getBelongsToCollection()->getId())->toBe(119);
     expect($movie->getBelongsToCollection()->getName())->toBe('The Lord of the Rings Collection');
     expect($movie->getBelongsToCollection()->getPosterPath())->toBeString();

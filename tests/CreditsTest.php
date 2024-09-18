@@ -1,8 +1,8 @@
 <?php
 
-use Kiwilan\Tmdb\Models\Credit;
-use Kiwilan\Tmdb\Models\TvSeries\Episode;
-use Kiwilan\Tmdb\Models\TvSeries\Season;
+use Kiwilan\Tmdb\Models\TmdbCredit;
+use Kiwilan\Tmdb\Models\TvSeries\TmdbEpisode;
+use Kiwilan\Tmdb\Models\TvSeries\TmdbSeason;
 use Kiwilan\Tmdb\Tmdb;
 
 it('can get credits crew', function () {
@@ -11,15 +11,15 @@ it('can get credits crew', function () {
         ->details('5256c8b219c2956ff6047cd8');
 
     expect($credit)->not()->toBeNull();
-    expect($credit)->toBeInstanceOf(Credit::class);
+    expect($credit)->toBeInstanceOf(TmdbCredit::class);
 
     expect($credit->getCreditType())->toBe('cast');
     expect($credit->getDepartment())->toBe('Acting');
     expect($credit->getJob())->toBe('Actor');
-    expect($credit->getMedia())->toBeInstanceOf(\Kiwilan\Tmdb\Models\Credits\CreditMedia::class);
+    expect($credit->getMedia())->toBeInstanceOf(\Kiwilan\Tmdb\Models\Credits\TmdbCreditMedia::class);
     expect($credit->getMediaType())->toBe('tv');
     expect($credit->getId())->toBe('5256c8b219c2956ff6047cd8');
-    expect($credit->getPerson())->toBeInstanceOf(\Kiwilan\Tmdb\Models\Credits\Person::class);
+    expect($credit->getPerson())->toBeInstanceOf(\Kiwilan\Tmdb\Models\Credits\TmdbPerson::class);
 
     expect($credit->getMedia()->getName())->toBe('Game of Thrones');
     expect($credit->getMedia()->getOriginalName())->toBe('Game of Thrones');
@@ -37,11 +37,11 @@ it('can get credits crew', function () {
 
     expect($credit->getMedia()->getEpisodes())->toBeArray();
     expect($credit->getMedia()->getSeasons())->not()->toBeEmpty();
-    expect($credit->getMedia()->getEpisodes())->each(fn (Pest\Expectation $episode) => expect($episode->value)->toBeInstanceOf(Episode::class));
+    expect($credit->getMedia()->getEpisodes())->each(fn (Pest\Expectation $episode) => expect($episode->value)->toBeInstanceOf(TmdbEpisode::class));
 
     expect($credit->getMedia()->getSeasons())->toBeArray();
     expect($credit->getMedia()->getSeasons())->not()->toBeEmpty();
-    expect($credit->getMedia()->getSeasons())->each(fn (Pest\Expectation $season) => expect($season->value)->toBeInstanceOf(Season::class));
+    expect($credit->getMedia()->getSeasons())->each(fn (Pest\Expectation $season) => expect($season->value)->toBeInstanceOf(TmdbSeason::class));
 });
 
 it('can get credits cast', function () {
@@ -50,15 +50,15 @@ it('can get credits cast', function () {
         ->details('52fe421ac3a36847f800448f');
 
     expect($credit)->not()->toBeNull();
-    expect($credit)->toBeInstanceOf(Credit::class);
+    expect($credit)->toBeInstanceOf(TmdbCredit::class);
 
     expect($credit->getCreditType())->toBe('cast');
     expect($credit->getDepartment())->toBe('Acting');
     expect($credit->getJob())->toBe('Actor');
-    expect($credit->getMedia())->toBeInstanceOf(\Kiwilan\Tmdb\Models\Credits\CreditMedia::class);
+    expect($credit->getMedia())->toBeInstanceOf(\Kiwilan\Tmdb\Models\Credits\TmdbCreditMedia::class);
     expect($credit->getMediaType())->toBe('movie');
     expect($credit->getId())->toBe('52fe421ac3a36847f800448f');
-    expect($credit->getPerson())->toBeInstanceOf(\Kiwilan\Tmdb\Models\Credits\Person::class);
+    expect($credit->getPerson())->toBeInstanceOf(\Kiwilan\Tmdb\Models\Credits\TmdbPerson::class);
 
     // #adult: false
     // #gender: 2

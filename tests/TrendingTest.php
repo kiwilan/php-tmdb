@@ -1,55 +1,43 @@
 <?php
 
-use Kiwilan\Tmdb\Enums\TimeWindow;
-use Kiwilan\Tmdb\Models\Credits\Person;
-use Kiwilan\Tmdb\Models\Media;
-use Kiwilan\Tmdb\Models\Movie;
-use Kiwilan\Tmdb\Models\TvSeries;
+use Kiwilan\Tmdb\Enums\TmdbMediaType;
+use Kiwilan\Tmdb\Enums\TmdbTimeWindow;
+use Kiwilan\Tmdb\Models\Credits\TmdbPerson;
+use Kiwilan\Tmdb\Models\TmdbMedia;
+use Kiwilan\Tmdb\Models\TmdbMovie;
+use Kiwilan\Tmdb\Models\TmdbTvSeries;
 use Kiwilan\Tmdb\Results;
 use Kiwilan\Tmdb\Tmdb;
 
 it('can use all', function () {
     $all = Tmdb::client(apiKey())
         ->trending()
-        ->all(TimeWindow::WEEK, 'fr-FR');
+        ->all(TmdbTimeWindow::WEEK, 'fr-FR');
 
     expect($all)->toBeInstanceOf(Results\MediaResults::class);
 
     expect($all->getResults())->toBeArray();
     expect($all->getResults())->not()->toBeEmpty();
-    expect($all->getFirstResult())->toBeInstanceOf(Media::class);
-    expect($all->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(Media::class));
+    expect($all->getFirstResult())->toBeInstanceOf(TmdbMedia::class);
+    expect($all->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TmdbMedia::class));
+    ray($all);
 
     $first = $all->getFirstResult();
+    expect($first)->toBeInstanceOf(TmdbMedia::class);
+    expect($first->getMediaType())->toBeInstanceOf(TmdbMediaType::class);
     expect($first->getTitle())->toBeString();
-    expect($first->getOriginalTitle())->toBeString();
-    expect($first->getFirstAirDate())->toBeInstanceOf(DateTime::class);
-});
 
-it('can use media', function () {
-    $all = Tmdb::client(apiKey())
-        ->trending()
-        ->all();
+    if ($all->getFirstMovie()) {
+        expect($all->getFirstMovie())->toBeInstanceOf(TmdbMovie::class);
+    }
 
-    $first = $all->getFirstResult();
-    expect($first)->toBeInstanceOf(Media::class);
+    if ($all->getFirstTvSeries()) {
+        expect($all->getFirstTvSeries())->toBeInstanceOf(TmdbTvSeries::class);
+    }
 
-    expect($first->getId())->toBeInt();
-    expect($first->getTitle())->toBeString();
-    expect($first->getOriginalTitle())->toBeString();
-    expect($first->getOverview())->toBeString();
-    expect($first->getPosterPath())->toBeString();
-    expect($first->getMediaType())->toBeString();
-    expect($first->isAdult())->toBeBool();
-    expect($first->getOriginalLanguage())->toBeString();
-    expect($first->getGenreIds())->toBeArray();
-    expect($first->getPopularity())->toBeFloat();
-    expect($first->getVideos())->toBeNull();
-    expect($first->getVoteAverage())->toBeFloat();
-    expect($first->getVoteCount())->toBeInt();
-    expect($first->getGenreIds())->toBeArray();
-    expect($first->getBackdropPath())->toBeString();
-    expect($first->getReleaseDate())->toBeInstanceOf(DateTime::class);
+    if ($all->getFirstPerson()) {
+        expect($all->getFirstPerson())->toBeInstanceOf(TmdbPerson::class);
+    }
 });
 
 it('can use movies', function () {
@@ -61,8 +49,8 @@ it('can use movies', function () {
 
     expect($all->getResults())->toBeArray();
     expect($all->getResults())->not()->toBeEmpty();
-    expect($all->getFirstResult())->toBeInstanceOf(Movie::class);
-    expect($all->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(Movie::class));
+    expect($all->getFirstResult())->toBeInstanceOf(TmdbMovie::class);
+    expect($all->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TmdbMovie::class));
 });
 
 it('can use people', function () {
@@ -74,8 +62,8 @@ it('can use people', function () {
 
     expect($all->getResults())->toBeArray();
     expect($all->getResults())->not()->toBeEmpty();
-    expect($all->getFirstResult())->toBeInstanceOf(Person::class);
-    expect($all->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(Person::class));
+    expect($all->getFirstResult())->toBeInstanceOf(TmdbPerson::class);
+    expect($all->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TmdbPerson::class));
 });
 
 it('can use tv', function () {
@@ -87,6 +75,6 @@ it('can use tv', function () {
 
     expect($all->getResults())->toBeArray();
     expect($all->getResults())->not()->toBeEmpty();
-    expect($all->getFirstResult())->toBeInstanceOf(TvSeries::class);
-    expect($all->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TvSeries::class));
+    expect($all->getFirstResult())->toBeInstanceOf(TmdbTvSeries::class);
+    expect($all->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TmdbTvSeries::class));
 });

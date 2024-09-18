@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Traits;
 
-use Kiwilan\Tmdb\Enums\LogoSize;
+use Kiwilan\Tmdb\Enums\TmdbLogoSize;
 use Kiwilan\Tmdb\Utils\TmdbLogo;
 
 trait TmdbHasLogo
@@ -19,7 +19,7 @@ trait TmdbHasLogo
         return $this->logo_path;
     }
 
-    public function getLogoUrl(?LogoSize $size = null): ?string
+    public function getLogoUrl(?TmdbLogoSize $size = null): ?string
     {
         $logo = TmdbLogo::make($this->logo_path);
         if ($size) {
@@ -29,7 +29,7 @@ trait TmdbHasLogo
         return $logo->getUrl();
     }
 
-    public function getLogoImage(?LogoSize $size = null): ?string
+    public function getLogoImage(?TmdbLogoSize $size = null): ?string
     {
         $logo = TmdbLogo::make($this->logo_path);
         if ($size) {
@@ -39,7 +39,7 @@ trait TmdbHasLogo
         return $logo->getImage();
     }
 
-    public function saveLogoImage(string $path, ?LogoSize $size = null): bool
+    public function saveLogoImage(string $path, ?TmdbLogoSize $size = null): bool
     {
         $logo = TmdbLogo::make($this->logo_path);
         if ($size) {

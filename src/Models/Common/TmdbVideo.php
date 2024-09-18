@@ -9,7 +9,7 @@ use Kiwilan\Tmdb\Utils\TmdbUrl;
 /**
  * A video of a movie.
  */
-class Video extends TmdbModel
+class TmdbVideo extends TmdbModel
 {
     protected ?string $iso_639_1 = null;
 

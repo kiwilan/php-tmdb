@@ -19,13 +19,13 @@ class TVSeriesRepository extends Repository
      *
      * @docs https://developer.themoviedb.org/reference/tv-series-details
      */
-    public function details(int $series_id, ?array $append_to_response = null): ?Models\TvSeries
+    public function details(int $series_id, ?array $append_to_response = null): ?Models\TmdbTvSeries
     {
         $response = $this->get("/tv/{$series_id}", [
             'append_to_response' => $this->appendToResponse($append_to_response),
             'language' => $this->language,
         ]);
 
-        return $this->isSuccess ? new Models\TvSeries($response) : null;
+        return $this->isSuccess ? new Models\TmdbTvSeries($response) : null;
     }
 }

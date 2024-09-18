@@ -2,24 +2,24 @@
 
 namespace Kiwilan\Tmdb\Models;
 
-use Kiwilan\Tmdb\Models\Credits\Cast;
-use Kiwilan\Tmdb\Models\Credits\Crew;
+use Kiwilan\Tmdb\Models\Credits\TmdbCast;
+use Kiwilan\Tmdb\Models\Credits\TmdbCrew;
 use Kiwilan\Tmdb\Traits;
 
 /**
  * Credits for a movie or TV series, including cast and crew.
  */
-class Credits extends TmdbModel
+class TmdbCredits extends TmdbModel
 {
     use Traits\TmdbHasId;
 
     /**
-     * @var Cast[]
+     * @var TmdbCast[]
      */
     protected ?array $cast = null;
 
     /**
-     * @var Crew[]
+     * @var TmdbCrew[]
      */
     protected ?array $crew = null;
 
@@ -30,15 +30,15 @@ class Credits extends TmdbModel
         }
 
         $this->setId($data);
-        $this->cast = $this->validateData($data, 'cast', fn (array $values) => $this->loopOn($values, Cast::class));
-        $this->crew = $this->validateData($data, 'crew', fn (array $values) => $this->loopOn($values, Crew::class));
+        $this->cast = $this->validateData($data, 'cast', fn (array $values) => $this->loopOn($values, TmdbCast::class));
+        $this->crew = $this->validateData($data, 'crew', fn (array $values) => $this->loopOn($values, TmdbCrew::class));
     }
 
     /**
      * Get the cast and guest stars.
      *
      * @param  int|null  $limit  The maximum number of cast members to return.
-     * @return Credits\Cast[]|null
+     * @return Credits\TmdbCast[]|null
      */
     public function getCast(?int $limit = null): ?array
     {
@@ -53,7 +53,7 @@ class Credits extends TmdbModel
      * Get the crew.
      *
      * @param  int|null  $limit  The maximum number of crew members to return.
-     * @return Credits\Crew[]|null
+     * @return Credits\TmdbCrew[]|null
      */
     public function getCrew(?int $limit = null): ?array
     {

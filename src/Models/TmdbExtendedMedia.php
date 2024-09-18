@@ -4,32 +4,32 @@ namespace Kiwilan\Tmdb\Models;
 
 use Kiwilan\Tmdb\Traits;
 
-abstract class ExtendedMedia extends BaseMedia
+abstract class TmdbExtendedMedia extends TmdbBaseMedia
 {
     use Traits\TmdbHasAlternativeTitles;
 
-    /** @var Common\Genre[]|null */
+    /** @var Common\TmdbGenre[]|null */
     protected ?array $genres = null;
 
     protected ?string $homepage = null;
 
-    /** @var Common\Company[]|null */
+    /** @var Common\TmdbCompany[]|null */
     protected ?array $production_companies = null;
 
-    /** @var Common\Country[]|null */
+    /** @var Common\TmdbCountry[]|null */
     protected ?array $production_countries = null;
 
-    /** @var Common\SpokenLanguage[]|null */
+    /** @var Common\TmdbSpokenLanguage[]|null */
     protected ?array $spoken_languages = null;
 
     protected ?string $status = null;
 
     protected ?string $tagline = null;
 
-    /** @var Common\AlternativeTitle[]|null */
+    /** @var Common\TmdbAlternativeTitle[]|null */
     protected ?array $alternative_titles = null;
 
-    protected ?Credits $credits = null;
+    protected ?TmdbCredits $credits = null;
 
     public function __construct(?array $data)
     {
@@ -45,16 +45,16 @@ abstract class ExtendedMedia extends BaseMedia
         $this->status = $this->toString($data, 'status');
         $this->tagline = $this->toString($data, 'tagline');
 
-        $this->credits = $this->toModel($data, 'credits', Credits::class);
+        $this->credits = $this->toModel($data, 'credits', TmdbCredits::class);
 
-        $this->genres = $this->validateData($data, 'genres', fn (array $values) => $this->loopOn($values, Common\Genre::class));
-        $this->production_companies = $this->validateData($data, 'production_companies', fn (array $values) => $this->loopOn($values, Common\Company::class));
-        $this->production_countries = $this->validateData($data, 'production_countries', fn (array $values) => $this->loopOn($values, Common\Country::class));
-        $this->spoken_languages = $this->validateData($data, 'spoken_languages', fn (array $values) => $this->loopOn($values, Common\SpokenLanguage::class));
+        $this->genres = $this->validateData($data, 'genres', fn (array $values) => $this->loopOn($values, Common\TmdbGenre::class));
+        $this->production_companies = $this->validateData($data, 'production_companies', fn (array $values) => $this->loopOn($values, Common\TmdbCompany::class));
+        $this->production_countries = $this->validateData($data, 'production_countries', fn (array $values) => $this->loopOn($values, Common\TmdbCountry::class));
+        $this->spoken_languages = $this->validateData($data, 'spoken_languages', fn (array $values) => $this->loopOn($values, Common\TmdbSpokenLanguage::class));
     }
 
     /**
-     * @return Common\Genre[]|null
+     * @return Common\TmdbGenre[]|null
      */
     public function getGenres(): ?array
     {
@@ -67,7 +67,7 @@ abstract class ExtendedMedia extends BaseMedia
     }
 
     /**
-     * @return Common\Company[]|null
+     * @return Common\TmdbCompany[]|null
      */
     public function getProductionCompanies(): ?array
     {
@@ -75,7 +75,7 @@ abstract class ExtendedMedia extends BaseMedia
     }
 
     /**
-     * @return Common\Country[]|null
+     * @return Common\TmdbCountry[]|null
      */
     public function getProductionCountries(): ?array
     {
@@ -83,7 +83,7 @@ abstract class ExtendedMedia extends BaseMedia
     }
 
     /**
-     * @return Common\SpokenLanguage[]|null
+     * @return Common\TmdbSpokenLanguage[]|null
      */
     public function getSpokenLanguages(): ?array
     {
@@ -100,7 +100,7 @@ abstract class ExtendedMedia extends BaseMedia
         return $this->tagline;
     }
 
-    public function getCredits(): ?Credits
+    public function getCredits(): ?TmdbCredits
     {
         return $this->credits;
     }

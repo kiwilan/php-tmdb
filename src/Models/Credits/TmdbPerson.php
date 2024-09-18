@@ -8,7 +8,7 @@ use Kiwilan\Tmdb\Traits;
 /**
  * A person who contributed to a movie or TV series.
  */
-class Person extends TmdbModel
+class TmdbPerson extends TmdbModel
 {
     use Traits\TmdbHasId;
     use Traits\TmdbHasProfile;

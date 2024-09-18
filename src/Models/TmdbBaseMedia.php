@@ -4,7 +4,7 @@ namespace Kiwilan\Tmdb\Models;
 
 use Kiwilan\Tmdb\Traits;
 
-abstract class BaseMedia extends TmdbModel
+abstract class TmdbBaseMedia extends TmdbModel
 {
     use Traits\TmdbHasBackdrop;
     use Traits\TmdbHasId;

@@ -1,34 +1,39 @@
 <?php
 
-namespace Kiwilan\Tmdb\Models\TvSeries;
+namespace Kiwilan\Tmdb\Models\Common;
 
 use Kiwilan\Tmdb\Models\TmdbModel;
 use Kiwilan\Tmdb\Traits;
 
 /**
- * A network that broadcasts TV series.
+ * A company that produces movies.
  */
-class Network extends TmdbModel
+class TmdbCompany extends TmdbModel
 {
     use Traits\TmdbHasId;
     use Traits\TmdbHasLogo;
+
+    protected ?string $logo_path = null;
 
     protected ?string $name = null;
 
     protected ?string $origin_country = null;
 
-    protected ?string $headquarters = null;
-
-    protected ?string $homepage = null;
-
-    public function __construct(array $data)
+    public function __construct(?array $data)
     {
+        if (! $data) {
+            return;
+        }
+
         $this->setId($data);
         $this->setLogoPath($data);
         $this->name = $this->toString($data, 'name');
         $this->origin_country = $this->toString($data, 'origin_country');
-        $this->headquarters = $this->toString($data, 'headquarters');
-        $this->homepage = $this->toString($data, 'homepage');
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 
     public function getName(): ?string
@@ -39,15 +44,5 @@ class Network extends TmdbModel
     public function getOriginCountry(): ?string
     {
         return $this->origin_country;
-    }
-
-    public function getHeadquarters(): ?string
-    {
-        return $this->headquarters;
-    }
-
-    public function getHomepage(): ?string
-    {
-        return $this->homepage;
     }
 }

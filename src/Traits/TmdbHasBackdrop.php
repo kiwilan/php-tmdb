@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Traits;
 
-use Kiwilan\Tmdb\Enums\BackdropSize;
+use Kiwilan\Tmdb\Enums\TmdbBackdropSize;
 use Kiwilan\Tmdb\Utils\TmdbBackdrop;
 
 trait TmdbHasBackdrop
@@ -19,7 +19,7 @@ trait TmdbHasBackdrop
         return $this->backdrop_path;
     }
 
-    public function getBackdropUrl(?BackdropSize $size = null): ?string
+    public function getBackdropUrl(?TmdbBackdropSize $size = null): ?string
     {
         $backdrop = TmdbBackdrop::make($this->backdrop_path);
         if ($size) {
@@ -29,7 +29,7 @@ trait TmdbHasBackdrop
         return $backdrop->getUrl();
     }
 
-    public function getBackdropImage(?BackdropSize $size = null): ?string
+    public function getBackdropImage(?TmdbBackdropSize $size = null): ?string
     {
         $backdrop = TmdbBackdrop::make($this->backdrop_path);
         if ($size) {
@@ -39,7 +39,7 @@ trait TmdbHasBackdrop
         return $backdrop->getImage();
     }
 
-    public function saveBackdropImage(string $path, ?BackdropSize $size = null): bool
+    public function saveBackdropImage(string $path, ?TmdbBackdropSize $size = null): bool
     {
         $backdrop = TmdbBackdrop::make($this->backdrop_path);
         if ($size) {

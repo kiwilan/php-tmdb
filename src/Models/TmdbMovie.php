@@ -3,20 +3,20 @@
 namespace Kiwilan\Tmdb\Models;
 
 use DateTime;
-use Kiwilan\Tmdb\Models\Common\Video;
-use Kiwilan\Tmdb\Models\Credits\Crew;
-use Kiwilan\Tmdb\Models\Movie\ReleaseDate;
+use Kiwilan\Tmdb\Models\Common\TmdbVideo;
+use Kiwilan\Tmdb\Models\Credits\TmdbCrew;
+use Kiwilan\Tmdb\Models\Movie\TmdbReleaseDate;
 use Kiwilan\Tmdb\Results\MovieResults;
 use Kiwilan\Tmdb\Traits;
 
 /**
  * Movie
  */
-class Movie extends ExtendedMedia
+class TmdbMovie extends TmdbExtendedMedia
 {
     use Traits\TmdbHasTmdbUrl;
 
-    protected ?Movie\BelongsToCollection $belongs_to_collection = null;
+    protected ?Movie\TmdbBelongsToCollection $belongs_to_collection = null;
 
     protected ?int $budget = null;
 
@@ -32,10 +32,10 @@ class Movie extends ExtendedMedia
 
     protected ?int $runtime = null;
 
-    /** @var Video[]|null */
+    /** @var TmdbVideo[]|null */
     protected ?array $videos = null;
 
-    /** @var Movie\ReleaseDate[]|null */
+    /** @var Movie\TmdbReleaseDate[]|null */
     protected ?array $release_dates = null;
 
     protected ?MovieResults $recommendations = null;
@@ -50,7 +50,7 @@ class Movie extends ExtendedMedia
 
         parent::__construct($data);
 
-        $this->belongs_to_collection = $this->toModel($data, 'belongs_to_collection', Movie\BelongsToCollection::class);
+        $this->belongs_to_collection = $this->toModel($data, 'belongs_to_collection', Movie\TmdbBelongsToCollection::class);
         $this->budget = $this->toInt($data, 'budget');
         $this->imdb_id = $this->toString($data, 'imdb_id');
         $this->original_title = $this->toString($data, 'original_title');
@@ -59,15 +59,15 @@ class Movie extends ExtendedMedia
         $this->revenue = $this->toInt($data, 'revenue');
         $this->runtime = $this->toInt($data, 'runtime');
 
-        $this->videos = $this->validateData($data, 'videos', fn (array $values) => $this->loopOn($values['results'] ?? null, Video::class));
-        $this->release_dates = $this->validateData($data, 'release_dates', fn (array $values) => $this->loopOn($values['results'] ?? null, ReleaseDate::class));
+        $this->videos = $this->validateData($data, 'videos', fn (array $values) => $this->loopOn($values['results'] ?? null, TmdbVideo::class));
+        $this->release_dates = $this->validateData($data, 'release_dates', fn (array $values) => $this->loopOn($values['results'] ?? null, TmdbReleaseDate::class));
 
         $this->origin_country = $this->toArray($data, 'origin_country');
         $this->recommendations = $this->toModel($data, 'recommendations', MovieResults::class);
         $this->similar = $this->toModel($data, 'similar', MovieResults::class);
     }
 
-    public function getBelongsToCollection(): ?Movie\BelongsToCollection
+    public function getBelongsToCollection(): ?Movie\TmdbBelongsToCollection
     {
         return $this->belongs_to_collection;
     }
@@ -110,7 +110,7 @@ class Movie extends ExtendedMedia
     /**
      * Get movie videos, `videos` must be requested.
      *
-     * @return Video[]|null
+     * @return TmdbVideo[]|null
      */
     public function getVideos(): ?array
     {
@@ -118,7 +118,7 @@ class Movie extends ExtendedMedia
     }
 
     /**
-     * @return Movie\ReleaseDate[]|null
+     * @return Movie\TmdbReleaseDate[]|null
      */
     public function getReleaseDates(): ?array
     {
@@ -130,7 +130,7 @@ class Movie extends ExtendedMedia
      *
      * @param  string  $iso_3166_1  The ISO 3166-1 code, like `US`
      */
-    public function getReleaseDateSpecific(string $iso_3166_1): ?Movie\ReleaseDate
+    public function getReleaseDateSpecific(string $iso_3166_1): ?Movie\TmdbReleaseDate
     {
         if (! $this->release_dates || empty($this->release_dates)) {
             return null;
@@ -158,7 +158,7 @@ class Movie extends ExtendedMedia
     /**
      * Get movie directors, `credits` must be requested.
      *
-     * @return Crew[]|null
+     * @return TmdbCrew[]|null
      */
     public function getDirectors(): ?array
     {

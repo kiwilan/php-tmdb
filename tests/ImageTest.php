@@ -1,10 +1,10 @@
 <?php
 
-use Kiwilan\Tmdb\Enums\BackdropSize;
-use Kiwilan\Tmdb\Enums\LogoSize;
-use Kiwilan\Tmdb\Enums\PosterSize;
-use Kiwilan\Tmdb\Enums\ProfileSize;
-use Kiwilan\Tmdb\Enums\StillSize;
+use Kiwilan\Tmdb\Enums\TmdbBackdropSize;
+use Kiwilan\Tmdb\Enums\TmdbLogoSize;
+use Kiwilan\Tmdb\Enums\TmdbPosterSize;
+use Kiwilan\Tmdb\Enums\TmdbProfileSize;
+use Kiwilan\Tmdb\Enums\TmdbStillSize;
 use Kiwilan\Tmdb\Utils\TmdbBackdrop;
 use Kiwilan\Tmdb\Utils\TmdbLogo;
 use Kiwilan\Tmdb\Utils\TmdbPoster;
@@ -18,7 +18,7 @@ define('POSTER_PATH', '/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg');
 define('PROFILE_PATH', '/i6OuPNi7Fj6iitYXjpmrP18VLdP.jpg');
 define('STILL_PATH', '/9hGF3WUkBf7cSjMg0cdMDHJkByd.jpg');
 
-it('can get backdrop', function (BackdropSize $size) {
+it('can get backdrop', function (TmdbBackdropSize $size) {
     clearMedia();
 
     $backdrop = TmdbBackdrop::make(BACKDROP_PATH)->size($size);
@@ -27,9 +27,9 @@ it('can get backdrop', function (BackdropSize $size) {
     $path = mediaPath('/backdrop-'.$size->value.'.jpg');
     expect($backdrop->saveImage($path))->toBeTrue();
     expect(imageExists($path))->toBeTrue();
-})->with(BackdropSize::cases());
+})->with(TmdbBackdropSize::cases());
 
-it('can get logo', function (LogoSize $size) {
+it('can get logo', function (TmdbLogoSize $size) {
     clearMedia();
 
     $logo = TmdbLogo::make(LOGO_PATH)->size($size);
@@ -38,9 +38,9 @@ it('can get logo', function (LogoSize $size) {
     $path = mediaPath('/logo-'.$size->value.'.jpg');
     expect($logo->saveImage($path))->toBeTrue();
     expect(imageExists($path))->toBeTrue();
-})->with(LogoSize::cases());
+})->with(TmdbLogoSize::cases());
 
-it('can get poster', function (PosterSize $size) {
+it('can get poster', function (TmdbPosterSize $size) {
     clearMedia();
 
     $poster = TmdbPoster::make(POSTER_PATH)->size($size);
@@ -49,9 +49,9 @@ it('can get poster', function (PosterSize $size) {
     $path = mediaPath('/poster-'.$size->value.'.jpg');
     expect($poster->saveImage($path))->toBeTrue();
     expect(imageExists($path))->toBeTrue();
-})->with(PosterSize::cases());
+})->with(TmdbPosterSize::cases());
 
-it('can get profile', function (ProfileSize $size) {
+it('can get profile', function (TmdbProfileSize $size) {
     clearMedia();
 
     $profile = TmdbProfile::make(PROFILE_PATH)->size($size);
@@ -60,9 +60,9 @@ it('can get profile', function (ProfileSize $size) {
     $path = mediaPath('/profile-'.$size->value.'.jpg');
     expect($profile->saveImage($path))->toBeTrue();
     expect(imageExists($path))->toBeTrue();
-})->with(ProfileSize::cases());
+})->with(TmdbProfileSize::cases());
 
-it('can get still', function (StillSize $size) {
+it('can get still', function (TmdbStillSize $size) {
     clearMedia();
 
     $still = TmdbStill::make(STILL_PATH)->size($size);
@@ -71,7 +71,7 @@ it('can get still', function (StillSize $size) {
     $path = mediaPath('/still-'.$size->value.'.jpg');
     expect($still->saveImage($path))->toBeTrue();
     expect(imageExists($path))->toBeTrue();
-})->with(StillSize::cases());
+})->with(TmdbStillSize::cases());
 
 it('can fail on image downloading', function () {
     clearMedia();

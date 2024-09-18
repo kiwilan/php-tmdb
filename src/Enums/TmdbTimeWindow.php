@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Enums;
 
-enum TimeWindow: string
+enum TmdbTimeWindow: string
 {
     case DAY = 'day';
     case WEEK = 'week';

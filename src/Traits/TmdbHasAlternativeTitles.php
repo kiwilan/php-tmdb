@@ -2,11 +2,11 @@
 
 namespace Kiwilan\Tmdb\Traits;
 
-use Kiwilan\Tmdb\Models\Common\AlternativeTitle;
+use Kiwilan\Tmdb\Models\Common\TmdbAlternativeTitle;
 
 trait TmdbHasAlternativeTitles
 {
-    /** @var AlternativeTitle[]|null */
+    /** @var TmdbAlternativeTitle[]|null */
     protected ?array $alternative_titles = null;
 
     protected function setAlternativeTitles(array $data): void
@@ -18,7 +18,7 @@ trait TmdbHasAlternativeTitles
             }
 
             foreach ($alternative_titles as $alternative_title) {
-                $this->alternative_titles[] = new AlternativeTitle($alternative_title);
+                $this->alternative_titles[] = new TmdbAlternativeTitle($alternative_title);
             }
         }
     }
@@ -26,7 +26,7 @@ trait TmdbHasAlternativeTitles
     /**
      * Get the alternative titles.
      *
-     * @return AlternativeTitle[]|null
+     * @return TmdbAlternativeTitle[]|null
      */
     public function getAlternativeTitles(): ?array
     {
@@ -39,7 +39,7 @@ trait TmdbHasAlternativeTitles
      * - If not found, return null.
      * - If duplicate, return the first one.
      */
-    public function getAlternativeTitle(string $iso_3166_1): ?AlternativeTitle
+    public function getAlternativeTitle(string $iso_3166_1): ?TmdbAlternativeTitle
     {
         if (! $this->alternative_titles || empty($this->alternative_titles)) {
             return null;

@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Utils;
 
-use Kiwilan\Tmdb\Enums\LogoSize;
+use Kiwilan\Tmdb\Enums\TmdbLogoSize;
 
 class TmdbLogo extends TmdbImage
 {
@@ -10,7 +10,7 @@ class TmdbLogo extends TmdbImage
     {
         $self = new self;
         $self->imageUrl = $self->fixUrl($url);
-        $self->size = LogoSize::ORIGINAL;
+        $self->size = TmdbLogoSize::ORIGINAL;
 
         return $self;
     }
@@ -18,7 +18,7 @@ class TmdbLogo extends TmdbImage
     /**
      * @param  $size  To override the image size, default is `original`
      */
-    public function size(LogoSize $size = LogoSize::ORIGINAL): self
+    public function size(TmdbLogoSize $size = TmdbLogoSize::ORIGINAL): self
     {
         $this->size = $size;
 

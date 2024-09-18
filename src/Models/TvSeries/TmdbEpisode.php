@@ -3,16 +3,16 @@
 namespace Kiwilan\Tmdb\Models\TvSeries;
 
 use DateTime;
-use Kiwilan\Tmdb\Models\Credits;
-use Kiwilan\Tmdb\Models\Credits\Cast;
-use Kiwilan\Tmdb\Models\Credits\Crew;
+use Kiwilan\Tmdb\Models\Credits\TmdbCast;
+use Kiwilan\Tmdb\Models\Credits\TmdbCrew;
+use Kiwilan\Tmdb\Models\TmdbCredits;
 use Kiwilan\Tmdb\Models\TmdbModel;
 use Kiwilan\Tmdb\Traits;
 
 /**
  * TV Series Episode
  */
-class Episode extends TmdbModel
+class TmdbEpisode extends TmdbModel
 {
     use Traits\TmdbHasId;
     use Traits\TmdbHasStill;
@@ -21,7 +21,7 @@ class Episode extends TmdbModel
 
     protected ?DateTime $air_date = null;
 
-    /** @var Crew[]|null */
+    /** @var TmdbCrew[]|null */
     protected ?array $crew = null;
 
     protected ?int $episode_tv_show_id = null;
@@ -30,7 +30,7 @@ class Episode extends TmdbModel
 
     protected ?int $episode_number = null;
 
-    /** @var Cast[]|null */
+    /** @var TmdbCast[]|null */
     protected ?array $cast = null;
 
     protected ?string $name = null;
@@ -43,7 +43,7 @@ class Episode extends TmdbModel
 
     protected ?int $season_number = null;
 
-    protected ?Credits $credits = null;
+    protected ?TmdbCredits $credits = null;
 
     public function __construct(?array $data, ?int $episode_tv_show_id = null, ?int $episode_season_number = null)
     {
@@ -63,7 +63,7 @@ class Episode extends TmdbModel
         $this->season_number = $this->toInt($data, 'season_number');
         $this->setVotes($data);
 
-        $this->credits = new Credits([
+        $this->credits = new TmdbCredits([
             'cast' => $data['guest_stars'] ?? null,
             'crew' => $data['crew'] ?? null,
         ]);
@@ -107,7 +107,7 @@ class Episode extends TmdbModel
         return $this->season_number;
     }
 
-    public function getCredits(): ?Credits
+    public function getCredits(): ?TmdbCredits
     {
         return $this->credits;
     }

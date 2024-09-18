@@ -19,12 +19,12 @@ class CollectionsRepository extends Repository
      *
      * @docs https://developer.themoviedb.org/reference/collection-details
      */
-    public function details(int $collection_id, ?string $language = null): ?Models\Collection
+    public function details(int $collection_id, ?string $language = null): ?Models\TmdbCollection
     {
         $response = $this->get("/collection/{$collection_id}", [
             'language' => $language ?? $this->language,
         ]);
 
-        return $this->isSuccess ? new Models\Collection($response) : null;
+        return $this->isSuccess ? new Models\TmdbCollection($response) : null;
     }
 }

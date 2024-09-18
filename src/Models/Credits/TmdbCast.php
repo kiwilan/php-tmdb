@@ -5,7 +5,7 @@ namespace Kiwilan\Tmdb\Models\Credits;
 /**
  * A cast member or guest star in a movie or TV series.
  */
-class Cast extends Person
+class TmdbCast extends TmdbPerson
 {
     protected ?int $cast_id = null;
 

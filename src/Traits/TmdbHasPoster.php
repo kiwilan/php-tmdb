@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Traits;
 
-use Kiwilan\Tmdb\Enums\PosterSize;
+use Kiwilan\Tmdb\Enums\TmdbPosterSize;
 use Kiwilan\Tmdb\Utils\TmdbPoster;
 
 trait TmdbHasPoster
@@ -19,7 +19,7 @@ trait TmdbHasPoster
         return $this->poster_path;
     }
 
-    public function getPosterUrl(?PosterSize $size = null): ?string
+    public function getPosterUrl(?TmdbPosterSize $size = null): ?string
     {
         $poster = TmdbPoster::make($this->poster_path);
         if ($size) {
@@ -29,7 +29,7 @@ trait TmdbHasPoster
         return $poster->getUrl();
     }
 
-    public function getPosterImage(?PosterSize $size = null): ?string
+    public function getPosterImage(?TmdbPosterSize $size = null): ?string
     {
         $poster = TmdbPoster::make($this->poster_path);
         if ($size) {
@@ -39,7 +39,7 @@ trait TmdbHasPoster
         return $poster->getImage();
     }
 
-    public function savePosterImage(string $path, ?PosterSize $size = null): bool
+    public function savePosterImage(string $path, ?TmdbPosterSize $size = null): bool
     {
         $poster = TmdbPoster::make($this->poster_path);
         if ($size) {

@@ -1,6 +1,6 @@
 <?php
 
-use Kiwilan\Tmdb\Models\Movie;
+use Kiwilan\Tmdb\Models\TmdbMovie;
 use Kiwilan\Tmdb\Results;
 use Kiwilan\Tmdb\Tmdb;
 
@@ -17,8 +17,8 @@ it('can use now playing', function () {
 
     expect($now_playing->getResults())->toBeArray();
     expect($now_playing->getResults())->not()->toBeEmpty();
-    expect($now_playing->getFirstResult())->toBeInstanceOf(Movie::class);
-    expect($now_playing->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(Movie::class));
+    expect($now_playing->getFirstResult())->toBeInstanceOf(TmdbMovie::class);
+    expect($now_playing->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TmdbMovie::class));
 });
 
 it('can use popular', function () {
@@ -30,8 +30,8 @@ it('can use popular', function () {
 
     expect($popular->getResults())->toBeArray();
     expect($popular->getResults())->not()->toBeEmpty();
-    expect($popular->getFirstResult())->toBeInstanceOf(Movie::class);
-    expect($popular->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(Movie::class));
+    expect($popular->getFirstResult())->toBeInstanceOf(TmdbMovie::class);
+    expect($popular->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TmdbMovie::class));
 });
 
 it('can use top rated', function () {
@@ -43,8 +43,8 @@ it('can use top rated', function () {
 
     expect($top_rated->getResults())->toBeArray();
     expect($top_rated->getResults())->not()->toBeEmpty();
-    expect($top_rated->getFirstResult())->toBeInstanceOf(Movie::class);
-    expect($top_rated->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(Movie::class));
+    expect($top_rated->getFirstResult())->toBeInstanceOf(TmdbMovie::class);
+    expect($top_rated->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TmdbMovie::class));
 });
 
 it('can use upcoming', function () {
@@ -60,6 +60,6 @@ it('can use upcoming', function () {
 
     expect($upcoming->getResults())->toBeArray();
     expect($upcoming->getResults())->not()->toBeEmpty();
-    expect($upcoming->getFirstResult())->toBeInstanceOf(Movie::class);
-    expect($upcoming->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(Movie::class));
+    expect($upcoming->getFirstResult())->toBeInstanceOf(TmdbMovie::class);
+    expect($upcoming->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TmdbMovie::class));
 });

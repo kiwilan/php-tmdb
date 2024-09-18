@@ -1,19 +1,16 @@
 <?php
 
-namespace Kiwilan\Tmdb\Models\Movie;
+namespace Kiwilan\Tmdb\Models\Common;
 
 use Kiwilan\Tmdb\Models\TmdbModel;
 use Kiwilan\Tmdb\Traits;
 
 /**
- * A collection of movies.
+ * A genre of a movie or TV series.
  */
-class BelongsToCollection extends TmdbModel
+class TmdbGenre extends TmdbModel
 {
-    use Traits\TmdbHasBackdrop;
     use Traits\TmdbHasId;
-    use Traits\TmdbHasPoster;
-    use Traits\TmdbHasTmdbUrl;
 
     protected ?string $name = null;
 
@@ -24,11 +21,12 @@ class BelongsToCollection extends TmdbModel
         }
 
         $this->setId($data);
-        $this->setPosterPath($data);
-        $this->setBackdropPath($data);
         $this->name = $this->toString($data, 'name');
     }
 
+    /**
+     * Get the genre name.
+     */
     public function getName(): ?string
     {
         return $this->name;

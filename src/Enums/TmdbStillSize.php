@@ -3,14 +3,14 @@
 namespace Kiwilan\Tmdb\Enums;
 
 /**
- * Profile sizes.
+ * Still sizes.
  *
  * @docs https://developer.themoviedb.org/reference/configuration-details
  */
-enum ProfileSize: string
+enum TmdbStillSize: string
 {
-    case W45 = 'w45';
+    case W92 = 'w92';
     case W185 = 'w185';
-    case H632 = 'h632';
+    case W300 = 'w300';
     case ORIGINAL = 'original';
 }

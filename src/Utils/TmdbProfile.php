@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Utils;
 
-use Kiwilan\Tmdb\Enums\ProfileSize;
+use Kiwilan\Tmdb\Enums\TmdbProfileSize;
 
 class TmdbProfile extends TmdbImage
 {
@@ -10,7 +10,7 @@ class TmdbProfile extends TmdbImage
     {
         $self = new self;
         $self->imageUrl = $self->fixUrl($url);
-        $self->size = ProfileSize::ORIGINAL;
+        $self->size = TmdbProfileSize::ORIGINAL;
 
         return $self;
     }
@@ -18,7 +18,7 @@ class TmdbProfile extends TmdbImage
     /**
      * @param  $size  To override the image size, default is `original`
      */
-    public function size(ProfileSize $size = ProfileSize::ORIGINAL): self
+    public function size(TmdbProfileSize $size = TmdbProfileSize::ORIGINAL): self
     {
         $this->size = $size;
 

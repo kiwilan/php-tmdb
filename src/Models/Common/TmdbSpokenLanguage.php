@@ -7,7 +7,7 @@ use Kiwilan\Tmdb\Models\TmdbModel;
 /**
  * A spoken language of a movie or TV series.
  */
-class SpokenLanguage extends TmdbModel
+class TmdbSpokenLanguage extends TmdbModel
 {
     protected ?string $english_name = null;
 

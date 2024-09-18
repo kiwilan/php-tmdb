@@ -1,6 +1,6 @@
 <?php
 
-use Kiwilan\Tmdb\Models\TvSeries;
+use Kiwilan\Tmdb\Models\TmdbTvSeries;
 use Kiwilan\Tmdb\Results;
 use Kiwilan\Tmdb\Tmdb;
 
@@ -12,8 +12,8 @@ it('can use airing today', function () {
     expect($all)->toBeInstanceOf(Results\TvSerieResults::class);
     expect($all->getResults())->toBeArray();
     expect($all->getResults())->not()->toBeEmpty();
-    expect($all->getFirstResult())->toBeInstanceOf(TvSeries::class);
-    expect($all->getResults())->each(fn (Pest\Expectation $tv) => expect($tv->value)->toBeInstanceOf(TvSeries::class));
+    expect($all->getFirstResult())->toBeInstanceOf(TmdbTvSeries::class);
+    expect($all->getResults())->each(fn (Pest\Expectation $tv) => expect($tv->value)->toBeInstanceOf(TmdbTvSeries::class));
 });
 
 it('can use on the air', function () {
@@ -24,8 +24,8 @@ it('can use on the air', function () {
     expect($all)->toBeInstanceOf(Results\TvSerieResults::class);
     expect($all->getResults())->toBeArray();
     expect($all->getResults())->not()->toBeEmpty();
-    expect($all->getFirstResult())->toBeInstanceOf(TvSeries::class);
-    expect($all->getResults())->each(fn (Pest\Expectation $tv) => expect($tv->value)->toBeInstanceOf(TvSeries::class));
+    expect($all->getFirstResult())->toBeInstanceOf(TmdbTvSeries::class);
+    expect($all->getResults())->each(fn (Pest\Expectation $tv) => expect($tv->value)->toBeInstanceOf(TmdbTvSeries::class));
 });
 
 it('can use popular', function () {
@@ -36,8 +36,8 @@ it('can use popular', function () {
     expect($all)->toBeInstanceOf(Results\TvSerieResults::class);
     expect($all->getResults())->toBeArray();
     expect($all->getResults())->not()->toBeEmpty();
-    expect($all->getFirstResult())->toBeInstanceOf(TvSeries::class);
-    expect($all->getResults())->each(fn (Pest\Expectation $tv) => expect($tv->value)->toBeInstanceOf(TvSeries::class));
+    expect($all->getFirstResult())->toBeInstanceOf(TmdbTvSeries::class);
+    expect($all->getResults())->each(fn (Pest\Expectation $tv) => expect($tv->value)->toBeInstanceOf(TmdbTvSeries::class));
 });
 
 it('can use top rated', function () {
@@ -48,6 +48,6 @@ it('can use top rated', function () {
     expect($all)->toBeInstanceOf(Results\TvSerieResults::class);
     expect($all->getResults())->toBeArray();
     expect($all->getResults())->not()->toBeEmpty();
-    expect($all->getFirstResult())->toBeInstanceOf(TvSeries::class);
-    expect($all->getResults())->each(fn (Pest\Expectation $tv) => expect($tv->value)->toBeInstanceOf(TvSeries::class));
+    expect($all->getFirstResult())->toBeInstanceOf(TmdbTvSeries::class);
+    expect($all->getResults())->each(fn (Pest\Expectation $tv) => expect($tv->value)->toBeInstanceOf(TmdbTvSeries::class));
 });

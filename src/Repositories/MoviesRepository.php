@@ -19,13 +19,13 @@ class MoviesRepository extends Repository
      *
      * @docs https://developer.themoviedb.org/reference/movie-details
      */
-    public function details(int $movie_id, ?array $append_to_response = null): ?Models\Movie
+    public function details(int $movie_id, ?array $append_to_response = null): ?Models\TmdbMovie
     {
         $response = $this->get("/movie/{$movie_id}", [
             'append_to_response' => $this->appendToResponse($append_to_response),
             'language' => $this->language,
         ]);
 
-        return $this->isSuccess ? new Models\Movie($response) : null;
+        return $this->isSuccess ? new Models\TmdbMovie($response) : null;
     }
 }

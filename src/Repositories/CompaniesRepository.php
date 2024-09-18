@@ -16,10 +16,10 @@ class CompaniesRepository extends Repository
      *
      * @param  int  $company_id  The TMDB company ID
      */
-    public function details(int $company_id): ?Models\Common\Company
+    public function details(int $company_id): ?Models\Common\TmdbCompany
     {
         $response = $this->get("/company/{$company_id}");
 
-        return $this->isSuccess ? new Models\Common\Company($response) : null;
+        return $this->isSuccess ? new Models\Common\TmdbCompany($response) : null;
     }
 }

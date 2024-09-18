@@ -1,6 +1,6 @@
 <?php
 
-use Kiwilan\Tmdb\Models\TvSeries;
+use Kiwilan\Tmdb\Models\TmdbTvSeries;
 use Kiwilan\Tmdb\Query\SearchTvSeriesQuery;
 use Kiwilan\Tmdb\Results\TvSerieResults;
 use Kiwilan\Tmdb\Tmdb;
@@ -14,7 +14,7 @@ it('can search tv series', function () {
     expect($results)->toBeInstanceOf(TvSerieResults::class);
     expect($results->getResults())->toBeArray();
     expect($results->getResults())->not()->toBeEmpty();
-    expect($results->getFirstResult())->toBeInstanceOf(TvSeries::class);
+    expect($results->getFirstResult())->toBeInstanceOf(TmdbTvSeries::class);
     expect($results->getTotalPages())->toBeInt();
     expect($results->getTotalResults())->toBeInt();
     expect($results->getPage())->toBeInt();
@@ -51,6 +51,6 @@ it('can search movie with options', function () {
     expect($results)->toBeInstanceOf(TvSerieResults::class);
     expect($results->getResults())->toBeArray();
     expect($results->getResults())->not()->toBeEmpty();
-    expect($results->getFirstResult())->toBeInstanceOf(TvSeries::class);
+    expect($results->getFirstResult())->toBeInstanceOf(TmdbTvSeries::class);
     expect($results->getFirstResult()->getName())->toBe('Game of Thrones');
 });

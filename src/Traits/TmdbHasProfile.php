@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Traits;
 
-use Kiwilan\Tmdb\Enums\ProfileSize;
+use Kiwilan\Tmdb\Enums\TmdbProfileSize;
 use Kiwilan\Tmdb\Utils\TmdbProfile;
 
 trait TmdbHasProfile
@@ -19,7 +19,7 @@ trait TmdbHasProfile
         return $this->profile_path;
     }
 
-    public function getProfileUrl(?ProfileSize $size = null): ?string
+    public function getProfileUrl(?TmdbProfileSize $size = null): ?string
     {
         $profile = TmdbProfile::make($this->profile_path);
         if ($size) {
@@ -29,7 +29,7 @@ trait TmdbHasProfile
         return $profile->getUrl();
     }
 
-    public function getProfileImage(?ProfileSize $size = null): ?string
+    public function getProfileImage(?TmdbProfileSize $size = null): ?string
     {
         $profile = TmdbProfile::make($this->profile_path);
         if ($size) {
@@ -39,7 +39,7 @@ trait TmdbHasProfile
         return $profile->getImage();
     }
 
-    public function saveProfileImage(string $path, ?ProfileSize $size = null): bool
+    public function saveProfileImage(string $path, ?TmdbProfileSize $size = null): bool
     {
         $profile = TmdbProfile::make($this->profile_path);
         if ($size) {

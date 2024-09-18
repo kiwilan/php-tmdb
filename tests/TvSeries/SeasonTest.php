@@ -1,10 +1,10 @@
 <?php
 
-use Kiwilan\Tmdb\Models\Credits;
-use Kiwilan\Tmdb\Models\Credits\Cast;
-use Kiwilan\Tmdb\Models\Credits\Crew;
-use Kiwilan\Tmdb\Models\TvSeries\Episode;
-use Kiwilan\Tmdb\Models\TvSeries\Season;
+use Kiwilan\Tmdb\Models\Credits\TmdbCast;
+use Kiwilan\Tmdb\Models\Credits\TmdbCrew;
+use Kiwilan\Tmdb\Models\TmdbCredits;
+use Kiwilan\Tmdb\Models\TvSeries\TmdbEpisode;
+use Kiwilan\Tmdb\Models\TvSeries\TmdbSeason;
 use Kiwilan\Tmdb\Tmdb;
 
 it('can find season', function () {
@@ -13,15 +13,15 @@ it('can find season', function () {
         ->details(1399, 1);
 
     expect($season)->not()->toBeNull();
-    expect($season)->toBeInstanceOf(Season::class);
+    expect($season)->toBeInstanceOf(TmdbSeason::class);
     expect($season->getAirDate())->toBeInstanceOf(DateTime::class);
 
     expect($season->getEpisodes())->toBeArray();
     expect($season->getEpisodes())->not()->toBeEmpty();
-    expect($season->getEpisodes())->each(fn (Pest\Expectation $episode) => expect($episode->value)->toBeInstanceOf(Episode::class));
+    expect($season->getEpisodes())->each(fn (Pest\Expectation $episode) => expect($episode->value)->toBeInstanceOf(TmdbEpisode::class));
 
     $first = $season->getEpisodes()[0];
-    expect($first)->toBeInstanceOf(Episode::class);
+    expect($first)->toBeInstanceOf(TmdbEpisode::class);
     expect($first->getTmdbUrl())->toBeString();
 
     expect($season->getName())->toBeString();
@@ -41,12 +41,12 @@ it('can find season credits', function () {
         ->tvSeasons()
         ->details(1399, 1, ['credits']);
 
-    expect($season->getCredits())->toBeInstanceOf(Credits::class);
+    expect($season->getCredits())->toBeInstanceOf(TmdbCredits::class);
     expect($season->getCredits()->getCast())->toBeArray();
     expect($season->getCredits()->getCast())->not()->toBeEmpty();
-    expect($season->getCredits()->getCast())->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(Cast::class));
+    expect($season->getCredits()->getCast())->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(TmdbCast::class));
 
     expect($season->getCredits()->getCrew())->toBeArray();
     expect($season->getCredits()->getCrew())->not()->toBeEmpty();
-    expect($season->getCredits()->getCrew())->each(fn (Pest\Expectation $crew) => expect($crew->value)->toBeInstanceOf(Crew::class));
+    expect($season->getCredits()->getCrew())->each(fn (Pest\Expectation $crew) => expect($crew->value)->toBeInstanceOf(TmdbCrew::class));
 });

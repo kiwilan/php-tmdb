@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Utils;
 
-use Kiwilan\Tmdb\Enums\StillSize;
+use Kiwilan\Tmdb\Enums\TmdbStillSize;
 
 class TmdbStill extends TmdbImage
 {
@@ -10,7 +10,7 @@ class TmdbStill extends TmdbImage
     {
         $self = new self;
         $self->imageUrl = $self->fixUrl($url);
-        $self->size = StillSize::ORIGINAL;
+        $self->size = TmdbStillSize::ORIGINAL;
 
         return $self;
     }
@@ -18,7 +18,7 @@ class TmdbStill extends TmdbImage
     /**
      * @param  $size  To override the image size, default is `original`
      */
-    public function size(StillSize $size = StillSize::ORIGINAL): self
+    public function size(TmdbStillSize $size = TmdbStillSize::ORIGINAL): self
     {
         $this->size = $size;
 

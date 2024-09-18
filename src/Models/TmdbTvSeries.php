@@ -3,22 +3,22 @@
 namespace Kiwilan\Tmdb\Models;
 
 use DateTime;
-use Kiwilan\Tmdb\Models\Credits\Crew;
-use Kiwilan\Tmdb\Models\TvSeries\ContentRating;
-use Kiwilan\Tmdb\Models\TvSeries\Episode;
-use Kiwilan\Tmdb\Models\TvSeries\Network;
-use Kiwilan\Tmdb\Models\TvSeries\Season;
+use Kiwilan\Tmdb\Models\Credits\TmdbCrew;
+use Kiwilan\Tmdb\Models\TvSeries\TmdbContentRating;
+use Kiwilan\Tmdb\Models\TvSeries\TmdbEpisode;
+use Kiwilan\Tmdb\Models\TvSeries\TmdbNetwork;
+use Kiwilan\Tmdb\Models\TvSeries\TmdbSeason;
 use Kiwilan\Tmdb\Results\TvSerieResults;
 use Kiwilan\Tmdb\Traits;
 
 /**
  * TV Series
  */
-class TvSeries extends ExtendedMedia
+class TmdbTvSeries extends TmdbExtendedMedia
 {
     use Traits\TmdbHasTmdbUrl;
 
-    /** @var Crew[] */
+    /** @var TmdbCrew[] */
     protected ?array $created_by = null;
 
     protected ?array $episode_run_time = null;
@@ -32,27 +32,27 @@ class TvSeries extends ExtendedMedia
 
     protected ?DateTime $last_air_date = null;
 
-    protected ?Episode $last_episode_to_air = null;
+    protected ?TmdbEpisode $last_episode_to_air = null;
 
     protected ?string $name = null;
 
     protected ?string $original_name = null;
 
-    protected ?Episode $next_episode_to_air = null;
+    protected ?TmdbEpisode $next_episode_to_air = null;
 
-    /** @var Network[]|null */
+    /** @var TmdbNetwork[]|null */
     protected ?array $networks = null;
 
     protected ?int $number_of_episodes = null;
 
     protected ?int $number_of_seasons = null;
 
-    /** @var Season[]|null */
+    /** @var TmdbSeason[]|null */
     protected ?array $seasons = null;
 
     protected ?string $type = null;
 
-    /** @var ContentRating[]|null */
+    /** @var TmdbContentRating[]|null */
     protected ?array $content_ratings = null;
 
     protected ?TvSerieResults $recommendations = null;
@@ -79,30 +79,30 @@ class TvSeries extends ExtendedMedia
         $this->type = $this->toString($data, 'type');
 
         $this->origin_country = $this->toArray($data, 'origin_country');
-        $this->last_episode_to_air = $this->toModel($data, 'last_episode_to_air', Episode::class);
-        $this->next_episode_to_air = $this->toModel($data, 'next_episode_to_air', Episode::class);
+        $this->last_episode_to_air = $this->toModel($data, 'last_episode_to_air', TmdbEpisode::class);
+        $this->next_episode_to_air = $this->toModel($data, 'next_episode_to_air', TmdbEpisode::class);
         $this->recommendations = $this->toModel($data, 'recommendations', TvSerieResults::class);
         $this->similar = $this->toModel($data, 'similar', TvSerieResults::class);
 
-        $this->created_by = $this->validateData($data, 'created_by', fn (array $values) => $this->loopOn($values, Crew::class));
-        $this->networks = $this->validateData($data, 'networks', fn (array $values) => $this->loopOn($values, Network::class));
+        $this->created_by = $this->validateData($data, 'created_by', fn (array $values) => $this->loopOn($values, TmdbCrew::class));
+        $this->networks = $this->validateData($data, 'networks', fn (array $values) => $this->loopOn($values, TmdbNetwork::class));
         $this->seasons = $this->validateData($data, 'seasons', function (array $values) {
             $seasons = [];
             foreach ($values as $season) {
-                $seasons[] = new Season($season, $this->getId());
+                $seasons[] = new TmdbSeason($season, $this->getId());
             }
 
             return $seasons;
         });
 
         $content_ratings = $data['content_ratings']['results'] ?? null;
-        $this->content_ratings = $this->loopOn($content_ratings, ContentRating::class);
+        $this->content_ratings = $this->loopOn($content_ratings, TmdbContentRating::class);
     }
 
     /**
      * Get the creators.
      *
-     * @return Crew[]|null
+     * @return TmdbCrew[]|null
      */
     public function getCreatedBy(): ?array
     {
@@ -142,7 +142,7 @@ class TvSeries extends ExtendedMedia
         return $this->last_air_date;
     }
 
-    public function getLastEpisodeToAir(): ?Episode
+    public function getLastEpisodeToAir(): ?TmdbEpisode
     {
         return $this->last_episode_to_air;
     }
@@ -157,7 +157,7 @@ class TvSeries extends ExtendedMedia
         return $this->original_name;
     }
 
-    public function getNextEpisodeToAir(): ?Episode
+    public function getNextEpisodeToAir(): ?TmdbEpisode
     {
         return $this->next_episode_to_air;
     }
@@ -165,7 +165,7 @@ class TvSeries extends ExtendedMedia
     /**
      * Get the networks.
      *
-     * @return Network[]|null
+     * @return TmdbNetwork[]|null
      */
     public function getNetworks(): ?array
     {
@@ -185,7 +185,7 @@ class TvSeries extends ExtendedMedia
     /**
      * Get the seasons.
      *
-     * @return Season[]|null
+     * @return TmdbSeason[]|null
      */
     public function getSeasons(): ?array
     {
@@ -208,7 +208,7 @@ class TvSeries extends ExtendedMedia
     /**
      * Get the content ratings.
      *
-     * @return ContentRating[]|null
+     * @return TmdbContentRating[]|null
      */
     public function getContentRatings(): ?array
     {
@@ -220,14 +220,14 @@ class TvSeries extends ExtendedMedia
      *
      * @param  string  $iso_3166_1  The country code, like `US`
      */
-    public function getContentRatingSpecific(string $iso_3166_1): ?ContentRating
+    public function getContentRatingSpecific(string $iso_3166_1): ?TmdbContentRating
     {
         $content_ratings = $this->content_ratings;
         if (! $content_ratings || count($content_ratings) == 0) {
             return null;
         }
 
-        $ratings = array_filter($content_ratings, fn (ContentRating $item) => $item->getIso31661() === $iso_3166_1);
+        $ratings = array_filter($content_ratings, fn (TmdbContentRating $item) => $item->getIso31661() === $iso_3166_1);
 
         if (! $ratings) {
             return null;

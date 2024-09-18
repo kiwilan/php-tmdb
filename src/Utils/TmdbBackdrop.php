@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Utils;
 
-use Kiwilan\Tmdb\Enums\BackdropSize;
+use Kiwilan\Tmdb\Enums\TmdbBackdropSize;
 
 class TmdbBackdrop extends TmdbImage
 {
@@ -10,7 +10,7 @@ class TmdbBackdrop extends TmdbImage
     {
         $self = new self;
         $self->imageUrl = $self->fixUrl($url);
-        $self->size = BackdropSize::ORIGINAL;
+        $self->size = TmdbBackdropSize::ORIGINAL;
 
         return $self;
     }
@@ -18,7 +18,7 @@ class TmdbBackdrop extends TmdbImage
     /**
      * @param  $size  To override the image size, default is `original`
      */
-    public function size(BackdropSize $size = BackdropSize::ORIGINAL): self
+    public function size(TmdbBackdropSize $size = TmdbBackdropSize::ORIGINAL): self
     {
         $this->size = $size;
 

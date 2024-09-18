@@ -1,8 +1,8 @@
 <?php
 
-use Kiwilan\Tmdb\Models\Credits\Cast;
-use Kiwilan\Tmdb\Models\Credits\Crew;
-use Kiwilan\Tmdb\Models\TvSeries\Episode;
+use Kiwilan\Tmdb\Models\Credits\TmdbCast;
+use Kiwilan\Tmdb\Models\Credits\TmdbCrew;
+use Kiwilan\Tmdb\Models\TvSeries\TmdbEpisode;
 use Kiwilan\Tmdb\Tmdb;
 
 it('can find episode', function () {
@@ -11,16 +11,16 @@ it('can find episode', function () {
         ->details(1399, 1, 1);
 
     expect($episode)->not()->toBeNull();
-    expect($episode)->toBeInstanceOf(Episode::class);
+    expect($episode)->toBeInstanceOf(TmdbEpisode::class);
     expect($episode->getAirDate())->toBeInstanceOf(DateTime::class);
 
     expect($episode->getCredits()->getCast())->toBeArray();
     expect($episode->getCredits()->getCast())->not()->toBeEmpty();
-    expect($episode->getCredits()->getCast())->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(Cast::class));
+    expect($episode->getCredits()->getCast())->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(TmdbCast::class));
 
     expect($episode->getCredits()->getCrew())->toBeArray();
     expect($episode->getCredits()->getCrew())->not()->toBeEmpty();
-    expect($episode->getCredits()->getCrew())->each(fn (Pest\Expectation $crew) => expect($crew->value)->toBeInstanceOf(Crew::class));
+    expect($episode->getCredits()->getCrew())->each(fn (Pest\Expectation $crew) => expect($crew->value)->toBeInstanceOf(TmdbCrew::class));
 
     expect($episode->getEpisodeNumber())->toBeInt();
     expect($episode->getName())->toBeString();

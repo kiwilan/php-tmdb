@@ -7,11 +7,11 @@ use Kiwilan\Tmdb\Models\TmdbModel;
 /**
  * A release date for a movie.
  */
-class ReleaseDate extends TmdbModel
+class TmdbReleaseDate extends TmdbModel
 {
     protected ?string $iso_3166_1 = null;
 
-    /** @var ReleaseDateItem[] */
+    /** @var TmdbReleaseDateItem[] */
     protected ?array $release_dates = null;
 
     public function __construct(?array $data)
@@ -21,7 +21,7 @@ class ReleaseDate extends TmdbModel
         }
 
         $this->iso_3166_1 = $this->toString($data, 'iso_3166_1');
-        $this->release_dates = $this->validateData($data, 'release_dates', fn (array $values) => $this->loopOn($values, ReleaseDateItem::class));
+        $this->release_dates = $this->validateData($data, 'release_dates', fn (array $values) => $this->loopOn($values, TmdbReleaseDateItem::class));
     }
 
     /**
@@ -35,19 +35,19 @@ class ReleaseDate extends TmdbModel
     /**
      * Get the release dates.
      *
-     * @return ReleaseDateItem[]
+     * @return TmdbReleaseDateItem[]
      */
     public function getReleaseDates(): ?array
     {
         return $this->release_dates;
     }
 
-    public function getFirstReleaseDate(): ?ReleaseDateItem
+    public function getFirstReleaseDate(): ?TmdbReleaseDateItem
     {
         return $this->release_dates[0] ?? null;
     }
 
-    public function getSpecificReleaseDate(string $note): ?ReleaseDateItem
+    public function getSpecificReleaseDate(string $note): ?TmdbReleaseDateItem
     {
         if (! $this->release_dates) {
             return null;

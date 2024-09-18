@@ -5,7 +5,7 @@ namespace Kiwilan\Tmdb\Models\Credits;
 /**
  * A crew member in a movie or TV series.
  */
-class Crew extends Person
+class TmdbCrew extends TmdbPerson
 {
     protected ?string $department = null;
 

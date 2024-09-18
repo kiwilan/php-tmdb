@@ -7,7 +7,7 @@ use Kiwilan\Tmdb\Models\TmdbModel;
 /**
  * An alternative title for a movie or TV series.
  */
-class AlternativeTitle extends TmdbModel
+class TmdbAlternativeTitle extends TmdbModel
 {
     protected ?string $iso_3166_1 = null;
 

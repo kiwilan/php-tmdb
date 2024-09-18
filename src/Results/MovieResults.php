@@ -4,17 +4,17 @@ namespace Kiwilan\Tmdb\Results;
 
 class MovieResults extends Results
 {
-    /** @var \Kiwilan\Tmdb\Models\Movie[] */
+    /** @var \Kiwilan\Tmdb\Models\TmdbMovie[] */
     protected ?array $results = [];
 
     public function __construct(?array $data)
     {
         parent::__construct($data);
 
-        $this->results = $this->loopOn($data['results'] ?? [], \Kiwilan\Tmdb\Models\Movie::class, false);
+        $this->results = $this->loopOn($data['results'] ?? [], \Kiwilan\Tmdb\Models\TmdbMovie::class, false);
     }
 
-    public function getFirstResult(): ?\Kiwilan\Tmdb\Models\Movie
+    public function getFirstResult(): ?\Kiwilan\Tmdb\Models\TmdbMovie
     {
         return $this->results[0] ?? null;
     }
@@ -22,7 +22,7 @@ class MovieResults extends Results
     /**
      * Get the search results
      *
-     * @return \Kiwilan\Tmdb\Models\Movie[]
+     * @return \Kiwilan\Tmdb\Models\TmdbMovie[]
      */
     public function getResults(): array
     {

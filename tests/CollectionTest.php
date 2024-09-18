@@ -1,7 +1,7 @@
 <?php
 
-use Kiwilan\Tmdb\Models\Collection;
-use Kiwilan\Tmdb\Models\Movie;
+use Kiwilan\Tmdb\Models\TmdbCollection;
+use Kiwilan\Tmdb\Models\TmdbMovie;
 use Kiwilan\Tmdb\Query\SearchCollectionQuery;
 use Kiwilan\Tmdb\Results\CollectionResults;
 use Kiwilan\Tmdb\Tmdb;
@@ -15,7 +15,7 @@ it('can get collection', function () {
     expect($results)->toBeInstanceOf(CollectionResults::class);
     expect($results->getResults())->toBeArray();
     expect($results->getResults())->not()->toBeEmpty();
-    expect($results->getFirstResult())->toBeInstanceOf(Collection::class);
+    expect($results->getFirstResult())->toBeInstanceOf(TmdbCollection::class);
     expect($results->getTotalPages())->toBeInt();
     expect($results->getTotalResults())->toBeInt();
     expect($results->getPage())->toBeInt();
@@ -45,7 +45,7 @@ it('can search collection with options', function () {
     expect($results)->toBeInstanceOf(CollectionResults::class);
     expect($results->getResults())->toBeArray();
     expect($results->getResults())->not()->toBeEmpty();
-    expect($results->getFirstResult())->toBeInstanceOf(Collection::class);
+    expect($results->getFirstResult())->toBeInstanceOf(TmdbCollection::class);
     expect($results->getFirstResult()->getName())->toBe('Le Seigneur des anneaux - Saga');
 });
 
@@ -55,7 +55,7 @@ it('can get collection details', function () {
         ->details(collection_id: 119);
 
     expect($collection)->not()->toBeNull();
-    expect($collection)->toBeInstanceOf(Collection::class);
+    expect($collection)->toBeInstanceOf(TmdbCollection::class);
     expect($collection->getId())->toBe(119);
     expect($collection->getName())->toBe('The Lord of the Rings Collection');
     expect($collection->getOverview())->toBeString();
@@ -65,5 +65,5 @@ it('can get collection details', function () {
 
     expect($collection->getParts())->toBeArray();
     expect($collection->getParts())->not()->toBeEmpty();
-    expect($collection->getParts())->each(fn (Pest\Expectation $part) => expect($part->value)->toBeInstanceOf(Movie::class));
+    expect($collection->getParts())->each(fn (Pest\Expectation $part) => expect($part->value)->toBeInstanceOf(TmdbMovie::class));
 });

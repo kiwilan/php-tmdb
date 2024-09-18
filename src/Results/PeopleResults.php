@@ -4,17 +4,17 @@ namespace Kiwilan\Tmdb\Results;
 
 class PeopleResults extends Results
 {
-    /** @var \Kiwilan\Tmdb\Models\Credits\Person[] */
+    /** @var \Kiwilan\Tmdb\Models\Credits\TmdbPerson[] */
     protected array $results = [];
 
     public function __construct(array $data)
     {
         parent::__construct($data);
 
-        $this->results = $this->loopOn($data['results'] ?? [], \Kiwilan\Tmdb\Models\Credits\Person::class, false);
+        $this->results = $this->loopOn($data['results'] ?? [], \Kiwilan\Tmdb\Models\Credits\TmdbPerson::class, false);
     }
 
-    public function getFirstResult(): ?\Kiwilan\Tmdb\Models\Credits\Person
+    public function getFirstResult(): ?\Kiwilan\Tmdb\Models\Credits\TmdbPerson
     {
         return $this->results[0] ?? null;
     }
@@ -22,7 +22,7 @@ class PeopleResults extends Results
     /**
      * Get the search results
      *
-     * @return \Kiwilan\Tmdb\Models\Credits\Person[]
+     * @return \Kiwilan\Tmdb\Models\Credits\TmdbPerson[]
      */
     public function getResults(): array
     {

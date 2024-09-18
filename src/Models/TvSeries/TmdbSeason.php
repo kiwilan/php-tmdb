@@ -3,14 +3,14 @@
 namespace Kiwilan\Tmdb\Models\TvSeries;
 
 use DateTime;
-use Kiwilan\Tmdb\Models\Credits;
+use Kiwilan\Tmdb\Models\TmdbCredits;
 use Kiwilan\Tmdb\Models\TmdbModel;
 use Kiwilan\Tmdb\Traits;
 
 /**
  * TV Series Season
  */
-class Season extends TmdbModel
+class TmdbSeason extends TmdbModel
 {
     use Traits\TmdbHasId;
     use Traits\TmdbHasPoster;
@@ -20,7 +20,7 @@ class Season extends TmdbModel
 
     protected ?int $season_tv_show_id = null;
 
-    /** @var Episode[]|null */
+    /** @var TmdbEpisode[]|null */
     protected ?array $episodes = null;
 
     protected ?string $name = null;
@@ -29,7 +29,7 @@ class Season extends TmdbModel
 
     protected ?int $season_number = null;
 
-    protected ?Credits $credits = null;
+    protected ?TmdbCredits $credits = null;
 
     protected ?float $vote_average = null;
 
@@ -46,12 +46,12 @@ class Season extends TmdbModel
         $this->overview = $this->toString($data, 'overview');
         $this->season_number = $this->toInt($data, 'season_number');
         $this->vote_average = $this->toFloat($data, 'vote_average');
-        $this->credits = $this->toModel($data, 'credits', Credits::class);
+        $this->credits = $this->toModel($data, 'credits', TmdbCredits::class);
 
         $episodes = $data['episodes'] ?? null;
         if ($episodes) {
             foreach ($episodes as $episode) {
-                $this->episodes[] = new Episode($episode, $season_tv_show_id, $this->season_number);
+                $this->episodes[] = new TmdbEpisode($episode, $season_tv_show_id, $this->season_number);
             }
         }
 
@@ -66,7 +66,7 @@ class Season extends TmdbModel
     /**
      * Get the episodes.
      *
-     * @return Episode[]|null
+     * @return TmdbEpisode[]|null
      */
     public function getEpisodes(): ?array
     {
@@ -111,7 +111,7 @@ class Season extends TmdbModel
         return round($this->vote_average * 10, 2);
     }
 
-    public function getCredits(): ?Credits
+    public function getCredits(): ?TmdbCredits
     {
         return $this->credits;
     }

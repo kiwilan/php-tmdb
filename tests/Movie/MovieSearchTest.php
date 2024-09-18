@@ -1,6 +1,6 @@
 <?php
 
-use Kiwilan\Tmdb\Models\Movie;
+use Kiwilan\Tmdb\Models\TmdbMovie;
 use Kiwilan\Tmdb\Query\SearchMovieQuery;
 use Kiwilan\Tmdb\Results\MovieResults;
 use Kiwilan\Tmdb\Tmdb;
@@ -14,7 +14,7 @@ it('can search movie', function () {
     expect($results)->toBeInstanceOf(MovieResults::class);
     expect($results->getResults())->toBeArray();
     expect($results->getResults())->not()->toBeEmpty();
-    expect($results->getFirstResult())->toBeInstanceOf(Movie::class);
+    expect($results->getFirstResult())->toBeInstanceOf(TmdbMovie::class);
     expect($results->getTotalPages())->toBeInt();
     expect($results->getTotalResults())->toBeInt();
     expect($results->getPage())->toBeInt();
@@ -51,7 +51,7 @@ it('can search movie with options', function () {
     expect($results)->toBeInstanceOf(MovieResults::class);
     expect($results->getResults())->toBeArray();
     expect($results->getResults())->not()->toBeEmpty();
-    expect($results->getFirstResult())->toBeInstanceOf(Movie::class);
+    expect($results->getFirstResult())->toBeInstanceOf(TmdbMovie::class);
     expect($results->getFirstResult()->getTitle())->toBe("Le Seigneur des anneaux : La Communauté de l'anneau");
 });
 

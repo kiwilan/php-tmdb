@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Repositories;
 
-use Kiwilan\Tmdb\Enums\TimeWindow;
+use Kiwilan\Tmdb\Enums\TmdbTimeWindow;
 use Kiwilan\Tmdb\Results;
 
 class TrendingRepository extends Repository
@@ -14,7 +14,7 @@ class TrendingRepository extends Repository
      *
      * @docs https://developer.themoviedb.org/reference/trending-all
      */
-    public function all(TimeWindow $time_window = TimeWindow::DAY, string $language = 'en-US'): ?Results\MediaResults
+    public function all(TmdbTimeWindow $time_window = TmdbTimeWindow::DAY, string $language = 'en-US'): ?Results\MediaResults
     {
         $response = $this->get("/trending/all/{$time_window->value}", [
             'language' => $language,
@@ -30,7 +30,7 @@ class TrendingRepository extends Repository
      *
      * @docs https://developer.themoviedb.org/reference/trending-movies
      */
-    public function movies(TimeWindow $time_window = TimeWindow::DAY, string $language = 'en-US'): ?Results\MovieResults
+    public function movies(TmdbTimeWindow $time_window = TmdbTimeWindow::DAY, string $language = 'en-US'): ?Results\MovieResults
     {
         $response = $this->get("/trending/movie/{$time_window->value}", [
             'language' => $language,
@@ -46,7 +46,7 @@ class TrendingRepository extends Repository
      *
      * @docs https://developer.themoviedb.org/reference/trending-people
      */
-    public function people(TimeWindow $time_window = TimeWindow::DAY, string $language = 'en-US'): ?Results\PeopleResults
+    public function people(TmdbTimeWindow $time_window = TmdbTimeWindow::DAY, string $language = 'en-US'): ?Results\PeopleResults
     {
         $response = $this->get("/trending/person/{$time_window->value}", [
             'language' => $language,
@@ -62,7 +62,7 @@ class TrendingRepository extends Repository
      *
      * @docs https://developer.themoviedb.org/reference/trending-tv
      */
-    public function tv(TimeWindow $time_window = TimeWindow::DAY, string $language = 'en-US'): ?Results\TvSerieResults
+    public function tv(TmdbTimeWindow $time_window = TmdbTimeWindow::DAY, string $language = 'en-US'): ?Results\TvSerieResults
     {
         $response = $this->get("/trending/tv/{$time_window->value}", [
             'language' => $language,

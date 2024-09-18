@@ -20,13 +20,13 @@ class TVSeasonsRepository extends Repository
      *
      * @docs https://developer.themoviedb.org/reference/tv-season-details
      */
-    public function details(int $series_id, int $season_number, ?array $append_to_response = null): ?Models\TvSeries\Season
+    public function details(int $series_id, int $season_number, ?array $append_to_response = null): ?Models\TvSeries\TmdbSeason
     {
         $response = $this->get("/tv/{$series_id}/season/{$season_number}", [
             'append_to_response' => $this->appendToResponse($append_to_response),
             'language' => $this->language,
         ]);
 
-        return $this->isSuccess ? new Models\TvSeries\Season($response, $series_id) : null;
+        return $this->isSuccess ? new Models\TvSeries\TmdbSeason($response, $series_id) : null;
     }
 }

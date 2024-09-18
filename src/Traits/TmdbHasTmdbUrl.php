@@ -17,15 +17,15 @@ trait TmdbHasTmdbUrl
         $slug = strtolower((new \ReflectionClass($this))->getShortName());
 
         return match ($slug) {
-            'movie' => 'movie',
-            'tvseries' => 'tv',
-            'season' => 'season',
-            'episode' => 'episode',
-            'person' => 'person',
-            'cast' => 'person',
-            'crew' => 'person',
-            'collection' => 'collection',
-            'belongstocollection' => 'collection',
+            'tmdbmovie' => 'movie',
+            'tmdbtvseries' => 'tv',
+            'tmdbseason' => 'season',
+            'tmdbepisode' => 'episode',
+            'tmdbperson' => 'person',
+            'tmdbcast' => 'person',
+            'tmdbcrew' => 'person',
+            'tmdbcollection' => 'collection',
+            'tmdbbelongstocollection' => 'collection',
             default => 'unknown',
         };
     }

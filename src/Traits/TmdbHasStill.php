@@ -2,7 +2,7 @@
 
 namespace Kiwilan\Tmdb\Traits;
 
-use Kiwilan\Tmdb\Enums\StillSize;
+use Kiwilan\Tmdb\Enums\TmdbStillSize;
 use Kiwilan\Tmdb\Utils\TmdbStill;
 
 trait TmdbHasStill
@@ -19,7 +19,7 @@ trait TmdbHasStill
         return $this->still_path;
     }
 
-    public function getStillUrl(?StillSize $size = null): ?string
+    public function getStillUrl(?TmdbStillSize $size = null): ?string
     {
         $still = TmdbStill::make($this->still_path);
         if ($size) {
@@ -29,7 +29,7 @@ trait TmdbHasStill
         return $still->getUrl();
     }
 
-    public function getStillImage(?StillSize $size = null): ?string
+    public function getStillImage(?TmdbStillSize $size = null): ?string
     {
         $still = TmdbStill::make($this->still_path);
         if ($size) {
@@ -39,7 +39,7 @@ trait TmdbHasStill
         return $still->getImage();
     }
 
-    public function saveStillImage(string $path, ?StillSize $size = null): bool
+    public function saveStillImage(string $path, ?TmdbStillSize $size = null): bool
     {
         $still = TmdbStill::make($this->still_path);
         if ($size) {

@@ -1,17 +1,17 @@
 <?php
 
-use Kiwilan\Tmdb\Models\Common\AlternativeTitle;
-use Kiwilan\Tmdb\Models\Common\Company;
-use Kiwilan\Tmdb\Models\Common\Country;
-use Kiwilan\Tmdb\Models\Common\Genre;
-use Kiwilan\Tmdb\Models\Common\SpokenLanguage;
-use Kiwilan\Tmdb\Models\Credits\Cast;
-use Kiwilan\Tmdb\Models\Credits\Crew;
-use Kiwilan\Tmdb\Models\TvSeries;
-use Kiwilan\Tmdb\Models\TvSeries\ContentRating;
-use Kiwilan\Tmdb\Models\TvSeries\Episode;
-use Kiwilan\Tmdb\Models\TvSeries\Network;
-use Kiwilan\Tmdb\Models\TvSeries\Season;
+use Kiwilan\Tmdb\Models\Common\TmdbAlternativeTitle;
+use Kiwilan\Tmdb\Models\Common\TmdbCompany;
+use Kiwilan\Tmdb\Models\Common\TmdbCountry;
+use Kiwilan\Tmdb\Models\Common\TmdbGenre;
+use Kiwilan\Tmdb\Models\Common\TmdbSpokenLanguage;
+use Kiwilan\Tmdb\Models\Credits\TmdbCast;
+use Kiwilan\Tmdb\Models\Credits\TmdbCrew;
+use Kiwilan\Tmdb\Models\TmdbTvSeries;
+use Kiwilan\Tmdb\Models\TvSeries\TmdbContentRating;
+use Kiwilan\Tmdb\Models\TvSeries\TmdbEpisode;
+use Kiwilan\Tmdb\Models\TvSeries\TmdbNetwork;
+use Kiwilan\Tmdb\Models\TvSeries\TmdbSeason;
 use Kiwilan\Tmdb\Results\TvSerieResults;
 use Kiwilan\Tmdb\Tmdb;
 
@@ -21,20 +21,20 @@ it('can get tv series details', function () {
         ->details(1399);
 
     expect($tv)->not()->toBeNull();
-    expect($tv)->toBeInstanceOf(\Kiwilan\Tmdb\Models\TvSeries::class);
+    expect($tv)->toBeInstanceOf(\Kiwilan\Tmdb\Models\TmdbTvSeries::class);
 
     expect($tv->isAdult())->toBeFalse();
     expect($tv->getBackdropPath())->toBeString();
 
     expect($tv->getCreatedBy())->toBeArray();
-    expect($tv->getCreatedBy())->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(Crew::class));
+    expect($tv->getCreatedBy())->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(TmdbCrew::class));
 
     expect($tv->getEpisodeRunTime())->toBeNull();
     expect($tv->getFirstAirDate())->toBeInstanceOf(DateTime::class);
 
     expect($tv->getGenres())->toBeArray();
     expect($tv->getGenres())->not()->toBeEmpty();
-    expect($tv->getGenres())->each(fn (Pest\Expectation $genre) => expect($genre->value)->toBeInstanceOf(Genre::class));
+    expect($tv->getGenres())->each(fn (Pest\Expectation $genre) => expect($genre->value)->toBeInstanceOf(TmdbGenre::class));
 
     expect($tv->getHomepage())->toBeString();
     expect($tv->getId())->toBeInt();
@@ -44,12 +44,12 @@ it('can get tv series details', function () {
     expect($tv->getLanguages())->not()->toBeEmpty();
 
     expect($tv->getLastAirDate())->toBeInstanceOf(DateTime::class);
-    expect($tv->getLastEpisodeToAir())->toBeInstanceOf(Episode::class);
+    expect($tv->getLastEpisodeToAir())->toBeInstanceOf(TmdbEpisode::class);
     expect($tv->getName())->toBeString();
 
     expect($tv->getNetworks())->toBeArray();
     expect($tv->getNetworks())->not()->toBeEmpty();
-    expect($tv->getNetworks())->each(fn (Pest\Expectation $network) => expect($network->value)->toBeInstanceOf(Network::class));
+    expect($tv->getNetworks())->each(fn (Pest\Expectation $network) => expect($network->value)->toBeInstanceOf(TmdbNetwork::class));
 
     expect($tv->getNumberOfEpisodes())->toBeInt();
     expect($tv->getNumberOfSeasons())->toBeInt();
@@ -63,19 +63,19 @@ it('can get tv series details', function () {
 
     expect($tv->getProductionCompanies())->toBeArray();
     expect($tv->getProductionCompanies())->not()->toBeEmpty();
-    expect($tv->getProductionCompanies())->each(fn (Pest\Expectation $company) => expect($company->value)->toBeInstanceOf(Company::class));
+    expect($tv->getProductionCompanies())->each(fn (Pest\Expectation $company) => expect($company->value)->toBeInstanceOf(TmdbCompany::class));
 
     expect($tv->getProductionCountries())->toBeArray();
     expect($tv->getProductionCountries())->not()->toBeEmpty();
-    expect($tv->getProductionCountries())->each(fn (Pest\Expectation $country) => expect($country->value)->toBeInstanceOf(Country::class));
+    expect($tv->getProductionCountries())->each(fn (Pest\Expectation $country) => expect($country->value)->toBeInstanceOf(TmdbCountry::class));
 
     expect($tv->getSeasons())->toBeArray();
     expect($tv->getSeasons())->not()->toBeEmpty();
-    expect($tv->getSeasons())->each(fn (Pest\Expectation $season) => expect($season->value)->toBeInstanceOf(Season::class));
+    expect($tv->getSeasons())->each(fn (Pest\Expectation $season) => expect($season->value)->toBeInstanceOf(TmdbSeason::class));
 
     expect($tv->getSpokenLanguages())->toBeArray();
     expect($tv->getSpokenLanguages())->not()->toBeEmpty();
-    expect($tv->getSpokenLanguages())->each(fn (Pest\Expectation $spokenLanguage) => expect($spokenLanguage->value)->toBeInstanceOf(SpokenLanguage::class));
+    expect($tv->getSpokenLanguages())->each(fn (Pest\Expectation $spokenLanguage) => expect($spokenLanguage->value)->toBeInstanceOf(TmdbSpokenLanguage::class));
 
     expect($tv->getStatus())->toBeString();
     expect($tv->getTagline())->toBeString();
@@ -93,10 +93,10 @@ it('can parse alternative titles', function () {
 
     expect($tv->getAlternativeTitles())->toBeArray();
     expect($tv->getAlternativeTitles())->not()->toBeEmpty();
-    expect($tv->getAlternativeTitles())->each(fn (Pest\Expectation $alternativeTitle) => expect($alternativeTitle->value)->toBeInstanceOf(AlternativeTitle::class));
+    expect($tv->getAlternativeTitles())->each(fn (Pest\Expectation $alternativeTitle) => expect($alternativeTitle->value)->toBeInstanceOf(TmdbAlternativeTitle::class));
 
-    expect($tv->getAlternativeTitle('FR'))->toBeInstanceOf(AlternativeTitle::class);
-    expect($tv->getAlternativeTitle('US'))->toBeInstanceOf(AlternativeTitle::class);
+    expect($tv->getAlternativeTitle('FR'))->toBeInstanceOf(TmdbAlternativeTitle::class);
+    expect($tv->getAlternativeTitle('US'))->toBeInstanceOf(TmdbAlternativeTitle::class);
 });
 
 it('can parse content ratings', function () {
@@ -106,10 +106,10 @@ it('can parse content ratings', function () {
 
     expect($tv->getContentRatings())->toBeArray();
     expect($tv->getContentRatings())->not()->toBeEmpty();
-    expect($tv->getContentRatings())->each(fn (Pest\Expectation $contentRating) => expect($contentRating->value)->toBeInstanceOf(ContentRating::class));
+    expect($tv->getContentRatings())->each(fn (Pest\Expectation $contentRating) => expect($contentRating->value)->toBeInstanceOf(TmdbContentRating::class));
 
     $us = $tv->getContentRatingSpecific('US');
-    expect($us)->toBeInstanceOf(ContentRating::class);
+    expect($us)->toBeInstanceOf(TmdbContentRating::class);
     expect($us->getIso31661())->toBe('US');
     expect($us->getRating())->toBe('TV-MA');
 });
@@ -122,15 +122,15 @@ it('can parse credits', function () {
     $credits = $tv->getCredits();
     expect($credits->getCast())->toBeArray();
     expect($credits->getCast())->not()->toBeEmpty();
-    expect($credits->getCast())->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(Cast::class));
+    expect($credits->getCast())->each(fn (Pest\Expectation $cast) => expect($cast->value)->toBeInstanceOf(TmdbCast::class));
 
     expect($credits->getCrew())->toBeArray();
     expect($credits->getCrew())->not()->toBeEmpty();
-    expect($credits->getCrew())->each(fn (Pest\Expectation $crew) => expect($crew->value)->toBeInstanceOf(Crew::class));
+    expect($credits->getCrew())->each(fn (Pest\Expectation $crew) => expect($crew->value)->toBeInstanceOf(TmdbCrew::class));
 
     expect($tv->getCreatedBy())->toBeArray();
     expect($tv->getCreatedBy())->not()->toBeEmpty();
-    expect($tv->getCreatedBy())->each(fn (Pest\Expectation $creator) => expect($creator->value)->toBeInstanceOf(Crew::class));
+    expect($tv->getCreatedBy())->each(fn (Pest\Expectation $creator) => expect($creator->value)->toBeInstanceOf(TmdbCrew::class));
 });
 
 it('can parse recommendations', function () {
@@ -140,7 +140,7 @@ it('can parse recommendations', function () {
 
     expect($tv->getRecommendations()->getResults())->toBeArray();
     expect($tv->getRecommendations())->not()->toBeEmpty();
-    expect($tv->getRecommendations()->getResults())->each(fn (Pest\Expectation $recommendation) => expect($recommendation->value)->toBeInstanceOf(TvSeries::class));
+    expect($tv->getRecommendations()->getResults())->each(fn (Pest\Expectation $recommendation) => expect($recommendation->value)->toBeInstanceOf(TmdbTvSeries::class));
 });
 
 it('can parse similar', function () {
@@ -150,7 +150,7 @@ it('can parse similar', function () {
 
     expect($tv->getSimilar()->getResults())->toBeArray();
     expect($tv->getSimilar()->getResults())->not()->toBeEmpty();
-    expect($tv->getSimilar()->getResults())->each(fn (Pest\Expectation $similar) => expect($similar->value)->toBeInstanceOf(TvSeries::class));
+    expect($tv->getSimilar()->getResults())->each(fn (Pest\Expectation $similar) => expect($similar->value)->toBeInstanceOf(TmdbTvSeries::class));
 });
 
 it('can parse seasons', function () {
@@ -161,10 +161,10 @@ it('can parse seasons', function () {
     $seasons = $tv->getSeasons();
     expect($seasons)->toBeArray();
     expect($seasons)->not()->toBeEmpty();
-    expect($seasons)->each(fn (Pest\Expectation $similar) => expect($similar->value)->toBeInstanceOf(Season::class));
+    expect($seasons)->each(fn (Pest\Expectation $similar) => expect($similar->value)->toBeInstanceOf(TmdbSeason::class));
 
     $second = $seasons[1];
-    expect($second)->toBeInstanceOf(Season::class);
+    expect($second)->toBeInstanceOf(TmdbSeason::class);
     expect($second->getAirDate())->toBeInstanceOf(DateTime::class);
     expect($second->getName())->toBeString();
     expect($second->getOverview())->toBeString();

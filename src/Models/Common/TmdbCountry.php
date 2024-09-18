@@ -7,7 +7,7 @@ use Kiwilan\Tmdb\Models\TmdbModel;
 /**
  * Country information.
  */
-class Country extends TmdbModel
+class TmdbCountry extends TmdbModel
 {
     protected ?string $iso_3166_1 = null;
 

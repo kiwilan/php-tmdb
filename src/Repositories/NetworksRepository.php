@@ -18,10 +18,10 @@ class NetworksRepository extends Repository
      *
      * @docs https://developer.themoviedb.org/reference/network-details
      */
-    public function details(int $network_id): ?Models\TvSeries\Network
+    public function details(int $network_id): ?Models\TvSeries\TmdbNetwork
     {
         $response = $this->get("/network/{$network_id}");
 
-        return $this->isSuccess ? new Models\TvSeries\Network($response) : null;
+        return $this->isSuccess ? new Models\TvSeries\TmdbNetwork($response) : null;
     }
 }

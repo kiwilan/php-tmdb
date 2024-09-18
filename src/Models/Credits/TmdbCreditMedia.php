@@ -4,11 +4,11 @@ namespace Kiwilan\Tmdb\Models\Credits;
 
 use DateTime;
 use Kiwilan\Tmdb\Models\TmdbModel;
-use Kiwilan\Tmdb\Models\TvSeries\Episode;
-use Kiwilan\Tmdb\Models\TvSeries\Season;
+use Kiwilan\Tmdb\Models\TvSeries\TmdbEpisode;
+use Kiwilan\Tmdb\Models\TvSeries\TmdbSeason;
 use Kiwilan\Tmdb\Traits;
 
-class CreditMedia extends TmdbModel
+class TmdbCreditMedia extends TmdbModel
 {
     use Traits\TmdbHasBackdrop;
     use Traits\TmdbHasId;
@@ -43,10 +43,10 @@ class CreditMedia extends TmdbModel
 
     protected ?string $character = null;
 
-    /** @var Episode[]|null */
+    /** @var TmdbEpisode[]|null */
     protected ?array $episodes = null;
 
-    /** @var Season[]|null */
+    /** @var TmdbSeason[]|null */
     protected ?array $seasons = null;
 
     public function __construct(?array $data)
@@ -74,8 +74,8 @@ class CreditMedia extends TmdbModel
         $this->origin_country = $this->toArray($data, 'origin_country');
         $this->character = $this->toString($data, 'character');
 
-        $this->episodes = $this->validateData($data, 'episodes', fn (array $values) => $this->loopOn($values, Episode::class));
-        $this->seasons = $this->validateData($data, 'seasons', fn (array $values) => $this->loopOn($values, Season::class));
+        $this->episodes = $this->validateData($data, 'episodes', fn (array $values) => $this->loopOn($values, TmdbEpisode::class));
+        $this->seasons = $this->validateData($data, 'seasons', fn (array $values) => $this->loopOn($values, TmdbSeason::class));
     }
 
     public function getName(): ?string
@@ -150,7 +150,7 @@ class CreditMedia extends TmdbModel
     }
 
     /**
-     * @return Episode[]|null
+     * @return TmdbEpisode[]|null
      */
     public function getEpisodes(): ?array
     {
@@ -158,7 +158,7 @@ class CreditMedia extends TmdbModel
     }
 
     /**
-     * @return Season[]|null
+     * @return TmdbSeason[]|null
      */
     public function getSeasons(): ?array
     {

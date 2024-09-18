@@ -16,10 +16,10 @@ class CreditsRepository extends Repository
      *
      * @param  string  $credit_id  The TMDB credit ID
      */
-    public function details(string $credit_id): ?Models\Credit
+    public function details(string $credit_id): ?Models\TmdbCredit
     {
         $response = $this->get("/credit/{$credit_id}");
 
-        return $this->isSuccess ? new Models\Credit($response) : null;
+        return $this->isSuccess ? new Models\TmdbCredit($response) : null;
     }
 }

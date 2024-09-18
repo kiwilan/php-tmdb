@@ -2,12 +2,12 @@
 
 namespace Kiwilan\Tmdb\Models;
 
-use Kiwilan\Tmdb\Models\Movie\BelongsToCollection;
+use Kiwilan\Tmdb\Models\Movie\TmdbBelongsToCollection;
 
 /**
  * A collection of movies.
  */
-class Collection extends BelongsToCollection
+class TmdbCollection extends TmdbBelongsToCollection
 {
     protected ?string $overview = null;
 
@@ -17,7 +17,7 @@ class Collection extends BelongsToCollection
 
     protected bool $adult = false;
 
-    /** @var Movie[]|null */
+    /** @var TmdbMovie[]|null */
     protected ?array $parts = null;
 
     public function __construct(?array $data)
@@ -36,7 +36,7 @@ class Collection extends BelongsToCollection
         $this->original_name = $this->toString($data, 'original_name');
         $this->adult = $this->toBool($data, 'adult');
 
-        $this->parts = $this->validateData($data, 'parts', fn (array $values) => $this->loopOn($values, Movie::class));
+        $this->parts = $this->validateData($data, 'parts', fn (array $values) => $this->loopOn($values, TmdbMovie::class));
     }
 
     public function getName(): ?string
@@ -65,7 +65,7 @@ class Collection extends BelongsToCollection
     }
 
     /**
-     * @return Movie[]
+     * @return TmdbMovie[]
      */
     public function getParts(): array
     {
