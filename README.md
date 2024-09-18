@@ -55,7 +55,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $collection = Tmdb::client('API_KEY')
     ->collections()
-    ->details(collection_id: 119); // ?\Kiwilan\Tmdb\Models\Collection
+    ->details(collection_id: 119); // ?\Kiwilan\Tmdb\Models\TmdbCollection
 ```
 
 ### Companies
@@ -69,7 +69,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $collection = Tmdb::client('API_KEY')
     ->collections()
-    ->details(company_id: 12); // ?\Kiwilan\Tmdb\Models\Company
+    ->details(company_id: 12); // ?\Kiwilan\Tmdb\Models\TmdbCompany
 ```
 
 ### Credits
@@ -83,7 +83,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $collection = Tmdb::client('API_KEY')
     ->collections()
-    ->details(credit_id: '5256c8b219c2956ff6047cd8'); // ?\Kiwilan\Tmdb\Models\Credit
+    ->details(credit_id: '5256c8b219c2956ff6047cd8'); // ?\Kiwilan\Tmdb\Models\TmdbCredit
 ```
 
 ### Movie Lists
@@ -141,7 +141,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $movie = Tmdb::client('API_KEY')
     ->movies()
-    ->details(movie_id: 120); // ?\Kiwilan\Tmdb\Models\Movie
+    ->details(movie_id: 120); // ?\Kiwilan\Tmdb\Models\TmdbMovie
 ```
 
 ### Networks
@@ -155,7 +155,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $network = Tmdb::client('API_KEY')
     ->networks()
-    ->details(network_id: 49); // ?\Kiwilan\Tmdb\Models\TvSeries\Network
+    ->details(network_id: 49); // ?\Kiwilan\Tmdb\Models\TvSeries\TmdbNetwork
 ```
 
 ### Search
@@ -171,8 +171,8 @@ $results = Tmdb::client('API_KEY')
     ->search()
     ->movie(query: 'the lord of the rings');
 
-$collections = $results->getResults(); // \Kiwilan\Tmdb\Models\Collection[]
-$firstCollection = $results->getFirstResult(); // ?\Kiwilan\Tmdb\Models\Collection
+$collections = $results->getResults(); // \Kiwilan\Tmdb\Models\TmdbCollection[]
+$firstCollection = $results->getFirstResult(); // ?\Kiwilan\Tmdb\Models\TmdbCollection
 ```
 
 You can use options into your search:
@@ -202,8 +202,8 @@ $results = Tmdb::client('API_KEY')
     ->search()
     ->movie(query:'the fellowship of the ring');
 
-$movies = $results->getResults(); // \Kiwilan\Tmdb\Models\Movie[]
-$firstMovie = $results->getFirstResult(); // ?\Kiwilan\Tmdb\Models\Movie
+$movies = $results->getResults(); // \Kiwilan\Tmdb\Models\TmdbMovie[]
+$firstMovie = $results->getFirstResult(); // ?\Kiwilan\Tmdb\Models\TmdbMovie
 ```
 
 You can use options into your search:
@@ -235,8 +235,8 @@ $results = Tmdb::client('API_KEY')
     ->search()
     ->tv(query: 'game of thrones');
 
-$tvSeries = $results->getResults(); // \Kiwilan\Tmdb\Models\TvSeries[]
-$firstTvSeries = $results->getFirstResult(); // ?\Kiwilan\Tmdb\Models\TvSeries
+$tvSeries = $results->getResults(); // \Kiwilan\Tmdb\Models\TmdbTvSeries[]
+$firstTvSeries = $results->getFirstResult(); // ?\Kiwilan\Tmdb\Models\TmdbTvSeries
 ```
 
 You can use options into your search:
@@ -359,7 +359,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $tvSeries = Tmdb::client('API_KEY')
     ->tvSeries()
-    ->details(series_id: 1399); // ?\Kiwilan\Tmdb\Models\TvSeries
+    ->details(series_id: 1399); // ?\Kiwilan\Tmdb\Models\TmdbTvSeries
 ```
 
 ### TV Seasons
@@ -373,7 +373,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $season = Tmdb::client('API_KEY')
     ->tvSeasons()
-    ->details(series_id: 1399, season_number: 1); // ?\Kiwilan\Tmdb\Models\Season
+    ->details(series_id: 1399, season_number: 1); // ?\Kiwilan\Tmdb\Models\TmdbSeason
 ```
 
 ### TV Episodes
@@ -387,7 +387,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $episode = Tmdb::client('API_KEY')
     ->tvEpisodes()
-    ->details(series_id: 1399, season_number: 1, episode_number: 1); // ?\Kiwilan\Tmdb\Models\Episode
+    ->details(series_id: 1399, season_number: 1, episode_number: 1); // ?\Kiwilan\Tmdb\Models\TmdbEpisode
 ```
 
 ## Images
@@ -399,7 +399,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $movie = Tmdb::client('API_KEY')
     ->movies()
-    ->details(movie_id: 120); // ?\Kiwilan\Tmdb\Models\Movie
+    ->details(movie_id: 120); // ?\Kiwilan\Tmdb\Models\TmdbMovie
 
 $poster_path = $movie->getPosterPath(); // string|null (path to poster)
 $poster_url = $movie->getPosterUrl(); // string|null (URL to poster)
@@ -415,7 +415,7 @@ use Kiwilan\Tmdb\Enums\PosterSize;
 
 $movie = Tmdb::client('API_KEY')
     ->movies()
-    ->details(movie_id: 120); // ?\Kiwilan\Tmdb\Models\Movie
+    ->details(movie_id: 120); // ?\Kiwilan\Tmdb\Models\TmdbMovie
 
 $poster_url = $movie->getPosterUrl(size: PosterSize::W500); // string|null (URL to poster)
 ```
@@ -438,7 +438,7 @@ use Kiwilan\Tmdb\Tmdb;
 
 $movie = Tmdb::client('API_KEY')
     ->movies()
-    ->details(movie_id: 120, append_to_response: ['credits' ,'videos']); // ?\Kiwilan\Tmdb\Models\Movie
+    ->details(movie_id: 120, append_to_response: ['credits' ,'videos']); // ?\Kiwilan\Tmdb\Models\TmdbMovie
 ```
 
 ## Testing
