@@ -4,6 +4,7 @@ namespace Kiwilan\Tmdb\Models\Common;
 
 use DateTime;
 use Kiwilan\Tmdb\Models\TmdbModel;
+use Kiwilan\Tmdb\Utils\TmdbUrl;
 
 /**
  * A video of a movie.
@@ -104,6 +105,6 @@ class Video extends TmdbModel
             return null;
         }
 
-        return "https://www.youtube.com/watch?v={$this->key}";
+        return TmdbUrl::YOUTUBE_URL."{$this->key}";
     }
 }

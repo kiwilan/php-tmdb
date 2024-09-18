@@ -6,8 +6,6 @@ use BackedEnum;
 
 abstract class TmdbImage
 {
-    const BASE_URL = 'https://image.tmdb.org/t/p/';
-
     protected ?string $imageUrl = null;
 
     protected ?BackedEnum $size = null;
@@ -28,7 +26,7 @@ abstract class TmdbImage
             return null;
         }
 
-        $url = self::BASE_URL;
+        $url = TmdbUrl::IMAGE_URL;
 
         return "{$url}{$this->size->value}{$this->imageUrl}";
     }

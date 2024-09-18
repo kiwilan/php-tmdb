@@ -2,10 +2,10 @@
 
 namespace Kiwilan\Tmdb\Repositories;
 
+use Kiwilan\Tmdb\Utils\TmdbUrl;
+
 abstract class Repository
 {
-    protected const BASE_URL = 'https://api.themoviedb.org/3';
-
     protected bool $isSuccess = false;
 
     protected string $language = 'en-US';
@@ -33,7 +33,7 @@ abstract class Repository
      */
     protected function getUrl(string $path, array $queryParams = []): string
     {
-        return self::BASE_URL.$path.'?'.http_build_query($queryParams);
+        return TmdbUrl::API_V3_URL.$path.'?'.http_build_query($queryParams);
     }
 
     /**

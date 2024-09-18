@@ -10,6 +10,7 @@ use Kiwilan\Tmdb\Utils\TmdbLogo;
 use Kiwilan\Tmdb\Utils\TmdbPoster;
 use Kiwilan\Tmdb\Utils\TmdbProfile;
 use Kiwilan\Tmdb\Utils\TmdbStill;
+use Kiwilan\Tmdb\Utils\TmdbUrl;
 
 define('BACKDROP_PATH', '/x2RS3uTcsJJ9IfjNPcgDmukoEcQ.jpg');
 define('LOGO_PATH', '/2ycs64eqV5rqKYHyQK0GVoKGvfX.png');
@@ -21,7 +22,7 @@ it('can get backdrop', function (BackdropSize $size) {
     clearMedia();
 
     $backdrop = TmdbBackdrop::make(BACKDROP_PATH)->size($size);
-    expect($backdrop->getUrl())->toBe('https://image.tmdb.org/t/p/'.$size->value.BACKDROP_PATH);
+    expect($backdrop->getUrl())->toBe(TmdbUrl::IMAGE_URL.$size->value.BACKDROP_PATH);
     expect($backdrop->getImage())->toBeString();
     $path = mediaPath('/backdrop-'.$size->value.'.jpg');
     expect($backdrop->saveImage($path))->toBeTrue();
@@ -32,7 +33,7 @@ it('can get logo', function (LogoSize $size) {
     clearMedia();
 
     $logo = TmdbLogo::make(LOGO_PATH)->size($size);
-    expect($logo->getUrl())->toBe('https://image.tmdb.org/t/p/'.$size->value.LOGO_PATH);
+    expect($logo->getUrl())->toBe(TmdbUrl::IMAGE_URL.$size->value.LOGO_PATH);
     expect($logo->getImage())->toBeString();
     $path = mediaPath('/logo-'.$size->value.'.jpg');
     expect($logo->saveImage($path))->toBeTrue();
@@ -43,7 +44,7 @@ it('can get poster', function (PosterSize $size) {
     clearMedia();
 
     $poster = TmdbPoster::make(POSTER_PATH)->size($size);
-    expect($poster->getUrl())->toBe('https://image.tmdb.org/t/p/'.$size->value.POSTER_PATH);
+    expect($poster->getUrl())->toBe(TmdbUrl::IMAGE_URL.$size->value.POSTER_PATH);
     expect($poster->getImage())->toBeString();
     $path = mediaPath('/poster-'.$size->value.'.jpg');
     expect($poster->saveImage($path))->toBeTrue();
@@ -54,7 +55,7 @@ it('can get profile', function (ProfileSize $size) {
     clearMedia();
 
     $profile = TmdbProfile::make(PROFILE_PATH)->size($size);
-    expect($profile->getUrl())->toBe('https://image.tmdb.org/t/p/'.$size->value.PROFILE_PATH);
+    expect($profile->getUrl())->toBe(TmdbUrl::IMAGE_URL.$size->value.PROFILE_PATH);
     expect($profile->getImage())->toBeString();
     $path = mediaPath('/profile-'.$size->value.'.jpg');
     expect($profile->saveImage($path))->toBeTrue();
@@ -65,7 +66,7 @@ it('can get still', function (StillSize $size) {
     clearMedia();
 
     $still = TmdbStill::make(STILL_PATH)->size($size);
-    expect($still->getUrl())->toBe('https://image.tmdb.org/t/p/'.$size->value.STILL_PATH);
+    expect($still->getUrl())->toBe(TmdbUrl::IMAGE_URL.$size->value.STILL_PATH);
     expect($still->getImage())->toBeString();
     $path = mediaPath('/still-'.$size->value.'.jpg');
     expect($still->saveImage($path))->toBeTrue();

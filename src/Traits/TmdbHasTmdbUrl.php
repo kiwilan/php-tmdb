@@ -2,11 +2,13 @@
 
 namespace Kiwilan\Tmdb\Traits;
 
+use Kiwilan\Tmdb\Utils\TmdbUrl;
+
 trait TmdbHasTmdbUrl
 {
     private function getBaseURL(): string
     {
-        return 'https://www.themoviedb.org';
+        return TmdbUrl::TMDB_URL;
     }
 
     private function getMediaType(): string
