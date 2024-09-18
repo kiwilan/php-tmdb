@@ -68,7 +68,7 @@ Get the company details by ID.
 use Kiwilan\Tmdb\Tmdb;
 
 $collection = Tmdb::client('API_KEY')
-    ->collections()
+    ->companies()
     ->details(company_id: 12); // ?\Kiwilan\Tmdb\Models\TmdbCompany
 ```
 
@@ -82,7 +82,7 @@ Get a movie or TV credit details by ID.
 use Kiwilan\Tmdb\Tmdb;
 
 $collection = Tmdb::client('API_KEY')
-    ->collections()
+    ->credits()
     ->details(credit_id: '5256c8b219c2956ff6047cd8'); // ?\Kiwilan\Tmdb\Models\TmdbCredit
 ```
 
