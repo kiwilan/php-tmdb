@@ -67,7 +67,7 @@ Get the company details by ID.
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$collection = Tmdb::client('API_KEY')
+$companie = Tmdb::client('API_KEY')
     ->companies()
     ->details(company_id: 12); // ?\Kiwilan\Tmdb\Models\TmdbCompany
 ```
@@ -81,7 +81,7 @@ Get a movie or TV credit details by ID.
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$collection = Tmdb::client('API_KEY')
+$credit = Tmdb::client('API_KEY')
     ->credits()
     ->details(credit_id: '5256c8b219c2956ff6047cd8'); // ?\Kiwilan\Tmdb\Models\TmdbCredit
 ```
@@ -265,7 +265,7 @@ Get the trending movies, TV shows and people.
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$trending = Tmdb::client('API_KEY')
+$all = Tmdb::client('API_KEY')
     ->trending()
     ->all(); // ?\Kiwilan\Tmdb\Results\MediaResults
 ```
@@ -277,7 +277,7 @@ Get the trending movies on TMDB.
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$trending = Tmdb::client('API_KEY')
+$movies = Tmdb::client('API_KEY')
     ->trending()
     ->movies(); // ?\Kiwilan\Tmdb\Results\MovieResults
 ```
@@ -289,7 +289,7 @@ Get the trending people on TMDB.
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$trending = Tmdb::client('API_KEY')
+$people = Tmdb::client('API_KEY')
     ->trending()
     ->people(); // ?\Kiwilan\Tmdb\Results\PeopleResults
 ```
@@ -301,7 +301,7 @@ Get the trending TV shows on TMDB.
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$trending = Tmdb::client('API_KEY')
+$tv = Tmdb::client('API_KEY')
     ->trending()
     ->tv(); // ?\Kiwilan\Tmdb\Results\TvSerieResults
 ```
@@ -313,7 +313,7 @@ $trending = Tmdb::client('API_KEY')
 Get a list of TV shows airing today.
 
 ```php
-$all = Tmdb::client('API_KEY')
+$airing_today = Tmdb::client('API_KEY')
     ->tvSeriesList()
     ->airingToday(); // ?\Kiwilan\Tmdb\Results\TvSerieResults
 ```
@@ -323,7 +323,7 @@ $all = Tmdb::client('API_KEY')
 Get a list of TV shows that air in the next 7 days.
 
 ```php
-$all = Tmdb::client('API_KEY')
+$on_the_air = Tmdb::client('API_KEY')
     ->tvSeriesList()
     ->onTheAir(); // ?\Kiwilan\Tmdb\Results\TvSerieResults
 ```
@@ -333,7 +333,7 @@ $all = Tmdb::client('API_KEY')
 Get a list of TV shows ordered by popularity.
 
 ```php
-$all = Tmdb::client('API_KEY')
+$popular = Tmdb::client('API_KEY')
     ->tvSeriesList()
     ->popular(); // ?\Kiwilan\Tmdb\Results\TvSerieResults
 ```
@@ -343,7 +343,7 @@ $all = Tmdb::client('API_KEY')
 Get a list of TV shows ordered by rating.
 
 ```php
-$all = Tmdb::client('API_KEY')
+$top_rated = Tmdb::client('API_KEY')
     ->tvSeriesList()
     ->topRated(); // ?\Kiwilan\Tmdb\Results\TvSerieResults
 ```
