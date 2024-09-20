@@ -67,7 +67,7 @@ Get the company details by ID.
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$companie = Tmdb::client('API_KEY')
+$company = Tmdb::client('API_KEY')
     ->companies()
     ->details(company_id: 12); // ?\Kiwilan\Tmdb\Models\TmdbCompany
 ```
