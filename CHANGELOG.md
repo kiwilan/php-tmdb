@@ -2,6 +2,13 @@
 
 All notable changes to `php-tmdb` will be documented in this file.
 
+## v0.1.01 - 2024-09-20
+
+- add `getRawData()` method for all models to get raw data from TMDB API
+- add `__set()` method for all models to update model properties
+- delete `TmdbBelongsToCollection` model and use only `TmdbCollection` model, now `getBelongsToCollection()` is replaced by `getCollection()`
+- add `getMedia()` for `TmdbMedia` model to get media data which can be movie, tv show, or person
+
 ## v0.1.0 - 2024-09-18
 
 - Rename all models with `Tmdb` prefix to avoid conflicts with other models
