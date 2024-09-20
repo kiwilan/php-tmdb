@@ -22,17 +22,17 @@ PHP wrapper package to interact with the [The Movie Database (TMDB) API](https:/
 **PHP 8.1** and later.
 
 > [!NOTE]
-> Package `guzzlehttp/guzzle` will be installed automatically by Composer.
+> Package `guzzlehttp/guzzle` will be installed automatically by `composer`.
 
 ## About
 
 This package uses repository pattern to interact with the TMDB API. Each repository represents an API category like _Movies_, _Search_, _Trending_, etc. And each endpoint of API is a method in repository, like `details()` for _Movies_, `movie()` for _Search_, `all()` for _Trending_, etc. If you know TMDB API, you will understand this package easily.
 
-_This is NOT official TMDB API PHP wrapper, you can check [php-tmdb/api](https://github.com/php-tmdb/api) if you want official package._
+_This is NOT official TMDB API PHP wrapper, you can check [`php-tmdb/api`](https://github.com/php-tmdb/api) if you want official package._
 
 _Why this package?_
 
-_All current PHP packages to interact with the TMDB API are not up-to-date and I need a modern and easy-to-use package to interact with the TMDB API. So I decided to create this package. You can check [Roadmap](#roadmap) to see what I plan to do with this package._
+_All current PHP packages to interact with the TMDB API are not up-to-date and I need a modern and easy-to-use package to interact with the TMDB API. So I decided to create this package. You can check [`roadmap`](#roadmap) to see what I plan to do with this package._
 
 ## Installation
 
