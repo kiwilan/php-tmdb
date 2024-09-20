@@ -2,6 +2,10 @@
 
 All notable changes to `php-tmdb` will be documented in this file.
 
+## v0.1.02 - 2024-09-20
+
+Add `getBelongsToCollection()` to `TmdbMovie`
+
 ## v0.1.01 - 2024-09-20
 
 - add `getRawData()` method for all models to get raw data from TMDB API
