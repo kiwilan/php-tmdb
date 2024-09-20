@@ -67,6 +67,17 @@ class TmdbMovie extends TmdbExtendedMedia
         $this->similar = $this->toModel($data, 'similar', MovieResults::class);
     }
 
+    /**
+     * Get movie's collection, you can use `getCollection()` instead.
+     */
+    public function getBelongsToCollection(): ?TmdbCollection
+    {
+        return $this->belongs_to_collection;
+    }
+
+    /**
+     * Get movie's collection, you can use `getBelongsToCollection()` instead.
+     */
     public function getCollection(): ?TmdbCollection
     {
         return $this->belongs_to_collection;
