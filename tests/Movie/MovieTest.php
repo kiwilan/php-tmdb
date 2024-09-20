@@ -8,9 +8,9 @@ use Kiwilan\Tmdb\Models\Common\TmdbSpokenLanguage;
 use Kiwilan\Tmdb\Models\Common\TmdbVideo;
 use Kiwilan\Tmdb\Models\Credits\TmdbCast;
 use Kiwilan\Tmdb\Models\Credits\TmdbCrew;
-use Kiwilan\Tmdb\Models\Movie\TmdbBelongsToCollection;
 use Kiwilan\Tmdb\Models\Movie\TmdbReleaseDate;
 use Kiwilan\Tmdb\Models\Movie\TmdbReleaseDateItem;
+use Kiwilan\Tmdb\Models\TmdbCollection;
 use Kiwilan\Tmdb\Models\TmdbMovie;
 use Kiwilan\Tmdb\Tmdb;
 
@@ -24,12 +24,12 @@ it('can get movie details (tmdb id)', function () {
 
     expect($movie->isAdult())->toBeFalse();
 
-    expect($movie->getBelongsToCollection())->toBeInstanceOf(TmdbBelongsToCollection::class);
-    expect($movie->getBelongsToCollection()->getId())->toBe(119);
-    expect($movie->getBelongsToCollection()->getName())->toBe('The Lord of the Rings Collection');
-    expect($movie->getBelongsToCollection()->getPosterPath())->toBeString();
-    expect($movie->getBelongsToCollection()->getBackdropPath())->toBeString();
-    expect($movie->getBelongsToCollection()->getTmdbUrl())->toBeString();
+    expect($movie->getCollection())->toBeInstanceOf(TmdbCollection::class);
+    expect($movie->getCollection()->getId())->toBe(119);
+    expect($movie->getCollection()->getName())->toBe('The Lord of the Rings Collection');
+    expect($movie->getCollection()->getPosterPath())->toBeString();
+    expect($movie->getCollection()->getBackdropPath())->toBeString();
+    expect($movie->getCollection()->getTmdbUrl())->toBeString();
 
     expect($movie->getBudget())->toBeInt();
 
@@ -256,10 +256,29 @@ it('can get belongs to', function () {
         ->movies()
         ->details(120);
 
-    expect($movie->getBelongsToCollection())->toBeInstanceOf(TmdbBelongsToCollection::class);
-    expect($movie->getBelongsToCollection()->getId())->toBe(119);
-    expect($movie->getBelongsToCollection()->getName())->toBe('The Lord of the Rings Collection');
-    expect($movie->getBelongsToCollection()->getPosterPath())->toBeString();
-    expect($movie->getBelongsToCollection()->getBackdropPath())->toBeString();
-    expect($movie->getBelongsToCollection()->getTmdbUrl())->toBeString();
+    expect($movie->getCollection())->toBeInstanceOf(TmdbCollection::class);
+    expect($movie->getCollection()->getId())->toBe(119);
+    expect($movie->getCollection()->getName())->toBe('The Lord of the Rings Collection');
+    expect($movie->getCollection()->getPosterPath())->toBeString();
+    expect($movie->getCollection()->getBackdropPath())->toBeString();
+    expect($movie->getCollection()->getTmdbUrl())->toBeString();
+});
+
+it('can raw data', function () {
+    $movie = Tmdb::client(apiKey())
+        ->movies()
+        ->details(120);
+
+    expect($movie->getRawData())->not()->toBeNull();
+    expect($movie->getRawData())->toBeArray();
+});
+
+it('can update properties', function () {
+    $movie = Tmdb::client(apiKey())
+        ->movies()
+        ->details(120);
+
+    expect($movie->getTitle())->toBe('The Lord of the Rings: The Fellowship of the Ring');
+    $movie->__set('title', 'The Lord of the Rings: The Two Towers');
+    expect($movie->getTitle())->toBe('The Lord of the Rings: The Two Towers');
 });

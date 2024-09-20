@@ -25,7 +25,6 @@ trait TmdbHasTmdbUrl
             'tmdbcast' => 'person',
             'tmdbcrew' => 'person',
             'tmdbcollection' => 'collection',
-            'tmdbbelongstocollection' => 'collection',
             default => 'unknown',
         };
     }

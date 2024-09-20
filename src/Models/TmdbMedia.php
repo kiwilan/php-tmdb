@@ -47,6 +47,14 @@ class TmdbMedia extends TmdbModel
         return $this->media_type;
     }
 
+    /**
+     * Get the media object: movie, tv-show or person
+     */
+    public function getMedia(): TmdbMovie|TmdbTvSeries|TmdbPerson
+    {
+        return $this->movie ?? $this->tv_series ?? $this->person;
+    }
+
     public function isMovie(): bool
     {
         return $this->media_type === TmdbMediaType::MOVIE;

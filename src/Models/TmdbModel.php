@@ -5,8 +5,30 @@ namespace Kiwilan\Tmdb\Models;
 use Closure;
 use DateTime;
 
-class TmdbModel
+abstract class TmdbModel
 {
+    protected ?array $raw_data = null;
+
+    public function __construct(?array $raw_data)
+    {
+        $this->raw_data = $raw_data;
+    }
+
+    /**
+     * Get the raw data
+     */
+    public function getRawData(): ?array
+    {
+        return $this->raw_data;
+    }
+
+    public function __set(string $name, mixed $value): void
+    {
+        if (property_exists($this, $name)) {
+            $this->{$name} = $value;
+        }
+    }
+
     protected function validateData(?array $data, string $key, Closure $closure): mixed
     {
         if (! $data) {

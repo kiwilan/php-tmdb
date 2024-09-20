@@ -31,6 +31,8 @@ abstract class TmdbBaseMedia extends TmdbModel
             return;
         }
 
+        parent::__construct($data);
+
         $this->setId($data);
         $this->setBackdropPath($data);
         $this->setPosterPath($data);

@@ -2,13 +2,20 @@
 
 namespace Kiwilan\Tmdb\Models;
 
-use Kiwilan\Tmdb\Models\Movie\TmdbBelongsToCollection;
+use Kiwilan\Tmdb\Traits;
 
 /**
  * A collection of movies.
  */
-class TmdbCollection extends TmdbBelongsToCollection
+class TmdbCollection extends TmdbModel
 {
+    use Traits\TmdbHasBackdrop;
+    use Traits\TmdbHasId;
+    use Traits\TmdbHasPoster;
+    use Traits\TmdbHasTmdbUrl;
+
+    protected ?string $name = null;
+
     protected ?string $overview = null;
 
     protected ?string $original_language = null;
@@ -29,6 +36,7 @@ class TmdbCollection extends TmdbBelongsToCollection
         $this->setId($data);
         $this->setPosterPath($data);
         $this->setBackdropPath($data);
+        $this->name = $this->toString($data, 'name');
 
         $this->name = $this->toString($data, 'name');
         $this->overview = $this->toString($data, 'overview');

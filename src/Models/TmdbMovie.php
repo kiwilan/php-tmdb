@@ -16,7 +16,7 @@ class TmdbMovie extends TmdbExtendedMedia
 {
     use Traits\TmdbHasTmdbUrl;
 
-    protected ?Movie\TmdbBelongsToCollection $belongs_to_collection = null;
+    protected ?TmdbCollection $belongs_to_collection = null;
 
     protected ?int $budget = null;
 
@@ -50,7 +50,7 @@ class TmdbMovie extends TmdbExtendedMedia
 
         parent::__construct($data);
 
-        $this->belongs_to_collection = $this->toModel($data, 'belongs_to_collection', Movie\TmdbBelongsToCollection::class);
+        $this->belongs_to_collection = $this->toModel($data, 'belongs_to_collection', TmdbCollection::class);
         $this->budget = $this->toInt($data, 'budget');
         $this->imdb_id = $this->toString($data, 'imdb_id');
         $this->original_title = $this->toString($data, 'original_title');
@@ -67,7 +67,7 @@ class TmdbMovie extends TmdbExtendedMedia
         $this->similar = $this->toModel($data, 'similar', MovieResults::class);
     }
 
-    public function getBelongsToCollection(): ?Movie\TmdbBelongsToCollection
+    public function getCollection(): ?TmdbCollection
     {
         return $this->belongs_to_collection;
     }

@@ -390,7 +390,9 @@ $episode = Tmdb::client('API_KEY')
     ->details(series_id: 1399, season_number: 1, episode_number: 1); // ?\Kiwilan\Tmdb\Models\TmdbEpisode
 ```
 
-## Images
+## Advanced
+
+### Images
 
 For any model with image (poster, backdrop, logo, profile, still), you can use multiple methods:
 
@@ -422,7 +424,7 @@ $poster_url = $movie->getPosterUrl(size: PosterSize::W500); // string|null (URL 
 
 These methods are available for `Poster`, `Backdrop`, `Logo`, `Profile` and `Still`.
 
-## Append to response
+### Append to response
 
 TMDB offers an easy way to get more details with `append_to_response` option. You can add more data in same request, it's really useful to get all data you need in one request.
 
@@ -439,6 +441,20 @@ use Kiwilan\Tmdb\Tmdb;
 $movie = Tmdb::client('API_KEY')
     ->movies()
     ->details(movie_id: 120, append_to_response: ['credits' ,'videos']); // ?\Kiwilan\Tmdb\Models\TmdbMovie
+```
+
+### Get raw data
+
+If you want to get raw data from TMDB API, you can use `getRawData()` method:
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$movie = Tmdb::client('API_KEY')
+    ->movies()
+    ->details(movie_id: 120); // ?\Kiwilan\Tmdb\Models\TmdbMovie
+
+$raw_data = $movie->getRawData(); // array
 ```
 
 ## Testing
