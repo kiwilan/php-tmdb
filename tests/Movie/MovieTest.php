@@ -256,6 +256,7 @@ it('can get belongs to', function () {
         ->movies()
         ->details(120);
 
+    expect($movie->getBelongsToCollection())->toBeInstanceOf(TmdbCollection::class);
     expect($movie->getCollection())->toBeInstanceOf(TmdbCollection::class);
     expect($movie->getCollection()->getId())->toBe(119);
     expect($movie->getCollection()->getName())->toBe('The Lord of the Rings Collection');
