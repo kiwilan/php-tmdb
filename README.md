@@ -621,6 +621,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Credits
 
+-   [TMDB](https://www.themoviedb.org/) for their awesome API
 -   [`spatie`](https://github.com/spatie) for `spatie/package-skeleton-php`
 -   [Ewilan Rivière](https://github.com/ewilan-riviere) author of this package
 -   [All Contributors](../../contributors)
