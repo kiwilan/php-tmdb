@@ -10,8 +10,6 @@ class TrendingRepository extends Repository
     /**
      * Get the trending movies, TV shows and people.
      *
-     * @param  string  $language  The season number
-     *
      * @docs https://developer.themoviedb.org/reference/trending-all
      */
     public function all(TmdbTimeWindow $time_window = TmdbTimeWindow::DAY, string $language = 'en-US'): ?Results\MediaResults
@@ -25,8 +23,6 @@ class TrendingRepository extends Repository
 
     /**
      * Get the trending movies on TMDB.
-     *
-     * @param  string  $language  The season number
      *
      * @docs https://developer.themoviedb.org/reference/trending-movies
      */
@@ -42,8 +38,6 @@ class TrendingRepository extends Repository
     /**
      * Get the trending people on TMDB.
      *
-     * @param  string  $language  The season number
-     *
      * @docs https://developer.themoviedb.org/reference/trending-people
      */
     public function people(TmdbTimeWindow $time_window = TmdbTimeWindow::DAY, string $language = 'en-US'): ?Results\PeopleResults
@@ -57,8 +51,6 @@ class TrendingRepository extends Repository
 
     /**
      * Get the trending TV shows on TMDB.
-     *
-     * @param  string  $language  The season number
      *
      * @docs https://developer.themoviedb.org/reference/trending-tv
      */
