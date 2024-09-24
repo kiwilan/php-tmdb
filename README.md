@@ -392,6 +392,24 @@ $episode = Tmdb::client('API_KEY')
 
 ## Advanced
 
+### Results
+
+For any method that returns a list of results, you can use multiple methods:
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$movies = Tmdb::client('API_KEY')
+    ->movieLists()
+    ->popular(); // ?\Kiwilan\Tmdb\Results\MovieResults
+
+$results = $movies->getResults(); // \Kiwilan\Tmdb\Models\TmdbMovie[]
+$firstResult = $movies->getFirstResult(); // ?\Kiwilan\Tmdb\Models\TmdbMovie
+$lastResult = $movies->getLastResult(); // ?\Kiwilan\Tmdb\Models\TmdbMovie
+$filterResults = $movies->filter(fn (\Kiwilan\Tmdb\Models\TmdbMovie $movie) => $movie->getVoteAverage() > 8); // \Kiwilan\Tmdb\Models\TmdbMovie[]
+$findResult = $movies->find(fn (\Kiwilan\Tmdb\Models\TmdbMovie $movie) => $movie->getVoteAverage() > 8); // ?\Kiwilan\Tmdb\Models\TmdbMovie
+```
+
 ### Images
 
 For any model with image (poster, backdrop, logo, profile, still), you can use multiple methods:
@@ -445,7 +463,11 @@ $movie = Tmdb::client('API_KEY')
 
 ### Get raw data
 
-If you want to get raw data from TMDB API, you can use `getRawData()` method:
+If you want to get raw data from TMDB API, you can use `getRawData()` method and `getRawDataKey()` method to get a specific key.
+
+> [!NOTE]
+>
+> If a key hasn't dedicated method, you can use `getRawDataKey()` method to get it but don't hesitate to open an issue to ask for a dedicated method.
 
 ```php
 use Kiwilan\Tmdb\Tmdb;
@@ -455,6 +477,7 @@ $movie = Tmdb::client('API_KEY')
     ->details(movie_id: 120); // ?\Kiwilan\Tmdb\Models\TmdbMovie
 
 $raw_data = $movie->getRawData(); // array
+$raw_title_key = $movie->getRawDataKey('title'); // mixed
 ```
 
 ## Testing
