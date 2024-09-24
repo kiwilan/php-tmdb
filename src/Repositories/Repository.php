@@ -58,6 +58,7 @@ abstract class Repository
         $response = $client->request('GET', $url, [
             'headers' => [
                 'Authorization' => "Bearer {$this->apiKey}",
+                'accept' => 'application/json',
             ],
             'http_errors' => false,
         ]);

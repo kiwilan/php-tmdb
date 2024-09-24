@@ -29,6 +29,22 @@ it('can get collection', function () {
     expect($first->getPosterPath())->toBeString();
     expect($first->getBackdropPath())->toBeNull();
     expect($first->isAdult())->toBeFalse();
+
+    expect($results->getResults())->toBeArray();
+    expect($results->getResults())->not()->toBeEmpty();
+    expect($results->getFirstResult())->toBeInstanceOf(TmdbCollection::class);
+    expect($results->getResults())->each(fn (Pest\Expectation $collection) => expect($collection->value)->toBeInstanceOf(TmdbCollection::class));
+
+    $collection = $results->filter(fn (TmdbCollection $collection) => $collection->getPosterPath() !== null);
+    expect($collection)->toBeArray();
+    expect($collection)->not()->toBeEmpty();
+    expect($collection)->each(fn (Pest\Expectation $collection) => expect($collection->value)->toBeInstanceOf(TmdbCollection::class));
+
+    $collection = $results->find(fn (TmdbCollection $collection) => $collection->getPosterPath() !== null);
+    expect($collection)->toBeInstanceOf(TmdbCollection::class);
+
+    expect($results->getFirstResult())->toBeInstanceOf(TmdbCollection::class);
+    expect($results->getLastResult())->toBeInstanceOf(TmdbCollection::class);
 });
 
 it('can search collection with options', function () {

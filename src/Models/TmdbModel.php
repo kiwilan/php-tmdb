@@ -22,6 +22,14 @@ abstract class TmdbModel
         return $this->raw_data;
     }
 
+    /**
+     * Get the raw data key
+     */
+    public function getRawDataKey(string $key): mixed
+    {
+        return $this->raw_data[$key] ?? null;
+    }
+
     public function __set(string $name, mixed $value): void
     {
         if (property_exists($this, $name)) {

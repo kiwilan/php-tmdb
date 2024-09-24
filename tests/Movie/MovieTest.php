@@ -272,6 +272,8 @@ it('can raw data', function () {
 
     expect($movie->getRawData())->not()->toBeNull();
     expect($movie->getRawData())->toBeArray();
+
+    expect($movie->getRawDataKey('title'))->toBe('The Lord of the Rings: The Fellowship of the Ring');
 });
 
 it('can update properties', function () {

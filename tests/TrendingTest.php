@@ -20,7 +20,6 @@ it('can use all', function () {
     expect($all->getResults())->not()->toBeEmpty();
     expect($all->getFirstResult())->toBeInstanceOf(TmdbMedia::class);
     expect($all->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TmdbMedia::class));
-    ray($all);
 
     $first = $all->getFirstResult();
     expect($first)->toBeInstanceOf(TmdbMedia::class);
@@ -38,6 +37,17 @@ it('can use all', function () {
     if ($all->getFirstPerson()) {
         expect($all->getFirstPerson())->toBeInstanceOf(TmdbPerson::class);
     }
+
+    $media = $all->filter(fn (TmdbMedia $media) => $media->getMedia() !== null);
+    expect($media)->toBeArray();
+    expect($media)->not()->toBeEmpty();
+    expect($media)->each(fn (Pest\Expectation $media) => expect($media->value)->toBeInstanceOf(TmdbMedia::class));
+
+    $media = $all->find(fn (TmdbMedia $media) => $media->getMedia() !== null);
+    expect($media)->toBeInstanceOf(TmdbMedia::class);
+
+    expect($all->getFirstResult())->toBeInstanceOf(TmdbMedia::class);
+    expect($all->getLastResult())->toBeInstanceOf(TmdbMedia::class);
 });
 
 it('can use movies', function () {
@@ -51,6 +61,22 @@ it('can use movies', function () {
     expect($all->getResults())->not()->toBeEmpty();
     expect($all->getFirstResult())->toBeInstanceOf(TmdbMovie::class);
     expect($all->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TmdbMovie::class));
+
+    $very_popular = $all->filter(fn (TmdbMovie $movie) => $movie->getVoteCount() > 1000);
+    expect($very_popular)->toBeArray();
+    expect($very_popular)->not()->toBeEmpty();
+    expect($very_popular)->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TmdbMovie::class));
+
+    $very_popular = $all->find(fn (TmdbMovie $movie) => $movie->getVoteCount() > 1000);
+    expect($very_popular)->toBeInstanceOf(TmdbMovie::class);
+
+    expect($all->getFirstResult())->toBeInstanceOf(TmdbMovie::class);
+    expect($all->getLastResult())->toBeInstanceOf(TmdbMovie::class);
+
+    expect($all->getCountResults())->toBeInt();
+    expect($all->getPage())->toBeInt();
+    expect($all->getTotalPages())->toBeInt();
+    expect($all->getTotalResults())->toBeInt();
 });
 
 it('can use people', function () {
@@ -64,6 +90,17 @@ it('can use people', function () {
     expect($all->getResults())->not()->toBeEmpty();
     expect($all->getFirstResult())->toBeInstanceOf(TmdbPerson::class);
     expect($all->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TmdbPerson::class));
+
+    $persons = $all->filter(fn (TmdbPerson $person) => $person->getProfilePath() !== null);
+    expect($persons)->toBeArray();
+    expect($persons)->not()->toBeEmpty();
+    expect($persons)->each(fn (Pest\Expectation $person) => expect($person->value)->toBeInstanceOf(TmdbPerson::class));
+
+    $person = $all->find(fn (TmdbPerson $person) => $person->getProfilePath() !== null);
+    expect($person)->toBeInstanceOf(TmdbPerson::class);
+
+    expect($all->getFirstResult())->toBeInstanceOf(TmdbPerson::class);
+    expect($all->getLastResult())->toBeInstanceOf(TmdbPerson::class);
 });
 
 it('can use tv', function () {
@@ -77,4 +114,15 @@ it('can use tv', function () {
     expect($all->getResults())->not()->toBeEmpty();
     expect($all->getFirstResult())->toBeInstanceOf(TmdbTvSeries::class);
     expect($all->getResults())->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TmdbTvSeries::class));
+
+    $tv = $all->filter(fn (TmdbTvSeries $tv) => $tv->getPosterPath() !== null);
+    expect($tv)->toBeArray();
+    expect($tv)->not()->toBeEmpty();
+    expect($tv)->each(fn (Pest\Expectation $tv) => expect($tv->value)->toBeInstanceOf(TmdbTvSeries::class));
+
+    $tv = $all->find(fn (TmdbTvSeries $tv) => $tv->getPosterPath() !== null);
+    expect($tv)->toBeInstanceOf(TmdbTvSeries::class);
+
+    expect($all->getFirstResult())->toBeInstanceOf(TmdbTvSeries::class);
+    expect($all->getLastResult())->toBeInstanceOf(TmdbTvSeries::class);
 });
