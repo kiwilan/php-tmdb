@@ -1,15 +1,16 @@
 <?php
 
-namespace Kiwilan\Tmdb\Utils;
+namespace Kiwilan\Tmdb\Utils\Images;
 
 use Kiwilan\Tmdb\Enums\TmdbProfileSize;
+use Kiwilan\Tmdb\Utils\TmdbUrl;
 
-class TmdbProfile extends TmdbImage
+class TmdbProfile extends TmdbBaseImage
 {
     public static function make(?string $url): self
     {
         $self = new self;
-        $self->imageUrl = $self->fixUrl($url);
+        $self->image_path = TmdbUrl::fixUrl($url);
         $self->size = TmdbProfileSize::ORIGINAL;
 
         return $self;

@@ -1,15 +1,16 @@
 <?php
 
-namespace Kiwilan\Tmdb\Utils;
+namespace Kiwilan\Tmdb\Utils\Images;
 
 use Kiwilan\Tmdb\Enums\TmdbPosterSize;
+use Kiwilan\Tmdb\Utils\TmdbUrl;
 
-class TmdbPoster extends TmdbImage
+class TmdbPoster extends TmdbBaseImage
 {
     public static function make(?string $url): self
     {
         $self = new self;
-        $self->imageUrl = $self->fixUrl($url);
+        $self->image_path = TmdbUrl::fixUrl($url);
         $self->size = TmdbPosterSize::ORIGINAL;
 
         return $self;

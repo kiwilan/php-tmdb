@@ -1,12 +1,13 @@
 <?php
 
-namespace Kiwilan\Tmdb\Utils;
+namespace Kiwilan\Tmdb\Utils\Images;
 
 use BackedEnum;
+use Kiwilan\Tmdb\Utils\TmdbUrl;
 
-abstract class TmdbImage
+abstract class TmdbBaseImage
 {
-    protected ?string $imageUrl = null;
+    protected ?string $image_path = null;
 
     protected ?BackedEnum $size = null;
 
@@ -22,13 +23,13 @@ abstract class TmdbImage
      */
     public function getUrl(): ?string
     {
-        if (! $this->imageUrl) {
+        if (! $this->image_path) {
             return null;
         }
 
         $url = TmdbUrl::IMAGE_URL;
 
-        return "{$url}{$this->size->value}{$this->imageUrl}";
+        return "{$url}{$this->size->value}{$this->image_path}";
     }
 
     /**
@@ -66,18 +67,5 @@ abstract class TmdbImage
         }
 
         return file_put_contents($path, $contents) !== false;
-    }
-
-    protected function fixUrl(?string $url): ?string
-    {
-        if (! $url) {
-            return null;
-        }
-
-        if (! str_starts_with($url, '/')) {
-            $url = "/{$url}";
-        }
-
-        return $url;
     }
 }
