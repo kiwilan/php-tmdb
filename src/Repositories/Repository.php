@@ -6,12 +6,16 @@ use Kiwilan\Tmdb\Utils\TmdbUrl;
 
 abstract class Repository
 {
+    protected ?string $url = null;
+
+    protected ?array $body = null;
+
     protected bool $isSuccess = false;
 
     protected string $language = 'en-US';
 
     public function __construct(
-        protected string $apiKey,
+        private string $apiKey,
     ) {}
 
     /**
@@ -22,7 +26,9 @@ abstract class Repository
      */
     protected function get(string $path, array $queryParams = []): ?array
     {
-        return $this->execute($this->getUrl($path, $queryParams));
+        $this->url = $this->setUrl($path, $queryParams);
+
+        return $this->execute();
     }
 
     /**
@@ -31,9 +37,11 @@ abstract class Repository
      * @param  string  $path  The path to merge
      * @param  string[]  $queryParams  The query parameters
      */
-    protected function getUrl(string $path, array $queryParams = []): string
+    protected function setUrl(string $path, array $queryParams = []): string
     {
-        return TmdbUrl::API_V3_URL.$path.'?'.http_build_query($queryParams);
+        $this->url = TmdbUrl::API_V3_URL.TmdbUrl::fixUrl($path).'?'.http_build_query($queryParams);
+
+        return $this->url;
     }
 
     /**
@@ -48,14 +56,12 @@ abstract class Repository
 
     /**
      * Execute the request
-     *
-     * @param  string  $url  The URL to request
      */
-    protected function execute(string $url): ?array
+    protected function execute(): ?array
     {
         $client = new \GuzzleHttp\Client;
 
-        $response = $client->request('GET', $url, [
+        $response = $client->request('GET', $this->url, [
             'headers' => [
                 'Authorization' => "Bearer {$this->apiKey}",
                 'accept' => 'application/json',
@@ -68,7 +74,8 @@ abstract class Repository
         }
 
         $this->isSuccess = true;
+        $this->body = json_decode($response->getBody()->getContents(), true);
 
-        return json_decode($response->getBody()->getContents(), true);
+        return $this->body;
     }
 }
