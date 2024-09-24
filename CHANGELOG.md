@@ -2,6 +2,15 @@
 
 All notable changes to `php-tmdb` will be documented in this file.
 
+## v0.1.05 - 2024-09-24
+
+- Add collections methods `images()` and `translations()`
+- Improve `TmdbModel` builtin methods to simplify all models constructors
+- Remove `has` into traits name to simplify the code
+- Move all images utils to `Utils\Images`, add static `fixUrl()` method to `TmdbUrl`
+- Add some properties to improve `Repository`
+- Add `raw()` method to execute raw request to TMDB API (for non implemented methods)
+
 ## v0.1.04 - 2024-09-24
 
 - add `getRawDataKey(string $key)` to save extract data from raw data
