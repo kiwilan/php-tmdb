@@ -2,6 +2,8 @@
 
 namespace Kiwilan\Tmdb;
 
+use Kiwilan\Tmdb\Repositories\Repository;
+
 class Tmdb
 {
     protected function __construct(
@@ -147,5 +149,15 @@ class Tmdb
     public function tvEpisodes(): Repositories\TVEpisodesRepository
     {
         return new Repositories\TVEpisodesRepository($this->apiKey);
+    }
+
+    /**
+     * Use Raw repository, used to send raw requests to the API (for methods not implemented).
+     *
+     * @docs https://developer.themoviedb.org/reference/intro/getting-started
+     */
+    public function raw(): ?Repositories\RawRepository
+    {
+        return new Repositories\RawRepository($this->apiKey);
     }
 }

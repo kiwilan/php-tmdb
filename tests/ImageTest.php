@@ -5,11 +5,11 @@ use Kiwilan\Tmdb\Enums\TmdbLogoSize;
 use Kiwilan\Tmdb\Enums\TmdbPosterSize;
 use Kiwilan\Tmdb\Enums\TmdbProfileSize;
 use Kiwilan\Tmdb\Enums\TmdbStillSize;
-use Kiwilan\Tmdb\Utils\TmdbBackdrop;
-use Kiwilan\Tmdb\Utils\TmdbLogo;
-use Kiwilan\Tmdb\Utils\TmdbPoster;
-use Kiwilan\Tmdb\Utils\TmdbProfile;
-use Kiwilan\Tmdb\Utils\TmdbStill;
+use Kiwilan\Tmdb\Utils\Images\TmdbBackdrop;
+use Kiwilan\Tmdb\Utils\Images\TmdbLogo;
+use Kiwilan\Tmdb\Utils\Images\TmdbPoster;
+use Kiwilan\Tmdb\Utils\Images\TmdbProfile;
+use Kiwilan\Tmdb\Utils\Images\TmdbStill;
 use Kiwilan\Tmdb\Utils\TmdbUrl;
 
 define('BACKDROP_PATH', '/x2RS3uTcsJJ9IfjNPcgDmukoEcQ.jpg');

@@ -1,7 +1,12 @@
 <?php
 
+use Kiwilan\Tmdb\Enums\TmdbImageType;
+use Kiwilan\Tmdb\Models\Images\TmdbImage;
+use Kiwilan\Tmdb\Models\Images\TmdbImages;
 use Kiwilan\Tmdb\Models\TmdbCollection;
 use Kiwilan\Tmdb\Models\TmdbMovie;
+use Kiwilan\Tmdb\Models\Translations\TmdbTranslation;
+use Kiwilan\Tmdb\Models\Translations\TmdbTranslations;
 use Kiwilan\Tmdb\Query\SearchCollectionQuery;
 use Kiwilan\Tmdb\Results\CollectionResults;
 use Kiwilan\Tmdb\Tmdb;
@@ -82,4 +87,71 @@ it('can get collection details', function () {
     expect($collection->getParts())->toBeArray();
     expect($collection->getParts())->not()->toBeEmpty();
     expect($collection->getParts())->each(fn (Pest\Expectation $part) => expect($part->value)->toBeInstanceOf(TmdbMovie::class));
+});
+
+it('can get collection images', function () {
+    $images = Tmdb::client(apiKey())
+        ->collections()
+        ->images(collection_id: 119);
+
+    expect($images)->not()->toBeNull();
+    expect($images)->toBeInstanceOf(TmdbImages::class);
+    expect($images->getBackdrops())->toBeArray();
+    expect($images->getId())->toBeInt();
+
+    $backdrops = $images->getBackdrops();
+    expect($backdrops)->toBeArray();
+    expect($backdrops)->not()->toBeEmpty();
+    expect($backdrops)->each(fn (Pest\Expectation $backdrop) => expect($backdrop->value)->toBeInstanceOf(TmdbImage::class));
+
+    $first = $backdrops[0];
+    expect($first->getAspectRatio())->toBeFloat();
+    expect($first->getHeight())->toBeInt();
+    if ($first->getIso6391()) {
+        expect($first->getIso6391())->toBeString();
+    }
+    expect($first->getFilePath())->toBeString();
+    expect($first->getVoteAverage())->toBeFloat();
+    expect($first->getVoteCount())->toBeInt();
+    expect($first->getWidth())->toBeInt();
+    expect($first->getType())->toBe(TmdbImageType::BACKDROP);
+
+    $posters = $images->getPosters();
+    expect($posters)->toBeArray();
+    expect($posters)->not()->toBeEmpty();
+    expect($posters)->each(fn (Pest\Expectation $poster) => expect($poster->value)->toBeInstanceOf(TmdbImage::class));
+
+    $first = $posters[0];
+    expect($first->getAspectRatio())->toBeFloat();
+    expect($first->getHeight())->toBeInt();
+    if ($first->getIso6391()) {
+        expect($first->getIso6391())->toBeString();
+    }
+    expect($first->getFilePath())->toBeString();
+    expect($first->getVoteAverage())->toBeFloat();
+    expect($first->getVoteCount())->toBeInt();
+    expect($first->getWidth())->toBeInt();
+    expect($first->getType())->toBe(TmdbImageType::POSTER);
+});
+
+it('can get collection translations', function () {
+    $translations = Tmdb::client(apiKey())
+        ->collections()
+        ->translations(collection_id: 119);
+
+    expect($translations)->not()->toBeNull();
+    expect($translations)->toBeInstanceOf(TmdbTranslations::class);
+    expect($translations->getId())->toBe(119);
+
+    $translations = $translations->getTranslations();
+    expect($translations)->toBeArray();
+    expect($translations)->not()->toBeEmpty();
+    expect($translations)->each(fn (Pest\Expectation $translation) => expect($translation->value)->toBeInstanceOf(TmdbTranslation::class));
+
+    $first = $translations[0];
+    expect($first->getIso31661())->toBeString();
+    expect($first->getIso6391())->toBeString();
+    expect($first->getName())->toBeString();
+    expect($first->getEnglishName())->toBeString();
+    expect($first->getData())->toBeArray();
 });

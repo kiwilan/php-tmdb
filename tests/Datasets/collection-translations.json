@@ -1,0 +1,390 @@
+{
+    "id": 119,
+    "translations": [
+        {
+            "iso_3166_1": "US",
+            "iso_639_1": "en",
+            "name": "English",
+            "english_name": "English",
+            "data": {
+                "title": "",
+                "overview": "The Lord of the Rings trilogy consists of three epic fantasy films, based on the influential novels written by J. R. R. Tolkien, directed by Peter Jackson.",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "DE",
+            "iso_639_1": "de",
+            "name": "Deutsch",
+            "english_name": "German",
+            "data": {
+                "title": "Der Herr der Ringe Filmreihe",
+                "overview": "Die „Der Herr der Ringe“-Filme erhielten insgesamt 30 Oscar-Nominierungen und gewannen rekordträchtige 17 Oscars – der dritte Film wurde als Bester Film sowie für die Regie, das Drehbuch nach einer Vorlage und in acht weiteren Kategorien ausgezeichnet. Jacksons Filmtrilogie ist die Verfilmung der Romanbestseller von J.R.R. Tolkien, eine epische Reise von Menschen, Hobbits, Elben, Zwergen und den anderen Wesen und Kulturen in Mittelerde. Die Filme zeigen den Kampf Gut gegen Böse mit fantastischen Spezialeffekten und einem starken emotionalen Zentrum – es geht um unzertrennbare Freundschaften und die Opfer, die während des drohenden Untergangs von Mittelerde gebracht werden müssen.",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "IT",
+            "iso_639_1": "it",
+            "name": "Italiano",
+            "english_name": "Italian",
+            "data": {
+                "title": "Il Signore degli Anelli - Collezione",
+                "overview": "Il Signore degli Anelli (in inglese The Lord of the Rings) è una trilogia colossal fantasy co-prodotta, co-scritta e diretta del regista neozelandese Peter Jackson, basata sull'omonimo romanzo scritto da J. R. R. Tolkien. La saga è formata da Il Signore degli Anelli - La Compagnia dell'Anello (2001), Il Signore degli Anelli - Le due torri (2002) e Il Signore degli Anelli - Il ritorno del re (2003).",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "RU",
+            "iso_639_1": "ru",
+            "name": "Pусский",
+            "english_name": "Russian",
+            "data": {
+                "title": "Властелин колец (Коллекция)",
+                "overview": "Кинотрилогия «Властелин колец» — поставленная режиссёром Питером Джексоном серия из трёх связанных единым сюжетом кинофильмов, представляющая собой экранизацию романа Дж. Р. Р. Толкина «Властелин колец».",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "FR",
+            "iso_639_1": "fr",
+            "name": "Français",
+            "english_name": "French",
+            "data": {
+                "title": "Le Seigneur des anneaux - Saga",
+                "overview": "Dans les Terres du Milieu, l'Anneau unique forgé par Sauron le maléfique pour dominer les hommes, les elfes et les nains est tombé par inadvertance dans les mains de Frodon, paisible hobbit. Ce n'est qu'une question de temps avant que les sinistres Cavaliers Noirs, les Servants de l'Anneau, retrouvent sa trace. Sous la direction de Gandalf le magicien, une expédition est alors montée avec pour mission une tâche quasi-impossible : détruire l'Anneau, en le jetant dans le feu de la Montagne du Destin, au cœur du territoire ennemi…",
+                "homepage": "http://www.lordoftherings.net/"
+            }
+        },
+        {
+            "iso_3166_1": "CN",
+            "iso_639_1": "zh",
+            "name": "普通话",
+            "english_name": "Mandarin",
+            "data": {
+                "title": "指环王（系列）",
+                "overview": "《魔戒》三部曲讲述的故事发生于第三纪元末期的中洲大陆，讲述霍比特人弗罗多·巴金斯为摧毁至尊魔戒而进行远征，并最终消黑暗魔君索隆的事故。而随着征途的进行，护戒队伍分崩析离，弗罗多、他的忠实伙伴山姆及奸诈的咕噜历经千辛万难抵达魔多，与此同时，巫师甘道夫、流亡的刚铎王位继承者阿拉贡联合中洲大陆的自由子民在黑门之外对抗索隆大军，最终在多方努力下取得了魔戒大战的胜利。",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "ES",
+            "iso_639_1": "es",
+            "name": "Español",
+            "english_name": "Spanish",
+            "data": {
+                "title": "El señor de los anillos - La trilogía",
+                "overview": "Trilogía del director Peter Jackson basada en las famosas novelas de JRR Tolkien",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "DK",
+            "iso_639_1": "da",
+            "name": "Dansk",
+            "english_name": "Danish",
+            "data": {
+                "title": "Ringenes herre (Samling)",
+                "overview": "Samling af Ringenes Herre film.",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "PT",
+            "iso_639_1": "pt",
+            "name": "Português",
+            "english_name": "Portuguese",
+            "data": {
+                "title": "O Senhor dos Anéis",
+                "overview": "A Série O Senhor dos Anéis é uma obra de ficção fantástica de J. R. R. Tolkien. Alternadamente cómica, singela, épica, monstruosa e diabólica, a narrativa desenvolve-se em meio a inúmeras mudanças de cenários e de personagens, num mundo imaginário absolutamente convincente em seu detalhes Tolkien criou em O Senhor dos anéis uma nova mitologia, num mundo inventado que demonstrou possuir um poder de atracão atemporal.",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "SE",
+            "iso_639_1": "sv",
+            "name": "svenska",
+            "english_name": "Swedish",
+            "data": {
+                "title": "Sagan om ringen (samling)",
+                "overview": "Trilogin om Härskarringen. Handlingen kretsar kring kampen mellan gott och ont. I centrum står den magiska härskarringen, som en gång för länge sedan smiddes av mörkrets herre Sauron för att härska över de andra ringar som han hade skänkt till sina fiender.",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "PL",
+            "iso_639_1": "pl",
+            "name": "Polski",
+            "english_name": "Polish",
+            "data": {
+                "title": "Władca Pierścieni - Kolekcja",
+                "overview": "Trylogia Władca Pierścieni składa się z trzech epickich filmów fantastycznych, opartych na wpływowych powieściach napisanych przez J. R. R. Tolkiena, w reżyserii Petera Jacksona.",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "NL",
+            "iso_639_1": "nl",
+            "name": "Nederlands",
+            "english_name": "Dutch",
+            "data": {
+                "title": "The Lord of the Rings Collectie",
+                "overview": "De fenomenale en episch trilogie 'The Lord Of The Rings' ('In de Ban van de Ring') verhaalt de strijd tussen goed en kwaad om het bezit van een magische ring.",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "HU",
+            "iso_639_1": "hu",
+            "name": "Magyar",
+            "english_name": "Hungarian",
+            "data": {
+                "title": "A Gyűrűk Ura Trilógia",
+                "overview": "A Gyűrűk Ura J. R. R. Tolkien híres, három kötetben megjelent regénye, melyből azonos című filmtrilógia is készült. A kötetek címei: A Gyűrű Szövetsége, A két torony és A király visszatér. A történet a szerző A babó (másképp A hobbit) című korábbi munkájának folytatása.",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "IL",
+            "iso_639_1": "he",
+            "name": "עִבְרִית",
+            "english_name": "Hebrew",
+            "data": {
+                "title": "שר הטבעות - אוסף",
+                "overview": "טרילוגיית סרטי שר הטבעות היא זיכיון סרטי פנטזיה שוברי קופות שבוימו על ידי פיטר ג'קסון, המבוססים על ספרי הפנטזיה האפית \"שר הטבעות\" מאת ג'ון רונלד רעואל טולקין. בטרילוגיית הסרטים מככב אנסמבל שחקנים, בהם איאן מק'קלן, איאן הולם, ויגו מורטנסן, ג'ון ריס-דייוויס, כריסטופר לי, הוגו ויבינג, שון בין, קייט בלאנשט וליב טיילר. הטרילוגיה זכתה להצלחה קופתית גדולה. שלושת הסרטים זכו ב-17 פרסי אוסקר וכן בעשרה פרסי סאטורן. זיכיון הסרטים מדורג במקום הרביעי ברשימת הזיכיונות שוברי הקופות הגדולים בכל הזמנים. העלילה מתרחשת בעולם בדיוני שנוצר על ידי טולקין ומוכר בשם \"הארץ התיכונה\". בדומה לספר, שלושת הסרטים עוקבים אחר מספר עלילות מקבילות. אחת מהן היא הרפתקאותיו של הוביט צעיר בשם פרודו בגינס וחברו האמיץ סם גמג'י במסעם להשמדת הטבעת האחת, ויחד איתה את שר האופל סאורון. קו עלילתי אחר הוא אהבתו של אראגורן לארוון. כמו כן מתוארות פלישות צבאות האורקים לרוהאן ולגונדור ומספר עלילות נוספות.",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "NO",
+            "iso_639_1": "no",
+            "name": "Norsk",
+            "english_name": "Norwegian",
+            "data": {
+                "title": "Ringenes Herre - Triologien",
+                "overview": "",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "CZ",
+            "iso_639_1": "cs",
+            "name": "Český",
+            "english_name": "Czech",
+            "data": {
+                "title": "Pán prstenů (kolekce)",
+                "overview": "Filmová trilogie na motivy jednoho z nejslavnějších fantasy románů, Středozem a její obyvatelé proti pánu Mordoru.",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "TH",
+            "iso_639_1": "th",
+            "name": "ภาษาไทย",
+            "english_name": "Thai",
+            "data": {
+                "title": "เดอะ ลอร์ดออฟเดอะริงส์ ฉบับไตรภาคพิเศษ",
+                "overview": "เรื่องย่อ  เรื่องราวใน เดอะลอร์ดออฟเดอะริงส์ เกิดขึ้นบนดินแดนในจินตนาการที่มีชื่อว่า มิดเดิลเอิร์ธ ตัวละครในเรื่องมีหลายเผ่าพันธุ์ เช่น มนุษย์ เอลฟ์ ฮอบบิท คนแคระ พ่อมด และออร์ค หัวใจของเรื่องเกี่ยวข้องกับแหวนแห่งอำนาจ ซึ่งสร้างโดยจอมมารเซารอน เหตุการณ์ในเรื่องเริ่มต้นจากดินแดนไชร์อันสุขสงบ ไปยังส่วนต่าง ๆ ของมิดเดิลเอิร์ธ จนถึงเหตุการณ์สงครามแหวน โดยผ่านมุมมองของตัวละครฮอบบิทคนหนึ่งที่ชื่อ โฟรโด้ แบ๊กกิ้นส์",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "SK",
+            "iso_639_1": "sk",
+            "name": "Slovenčina",
+            "english_name": "Slovak",
+            "data": {
+                "title": "Pán prsteňov (kolekcia)",
+                "overview": "Pán prsteňov je filmová trilógia režírovaná Petrom Jacksonom. Scenár je založený na knižnej trilógii Pán prsteňov od J. R. R. Tolkiena. Pozostáva z troch filmov Pán prsteňov: Spoločenstvo prsteňa (2001), Pán prsteňov: Dve veže (2002) a Pán prsteňov: Návrat kráľa (2003). Je považovaná za jeden z najväčších a najambicióznejších filmových počinov, ktorého rozpočet sa vyšplhal na 281 miliónov amerických dolárov. Celý projekt trval osem rokov, pričom nakrúcanie všetkých troch častí sa dialo súčasne a výhradne len v domovine Petra Jacksona, na Novom Zélande. Každý film zo série bol vydaný na DVD aj v rozšírenej verzii rok po kinopremiére. Filmy sa držia knižnej predlohe v rovine príbehu, ale sú vynechané niektoré časti deja a súčasne sú pridané alebo pozmenené niektoré udalosti. (zdroj: wikipedia)",
+                "homepage": "http://www.lordoftherings.net"
+            }
+        },
+        {
+            "iso_3166_1": "UA",
+            "iso_639_1": "uk",
+            "name": "Український",
+            "english_name": "Ukrainian",
+            "data": {
+                "title": "Володар перснів | Колекція",
+                "overview": "",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "RO",
+            "iso_639_1": "ro",
+            "name": "Română",
+            "english_name": "Romanian",
+            "data": {
+                "title": "Colecția Stăpânul inelelor",
+                "overview": "Trilogia Stăpânul inelelor este compusă din trei filme epice de fantezie regizate de Peter Jackson, bazate pe romanele de  influență scrise de J. R. R. Tolkien.",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "TR",
+            "iso_639_1": "tr",
+            "name": "Türkçe",
+            "english_name": "Turkish",
+            "data": {
+                "title": "Yüzüklerin Efendisi [Seri]",
+                "overview": "John Ronald Reuel Tolkien'in yazdığı Yüzüklerin Efendisi adlı fantastik edebiyat serisinden uyarlanarak çekilmiş Peter Jackson imzalı bir film üçlemesidir.",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "JP",
+            "iso_639_1": "ja",
+            "name": "日本語",
+            "english_name": "Japanese",
+            "data": {
+                "title": "ロード・オブ・ザ・リング シリーズ",
+                "overview": "",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "KR",
+            "iso_639_1": "ko",
+            "name": "한국어/조선말",
+            "english_name": "Korean",
+            "data": {
+                "title": "반지의 제왕 시리즈",
+                "overview": "",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "BR",
+            "iso_639_1": "pt",
+            "name": "Português",
+            "english_name": "Portuguese",
+            "data": {
+                "title": "O Senhor dos Anéis: Coleção",
+                "overview": "A história narra o conflito contra o mal que se alastra pela Terra-média, através da luta de várias raças - Humanos, Anões, Elfos, Ents e Hobbits - contra Orcs, para evitar que o \"Anel do Poder\" volte às mãos de seu criador Sauron, o Senhor do Escuro. Partindo dos primórdios tranquilos do Condado, a história muda através da Terra-média e segue o curso da Guerra do Anel através dos olhos de seus personagens, especialmente do protagonista, Frodo Bolseiro.",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "GR",
+            "iso_639_1": "el",
+            "name": "ελληνικά",
+            "english_name": "Greek",
+            "data": {
+                "title": "Ο Άρχοντας των Δαχτυλιδιών",
+                "overview": "Η τριλογία \"Ο Άρχοντας των Δαχτυλιδιών\"  αποτελείται από τρεις επικές ταινίες φαντασίας, βασισμένες σε μυθιστορήματα γραμμένα από τον Tζ. Ρ. Ρ. Τόλκιν.",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "FI",
+            "iso_639_1": "fi",
+            "name": "suomi",
+            "english_name": "Finnish",
+            "data": {
+                "title": "Taru sormusten herrasta",
+                "overview": "Taru sormusten herrasta -elokuvatrilogia on Peter Jacksonin ohjaama fantasiaelokuvatrilogia, joka pohjautuu kirjailija J. R. R. Tolkienin kirjoittamaan fantasiakirjaan Taru sormusten herrasta.",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "TW",
+            "iso_639_1": "zh",
+            "name": "普通话",
+            "english_name": "Mandarin",
+            "data": {
+                "title": "魔戒三部曲",
+                "overview": "《魔戒》（英語：The Lord of the Rings）是一部由英國牛津大學教授、語言學家J·R·R·托爾金創作的史詩奇幻文學作品。這個故事原是托爾金早年創作的兒童幻想小說《哈比人》（英語：The Hobbit）（1937年）之續篇，但隨著故事的發展逐漸變得恢弘龐大。這個故事的原文名稱，The Lord of the Rings（魔戒之王）指明瞭最主要的反派角色——墮落的神明索倫(Sauron)，他創造了一枚戒指來統領其他戒指，並以此作為對抗甚至統治中土大陸(Middle-earth)的終極武器。故事開始於平靜的夏爾(the Shire)，一個類似英國鄉村的哈比家園，隨著魔戒的爭奪而橫跨了整個中土大陸。主角包括哈比人(Hobbit)佛羅多·巴金斯(Frodo Baggins)、山姆·詹吉(Samwise Gamgee)、梅里(Meriadoc Brandybuck)、皮平(Peregrin Took)和他們的同伴游俠阿拉貢(Aragorn)、矮人吉姆利(Gimli)、精靈萊戈拉斯(Legolas)，還有巫師甘道夫(Gandalf)。《魔戒》一書為流行文化帶來了一系列的影響及參照。托爾金迷們創建了許多社群，亦出版了大量有關托爾金及其作品的書籍。《魔戒》正持續地衍生出不同作品，如藝術插圖、音樂、電影、電視、廣播劇、電玩游戲、同人文章等。",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "VN",
+            "iso_639_1": "vi",
+            "name": "Tiếng Việt",
+            "english_name": "Vietnamese",
+            "data": {
+                "title": "Chúa Tể Của Những Chiếc Nhẫn",
+                "overview": "",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "HK",
+            "iso_639_1": "zh",
+            "name": "普通话",
+            "english_name": "Mandarin",
+            "data": {
+                "title": "魔戒(系列)",
+                "overview": "",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "RS",
+            "iso_639_1": "sr",
+            "name": "Srpski",
+            "english_name": "Serbian",
+            "data": {
+                "title": "",
+                "overview": "",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "MX",
+            "iso_639_1": "es",
+            "name": "Español",
+            "english_name": "Spanish",
+            "data": {
+                "title": "El Señor de los Anillos - Colección",
+                "overview": "La trilogía cinematográfica de El Señor de los Anillos, basada en la novela homónima del escritor británico J. R. R. Tolkien, las tres películas fueron escritas, producidas y dirigidas por Peter Jackson, co-escritas por Fran Walsh y Philippa Boyens y distribuidas por New Line Cinema. Considerado como uno de los mayores proyectos cinematográficos nunca acometidos, con una recaudación global de más de 2900 millones USD, la trilogía sigue la trama principal de la novela en la que se basa. Ambientada en el ficticio mundo de la Tierra Media, sigue las aventuras del hobbit Frodo Bolsón y sus compañeros en su misión de destruir el Anillo Único y asegurar así la aniquilación del Señor Oscuro, Sauron.",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "ES",
+            "iso_639_1": "ca",
+            "name": "Català",
+            "english_name": "Catalan",
+            "data": {
+                "title": "El Senyor dels Anells - Col·lecció",
+                "overview": "Trilogia del Senyor dels Anells.",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "GE",
+            "iso_639_1": "ka",
+            "name": "ქართული",
+            "english_name": "Georgian",
+            "data": {
+                "title": "ბეჭდების მბრძანებელი კოლექცია",
+                "overview": "",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "CA",
+            "iso_639_1": "fr",
+            "name": "Français",
+            "english_name": "French",
+            "data": {
+                "title": "Le Seigneur des anneaux - Collection",
+                "overview": "La trilogie du Seigneur des Anneaux se compose de trois films fantastiques épiques, basés sur les romans influents écrits par J. R. R. Tolkien, réalisés par Peter Jackson.",
+                "homepage": ""
+            }
+        },
+        {
+            "iso_3166_1": "IR",
+            "iso_639_1": "fa",
+            "name": "فارسی",
+            "english_name": "Persian",
+            "data": {
+                "title": "مجموعه ارباب حلقه ها",
+                "overview": "سه گانه ارباب حلقه ها شامل سه فیلم تخیلی حماسی است که براساس رمان های تأثیرگذار نوشته جی آر آر تولکین ، به کارگردانی پیتر جکسون ساخته شده است.",
+                "homepage": ""
+            }
+        }
+    ]
+}

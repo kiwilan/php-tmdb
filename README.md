@@ -58,6 +58,26 @@ $collection = Tmdb::client('API_KEY')
     ->details(collection_id: 119); // ?\Kiwilan\Tmdb\Models\TmdbCollection
 ```
 
+#### [Collection: Images](https://developer.themoviedb.org/reference/collection-images)
+
+Get the images that belong to a collection.
+
+```php
+$images = Tmdb::client('API_KEY')
+    ->collections()
+    ->images(collection_id: 119); // ?\Kiwilan\Tmdb\Models\TmdbCollectionImages
+```
+
+#### [Collection: Translations](https://developer.themoviedb.org/reference/collection-translations)
+
+Get the translations that belong to a collection.
+
+```php
+$translations = Tmdb::client('API_KEY')
+    ->collections()
+    ->translations(collection_id: 119); // ?\Kiwilan\Tmdb\Models\TmdbCollectionTranslations
+```
+
 ### Companies
 
 #### [Companies: Details](https://developer.themoviedb.org/reference/company-details)
@@ -480,6 +500,23 @@ $raw_data = $movie->getRawData(); // array
 $raw_title_key = $movie->getRawDataKey('title'); // mixed
 ```
 
+### Send raw request
+
+If you want to send a raw request to TMDB API, you can use `raw()` method, API key will be added automatically.
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$response = Tmdb::client(apiKey())
+    ->raw()
+    ->url('/movie/now_playing', ['language' => 'en-US', 'page' => 1]); // ?Kiwi\Tmdb\Repositories\RawRepository
+
+$response->isSuccess(); // bool
+$response->getStatusCode(); // int
+$response->getBody(); // array
+$response->getUrl(); // string
+```
+
 ## Testing
 
 ```bash
@@ -501,10 +538,10 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [Movie List](https://developer.themoviedb.org/reference/changes-movie-list)
     -   [ ] [People List](https://developer.themoviedb.org/reference/changes-people-list)
     -   [ ] [TV List](https://developer.themoviedb.org/reference/changes-tv-list)
--   [ ] Collections
+-   [x] ~~Collections~~
     -   [x] ~~[Details](https://developer.themoviedb.org/reference/collection-details)~~
-    -   [ ] [Images](https://developer.themoviedb.org/reference/collection-images)
-    -   [ ] [Translations](https://developer.themoviedb.org/reference/collection-translations)
+    -   [x] ~~[Images](https://developer.themoviedb.org/reference/collection-images)~~
+    -   [x] ~~[Translations](https://developer.themoviedb.org/reference/collection-translations)~~
 -   [ ] Companies
     -   [x] ~~[Details](https://developer.themoviedb.org/reference/company-details)~~
     -   [ ] [Alternative Names](https://developer.themoviedb.org/reference/company-alternative-names)

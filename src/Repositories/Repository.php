@@ -10,6 +10,8 @@ abstract class Repository
 
     protected ?array $body = null;
 
+    protected ?int $statusCode = null;
+
     protected bool $isSuccess = false;
 
     protected string $language = 'en-US';
@@ -17,6 +19,27 @@ abstract class Repository
     public function __construct(
         private string $apiKey,
     ) {}
+
+    /**
+     * Get URL used in the request
+     */
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    /**
+     * Get the body of the response
+     */
+    public function getBody(): ?array
+    {
+        return $this->body;
+    }
+
+    public function isSuccess(): bool
+    {
+        return $this->isSuccess;
+    }
 
     /**
      * Merge base URL with the path and execute the request
@@ -69,7 +92,9 @@ abstract class Repository
             'http_errors' => false,
         ]);
 
-        if ($response->getStatusCode() !== 200) {
+        $this->statusCode = $response->getStatusCode();
+
+        if ($this->statusCode !== 200) {
             return null;
         }
 
