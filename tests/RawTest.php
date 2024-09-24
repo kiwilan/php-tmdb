@@ -9,7 +9,7 @@ it('can send raw request', function () {
 
     expect($response)->not->toBeNull();
     expect($response->isSuccess())->toBeTrue();
-    expect($response->getStatusCode())->toBeTrue();
+    expect($response->getStatusCode())->toBeInt();
     expect($response->getUrl())->toBeString();
     expect($response->getBody())->toBeArray();
 });
