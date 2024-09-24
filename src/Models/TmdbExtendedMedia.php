@@ -6,7 +6,7 @@ use Kiwilan\Tmdb\Traits;
 
 abstract class TmdbExtendedMedia extends TmdbBaseMedia
 {
-    use Traits\TmdbHasAlternativeTitles;
+    use Traits\TmdbAlternativeTitles;
 
     /** @var Common\TmdbGenre[]|null */
     protected ?array $genres = null;
@@ -39,18 +39,18 @@ abstract class TmdbExtendedMedia extends TmdbBaseMedia
 
         parent::__construct($data);
 
-        $this->setAlternativeTitles($data);
+        $this->setAlternativeTitles();
 
-        $this->homepage = $this->toString($data, 'homepage');
-        $this->status = $this->toString($data, 'status');
-        $this->tagline = $this->toString($data, 'tagline');
+        $this->homepage = $this->toString('homepage');
+        $this->status = $this->toString('status');
+        $this->tagline = $this->toString('tagline');
 
-        $this->credits = $this->toModel($data, 'credits', TmdbCredits::class);
+        $this->credits = $this->toModel('credits', TmdbCredits::class);
 
-        $this->genres = $this->validateData($data, 'genres', fn (array $values) => $this->loopOn($values, Common\TmdbGenre::class));
-        $this->production_companies = $this->validateData($data, 'production_companies', fn (array $values) => $this->loopOn($values, Common\TmdbCompany::class));
-        $this->production_countries = $this->validateData($data, 'production_countries', fn (array $values) => $this->loopOn($values, Common\TmdbCountry::class));
-        $this->spoken_languages = $this->validateData($data, 'spoken_languages', fn (array $values) => $this->loopOn($values, Common\TmdbSpokenLanguage::class));
+        $this->genres = $this->validateData('genres', fn (array $values) => $this->loopOn($values, Common\TmdbGenre::class));
+        $this->production_companies = $this->validateData('production_companies', fn (array $values) => $this->loopOn($values, Common\TmdbCompany::class));
+        $this->production_countries = $this->validateData('production_countries', fn (array $values) => $this->loopOn($values, Common\TmdbCountry::class));
+        $this->spoken_languages = $this->validateData('spoken_languages', fn (array $values) => $this->loopOn($values, Common\TmdbSpokenLanguage::class));
     }
 
     /**

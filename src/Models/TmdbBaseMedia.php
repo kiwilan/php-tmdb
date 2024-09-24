@@ -6,10 +6,10 @@ use Kiwilan\Tmdb\Traits;
 
 abstract class TmdbBaseMedia extends TmdbModel
 {
-    use Traits\TmdbHasBackdrop;
-    use Traits\TmdbHasId;
-    use Traits\TmdbHasPoster;
-    use Traits\TmdbHasVotes;
+    use Traits\TmdbBackdrop;
+    use Traits\TmdbId;
+    use Traits\TmdbPoster;
+    use Traits\TmdbVotes;
 
     protected bool $adult = false;
 
@@ -33,16 +33,16 @@ abstract class TmdbBaseMedia extends TmdbModel
 
         parent::__construct($data);
 
-        $this->setId($data);
-        $this->setBackdropPath($data);
-        $this->setPosterPath($data);
+        $this->setId();
+        $this->setBackdropPath();
+        $this->setPosterPath();
 
-        $this->adult = $this->toBool($data, 'adult');
-        $this->genre_ids = $this->toArray($data, 'genre_ids');
-        $this->original_language = $this->toString($data, 'original_language');
-        $this->overview = $this->toString($data, 'overview');
-        $this->setVotes($data);
-        $this->popularity = $this->toFloat($data, 'popularity');
+        $this->adult = $this->toBool('adult');
+        $this->genre_ids = $this->toArray('genre_ids');
+        $this->original_language = $this->toString('original_language');
+        $this->overview = $this->toString('overview');
+        $this->setVotes();
+        $this->popularity = $this->toFloat('popularity');
     }
 
     public function isAdult(): bool

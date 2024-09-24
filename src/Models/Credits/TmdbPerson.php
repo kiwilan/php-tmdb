@@ -10,9 +10,9 @@ use Kiwilan\Tmdb\Traits;
  */
 class TmdbPerson extends TmdbModel
 {
-    use Traits\TmdbHasId;
-    use Traits\TmdbHasProfile;
-    use Traits\TmdbHasTmdbUrl;
+    use Traits\TmdbId;
+    use Traits\TmdbProfile;
+    use Traits\TmdbTmdbUrl;
 
     protected bool $adult = false;
 
@@ -34,15 +34,18 @@ class TmdbPerson extends TmdbModel
             return;
         }
 
-        $this->setId($data);
-        $this->setProfilePath($data);
-        $this->adult = $this->toBool($data, 'adult');
-        $this->gender = $this->toInt($data, 'gender');
-        $this->known_for_department = $this->toString($data, 'known_for_department');
-        $this->name = $this->toString($data, 'name');
-        $this->original_name = $this->toString($data, 'original_name');
-        $this->popularity = $this->toFloat($data, 'popularity');
-        $this->credit_id = $this->toString($data, 'credit_id');
+        parent::__construct($data);
+
+        $this->setId();
+        $this->setProfilePath();
+
+        $this->adult = $this->toBool('adult');
+        $this->gender = $this->toInt('gender');
+        $this->known_for_department = $this->toString('known_for_department');
+        $this->name = $this->toString('name');
+        $this->original_name = $this->toString('original_name');
+        $this->popularity = $this->toFloat('popularity');
+        $this->credit_id = $this->toString('credit_id');
     }
 
     public function isAdult(): bool

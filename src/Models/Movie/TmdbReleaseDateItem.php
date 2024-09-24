@@ -29,12 +29,14 @@ class TmdbReleaseDateItem extends TmdbModel
             return;
         }
 
-        $this->certification = $this->toString($data, 'certification');
-        $this->descriptors = $this->toArray($data, 'descriptors');
-        $this->iso_639_1 = $this->toString($data, 'iso_639_1');
-        $this->note = $this->toString($data, 'note');
-        $this->release_date = $this->toDateTime($data, 'release_date');
-        $this->type = $this->toInt($data, 'type');
+        parent::__construct($data);
+
+        $this->certification = $this->toString('certification');
+        $this->descriptors = $this->toArray('descriptors');
+        $this->iso_639_1 = $this->toString('iso_639_1');
+        $this->note = $this->toString('note');
+        $this->release_date = $this->toDateTime('release_date');
+        $this->type = $this->toInt('type');
     }
 
     /**

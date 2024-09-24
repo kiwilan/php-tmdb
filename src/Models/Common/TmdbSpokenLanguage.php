@@ -21,9 +21,11 @@ class TmdbSpokenLanguage extends TmdbModel
             return;
         }
 
-        $this->english_name = $this->toString($data, 'english_name');
-        $this->iso_639_1 = $this->toString($data, 'iso_639_1');
-        $this->name = $this->toString($data, 'name');
+        parent::__construct($data);
+
+        $this->english_name = $this->toString('english_name');
+        $this->iso_639_1 = $this->toString('iso_639_1');
+        $this->name = $this->toString('name');
     }
 
     public function getEnglishName(): ?string

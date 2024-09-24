@@ -4,14 +4,14 @@ namespace Kiwilan\Tmdb\Models;
 
 use Kiwilan\Tmdb\Enums\TmdbMediaType;
 use Kiwilan\Tmdb\Models\Credits\TmdbPerson;
-use Kiwilan\Tmdb\Traits\TmdbHasId;
+use Kiwilan\Tmdb\Traits\TmdbId;
 
 /**
  * Movie, TV Series or Person
  */
 class TmdbMedia extends TmdbModel
 {
-    use TmdbHasId;
+    use TmdbId;
 
     protected ?TmdbMediaType $media_type = TmdbMediaType::MOVIE; // common
 
@@ -27,8 +27,14 @@ class TmdbMedia extends TmdbModel
             return;
         }
 
-        $this->setId($data);
-        $this->media_type = TmdbMediaType::tryFrom($data['media_type']);
+        parent::__construct($data);
+
+        $this->setId();
+
+        $media_type = $data['media_type'] ?? null;
+        if ($media_type) {
+            $this->media_type = TmdbMediaType::tryFrom($media_type);
+        }
 
         if ($this->media_type === TmdbMediaType::MOVIE) {
             $this->movie = new TmdbMovie($data);

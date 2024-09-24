@@ -3,15 +3,15 @@
 namespace Kiwilan\Tmdb\Traits;
 
 use Kiwilan\Tmdb\Enums\TmdbBackdropSize;
-use Kiwilan\Tmdb\Utils\TmdbBackdrop;
+use Kiwilan\Tmdb\Utils\Images\TmdbBackdrop as TmdbImageBackdrop;
 
-trait TmdbHasBackdrop
+trait TmdbBackdrop
 {
     protected ?string $backdrop_path = null;
 
-    protected function setBackdropPath(?array $data, string $key = 'backdrop_path'): void
+    protected function setBackdropPath(string $key = 'backdrop_path'): void
     {
-        $this->backdrop_path = $data[$key] ?? null;
+        $this->backdrop_path = $this->raw_data[$key] ?? null;
     }
 
     public function getbackdropPath(): ?string
@@ -21,7 +21,7 @@ trait TmdbHasBackdrop
 
     public function getBackdropUrl(?TmdbBackdropSize $size = null): ?string
     {
-        $backdrop = TmdbBackdrop::make($this->backdrop_path);
+        $backdrop = TmdbImageBackdrop::make($this->backdrop_path);
         if ($size) {
             $backdrop->size($size);
         }
@@ -31,7 +31,7 @@ trait TmdbHasBackdrop
 
     public function getBackdropImage(?TmdbBackdropSize $size = null): ?string
     {
-        $backdrop = TmdbBackdrop::make($this->backdrop_path);
+        $backdrop = TmdbImageBackdrop::make($this->backdrop_path);
         if ($size) {
             $backdrop->size($size);
         }
@@ -41,7 +41,7 @@ trait TmdbHasBackdrop
 
     public function saveBackdropImage(string $path, ?TmdbBackdropSize $size = null): bool
     {
-        $backdrop = TmdbBackdrop::make($this->backdrop_path);
+        $backdrop = TmdbImageBackdrop::make($this->backdrop_path);
         if ($size) {
             $backdrop->size($size);
         }

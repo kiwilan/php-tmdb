@@ -14,7 +14,7 @@ use Kiwilan\Tmdb\Traits;
  */
 class TmdbMovie extends TmdbExtendedMedia
 {
-    use Traits\TmdbHasTmdbUrl;
+    use Traits\TmdbTmdbUrl;
 
     protected ?TmdbCollection $belongs_to_collection = null;
 
@@ -50,21 +50,21 @@ class TmdbMovie extends TmdbExtendedMedia
 
         parent::__construct($data);
 
-        $this->belongs_to_collection = $this->toModel($data, 'belongs_to_collection', TmdbCollection::class);
-        $this->budget = $this->toInt($data, 'budget');
-        $this->imdb_id = $this->toString($data, 'imdb_id');
-        $this->original_title = $this->toString($data, 'original_title');
-        $this->title = $this->toString($data, 'title');
-        $this->release_date = $this->toDateTime($data, 'release_date');
-        $this->revenue = $this->toInt($data, 'revenue');
-        $this->runtime = $this->toInt($data, 'runtime');
+        $this->belongs_to_collection = $this->toModel('belongs_to_collection', TmdbCollection::class);
+        $this->budget = $this->toInt('budget');
+        $this->imdb_id = $this->toString('imdb_id');
+        $this->original_title = $this->toString('original_title');
+        $this->title = $this->toString('title');
+        $this->release_date = $this->toDateTime('release_date');
+        $this->revenue = $this->toInt('revenue');
+        $this->runtime = $this->toInt('runtime');
 
-        $this->videos = $this->validateData($data, 'videos', fn (array $values) => $this->loopOn($values['results'] ?? null, TmdbVideo::class));
-        $this->release_dates = $this->validateData($data, 'release_dates', fn (array $values) => $this->loopOn($values['results'] ?? null, TmdbReleaseDate::class));
+        $this->videos = $this->validateData('videos', fn (array $values) => $this->loopOn($values['results'] ?? null, TmdbVideo::class));
+        $this->release_dates = $this->validateData('release_dates', fn (array $values) => $this->loopOn($values['results'] ?? null, TmdbReleaseDate::class));
 
-        $this->origin_country = $this->toArray($data, 'origin_country');
-        $this->recommendations = $this->toModel($data, 'recommendations', MovieResults::class);
-        $this->similar = $this->toModel($data, 'similar', MovieResults::class);
+        $this->origin_country = $this->toArray('origin_country');
+        $this->recommendations = $this->toModel('recommendations', MovieResults::class);
+        $this->similar = $this->toModel('similar', MovieResults::class);
     }
 
     /**

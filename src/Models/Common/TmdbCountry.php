@@ -19,8 +19,10 @@ class TmdbCountry extends TmdbModel
             return;
         }
 
-        $this->iso_3166_1 = $this->toString($data, 'iso_3166_1');
-        $this->name = $this->toString($data, 'name');
+        parent::__construct($data);
+
+        $this->iso_3166_1 = $this->toString('iso_3166_1');
+        $this->name = $this->toString('name');
     }
 
     public function getIso31661(): ?string

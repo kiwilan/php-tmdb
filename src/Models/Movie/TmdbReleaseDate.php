@@ -20,8 +20,10 @@ class TmdbReleaseDate extends TmdbModel
             return;
         }
 
-        $this->iso_3166_1 = $this->toString($data, 'iso_3166_1');
-        $this->release_dates = $this->validateData($data, 'release_dates', fn (array $values) => $this->loopOn($values, TmdbReleaseDateItem::class));
+        parent::__construct($data);
+
+        $this->iso_3166_1 = $this->toString('iso_3166_1');
+        $this->release_dates = $this->validateData('release_dates', fn (array $values) => $this->loopOn($values, TmdbReleaseDateItem::class));
     }
 
     /**

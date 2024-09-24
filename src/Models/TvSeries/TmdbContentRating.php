@@ -22,9 +22,11 @@ class TmdbContentRating extends TmdbModel
             return;
         }
 
-        $this->descriptors = $this->toArray($data, 'descriptors');
-        $this->iso_3166_1 = $this->toString($data, 'iso_3166_1');
-        $this->rating = $this->toString($data, 'rating');
+        parent::__construct($data);
+
+        $this->descriptors = $this->toArray('descriptors');
+        $this->iso_3166_1 = $this->toString('iso_3166_1');
+        $this->rating = $this->toString('rating');
     }
 
     /**

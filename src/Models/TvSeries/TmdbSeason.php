@@ -12,9 +12,9 @@ use Kiwilan\Tmdb\Traits;
  */
 class TmdbSeason extends TmdbModel
 {
-    use Traits\TmdbHasId;
-    use Traits\TmdbHasPoster;
-    use Traits\TmdbHasTmdbUrl;
+    use Traits\TmdbId;
+    use Traits\TmdbPoster;
+    use Traits\TmdbTmdbUrl;
 
     protected ?DateTime $air_date = null;
 
@@ -39,14 +39,16 @@ class TmdbSeason extends TmdbModel
             return;
         }
 
-        $this->setId($data);
-        $this->setPosterPath($data);
-        $this->air_date = $this->toDateTime($data, 'air_date');
-        $this->name = $this->toString($data, 'name');
-        $this->overview = $this->toString($data, 'overview');
-        $this->season_number = $this->toInt($data, 'season_number');
-        $this->vote_average = $this->toFloat($data, 'vote_average');
-        $this->credits = $this->toModel($data, 'credits', TmdbCredits::class);
+        parent::__construct($data);
+
+        $this->setId();
+        $this->setPosterPath();
+        $this->air_date = $this->toDateTime('air_date');
+        $this->name = $this->toString('name');
+        $this->overview = $this->toString('overview');
+        $this->season_number = $this->toInt('season_number');
+        $this->vote_average = $this->toFloat('vote_average');
+        $this->credits = $this->toModel('credits', TmdbCredits::class);
 
         $episodes = $data['episodes'] ?? null;
         if ($episodes) {

@@ -4,15 +4,16 @@ namespace Kiwilan\Tmdb\Traits;
 
 use Kiwilan\Tmdb\Models\Common\TmdbAlternativeTitle;
 
-trait TmdbHasAlternativeTitles
+trait TmdbAlternativeTitles
 {
     /** @var TmdbAlternativeTitle[]|null */
     protected ?array $alternative_titles = null;
 
-    protected function setAlternativeTitles(array $data): void
+    protected function setAlternativeTitles(): void
     {
-        if (isset($data['alternative_titles'])) {
-            $alternative_titles = $data['alternative_titles']['results'] ?? $data['alternative_titles']['titles'] ?? null;
+        $titles = $this->raw_data['alternative_titles'] ?? null;
+        if (isset($titles)) {
+            $alternative_titles = $titles['results'] ?? $titles['titles'] ?? null;
             if (empty($alternative_titles)) {
                 return;
             }

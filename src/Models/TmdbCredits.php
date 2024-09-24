@@ -11,7 +11,7 @@ use Kiwilan\Tmdb\Traits;
  */
 class TmdbCredits extends TmdbModel
 {
-    use Traits\TmdbHasId;
+    use Traits\TmdbId;
 
     /**
      * @var TmdbCast[]
@@ -29,9 +29,11 @@ class TmdbCredits extends TmdbModel
             return;
         }
 
-        $this->setId($data);
-        $this->cast = $this->validateData($data, 'cast', fn (array $values) => $this->loopOn($values, TmdbCast::class));
-        $this->crew = $this->validateData($data, 'crew', fn (array $values) => $this->loopOn($values, TmdbCrew::class));
+        parent::__construct($data);
+
+        $this->setId();
+        $this->cast = $this->validateData('cast', fn (array $values) => $this->loopOn($values, TmdbCast::class));
+        $this->crew = $this->validateData('crew', fn (array $values) => $this->loopOn($values, TmdbCrew::class));
     }
 
     /**

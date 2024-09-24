@@ -10,7 +10,7 @@ use Kiwilan\Tmdb\Traits;
  */
 class TmdbGenre extends TmdbModel
 {
-    use Traits\TmdbHasId;
+    use Traits\TmdbId;
 
     protected ?string $name = null;
 
@@ -20,8 +20,10 @@ class TmdbGenre extends TmdbModel
             return;
         }
 
-        $this->setId($data);
-        $this->name = $this->toString($data, 'name');
+        parent::__construct($data);
+
+        $this->setId();
+        $this->name = $this->toString('name');
     }
 
     /**

@@ -10,8 +10,8 @@ use Kiwilan\Tmdb\Traits;
  */
 class TmdbNetwork extends TmdbModel
 {
-    use Traits\TmdbHasId;
-    use Traits\TmdbHasLogo;
+    use Traits\TmdbId;
+    use Traits\TmdbLogo;
 
     protected ?string $name = null;
 
@@ -23,12 +23,15 @@ class TmdbNetwork extends TmdbModel
 
     public function __construct(array $data)
     {
-        $this->setId($data);
-        $this->setLogoPath($data);
-        $this->name = $this->toString($data, 'name');
-        $this->origin_country = $this->toString($data, 'origin_country');
-        $this->headquarters = $this->toString($data, 'headquarters');
-        $this->homepage = $this->toString($data, 'homepage');
+        parent::__construct($data);
+
+        $this->setId();
+        $this->setLogoPath();
+
+        $this->name = $this->toString('name');
+        $this->origin_country = $this->toString('origin_country');
+        $this->headquarters = $this->toString('headquarters');
+        $this->homepage = $this->toString('homepage');
     }
 
     public function getName(): ?string

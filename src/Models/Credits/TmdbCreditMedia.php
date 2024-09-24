@@ -10,10 +10,10 @@ use Kiwilan\Tmdb\Traits;
 
 class TmdbCreditMedia extends TmdbModel
 {
-    use Traits\TmdbHasBackdrop;
-    use Traits\TmdbHasId;
-    use Traits\TmdbHasPoster;
-    use Traits\TmdbHasVotes;
+    use Traits\TmdbBackdrop;
+    use Traits\TmdbId;
+    use Traits\TmdbPoster;
+    use Traits\TmdbVotes;
 
     protected ?string $name = null;
 
@@ -55,27 +55,29 @@ class TmdbCreditMedia extends TmdbModel
             return;
         }
 
-        $this->setId($data);
-        $this->setBackdropPath($data);
-        $this->setPosterPath($data);
+        parent::__construct($data);
 
-        $this->name = $this->toString($data, 'name');
-        $this->original_name = $this->toString($data, 'original_name');
-        $this->overview = $this->toString($data, 'overview');
-        $this->media_type = $this->toString($data, 'media_type');
-        $this->adult = $this->toBool($data, 'adult');
-        $this->original_language = $this->toString($data, 'original_language');
-        $this->genre_ids = $this->toArray($data, 'genre_ids');
-        $this->popularity = $this->toFloat($data, 'popularity');
-        $this->first_air_date = $this->toDateTime($data, 'first_air_date');
-        $this->release_date = $this->toDateTime($data, 'release_date');
-        $this->video = $this->toString($data, 'video');
-        $this->setVotes($data);
-        $this->origin_country = $this->toArray($data, 'origin_country');
-        $this->character = $this->toString($data, 'character');
+        $this->setId();
+        $this->setBackdropPath();
+        $this->setPosterPath();
 
-        $this->episodes = $this->validateData($data, 'episodes', fn (array $values) => $this->loopOn($values, TmdbEpisode::class));
-        $this->seasons = $this->validateData($data, 'seasons', fn (array $values) => $this->loopOn($values, TmdbSeason::class));
+        $this->name = $this->toString('name');
+        $this->original_name = $this->toString('original_name');
+        $this->overview = $this->toString('overview');
+        $this->media_type = $this->toString('media_type');
+        $this->adult = $this->toBool('adult');
+        $this->original_language = $this->toString('original_language');
+        $this->genre_ids = $this->toArray('genre_ids');
+        $this->popularity = $this->toFloat('popularity');
+        $this->first_air_date = $this->toDateTime('first_air_date');
+        $this->release_date = $this->toDateTime('release_date');
+        $this->video = $this->toString('video');
+        $this->setVotes();
+        $this->origin_country = $this->toArray('origin_country');
+        $this->character = $this->toString('character');
+
+        $this->episodes = $this->validateData('episodes', fn (array $values) => $this->loopOn($values, TmdbEpisode::class));
+        $this->seasons = $this->validateData('seasons', fn (array $values) => $this->loopOn($values, TmdbSeason::class));
     }
 
     public function getName(): ?string

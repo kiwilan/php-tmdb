@@ -2,20 +2,16 @@
 
 namespace Kiwilan\Tmdb\Traits;
 
-trait TmdbHasVotes
+trait TmdbVotes
 {
     protected ?float $vote_average = null;
 
     protected ?int $vote_count = null;
 
-    protected function setVotes(?array $data): void
+    protected function setVotes(): void
     {
-        if (! $data) {
-            return;
-        }
-
-        $this->vote_average = $this->toFloat($data, 'vote_average');
-        $this->vote_count = $this->toInt($data, 'vote_count');
+        $this->vote_average = $this->toFloat('vote_average');
+        $this->vote_count = $this->toInt('vote_count');
     }
 
     public function getVoteAverage(): ?float

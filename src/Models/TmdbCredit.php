@@ -30,13 +30,15 @@ class TmdbCredit extends TmdbModel
             return;
         }
 
-        $this->credit_type = $this->toString($data, 'credit_type');
-        $this->department = $this->toString($data, 'department');
-        $this->job = $this->toString($data, 'job');
-        $this->media_type = $this->toString($data, 'media_type');
-        $this->id = $this->toString($data, 'id');
-        $this->media = $this->toModel($data, 'media', TmdbCreditMedia::class);
-        $this->person = $this->toModel($data, 'person', TmdbPerson::class);
+        parent::__construct($data);
+
+        $this->credit_type = $this->toString('credit_type');
+        $this->department = $this->toString('department');
+        $this->job = $this->toString('job');
+        $this->media_type = $this->toString('media_type');
+        $this->id = $this->toString('id');
+        $this->media = $this->toModel('media', TmdbCreditMedia::class);
+        $this->person = $this->toModel('person', TmdbPerson::class);
     }
 
     public function getCreditType(): ?string

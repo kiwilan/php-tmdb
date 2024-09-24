@@ -4,7 +4,7 @@ namespace Kiwilan\Tmdb\Traits;
 
 use Kiwilan\Tmdb\Utils\TmdbUrl;
 
-trait TmdbHasTmdbUrl
+trait TmdbTmdbUrl
 {
     private function getBaseURL(): string
     {

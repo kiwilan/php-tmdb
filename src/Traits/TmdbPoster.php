@@ -3,15 +3,15 @@
 namespace Kiwilan\Tmdb\Traits;
 
 use Kiwilan\Tmdb\Enums\TmdbPosterSize;
-use Kiwilan\Tmdb\Utils\TmdbPoster;
+use Kiwilan\Tmdb\Utils\Images\TmdbPoster as TmdbImagePoster;
 
-trait TmdbHasPoster
+trait TmdbPoster
 {
     protected ?string $poster_path = null;
 
-    protected function setPosterPath(?array $data, string $key = 'poster_path'): void
+    protected function setPosterPath(string $key = 'poster_path'): void
     {
-        $this->poster_path = $data[$key] ?? null;
+        $this->poster_path = $this->raw_data[$key] ?? null;
     }
 
     public function getPosterPath(): ?string
@@ -21,7 +21,7 @@ trait TmdbHasPoster
 
     public function getPosterUrl(?TmdbPosterSize $size = null): ?string
     {
-        $poster = TmdbPoster::make($this->poster_path);
+        $poster = TmdbImagePoster::make($this->poster_path);
         if ($size) {
             $poster->size($size);
         }
@@ -31,7 +31,7 @@ trait TmdbHasPoster
 
     public function getPosterImage(?TmdbPosterSize $size = null): ?string
     {
-        $poster = TmdbPoster::make($this->poster_path);
+        $poster = TmdbImagePoster::make($this->poster_path);
         if ($size) {
             $poster->size($size);
         }
@@ -41,7 +41,7 @@ trait TmdbHasPoster
 
     public function savePosterImage(string $path, ?TmdbPosterSize $size = null): bool
     {
-        $poster = TmdbPoster::make($this->poster_path);
+        $poster = TmdbImagePoster::make($this->poster_path);
         if ($size) {
             $poster->size($size);
         }

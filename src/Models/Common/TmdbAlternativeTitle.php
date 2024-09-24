@@ -21,9 +21,11 @@ class TmdbAlternativeTitle extends TmdbModel
             return;
         }
 
-        $this->iso_3166_1 = $this->toString($data, 'iso_3166_1');
-        $this->title = $this->toString($data, 'title');
-        $this->type = $this->toString($data, 'type');
+        parent::__construct($data);
+
+        $this->iso_3166_1 = $this->toString('iso_3166_1');
+        $this->title = $this->toString('title');
+        $this->type = $this->toString('type');
     }
 
     /**

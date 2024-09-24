@@ -2,13 +2,13 @@
 
 namespace Kiwilan\Tmdb\Traits;
 
-trait TmdbHasId
+trait TmdbId
 {
     protected ?int $id = null;
 
-    protected function setId(?array $data, string $key = 'id'): void
+    protected function setId(string $key = 'id'): void
     {
-        $this->id = $data[$key] ?? null;
+        $this->id = $this->raw_data[$key] ?? null;
     }
 
     public function getId(): ?int

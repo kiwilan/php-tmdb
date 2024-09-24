@@ -3,15 +3,15 @@
 namespace Kiwilan\Tmdb\Traits;
 
 use Kiwilan\Tmdb\Enums\TmdbProfileSize;
-use Kiwilan\Tmdb\Utils\TmdbProfile;
+use Kiwilan\Tmdb\Utils\Images\TmdbProfile as TmdbImageProfile;
 
-trait TmdbHasProfile
+trait TmdbProfile
 {
     protected ?string $profile_path = null;
 
-    protected function setProfilePath(?array $data, string $key = 'profile_path'): void
+    protected function setProfilePath(string $key = 'profile_path'): void
     {
-        $this->profile_path = $data[$key] ?? null;
+        $this->profile_path = $this->raw_data[$key] ?? null;
     }
 
     public function getProfilePath(): ?string
@@ -21,7 +21,7 @@ trait TmdbHasProfile
 
     public function getProfileUrl(?TmdbProfileSize $size = null): ?string
     {
-        $profile = TmdbProfile::make($this->profile_path);
+        $profile = TmdbImageProfile::make($this->profile_path);
         if ($size) {
             $profile->size($size);
         }
@@ -31,7 +31,7 @@ trait TmdbHasProfile
 
     public function getProfileImage(?TmdbProfileSize $size = null): ?string
     {
-        $profile = TmdbProfile::make($this->profile_path);
+        $profile = TmdbImageProfile::make($this->profile_path);
         if ($size) {
             $profile->size($size);
         }
@@ -41,7 +41,7 @@ trait TmdbHasProfile
 
     public function saveProfileImage(string $path, ?TmdbProfileSize $size = null): bool
     {
-        $profile = TmdbProfile::make($this->profile_path);
+        $profile = TmdbImageProfile::make($this->profile_path);
         if ($size) {
             $profile->size($size);
         }

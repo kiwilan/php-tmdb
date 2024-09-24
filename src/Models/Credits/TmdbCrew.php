@@ -19,8 +19,8 @@ class TmdbCrew extends TmdbPerson
 
         parent::__construct($data);
 
-        $this->department = $this->toString($data, 'department');
-        $this->job = $this->toString($data, 'job');
+        $this->department = $this->toString('department');
+        $this->job = $this->toString('job');
     }
 
     public function getDepartment(): ?string

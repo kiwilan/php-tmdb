@@ -9,10 +9,10 @@ use Kiwilan\Tmdb\Traits;
  */
 class TmdbCollection extends TmdbModel
 {
-    use Traits\TmdbHasBackdrop;
-    use Traits\TmdbHasId;
-    use Traits\TmdbHasPoster;
-    use Traits\TmdbHasTmdbUrl;
+    use Traits\TmdbBackdrop;
+    use Traits\TmdbId;
+    use Traits\TmdbPoster;
+    use Traits\TmdbTmdbUrl;
 
     protected ?string $name = null;
 
@@ -33,18 +33,19 @@ class TmdbCollection extends TmdbModel
             return;
         }
 
-        $this->setId($data);
-        $this->setPosterPath($data);
-        $this->setBackdropPath($data);
-        $this->name = $this->toString($data, 'name');
+        parent::__construct($data);
 
-        $this->name = $this->toString($data, 'name');
-        $this->overview = $this->toString($data, 'overview');
-        $this->original_language = $this->toString($data, 'original_language');
-        $this->original_name = $this->toString($data, 'original_name');
-        $this->adult = $this->toBool($data, 'adult');
+        $this->setId();
+        $this->setPosterPath();
+        $this->setBackdropPath();
 
-        $this->parts = $this->validateData($data, 'parts', fn (array $values) => $this->loopOn($values, TmdbMovie::class));
+        $this->name = $this->toString('name');
+        $this->overview = $this->toString('overview');
+        $this->original_language = $this->toString('original_language');
+        $this->original_name = $this->toString('original_name');
+        $this->adult = $this->toBool('adult');
+
+        $this->parts = $this->validateData('parts', fn (array $values) => $this->loopOn($values, TmdbMovie::class));
     }
 
     public function getName(): ?string

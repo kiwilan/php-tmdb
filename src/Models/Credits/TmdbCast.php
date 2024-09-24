@@ -21,9 +21,9 @@ class TmdbCast extends TmdbPerson
 
         parent::__construct($data);
 
-        $this->cast_id = $this->toInt($data, 'cast_id');
-        $this->character = $this->toString($data, 'character');
-        $this->order = $this->toInt($data, 'order', 0);
+        $this->cast_id = $this->toInt('cast_id');
+        $this->character = $this->toString('character');
+        $this->order = $this->toInt('order', 0);
     }
 
     public function getCastId(): ?int

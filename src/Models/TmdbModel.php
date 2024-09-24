@@ -37,13 +37,13 @@ abstract class TmdbModel
         }
     }
 
-    protected function validateData(?array $data, string $key, Closure $closure): mixed
+    protected function validateData(string $key, Closure $closure): mixed
     {
-        if (! $data) {
+        if (! $this->raw_data) {
             return null;
         }
 
-        $values = $data[$key] ?? null;
+        $values = $this->raw_data[$key] ?? null;
         if (isset($values)) {
             return $closure($values);
         }
@@ -69,51 +69,66 @@ abstract class TmdbModel
         return $items;
     }
 
-    protected function toDateTime(array $data, string $key): ?DateTime
+    protected function toDateTime(string $key): ?DateTime
     {
-        $date = $data[$key] ?? null;
+        $date = $this->raw_data[$key] ?? null;
 
         return $date ? new DateTime($date) : null;
     }
 
-    protected function toBool(array $data, string $key, bool $default = false): bool
+    protected function toBool(string $key, bool $default = false): bool
     {
-        $value = $data[$key] ?? null;
+        $value = $this->raw_data[$key] ?? null;
 
         return $value ? boolval($value) : $default;
     }
 
-    protected function toInt(?array $data, string $key, ?int $default = null): ?int
+    protected function toInt(?string $key, ?int $default = null): ?int
     {
-        $value = $data[$key] ?? null;
+        $value = $this->raw_data[$key] ?? null;
 
         return $value ? intval($value) : $default;
     }
 
-    protected function toFloat(array $data, string $key): ?float
+    protected function toFloat(string $key): ?float
     {
-        $value = $data[$key] ?? null;
+        $value = $this->raw_data[$key] ?? null;
 
         return $value ? floatval($value) : null;
     }
 
-    protected function toString(array $data, string $key): ?string
+    protected function toString(string $key): ?string
     {
-        $value = $data[$key] ?? null;
+        $value = $this->raw_data[$key] ?? null;
 
         return $value ? strval($value) : null;
     }
 
-    protected function toArray(array $data, string $key): ?array
+    protected function toArray(string $key): ?array
     {
-        $value = $data[$key] ?? null;
+        $value = $this->raw_data[$key] ?? null;
 
         return $value ? (array) $value : null;
     }
 
-    protected function toModel(array $data, string $key, string $class): ?object
+    protected function toClassArray(string $key, string $class): ?array
     {
-        $value = $data[$key] ?? null;
+        $data = $this->toArray($key);
+        if (! $data) {
+            return null;
+        }
+
+        $items = [];
+        foreach ($data as $item) {
+            $items[] = new $class($item);
+        }
+
+        return $items;
+    }
+
+    protected function toModel(string $key, string $class): ?object
+    {
+        $value = $this->raw_data[$key] ?? null;
 
         return $value ? new $class($value) : null;
     }

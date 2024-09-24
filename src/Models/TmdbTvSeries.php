@@ -16,7 +16,7 @@ use Kiwilan\Tmdb\Traits;
  */
 class TmdbTvSeries extends TmdbExtendedMedia
 {
-    use Traits\TmdbHasTmdbUrl;
+    use Traits\TmdbTmdbUrl;
 
     /** @var TmdbCrew[] */
     protected ?array $created_by = null;
@@ -67,26 +67,26 @@ class TmdbTvSeries extends TmdbExtendedMedia
 
         parent::__construct($data);
 
-        $this->name = $this->toString($data, 'name');
-        $this->original_name = $this->toString($data, 'original_name');
-        $this->episode_run_time = $this->toArray($data, 'episode_run_time');
-        $this->first_air_date = $this->toDateTime($data, 'first_air_date');
-        $this->in_production = $this->toBool($data, 'in_production');
-        $this->languages = $this->toArray($data, 'languages');
-        $this->last_air_date = $this->toDateTime($data, 'last_air_date');
-        $this->number_of_episodes = $this->toInt($data, 'number_of_episodes');
-        $this->number_of_seasons = $this->toInt($data, 'number_of_seasons');
-        $this->type = $this->toString($data, 'type');
+        $this->name = $this->toString('name');
+        $this->original_name = $this->toString('original_name');
+        $this->episode_run_time = $this->toArray('episode_run_time');
+        $this->first_air_date = $this->toDateTime('first_air_date');
+        $this->in_production = $this->toBool('in_production');
+        $this->languages = $this->toArray('languages');
+        $this->last_air_date = $this->toDateTime('last_air_date');
+        $this->number_of_episodes = $this->toInt('number_of_episodes');
+        $this->number_of_seasons = $this->toInt('number_of_seasons');
+        $this->type = $this->toString('type');
 
-        $this->origin_country = $this->toArray($data, 'origin_country');
-        $this->last_episode_to_air = $this->toModel($data, 'last_episode_to_air', TmdbEpisode::class);
-        $this->next_episode_to_air = $this->toModel($data, 'next_episode_to_air', TmdbEpisode::class);
-        $this->recommendations = $this->toModel($data, 'recommendations', TvSerieResults::class);
-        $this->similar = $this->toModel($data, 'similar', TvSerieResults::class);
+        $this->origin_country = $this->toArray('origin_country');
+        $this->last_episode_to_air = $this->toModel('last_episode_to_air', TmdbEpisode::class);
+        $this->next_episode_to_air = $this->toModel('next_episode_to_air', TmdbEpisode::class);
+        $this->recommendations = $this->toModel('recommendations', TvSerieResults::class);
+        $this->similar = $this->toModel('similar', TvSerieResults::class);
 
-        $this->created_by = $this->validateData($data, 'created_by', fn (array $values) => $this->loopOn($values, TmdbCrew::class));
-        $this->networks = $this->validateData($data, 'networks', fn (array $values) => $this->loopOn($values, TmdbNetwork::class));
-        $this->seasons = $this->validateData($data, 'seasons', function (array $values) {
+        $this->created_by = $this->validateData('created_by', fn (array $values) => $this->loopOn($values, TmdbCrew::class));
+        $this->networks = $this->validateData('networks', fn (array $values) => $this->loopOn($values, TmdbNetwork::class));
+        $this->seasons = $this->validateData('seasons', function (array $values) {
             $seasons = [];
             foreach ($values as $season) {
                 $seasons[] = new TmdbSeason($season, $this->getId());

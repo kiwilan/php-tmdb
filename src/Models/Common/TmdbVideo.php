@@ -37,16 +37,18 @@ class TmdbVideo extends TmdbModel
             return;
         }
 
-        $this->iso_639_1 = $this->toString($data, 'iso_639_1');
-        $this->iso_3166_1 = $this->toString($data, 'iso_3166_1');
-        $this->name = $this->toString($data, 'name');
-        $this->key = $this->toString($data, 'key');
-        $this->site = $this->toString($data, 'site');
-        $this->size = $this->toInt($data, 'size');
-        $this->type = $this->toString($data, 'type');
-        $this->official = $this->toBool($data, 'official');
-        $this->published_at = $this->toDateTime($data, 'published_at');
-        $this->id = $this->toString($data, 'id');
+        parent::__construct($data);
+
+        $this->iso_639_1 = $this->toString('iso_639_1');
+        $this->iso_3166_1 = $this->toString('iso_3166_1');
+        $this->name = $this->toString('name');
+        $this->key = $this->toString('key');
+        $this->site = $this->toString('site');
+        $this->size = $this->toInt('size');
+        $this->type = $this->toString('type');
+        $this->official = $this->toBool('official');
+        $this->published_at = $this->toDateTime('published_at');
+        $this->id = $this->toString('id');
     }
 
     public function getIso6391(): ?string

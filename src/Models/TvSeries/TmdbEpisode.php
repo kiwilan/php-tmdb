@@ -14,10 +14,10 @@ use Kiwilan\Tmdb\Traits;
  */
 class TmdbEpisode extends TmdbModel
 {
-    use Traits\TmdbHasId;
-    use Traits\TmdbHasStill;
-    use Traits\TmdbHasTmdbUrl;
-    use Traits\TmdbHasVotes;
+    use Traits\TmdbId;
+    use Traits\TmdbStill;
+    use Traits\TmdbTmdbUrl;
+    use Traits\TmdbVotes;
 
     protected ?DateTime $air_date = null;
 
@@ -51,17 +51,19 @@ class TmdbEpisode extends TmdbModel
             return;
         }
 
-        $this->setId($data);
-        $this->setStillPath($data);
+        parent::__construct($data);
 
-        $this->air_date = $this->toDateTime($data, 'air_date');
-        $this->episode_number = $this->toInt($data, 'episode_number');
-        $this->name = $this->toString($data, 'name');
-        $this->overview = $this->toString($data, 'overview');
-        $this->production_code = $this->toString($data, 'production_code');
-        $this->runtime = $this->toInt($data, 'runtime');
-        $this->season_number = $this->toInt($data, 'season_number');
-        $this->setVotes($data);
+        $this->setId();
+        $this->setStillPath();
+
+        $this->air_date = $this->toDateTime('air_date');
+        $this->episode_number = $this->toInt('episode_number');
+        $this->name = $this->toString('name');
+        $this->overview = $this->toString('overview');
+        $this->production_code = $this->toString('production_code');
+        $this->runtime = $this->toInt('runtime');
+        $this->season_number = $this->toInt('season_number');
+        $this->setVotes();
 
         $this->credits = new TmdbCredits([
             'cast' => $data['guest_stars'] ?? null,
