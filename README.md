@@ -51,7 +51,7 @@ You have just to use `client()` static method to get new instance of `Tmdb` clas
 ```php
 use Kiwilan\Tmdb\Tmdb;
 
-$movies = Tmdb::client('API_KEY')
+$results = Tmdb::client('API_KEY')
     ->search()
     ->movie(query: 'the lord of the rings'); // ?\Kiwilan\Tmdb\Results\MovieResults
 ```
