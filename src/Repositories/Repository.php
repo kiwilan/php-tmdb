@@ -29,6 +29,14 @@ abstract class Repository
     }
 
     /**
+     * Get the status code of the response
+     */
+    public function getStatusCode(): ?int
+    {
+        return $this->statusCode;
+    }
+
+    /**
      * Get the body of the response
      */
     public function getBody(): ?array
