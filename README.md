@@ -44,6 +44,18 @@ composer require kiwilan/php-tmdb
 
 ## Usage of API
 
+### Basic example
+
+You have just to use `client()` static method to get new instance of `Tmdb` class with your API key. After that, you can use repositories with chained methods to interact with the TMDB API, first chained method is a repository, corresponding to a category of the API. And second chained method is an endpoint of the API.
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$movies = Tmdb::client('API_KEY')
+    ->search()
+    ->movie(query: 'the lord of the rings'); // ?\Kiwilan\Tmdb\Results\MovieResults
+```
+
 ### Collection
 
 #### [Collection: Details](https://developer.themoviedb.org/reference/collection-details)
