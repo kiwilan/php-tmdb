@@ -65,7 +65,7 @@ Get the images that belong to a collection.
 ```php
 $images = Tmdb::client('API_KEY')
     ->collections()
-    ->images(collection_id: 119); // ?\Kiwilan\Tmdb\Models\TmdbCollectionImages
+    ->images(collection_id: 119); // ?\Kiwilan\Tmdb\Models\Images\TmdbImages
 ```
 
 #### [Collection: Translations](https://developer.themoviedb.org/reference/collection-translations)
@@ -75,7 +75,7 @@ Get the translations that belong to a collection.
 ```php
 $translations = Tmdb::client('API_KEY')
     ->collections()
-    ->translations(collection_id: 119); // ?\Kiwilan\Tmdb\Models\TmdbCollectionTranslations
+    ->translations(collection_id: 119); // ?\Kiwilan\Tmdb\Models\Translations\TmdbTranslations
 ```
 
 ### Companies
