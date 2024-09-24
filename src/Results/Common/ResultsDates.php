@@ -17,8 +17,10 @@ class ResultsDates extends TmdbModel
             return;
         }
 
-        $this->maximum = $this->toDateTime($data, 'maximum');
-        $this->minimum = $this->toDateTime($data, 'minimum');
+        parent::__construct($data);
+
+        $this->maximum = $this->toDateTime('maximum');
+        $this->minimum = $this->toDateTime('minimum');
     }
 
     public function getMaximum(): ?DateTime
