@@ -16,9 +16,11 @@ abstract class Results extends TmdbModel
 
     public function __construct(?array $data)
     {
-        $this->page = $this->toInt($data, 'page', 1);
-        $this->total_pages = $this->toInt($data, 'total_pages', 1);
-        $this->total_results = $this->toInt($data, 'total_results', 0);
+        parent::__construct($data);
+
+        $this->page = $this->toInt('page', 1);
+        $this->total_pages = $this->toInt('total_pages', 1);
+        $this->total_results = $this->toInt('total_results', 0);
     }
 
     /**
