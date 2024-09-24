@@ -22,7 +22,7 @@ PHP wrapper package to interact with the [The Movie Database (TMDB) API](https:/
 **PHP 8.1** and later.
 
 > [!NOTE]
-> Package `guzzlehttp/guzzle` will be installed automatically by `composer`.
+> Package [`guzzlehttp/guzzle`](https://github.com/guzzle/guzzle) will be installed automatically by `composer`.
 
 ## About
 
