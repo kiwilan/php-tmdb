@@ -2,6 +2,12 @@
 
 All notable changes to `php-tmdb` will be documented in this file.
 
+## v0.1.04 - 2024-09-24
+
+- add `getRawDataKey(string $key)` to save extract data from raw data
+- now all requests to API (except for images) have `'accept' => 'application/json'` header
+- add `getFirstResult()`, `getLastResult()`, `filter(\Closure $closure)`, `find(\Closure $closure)` to `Results` to help filter results
+
 ## v0.1.02 - 2024-09-20
 
 Add `getBelongsToCollection()` to `TmdbMovie`
