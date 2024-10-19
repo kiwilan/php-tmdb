@@ -19,3 +19,16 @@ it('can get Attack on Titan', function () {
     expect($contents)->not()->toBeNull();
     expect($contents)->toBeString();
 });
+
+it('can get The Legend Of Vox Machina', function () {
+    $tv = Tmdb::client(apiKey())
+        ->search()
+        ->tv('The Legend Of Vox Machina');
+    $first = $tv->getFirstResult();
+
+    expect($first)->not()->toBeNull();
+    expect($first)->toBeInstanceOf(\Kiwilan\Tmdb\Models\TmdbTvSeries::class);
+    expect($first->getName())->toBe('The Legend of Vox Machina');
+    expect($first->getId())->toBe(135934);
+    expect($first->getOriginalLanguage())->toBe('en');
+});

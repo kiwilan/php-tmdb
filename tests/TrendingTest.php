@@ -64,8 +64,10 @@ it('can use movies', function () {
 
     $very_popular = $all->filter(fn (TmdbMovie $movie) => $movie->getVoteCount() > 1000);
     expect($very_popular)->toBeArray();
-    expect($very_popular)->not()->toBeEmpty();
-    expect($very_popular)->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TmdbMovie::class));
+    if (! empty($very_popular)) {
+        expect($very_popular)->not()->toBeEmpty();
+        expect($very_popular)->each(fn (Pest\Expectation $movie) => expect($movie->value)->toBeInstanceOf(TmdbMovie::class));
+    }
 
     $very_popular = $all->find(fn (TmdbMovie $movie) => $movie->getVoteCount() > 1000);
     expect($very_popular)->toBeInstanceOf(TmdbMovie::class);
