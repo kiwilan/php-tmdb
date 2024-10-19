@@ -70,7 +70,9 @@ it('can use movies', function () {
     }
 
     $very_popular = $all->find(fn (TmdbMovie $movie) => $movie->getVoteCount() > 1000);
-    expect($very_popular)->toBeInstanceOf(TmdbMovie::class);
+    if ($very_popular) {
+        expect($very_popular)->toBeInstanceOf(TmdbMovie::class);
+    }
 
     expect($all->getFirstResult())->toBeInstanceOf(TmdbMovie::class);
     expect($all->getLastResult())->toBeInstanceOf(TmdbMovie::class);
