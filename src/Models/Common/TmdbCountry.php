@@ -25,7 +25,7 @@ class TmdbCountry extends TmdbModel
         $this->name = $this->toString('name');
     }
 
-    public function getIso31661(): ?string
+    public function getIso3166(): ?string
     {
         return $this->iso_3166_1;
     }

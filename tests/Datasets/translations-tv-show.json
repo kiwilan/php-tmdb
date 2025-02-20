@@ -1,0 +1,509 @@
+{
+    "id": 246,
+    "translations": [
+      {
+        "iso_3166_1": "US",
+        "iso_639_1": "en",
+        "name": "English",
+        "english_name": "English",
+        "data": {
+          "name": "",
+          "overview": "In a war-torn world of elemental magic, a young boy reawakens to undertake a dangerous mystic quest to fulfill his destiny as the Avatar, and bring peace to the world.",
+          "homepage": "",
+          "tagline": "Fire. Air. Water. Earth"
+        }
+      },
+      {
+        "iso_3166_1": "PT",
+        "iso_639_1": "pt",
+        "name": "Português",
+        "english_name": "Portuguese",
+        "data": {
+          "name": "Avatar: O Último Airbender",
+          "overview": "Os irmãos Katara e Sokka despertam o jovem Aang de uma longa hibernação e descobrem que é um Avatar com poderes para derrotar a malvada Nação do Fogo.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "SE",
+        "iso_639_1": "sv",
+        "name": "svenska",
+        "english_name": "Swedish",
+        "data": {
+          "name": "Avatar: Den siste luftbändaren",
+          "overview": "Vatten, Jord, Eld och Luft. En gång i tiden rådde det fred mellan världens fyra länder. Då uppehöll Avataren, de fyra elementens mästare, freden mellan stammarna. När han en dag försvann attackerade Eldlandet de övriga tre rikena. Nu, hundra år senare är det upp till den unga Aang, den nya Avataren, att bemästra elementen och återinföra fred och balans i världen.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "BG",
+        "iso_639_1": "bg",
+        "name": "български език",
+        "english_name": "Bulgarian",
+        "data": {
+          "name": "Аватар: Повелителят на четирите стихии",
+          "overview": "В разкъсван от войни свят на стихийната магия едно момче се пробужда и се впуска в опасно мистично търсене, за да изпълни съдбата си на Аватар и да донесе мир на света.",
+          "homepage": "",
+          "tagline": "Вода. Земя. Огън. Въздух."
+        }
+      },
+      {
+        "iso_3166_1": "FR",
+        "iso_639_1": "fr",
+        "name": "Français",
+        "english_name": "French",
+        "data": {
+          "name": "Avatar : Le Dernier Maître de l'air",
+          "overview": "Ang est un jeune Maître de l'Air, mais c'est surtout l'Avatar, un être unique qui maîtrise tous les éléments - Feu, Air, Eau et Terre. Lors d'un terrible orage, il sombre dans la mer et hiberne grâce à ses pouvoirs d'Avatar, pour se réveiller un siècle plus tard dans un monde tyrannisé par la puissante Nation du Feu et où il est le dernier représentant de son peuple. Aidé de ses deux amis de la Tribu de l'Eau, Ang va devoir réveiller l'Avatar en lui, apprendre à contrôler tous les éléments et se battre contre la menace que les Maîtres du Feu font peser sur le monde.",
+          "homepage": "",
+          "tagline": "L'eau. La terre. Le feu. L'air."
+        }
+      },
+      {
+        "iso_3166_1": "IL",
+        "iso_639_1": "he",
+        "name": "עִבְרִית",
+        "english_name": "Hebrew",
+        "data": {
+          "name": "אווטאר: כשף האוויר האחרון",
+          "overview": "בתקופה העתיקה, העולם התחלק לארבע אומות: שבט המים, ממלכת האדמה, אומת האש ונוודי האוויר. בכל אומה, יש אנשים שנקראים \"כשפים\" שיכולים ללמוד לרתום את אלמנטי הטבע. \"כשפות\" הוא שילוב של אומנויות לחימה וקסם של אלמנטים. בכל דור, יש רק כשף אחד שיכול לשלוט בכל ארבע האלמנטים, הכשף הזה נקרא האווטאר. במשך אלפי שנים חיו האומות האלו בשלום. הכל התחיל להשתבש כאשר אומת האש תקפה. בדיוק כשהיו זקוקים לו יותר מתמיד, האווטאר נעלם. מאה שנים מאוחר יותר, כשפת מים צעירה בשם קטארה ואחיה המבוגר סאקה, מוצאים את האווטאר החדש, אנג, בתוך קרחון. עכשיו, הם צריכים לעזור לאנג להתמחות בכל ארבעת האלמנטים לפני שהוא יוכל להתעמת מול שליט אומת האש, אבל בנו של שליט אומת האש, הנסיך זוקו, ינסה למנוע מאנג והחבורה להמשיך במסעם.",
+          "homepage": "",
+          "tagline": "מים. אדמה. אש.  אוויר."
+        }
+      },
+      {
+        "iso_3166_1": "NL",
+        "iso_639_1": "nl",
+        "name": "Nederlands",
+        "english_name": "Dutch",
+        "data": {
+          "name": "Avatar: De Legende van Aang",
+          "overview": "Avatar gaat over de wereldmacht die lange tijd verdeeld was over vier naties: Aarde, Vuur, Water en Lucht. Uiteindelijk werd het evenwicht verstoord en was er maar één Avatar die de situatie kon redden: Aang",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "ES",
+        "iso_639_1": "es",
+        "name": "Español",
+        "english_name": "Spanish",
+        "data": {
+          "name": "Avatar: La leyenda de Aang",
+          "overview": "La historia transcurre en un mundo de gente principalmente asiática (el estilo de vida en la serie se basa en la primera mitad del siglo XIX), donde predominan las artes marciales y la manipulación de los elementos en combinación con el misticismo oriental, dando seguimiento a las aventuras de Aang, el más reciente sucesor de una larga línea de avatares, y sus amigos en un intento por salvar su místico mundo de la despiadada Nación del Fuego que busca conquistar a las demás naciones. Durante sus travesías son acechados insistentemente por el desterrado príncipe del fuego Zuko, cuyo objetivo es capturar al avatar para recuperar su honor. Esta serie es presentada como si se tratara de una serie de libros, en donde cada episodio actúa como un «capítulo», y cada temporada como un solo «libro», los cuales se titulan por el elemento temático de la temporada.",
+          "homepage": "",
+          "tagline": "Agua. Tierra. Fuego. Aire."
+        }
+      },
+      {
+        "iso_3166_1": "NO",
+        "iso_639_1": "no",
+        "name": "Norsk",
+        "english_name": "Norwegian",
+        "data": {
+          "name": "Avatar: Den siste lufttemmeren",
+          "overview": "Avatar handler om 12 år gamle Aang, en gutt som forsøker å skape balanse mellom verdens fire elementer; vann, jord, luft og ild. Innenfor hver sivilisasjon finnes det personer som har evnen til å manipulere og kontrollere det elementet sivilisasjonen representerer; disse personene kalles temmere. Avataren fungerer også som broen mellom den fysiske og den åndelige verden og kan selv krysse over i denne verdenen, og dermed samtale med ånder og løse problemer som andre temmere ikke kan.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "DE",
+        "iso_639_1": "de",
+        "name": "Deutsch",
+        "english_name": "German",
+        "data": {
+          "name": "Avatar - Der Herr der Elemente",
+          "overview": "Im Mittelpunkt von „Avatar: Der Herr der Elemente“ steht der zwölfjährige Aang, der in einer von den Herren des Feuers beherrschten asiatischen Fantasy-Welt lebt. Aang ist nicht nur der letzte Herrscher über die Luft, sondern auch der Avatar, der Herr über alle Elemente. Er ist derjenige, der über die Form von Wasser, Erde, Luft und Feuer bestimmt. Doch der Avatar war 100 Jahre lang in einem Gletscher am Südpol eingefroren, und während dieser Zeit sind die Herrscher des Feuers ihrem Ziel der totalen Weltherrschaft immer näher gekommen. Erst als Aang von Katara, der letzten Gebieterin des Wassers, und deren Bruder Sokka aus dem ewigen Eis befreit wird, hat er eine Chance, seine Mission zu erfüllen: Er muss die aus den Fugen geratene Welt retten und die Balance der Elemente wiederherstellen. Eine große Herausforderung für einen Zwölfjährigen – schließlich muss er noch vieles lernen.",
+          "homepage": "",
+          "tagline": "Wasser. Erde. Feuer. Luft."
+        }
+      },
+      {
+        "iso_3166_1": "BS",
+        "iso_639_1": "bs",
+        "name": "Bosanski",
+        "english_name": "Bosnian",
+        "data": {
+          "name": "Avatar - The Last Airbender",
+          "overview": "Kada neprijateljska Nacija Vatre prijeti da zarobi vodu, zemlju i vazduh svim zemljama, nevoljno i neodgovorno dječak mora prihvatiti svoju sudbinu kao Avatar, izabrani koji može povratiti svjetski poredak. Ovaj dvanaestogodišnjak se mora odreći mnogo toga kako bi naučio da vlada svojim moćima, moćima četiri elementa. Tek onda on može pobjediti zlo i povratiti mir u svjetu.\n\n ",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "HU",
+        "iso_639_1": "hu",
+        "name": "Magyar",
+        "english_name": "Hungarian",
+        "data": {
+          "name": "Avatár – Aang legendája",
+          "overview": "A világot négy nép lakja: a Víz, a Föld, a Levegő és a Tűz népe. Minden népnek van egy kasztja, melybe olyan mesterek tartoznak, akik képesek megváltoztatni eredeti elemüket; ők a Vízhajlítók, Földhajlítók, Léghajlítók és Tűzhajlítók. Közülük a legnagyobb hatalma az Avatarnak van: ő az egyetlen, aki képes mind a négy elemet uralni, aki sorban leszületik mind a négy néphez. Mikor a könyörtelen Tűz népe leigázni készül a Föld, a Levegő és a Víz népét, egy csintalan kisfiú kénytelen szembesülni sorsával, miszerint ő az Avatar, a Kiválasztott, az egyetlen aki helyreállíthatja a világ rendjét.",
+          "homepage": "",
+          "tagline": "Víz. Föld. Tűz. Levegő."
+        }
+      },
+      {
+        "iso_3166_1": "RU",
+        "iso_639_1": "ru",
+        "name": "Pусский",
+        "english_name": "Russian",
+        "data": {
+          "name": "Аватар: Легенда об Аанге",
+          "overview": "Мир разделен на четыре народа: Водные племена, королевство Земли, Воздушные кочевники и Огненная нация. Представители каждого народа обладают способностями управления своей стихией и именуют себя магами Воды, Земли, Воздуха или Огня. Только Аватар является властелином всех четырех стихий. Его роль заключается в поддержке баланса между народами и сохранении мирового порядка. Однажды предводитель Огненной нации Лорд Огня развязал войну с целью подчинить себе остальные народы. Ответственность за спасение мира легла на плечи двенадцатилетнего мальчика, мага Воздуха по имени Аанг, который узнал, что он Аватар. Аанг отправляется в опасное путешествие вместе со своими отважными друзьями из племени Воды, Катарой и ее братом Соккой. Ему предстоит овладеть всеми стихиями, пройти через множество испытаний, перебороть свои страхи и сразить Лорда Огня, чтобы остановить войну и восстановить равновесие в мире.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "CZ",
+        "iso_639_1": "cs",
+        "name": "Český",
+        "english_name": "Czech",
+        "data": {
+          "name": "Avatar: Legenda o Aangovi",
+          "overview": "Svět, kde se seriál odehrává, obývají nejen podivuhodná zvířata, ale samozřejmě i lidé rozdělení do čtyř národů podle čtyř živlů, které někteří vyvolení dokáží ovládat. Tak tu máme Vodní kmeny, Království země, Vzdušné nomády a konečně Národ ohně. Právě ten vede již sto let ničivou válku proti třem ostatním národům a jeho konečné vítězství je na dosah…",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "RO",
+        "iso_639_1": "ro",
+        "name": "Română",
+        "english_name": "Romanian",
+        "data": {
+          "name": "Avatar: Legenda lui Aang",
+          "overview": "Serialul urmărește aventurile lui Aang și ale prietenilor săi, care trebuie să salveze lumea înfrângându-l pe Lordul Focului și astfel să pună capăt războiului cu Națiunea Focului. Personajele principale sunt: Katara (o stăpână a apei din Triburile de Sud), Sokka, fratele ei, Aang (Avatarul) și ajutoarele lor Momo și Appa, iar printre personajele negative se numără prințul Zuko si unchiul său Iroh. După sfârșitul primului sezon in scenă mai apare si prințesa Azula (sora lui Zuko) dar și o nouă stăpână a Pământului, Toph Bei Fong, care se va alătura ulterior echipei lui Aang.Abia în al treilea sezon apare și Supremul Lord al focului Ozai unde va avea loc o înfruntare a titanilor dintre el și Aang.Tot războiul a început de la Împăratul Focului Sozin find și bunicul actualului împărat.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "BR",
+        "iso_639_1": "pt",
+        "name": "Português",
+        "english_name": "Portuguese",
+        "data": {
+          "name": "Avatar: A Lenda de Aang",
+          "overview": "Aang é um menino de 12 anos que descobre ser o Avatar, mestre responsável por garantir o equilíbrio entre os quatro elementos e suas respectivas nações, mantendo o planeta em paz.",
+          "homepage": "",
+          "tagline": "Água. Terra. Fogo. Ar."
+        }
+      },
+      {
+        "iso_3166_1": "DK",
+        "iso_639_1": "da",
+        "name": "Dansk",
+        "english_name": "Danish",
+        "data": {
+          "name": "Avatar: Den Sidste Luftbetvinger",
+          "overview": "Serien handler om den 12-årige dreng aang, der forsøger at skabe balance mellem verdens fire elementer: vand, jord, ild og luft. Han bliver hjulpet af sine tre venner katara, sokka og toph, dog efter bog 3 kapitel 11, bliver han også hjulpet på vej af sin tidligere fjende zuko. For 100 år siden startede ildmesteren en strid mod de andre tre nationer. Avataren er den eneste person, der kan mestre alle fire elementer. Det er kun ham, der vil være i stand til at standse ildmesteren, så der igen kan blive balance i verden. Problemet er, at avataren er kun en lille 12-årig dreng, som hedder aang, og at han er under tidspres af en komet, der vil kunne give ildmesteren kraft nok til at kunne afslutte krigen selv.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "UA",
+        "iso_639_1": "uk",
+        "name": "Український",
+        "english_name": "Ukrainian",
+        "data": {
+          "name": "Аватар: Останній Захисник",
+          "overview": "Світ поділений на чотири Нації: Води, Землі, Повітря й Вогню. У кожної Нації є людина, яка володіє здібностями керувати своєю стихією. Вони називають себе магами. Найсильніший Володар світу і єдиний, хто може керувати всіма чотирма стихіями, - Аватар - воскресає для кожного Народу раз на сто років. Коли жорстока Нація Вогню загрожує поневолити Нації Води, Землі і Повітря, запеклому й пустотливому хлопчиську належить зустріти свою долю, долю Аватара, обраного, якому судилося відновити рівновагу в світі.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "TR",
+        "iso_639_1": "tr",
+        "name": "Türkçe",
+        "english_name": "Turkish",
+        "data": {
+          "name": "Avatar: Son Havabükücü",
+          "overview": "Katara ve Sokka kardeşler, uzun kış uykusundan uyandırdıkları genç Aang'ın kötü kalpli Ateş Ulusu'nu yenebilecek hava bükücü güçlere sahip bir Avatar olduğunu öğrenir.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "IT",
+        "iso_639_1": "it",
+        "name": "Italiano",
+        "english_name": "Italian",
+        "data": {
+          "name": "Avatar - La leggenda di Aang",
+          "overview": "I fratelli Katara e Sokka risvegliano il giovane Aang da un lungo sonno e scoprono che è un Avatar le cui arti marziali possono sconfiggere la malvagia Nazione del Fuoco.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "GR",
+        "iso_639_1": "el",
+        "name": "ελληνικά",
+        "english_name": "Greek",
+        "data": {
+          "name": "Άβαταρ: Ο Τελευταίος Μαχητής του Ανέμου",
+          "overview": "Το «Άβαταρ» είναι μια περιπέτεια κόμικ που διαδραματίζεται σε έναν φανταστικό ασιατικό κόσμο, χωρισμένο σε 4 έθνη-φυσικά στοιχεία (το έθνος της Φωτιάς, το έθνος του Νερού, το έθνος της Γης και οι νομάδες του Αέρα). Αυτή η επική ιστορία ακολουθεί το ταξίδι του 12χρονου Aang, ενός διστακτικού ήρωα, που πρέπει να χριστεί ηγέτης σε κάθε ένα από τα τέσσερα στοιχεία, για να ηγηθεί στη μάχη ενάντια στο εχθρικό έθνος της Φωτιάς και να αποκαταστήσει την ισορροπία στον διασπασμένο από τον πόλεμο κόσμο του.",
+          "homepage": "",
+          "tagline": "Νερό. Γη. Φωτιά. Αέρας."
+        }
+      },
+      {
+        "iso_3166_1": "MX",
+        "iso_639_1": "es",
+        "name": "Español",
+        "english_name": "Spanish",
+        "data": {
+          "name": "Avatar: La leyenda de Aang",
+          "overview": "El mundo está dividido en cuatro naciones, correspondientes a los cuatro elementos: La Tribu del Agua, El Reino de la Tierra, la Nación del Fuego y los Nómadas del Aire. En cada nación hay una notable orden llamada de los \"Maestros\" que aprenden a potenciar su talento nato y manipular su elemento nativo, combinando artes marciales y magia elemental. En cada generación, sólo un Maestro es capaz de controlar los cuatro elementos, y recibe el nombre de Avatar, el espíritu del mundo manifestado en forma humana, capaz de mantener la armonía de las cuatro naciones.",
+          "homepage": "",
+          "tagline": "El ultimo maestro aire"
+        }
+      },
+      {
+        "iso_3166_1": "KR",
+        "iso_639_1": "ko",
+        "name": "한국어/조선말",
+        "english_name": "Korean",
+        "data": {
+          "name": "아바타 아앙의 전설",
+          "overview": "물의 부족, 흙의 왕국, 불의 제국, 공기의 유목민은 불의 제국이 일으킨 전쟁으로 평화로운 균형을 잃게 된다. 사람들은 4개의 원소를 모두 다룰 줄 아는 아바타가 나타나 이 세상에 평화를 다시 돌아오기를 기다린다. 물의 부족인 카타라와 소카 남매는 빙하 속에 갇힌 아바타, 공기의 유목민 출신 아앙을 구해준다. 아바타의 운명을 타고난 아앙은 4가지 요소를 다루는 능력을 마스터하고 불의 제국을 물리쳐야 하지만 이 거대한 임무를 감당하는 것이 달갑지 만은 않다. 카타라와 그녀의 용감한 오빠 소카의 도움을 받으며 아앙은 세계를 구하기 위한 위험한 여행을 시작한다.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "LV",
+        "iso_639_1": "lv",
+        "name": "Latviešu",
+        "english_name": "Latvian",
+        "data": {
+          "name": "Avatārs. Leģenda par Āngu",
+          "overview": "",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "SK",
+        "iso_639_1": "sk",
+        "name": "Slovenčina",
+        "english_name": "Slovak",
+        "data": {
+          "name": "",
+          "overview": "Vo vojne zničenom svete, kde sa dajú ovládať základné elementy - voda, zem, oheň, vzduch, sa mladý chlapec prebudí, aby podnikol nebezpečnú cestu a naplniť svoj osud ako Avatar a priniesť svetu mier.",
+          "homepage": "",
+          "tagline": "Voda. Zem. Oheň. Vzduch."
+        }
+      },
+      {
+        "iso_3166_1": "PL",
+        "iso_639_1": "pl",
+        "name": "Polski",
+        "english_name": "Polish",
+        "data": {
+          "name": "Avatar: Legenda Aanga",
+          "overview": "Serial opowiada o świecie podzielonym na cztery nacje: Królestwo Ziemi, Nomadowie Powietrza, Plemiona Wody i Naród Ognia. W każdej krainie żyją ludzie, zwani magami, mogący zapanować nad jednym żywiołem przypisanym swojemu ludowi. Ale raz na pokolenie, na przemian w każdym kraju, rodzi się Awatar, duch świata przybierający ludzką formę. Posiada on umiejętność nauki wszystkich czterech elementów, a jego zadaniem jest pilnowanie pokoju i równowagi na świecie. Gdy nagle znika, Władca Ognia postanawia to wykorzystać, rozpoczynając wojnę przeciwko pozostałym trzem nacjom. Gdy sto lat później jest bliski zwycięstwa, rodzeństwo z wodnego plemienia, Sokka i Katara, ratują dziwnie wyglądającego dwunastoletniego chłopca imieniem Aang. Wkrótce odkrywają, że jest on nie tylko ostatnim z magów powietrza, ale również dawno zaginionym Awatarem. Postanawiają pomagać chłopcu w jego długiej wędrówce, w której ma opanować pozostałe żywioły i ochronić świat przed zniewoleniem.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "CN",
+        "iso_639_1": "zh",
+        "name": "普通话",
+        "english_name": "Mandarin",
+        "data": {
+          "name": "降世神通",
+          "overview": "故事发生在远古时代，当时的东方世界里分散居住着四个不同的民族，分别为水善族、土强王国、火凤凰帝国、气和族。\n\n在每个种族每代都会诞生出一些拥有强大天赋的人，他们可以通过学习感应到属于自己民族的元素并加以控制，进而用来战斗，这些人就被称为“宗”。\n\n虽然他们本身已经是强大的战士，但依然有凌驾于他们之上的存在，这个人就是能够同时掌控四种元素力量的降世神通（Avatar）！\n\n每一代降世神通都只有一个人，当上一代濒临死亡时他都会再度转世重生，代代不息。也正是因为这个绝对强大的存在，四个种族之间一直保持着微妙的和平，直到历史被彻底改变的那一天——降世神通失踪了！\n\n失去了强大压制脆弱的和平立马土崩瓦解，早已经蠢蠢欲动的火凤凰帝国很快挑起事端，以绝对的实力燃起战火。纵然其他三族奋起反抗但实力的悬殊让气和族的城池瞬间失守，整个民族惨遭火焰的吞噬，彻底地断绝了血脉。\n\n火凤凰帝国并没有因为胜利而停下脚步，水善族成为了下一个攻击的对象，在大批族民被屠杀后水善族的幸存者逃往世界边缘的冰封国度苟延残喘，而土强国纵然还在顽强地抵抗，但他们都清楚距离末日已时日不多。\n\n水善族的冰天雪地成为阻止烈焰的天然屏障，但终究不是永远地避难所。南方水族战士索卡和卡塔拉是一对兄妹，他们常常外出巡视南方水族的边界以防火族追杀至此。\n\n一日他们误入一个巨大的冰洞邂逅了一名自称为安（Aang）的神秘少年，他竟然就是失踪已久的神通转世！在他的带领下三人一同走上了反抗火凤凰帝国的道路……",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "JP",
+        "iso_639_1": "ja",
+        "name": "日本語",
+        "english_name": "Japanese",
+        "data": {
+          "name": "アバター 伝説の少年アン",
+          "overview": "その昔、水、土、火、気の4つの国で成り立っていた。各国には水、土、火、気のそれぞれの技をあやつるベンダー（使い手）が存在し、彼らベンダーの中で、４つの技をすべて使いこなせる唯一の者が『アバター』と呼ばれていた。アバターによって世界の秩序を保たれ、人々は平和に暮らしていたが、火の王国が他の国を攻撃してからは、世界の秩序は崩れてしまった。アバターだけが世界平和を取り戻すことができるのだが、アバターの後継人はたった12歳の少年アン…。しかも、彼はまだ「気」の技しかマスターしていないのであった…。",
+          "homepage": "",
+          "tagline": "水・土・火・気"
+        }
+      },
+      {
+        "iso_3166_1": "TW",
+        "iso_639_1": "zh",
+        "name": "普通话",
+        "english_name": "Mandarin",
+        "data": {
+          "name": "降世神通：最後的氣宗",
+          "overview": "凱塔拉和蘇卡這對兄妹，意外喚醒了冬眠已久的安。安不僅精通氣功，更是失蹤已久的「神通王」。只有他，能夠阻止烈火國的野心。",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "ES",
+        "iso_639_1": "ca",
+        "name": "Català",
+        "english_name": "Catalan",
+        "data": {
+          "name": "Avatar: L’últim mestre de l’aire",
+          "overview": "La història transcorre en un món basat en l'estil de vida de l'orient llunyà, a la primera meitat del segle XIX, on predominen les arts marcials i la manipulació dels elements en combinació amb el misticisme oriental. La trama principal segueix les aventures d'Aang, el més recent successor d'una llarga línia d'avatars, i els seus amics, en un intent per salvar el seu místic món de la despietada Nació del Foc, que busca conquerir les altres nacions. Durant les seves travessies són perseguits insistentment pel desterrat príncep del foc Zuko, l'objectiu del qual és capturar l'avatar per recuperar el seu honor. Aquesta sèrie és presentada com si es tractés d'una sèrie de llibres, on cada episodi actua com un \"capítol\" i cada temporada com un \"llibre\", els quals es titulen per l'element natural predominant en cada moment.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "HR",
+        "iso_639_1": "hr",
+        "name": "Hrvatski",
+        "english_name": "Croatian",
+        "data": {
+          "name": "Avatar: Posljednji gospodar vjetrova",
+          "overview": "U svijetu podijeljenom na četiri nacije: Vodu, Zemlju, Vatru i Zrak, Avatar mora održati ravnotežu među njima, ali sve se promijenilo kad je nacija Vatre napala. Samo ih Avatar, gospodar svih elemenata, može zaustaviti.",
+          "homepage": "",
+          "tagline": "Voda. Zemlja. Vatra. Zrak."
+        }
+      },
+      {
+        "iso_3166_1": "VN",
+        "iso_639_1": "vi",
+        "name": "Tiếng Việt",
+        "english_name": "Vietnamese",
+        "data": {
+          "name": "Thế Thần: Tiết Khí Sư Cuối Cùng",
+          "overview": "Xa xưa, thế giới chia ra làm 4 bộ tộc có quyền lực ngang nhau : Hỏa Tộc, Thủy Tộc, Thổ Tộc và Phong Tộc. Mỗi tộc sẽ có một số người có khả năng sử dụng nguyên tố Tộc của mình. Hàng ngàn năm qua, cả 4 bộ tộc cùng chung sống trong hòa bình. Nhưng rồi, người trị vì mới của Hỏa Tộc, Hỏa Vương Sozin đã khơi mào chiến tranh. Người duy nhất có thể ngăn chặn việc đó chính là Avatar. Avatar chính là hóa thân của Thần Linh, người duy nhất có thể điều khiển cả 4 nguyên tố đó. Nhưng khi thế giới cần đến ông nhất thì ông lại biến mất. Một trăm năm sau, một Thủy nhân tên Karata và anh trai của cô ấy, Sokka, đã tìm ra Aang, bị phong ấn trong một tảng băng. Giờ họ phải giúp Avatar điều khiển được cả 4 nguyên tố trước mùa hè, khi mà cháu trai của Sozin, Hỏa Vương Ozai, sử dụng sức mạnh của sao chổi tấn công và tuyên bố chiến thắng của Hỏa Tộc.",
+          "homepage": "",
+          "tagline": "Thủy. Thổ. Hỏa. Khí."
+        }
+      },
+      {
+        "iso_3166_1": "RS",
+        "iso_639_1": "sr",
+        "name": "Srpski",
+        "english_name": "Serbian",
+        "data": {
+          "name": "Аватар: Последњи владар ветрова",
+          "overview": "Серија се одвија у свету у којем живе људи, фантастичне животиње и духови. Људска цивилизација подељена је у 4 групе: водено племе, земаљско краљевство, ватрена нација и ваздушни номади. Свака нација је одвојено друштво, међу којима људи познати као бендери имају способност манипулације елементима (ваздух, вода, земља, ватра). Али само једна особа на свету је способна да управља са сва 4 елемента  - Аватар, дух планете у људској форми.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "SA",
+        "iso_639_1": "ar",
+        "name": "العربية",
+        "english_name": "Arabic",
+        "data": {
+          "name": "آفاتار: مسخر الهواء الأخير",
+          "overview": "وُلد آنج قبل بداية الحرب بـ12 عاماً في معبد الهواء الجنوبي حيث تعلم تسخير الهواء. وفي سن الثانية عشرة قد اكتُشف أنه الأفاتار ولكنه هرب ثم تجمد وبقي في الجبل الجليدي لمدة 100 عام.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "IR",
+        "iso_639_1": "fa",
+        "name": "فارسی",
+        "english_name": "Persian",
+        "data": {
+          "name": "آواتار: آخرین بادافزار",
+          "overview": "در زمان های گذشته دنیا به چهار نیرو به نام های آب ، خاک ، آتش و باد تقسیم شده بود . در هر کدام از این سرزمین ها افرادی وجود داشته اند که می توانستد فقط نیروی مربوط به سرزمین خود را تحت اختیار و کنترل داشته باشند . این ۴ قلمرو به مدت هزار سال در صلح بودند تا اینکه پادشاه قلمرو آتش سوزین تصمیم گرفت تا برای به تصاحب گرفتن قدرت کل دنیا ، جنگی را به راه اندازد . در این میان تنها یک فرد است که می تواند جلوی او را بگیرد . که آواتار نامیده می شود",
+          "homepage": "",
+          "tagline": "آب. خاک. آتش. باد."
+        }
+      },
+      {
+        "iso_3166_1": "TH",
+        "iso_639_1": "th",
+        "name": "ภาษาไทย",
+        "english_name": "Thai",
+        "data": {
+          "name": "เณรน้อยเจ้าอภินิหาร",
+          "overview": "สองพี่น้องคาทาราและซ็อกกาปลุกเด็กน้อยแองให้ตื่นจากการจำศีลอันยาวนาน และได้รู้ว่าเขาคือร่างอวตารที่สามารถเอาชนะเผ่าอัคคีที่ชั่วร้ายได้ด้วยพลังควบคุมลมของเขา",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "GE",
+        "iso_639_1": "ka",
+        "name": "ქართული",
+        "english_name": "Georgian",
+        "data": {
+          "name": "ავატარი: ჰაერის უკანასკნელი მბრძანებელი",
+          "overview": "",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "FI",
+        "iso_639_1": "fi",
+        "name": "suomi",
+        "english_name": "Finnish",
+        "data": {
+          "name": "Avatar",
+          "overview": "Kaukaiseen Aasiaan sijoittuva fantasiasarja 12-vuotiaan Aang-pojan henkeäsalpaavista seikkailuista Kaukoidän kiehtovissa maisemissa. Aangin täytyy ystävineen ohjata taistelua Tulikansaa vastaan, jotta rauha ja tasapaino palaisi maailmaan. Tulikansa hyökkäsi Vesiheimoa ja Maan valtakuntaa vastaan jo sata vuotta sitten, eikä sota ole vieläkään päättynyt. Monet ovat jo luopuneet toivosta, mutta Vesiheimoon kuuluva, nuori Katara-tyttö uskoo yhä, että Avatar tulee takaisin ja palauttaa rauhan.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "LT",
+        "iso_639_1": "lt",
+        "name": "Lietuvių",
+        "english_name": "Lithuanian",
+        "data": {
+          "name": "Avataras: Paskutinis Oro Valdytojas",
+          "overview": "Karo draskomame bei stichijų valdomame magijos pasaulyje gyvena jaunas berniukas, kuris prabunda, kad pasiryžtų leistis į pavojingą kelionę, kad įvykdytų savo, kaip Avataro misiją ir atneštų pasauliui taiką.",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "BE",
+        "iso_639_1": "nl",
+        "name": "Nederlands",
+        "english_name": "Dutch",
+        "data": {
+          "name": "Avatar: De legende van Aang",
+          "overview": "Avatar gaat over de wereldmacht die lange tijd verdeeld was over vier naties: Aarde, Vuur, Water en Lucht. Uiteindelijk werd het evenwicht verstoord en was er maar één Avatar die de situatie kon redden: Aang",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "HK",
+        "iso_639_1": "zh",
+        "name": "普通话",
+        "english_name": "Mandarin",
+        "data": {
+          "name": "降世神通：最後的氣宗",
+          "overview": "凱塔拉和蘇卡這對兄妹喚醒年輕且冬眠已久的安之後，得知他是神通王，還精通氣功，能夠擊敗邪惡的烈火國。",
+          "homepage": "",
+          "tagline": ""
+        }
+      },
+      {
+        "iso_3166_1": "AE",
+        "iso_639_1": "ar",
+        "name": "العربية",
+        "english_name": "Arabic",
+        "data": {
+          "name": "افاتار مسخر الرياح الاخير",
+          "overview": "",
+          "homepage": "",
+          "tagline": ""
+        }
+      }
+    ]
+  }

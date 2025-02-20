@@ -47,7 +47,7 @@ trait TmdbAlternativeTitles
         }
 
         foreach ($this->alternative_titles as $alternative_title) {
-            if ($alternative_title->getIso31661() === $iso_3166_1) {
+            if ($alternative_title->getIso3166() === $iso_3166_1) {
                 return $alternative_title;
             }
         }

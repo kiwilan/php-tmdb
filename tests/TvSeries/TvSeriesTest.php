@@ -8,6 +8,7 @@ use Kiwilan\Tmdb\Models\Common\TmdbSpokenLanguage;
 use Kiwilan\Tmdb\Models\Credits\TmdbCast;
 use Kiwilan\Tmdb\Models\Credits\TmdbCrew;
 use Kiwilan\Tmdb\Models\TmdbTvSeries;
+use Kiwilan\Tmdb\Models\Translations\TmdbTranslation;
 use Kiwilan\Tmdb\Models\TvSeries\TmdbContentRating;
 use Kiwilan\Tmdb\Models\TvSeries\TmdbEpisode;
 use Kiwilan\Tmdb\Models\TvSeries\TmdbNetwork;
@@ -110,7 +111,7 @@ it('can parse content ratings', function () {
 
     $us = $tv->getContentRatingSpecific('US');
     expect($us)->toBeInstanceOf(TmdbContentRating::class);
-    expect($us->getIso31661())->toBe('US');
+    expect($us->getIso3166())->toBe('US');
     expect($us->getRating())->toBe('TV-MA');
 });
 
@@ -182,4 +183,24 @@ it('can have null tv series results', function () {
     expect($results->getTotalPages())->toBe(1);
     expect($results->getTotalResults())->toBe(0);
     expect($results->getResults())->toBeArray();
+});
+
+it('can get translations', function () {
+    $tvShow = Tmdb::client(apiKey())
+        ->tvSeries()
+        ->details(1399, ['translations']);
+
+    $french = $tvShow->getTranslation('FR');
+    expect(count($tvShow->getTranslations()))->toBe(50);
+
+    expect($french)->toBeInstanceOf(TmdbTranslation::class);
+    expect($french->getEnglishName())->toBe('French');
+    expect($french->getIso639())->toBe('fr');
+    expect($french->getName())->toBe('Français');
+
+    expect($french->getData())->toBeArray();
+    expect($french->getDataKey('name'))->toBe('');
+    expect($french->getDataKey('overview'))->toBeString();
+    expect($french->getDataKey('tagline'))->toBe("L'hiver arrive.");
+    expect($french->getDataKey('homepage'))->toBeString();
 });

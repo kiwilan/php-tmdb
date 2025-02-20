@@ -33,7 +33,7 @@ class TmdbSpokenLanguage extends TmdbModel
         return $this->english_name;
     }
 
-    public function getIso6391(): ?string
+    public function getIso639(): ?string
     {
         return $this->iso_639_1;
     }

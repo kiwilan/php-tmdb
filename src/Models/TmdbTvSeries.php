@@ -17,6 +17,7 @@ use Kiwilan\Tmdb\Traits;
 class TmdbTvSeries extends TmdbExtendedMedia
 {
     use Traits\TmdbTmdbUrl;
+    use Traits\TmdbTranslations;
 
     /** @var TmdbCrew[] */
     protected ?array $created_by = null;
@@ -97,6 +98,7 @@ class TmdbTvSeries extends TmdbExtendedMedia
 
         $content_ratings = $data['content_ratings']['results'] ?? null;
         $this->content_ratings = $this->loopOn($content_ratings, TmdbContentRating::class);
+        $this->translations = $this->parseTranslations();
     }
 
     /**
@@ -231,7 +233,7 @@ class TmdbTvSeries extends TmdbExtendedMedia
             return null;
         }
 
-        $ratings = array_filter($content_ratings, fn (TmdbContentRating $item) => $item->getIso31661() === $iso_3166_1);
+        $ratings = array_filter($content_ratings, fn (TmdbContentRating $item) => $item->getIso3166() === $iso_3166_1);
 
         if (! $ratings) {
             return null;

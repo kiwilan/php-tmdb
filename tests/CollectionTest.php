@@ -107,8 +107,8 @@ it('can get collection images', function () {
     $first = $backdrops[0];
     expect($first->getAspectRatio())->toBeFloat();
     expect($first->getHeight())->toBeInt();
-    if ($first->getIso6391()) {
-        expect($first->getIso6391())->toBeString();
+    if ($first->getIso639()) {
+        expect($first->getIso639())->toBeString();
     }
     expect($first->getFilePath())->toBeString();
     expect($first->getVoteAverage())->toBeFloat();
@@ -124,8 +124,8 @@ it('can get collection images', function () {
     $first = $posters[0];
     expect($first->getAspectRatio())->toBeFloat();
     expect($first->getHeight())->toBeInt();
-    if ($first->getIso6391()) {
-        expect($first->getIso6391())->toBeString();
+    if ($first->getIso639()) {
+        expect($first->getIso639())->toBeString();
     }
     expect($first->getFilePath())->toBeString();
     expect($first->getVoteAverage())->toBeFloat();
@@ -149,8 +149,8 @@ it('can get collection translations', function () {
     expect($translations)->each(fn (Pest\Expectation $translation) => expect($translation->value)->toBeInstanceOf(TmdbTranslation::class));
 
     $first = $translations[0];
-    expect($first->getIso31661())->toBeString();
-    expect($first->getIso6391())->toBeString();
+    expect($first->getIso3166())->toBeString();
+    expect($first->getIso639())->toBeString();
     expect($first->getName())->toBeString();
     expect($first->getEnglishName())->toBeString();
     expect($first->getData())->toBeArray();

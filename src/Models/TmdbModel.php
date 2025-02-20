@@ -4,6 +4,7 @@ namespace Kiwilan\Tmdb\Models;
 
 use Closure;
 use DateTime;
+use Kiwilan\Tmdb\Models\Translations\TmdbTranslation;
 
 abstract class TmdbModel
 {
@@ -131,5 +132,27 @@ abstract class TmdbModel
         $value = $this->raw_data[$key] ?? null;
 
         return $value ? new $class($value) : null;
+    }
+
+    /**
+     * Parse the translations.
+     *
+     * @return array<string, TmdbTranslation>
+     */
+    protected function parseTranslations(): array
+    {
+        /** @var TmdbTranslation[]|null */
+        $items = $this->validateData('translations', fn (array $values) => $this->loopOn($values['translations'] ?? null, TmdbTranslation::class));
+
+        if (! $items) {
+            return [];
+        }
+
+        $translations = [];
+        foreach ($items as $item) {
+            $translations[$item->getIso3166()] = $item;
+        }
+
+        return $translations;
     }
 }

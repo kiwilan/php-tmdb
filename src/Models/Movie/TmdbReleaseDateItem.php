@@ -60,7 +60,7 @@ class TmdbReleaseDateItem extends TmdbModel
     /**
      * Get the ISO 639-1, like `en`.
      */
-    public function getIso6391(): ?string
+    public function getIso639(): ?string
     {
         return $this->iso_639_1;
     }

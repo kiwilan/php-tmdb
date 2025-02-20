@@ -15,6 +15,7 @@ class TmdbSeason extends TmdbModel
     use Traits\TmdbId;
     use Traits\TmdbPoster;
     use Traits\TmdbTmdbUrl;
+    use Traits\TmdbTranslations;
 
     protected ?DateTime $air_date = null;
 
@@ -58,6 +59,7 @@ class TmdbSeason extends TmdbModel
         }
 
         $this->season_tv_show_id = $season_tv_show_id;
+        $this->translations = $this->parseTranslations();
     }
 
     public function getAirDate(): ?DateTime

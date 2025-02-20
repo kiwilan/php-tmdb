@@ -39,7 +39,7 @@ class TmdbContentRating extends TmdbModel
         return $this->descriptors;
     }
 
-    public function getIso31661(): ?string
+    public function getIso3166(): ?string
     {
         return $this->iso_3166_1;
     }

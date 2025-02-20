@@ -29,7 +29,7 @@ class TmdbReleaseDate extends TmdbModel
     /**
      * Get the ISO 3166-1, like `FI`.
      */
-    public function getIso31661(): ?string
+    public function getIso3166(): ?string
     {
         return $this->iso_3166_1;
     }

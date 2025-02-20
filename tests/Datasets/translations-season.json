@@ -1,0 +1,425 @@
+{
+    "id": 785,
+    "translations": [
+      {
+        "iso_3166_1": "US",
+        "iso_639_1": "en",
+        "name": "English",
+        "english_name": "English",
+        "data": {
+          "name": "Book One: Water",
+          "overview": "Katara and Sokka (a brother and sister from the Southern Water Tribe) discover the Avatar (a 12-year-old Airbender boy named Aang) frozen in an iceberg. Together the three begin their journey to the North Pole to find a master waterbender so Aang can begin his Avatar training!"
+        }
+      },
+      {
+        "iso_3166_1": "PT",
+        "iso_639_1": "pt",
+        "name": "Português",
+        "english_name": "Portuguese",
+        "data": {
+          "name": "Livro 1: Água",
+          "overview": "Um bloco de gelo derrete, libertando um rapaz que estava aprisionado e revelando um facto que mudará para sempre o seu destino: ele é o Avatar pelo qual o Mundo ansiava."
+        }
+      },
+      {
+        "iso_3166_1": "SE",
+        "iso_639_1": "sv",
+        "name": "svenska",
+        "english_name": "Swedish",
+        "data": {
+          "name": "Bok 1: Vatten",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "BG",
+        "iso_639_1": "bg",
+        "name": "български език",
+        "english_name": "Bulgarian",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "FR",
+        "iso_639_1": "fr",
+        "name": "Français",
+        "english_name": "French",
+        "data": {
+          "name": "Livre 1 - L'eau",
+          "overview": "Lorsqu'un garçon sort de l'iceberg dans lequel il était prisonnier depuis des années, il s'avère que c'est l'Avatar à la destinée hors du commun que le monde attendait."
+        }
+      },
+      {
+        "iso_3166_1": "IL",
+        "iso_639_1": "he",
+        "name": "עִבְרִית",
+        "english_name": "Hebrew",
+        "data": {
+          "name": "ספר ראשון: מים",
+          "overview": "קטארה וסאקה מגלים את אנג קפוא בתוך קרחון. הם מביאים אותו לשבט המים שלהם. הם לא יודעים עדיין כי אנג הוא האווטאר - שליט ארבעת האלמנטים שנעלם למשך מאה שנים."
+        }
+      },
+      {
+        "iso_3166_1": "NL",
+        "iso_639_1": "nl",
+        "name": "Nederlands",
+        "english_name": "Dutch",
+        "data": {
+          "name": "Boek 1: Water",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "ES",
+        "iso_639_1": "es",
+        "name": "Español",
+        "english_name": "Spanish",
+        "data": {
+          "name": "Libro 1: Agua",
+          "overview": "En un lugar muy extraño y frio en la cima d un iceberg se encuentra congelado Aang siendo descubierto x Katara y Sokka quienes lo ayudan en su búsqueda de dominar los cuatro elementos y siempre perseguidos por Zuko, dándose a conocer personajes como: Suki, Gyatso, Roku, Zhao, Bumi, Yue, Jet entre otros aquí se descubre también sucesos importantes como la Extinción de los Maestros-Aire, El Mundo de los Espíritus, y El Cometa de Sozin y también c muestran lugares como la Tribu Agua del Norte, la Ciudad de Omashu, el Templo Aire del Norte, la Isla Kyoshi.\n\n"
+        }
+      },
+      {
+        "iso_3166_1": "NO",
+        "iso_639_1": "no",
+        "name": "Norsk",
+        "english_name": "Norwegian",
+        "data": {
+          "name": "Bok 1 - Vann",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "DE",
+        "iso_639_1": "de",
+        "name": "Deutsch",
+        "english_name": "German",
+        "data": {
+          "name": "Buch 1: Wasser",
+          "overview": "Ein aus einem Eisblock aufgetauter Junge stellt sich als der Avatar heraus, auf den die Welt gewartet hat – und sein Schicksal erfährt eine atemberaubende Wendung."
+        }
+      },
+      {
+        "iso_3166_1": "BS",
+        "iso_639_1": "bs",
+        "name": "Bosanski",
+        "english_name": "Bosnian",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "HU",
+        "iso_639_1": "hu",
+        "name": "Magyar",
+        "english_name": "Hungarian",
+        "data": {
+          "name": "Első könyv: Víz",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "RU",
+        "iso_639_1": "ru",
+        "name": "Pусский",
+        "english_name": "Russian",
+        "data": {
+          "name": "Книга 1: Вода",
+          "overview": "Катара и Сокка (брат и сестра из Южного Племени Воды) обнаруживают Аватара (12-летнего мальчика мага Воздуха по имени Аанг), застывшего в айсберге. Вместе трое отправляются в путешествие на Северный полюс, чтобы найти мастера магии Воды, чтобы Аанг мог приступить к обучению Аватара!"
+        }
+      },
+      {
+        "iso_3166_1": "CZ",
+        "iso_639_1": "cs",
+        "name": "Český",
+        "english_name": "Czech",
+        "data": {
+          "name": "Kniha první: Voda",
+          "overview": "V první části seriálu se avatar Aang a jeho přátelé vydávají na server, k mistrům ovládání vody, aby se Aang naučil ovládat právě tento živel."
+        }
+      },
+      {
+        "iso_3166_1": "RO",
+        "iso_639_1": "ro",
+        "name": "Română",
+        "english_name": "Romanian",
+        "data": {
+          "name": "",
+          "overview": "În primul sezon, Aang, ultimul maestru al aerului și, totodată, actualul avatar, iese la lumină, după 100 de ani, timp în care poporul Focului a încercat să cucerească celelalte 3 popoare și să-l găsească pe Aang, pentru a-l distruge și a-și asigura, în acest fel, supremația asupra întregii lumi."
+        }
+      },
+      {
+        "iso_3166_1": "BR",
+        "iso_639_1": "pt",
+        "name": "Português",
+        "english_name": "Portuguese",
+        "data": {
+          "name": "Livro 1: Água",
+          "overview": "A temporada gira em torno do protagonista, Aang, e de seus amigos Katara e Sokka, que vão em uma viagem ao Polo Norte para encontrar um mestre de dominação de água para ensinar Aang e Katara. Enquanto isso, a Nação do Fogo trava uma guerra aparentemente sem fim contra o Reino da Terra e as Tribos da Água após o desaparecimento dos Nômades do Ar há muito tempo atrás. Aang, o atual Avatar, deve dominar os quatro elementos (ar, água, terra e fogo) para acabar com o conflito. Ao longo do caminho, ele e seus amigos são perseguidos pelo Príncipe Zuko, banido da Nação do Fogo, e seu tio, o ex-general Iroh, bem como pelo Almirante Zhao da Marinha do Fogo."
+        }
+      },
+      {
+        "iso_3166_1": "DK",
+        "iso_639_1": "da",
+        "name": "Dansk",
+        "english_name": "Danish",
+        "data": {
+          "name": "Bog 1: Vand",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "UA",
+        "iso_639_1": "uk",
+        "name": "Український",
+        "english_name": "Ukrainian",
+        "data": {
+          "name": "Книга перша: Вода",
+          "overview": "Світ поділений на чотири Нації: Води, Землі, Повітря й Вогню. У кожної Нації є людина, яка володіє здібностями керувати своєю стихією. Вони називають себе магами Води, Землі, Вогню і Повітря. Найсильніший Володар світу і єдиний, хто може керувати всіма чотирма стихіями, - Аватар - воскресає для кожного Народу раз на сто років.\n\nКоли жорстока Нація Вогню загрожує поневолити Нації Води, Землі і Повітря, запеклому й пустотливому хлопчиську належить зустріти свою долю, долю Аватара, обраного, якому судилося відновити рівновагу в світі."
+        }
+      },
+      {
+        "iso_3166_1": "TR",
+        "iso_639_1": "tr",
+        "name": "Türkçe",
+        "english_name": "Turkish",
+        "data": {
+          "name": "Birinci Kitap: SU",
+          "overview": "Güney Su Kabilesi'nden kardeş olan Katara ve Sokka, bir buzdağındaki donmuş Avatar'ı bulurlar. Bu Avatar; Aang adında 12 yaşında Hava Bükücü bir çocuktur. Üçü birlikte, Aang'in Avatar eğitimine başlayabilmesi için usta bir su bükücü bulmak üzere Kuzey Kutbu'na doğru yolculuğa çıkarlar!"
+        }
+      },
+      {
+        "iso_3166_1": "IT",
+        "iso_639_1": "it",
+        "name": "Italiano",
+        "english_name": "Italian",
+        "data": {
+          "name": "Stagione 1 - Libro primo: Acqua",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "GR",
+        "iso_639_1": "el",
+        "name": "ελληνικά",
+        "english_name": "Greek",
+        "data": {
+          "name": "Βιβλίο 1: Νερό",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "MX",
+        "iso_639_1": "es",
+        "name": "Español",
+        "english_name": "Spanish",
+        "data": {
+          "name": "Libro 1: Agua",
+          "overview": "El Libro Uno contiene la historia de un Maestro Aire de doce años llamado Aang, quien es descubierto congelado en un iceberg por dos jóvenes hermanos de la Tribu Agua del Sur: Katara y Sokka. Después de un breve periodo de tiempo tras el cual descubren que él es el Avatar, la única persona que puede dominar las cuatro Artes de Control y poner fin a la devastadora guerra iniciada por la Nación del Fuego después de que el Avatar desapareciera hacía cien años. Ellos se dirijen a la Tribu Agua del Norte, donde Aang y Katara podrían encontrar un Maestro del Agua Control. A lo largo de su viaje, ellos son perseguidos por Zuko, el príncipe desterrado de la Nación del Fuego."
+        }
+      },
+      {
+        "iso_3166_1": "KR",
+        "iso_639_1": "ko",
+        "name": "한국어/조선말",
+        "english_name": "Korean",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "LV",
+        "iso_639_1": "lv",
+        "name": "Latviešu",
+        "english_name": "Latvian",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "SK",
+        "iso_639_1": "sk",
+        "name": "Slovenčina",
+        "english_name": "Slovak",
+        "data": {
+          "name": "Kniha prvá: Voda",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "PL",
+        "iso_639_1": "pl",
+        "name": "Polski",
+        "english_name": "Polish",
+        "data": {
+          "name": "Księga Pierwsza: Woda",
+          "overview": "Katara i Sokka (brat i siostra z Południowego Plemienia Wody) odkrywają Awatara (12-letniego Maga Powietrza o imieniu Aang) zamrożonego w górze lodowej. Cała trójka wyrusza w podróż na Biegun Północny, aby znaleźć mistrza magii wody, dzięki któremu Aang będzie mógł rozpocząć szkolenie awatara!"
+        }
+      },
+      {
+        "iso_3166_1": "CN",
+        "iso_639_1": "zh",
+        "name": "普通话",
+        "english_name": "Mandarin",
+        "data": {
+          "name": "卷一：水",
+          "overview": "一对水族兄妹索卡和卡塔拉在南极冰山中意外发现一个被冰封的小和尚——安，他很有可能是消失一百年之久的降世神通。\n\n由于降世神通必须循序学会御气、御水、御土、御火四项御术，安昂必须尽快寻找到能教导他御水的大师，而自从南极水族被火凤凰帝国攻陷之后，卡塔拉已经是南极最后一位略懂皮毛的水宗。\n\n因此兄妹俩和安一起踏上了前往北极寻访水宗大师的旅程。然而，被火凤凰帝国驱逐的皇子祖寇，为了恢复其储君的地位对降世神通一行人穷追不舍，中途更引来了赵将军一路追捕神通到北极。\n\n在帕古大师的指导下，安昂苦练御水术，这时火凤凰帝国正倾全国各路船舰，欲将北极水族一举歼灭。安昂必须再度进入神灵界，向前世的死对头-太古（偷脸神）\"口\"寻问海水与明月神灵的本相，寻求对抗火烈军的方法，以及将遭到赵将军的毒手的明月神灵救回，以便拯救整个水族。"
+        }
+      },
+      {
+        "iso_3166_1": "JP",
+        "iso_639_1": "ja",
+        "name": "日本語",
+        "english_name": "Japanese",
+        "data": {
+          "name": "水の巻",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "TW",
+        "iso_639_1": "zh",
+        "name": "普通话",
+        "english_name": "Mandarin",
+        "data": {
+          "name": "第一卷：水",
+          "overview": "冰封多年的小男孩甦醒後，大家才得知他就是眾人引頸企盼的神通王。然而他遭遇了困惑不解的命運轉折。"
+        }
+      },
+      {
+        "iso_3166_1": "ES",
+        "iso_639_1": "ca",
+        "name": "Català",
+        "english_name": "Catalan",
+        "data": {
+          "name": "Llibre Primer: Aigua",
+          "overview": "La Katara i en Sokka (2 germans de la Tribu de l'Aigua del Sud) descobreixen congelat en un iceberg a l'Aang,  un nen mestre de l'aire de 12 anys que resulta ser el desaperagut Avatar. Junts comencen el seu viatge cap al pol nord per trobar un mestre de l'aigua que pugui ajudar a l'Aang a iniciar el seu entrenament d'Avatar!"
+        }
+      },
+      {
+        "iso_3166_1": "HR",
+        "iso_639_1": "hr",
+        "name": "Hrvatski",
+        "english_name": "Croatian",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "VN",
+        "iso_639_1": "vi",
+        "name": "Tiếng Việt",
+        "english_name": "Vietnamese",
+        "data": {
+          "name": "Cuốn 1: Thủy",
+          "overview": "Khi một cậu bé tìm thấy trong tảng băng được rã đông, thế giới biết được rằng cậu là Thế Thần mà họ hằng mong đợi, và số phận của cậu thay đổi chóng mặt."
+        }
+      },
+      {
+        "iso_3166_1": "RS",
+        "iso_639_1": "sr",
+        "name": "Srpski",
+        "english_name": "Serbian",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "SA",
+        "iso_639_1": "ar",
+        "name": "العربية",
+        "english_name": "Arabic",
+        "data": {
+          "name": "الكتاب الأول: الماء",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "IR",
+        "iso_639_1": "fa",
+        "name": "فارسی",
+        "english_name": "Persian",
+        "data": {
+          "name": "کتاب یک: آب",
+          "overview": "کاتارا و ساکا (برادر و خواهری از قبیله آب جنوبی) آواتار (پسر ۱۲ ساله بادافزار به نام آنگ) را که در کوه یخ محبوس شده بود را کشف می‌کنند.  هر سه با هم سفر خود را به قطب شمال آغاز می‌کنند تا یک استاد آب‌افزاری را پیدا کنند تا آنگ بتواند آموزش آواتاری خود را آغاز کند!"
+        }
+      },
+      {
+        "iso_3166_1": "TH",
+        "iso_639_1": "th",
+        "name": "ภาษาไทย",
+        "english_name": "Thai",
+        "data": {
+          "name": "เล่ม 1:  นํ้า",
+          "overview": "เมื่อเด็กชายที่อยู่ในก้อนน้ำแข็งถูกปลุกให้ตื่นขึ้นมา วินาทีนั้นโลกได้รู้ว่า เขาคือร่างอวตารที่ทุกคนเฝ้ารอ และมีโชคชะตาถูกลิขิตมาให้ช่วยชาวโลก"
+        }
+      },
+      {
+        "iso_3166_1": "GE",
+        "iso_639_1": "ka",
+        "name": "ქართული",
+        "english_name": "Georgian",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "FI",
+        "iso_639_1": "fi",
+        "name": "suomi",
+        "english_name": "Finnish",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "LT",
+        "iso_639_1": "lt",
+        "name": "Lietuvių",
+        "english_name": "Lithuanian",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "BE",
+        "iso_639_1": "nl",
+        "name": "Nederlands",
+        "english_name": "Dutch",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "HK",
+        "iso_639_1": "zh",
+        "name": "普通话",
+        "english_name": "Mandarin",
+        "data": {
+          "name": "《降世神通》第 1 卷",
+          "overview": "冰封多年的小男孩復活後，大家才得知他就是眾人引頸企盼的神通王，而他遭遇了困惑不解的命運轉折。"
+        }
+      },
+      {
+        "iso_3166_1": "AE",
+        "iso_639_1": "ar",
+        "name": "العربية",
+        "english_name": "Arabic",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      }
+    ]
+  }

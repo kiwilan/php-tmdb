@@ -51,12 +51,12 @@ class TmdbVideo extends TmdbModel
         $this->id = $this->toString('id');
     }
 
-    public function getIso6391(): ?string
+    public function getIso639(): ?string
     {
         return $this->iso_639_1;
     }
 
-    public function getIso31661(): ?string
+    public function getIso3166(): ?string
     {
         return $this->iso_3166_1;
     }

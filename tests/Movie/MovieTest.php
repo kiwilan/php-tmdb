@@ -12,6 +12,7 @@ use Kiwilan\Tmdb\Models\Movie\TmdbReleaseDate;
 use Kiwilan\Tmdb\Models\Movie\TmdbReleaseDateItem;
 use Kiwilan\Tmdb\Models\TmdbCollection;
 use Kiwilan\Tmdb\Models\TmdbMovie;
+use Kiwilan\Tmdb\Models\Translations\TmdbTranslation;
 use Kiwilan\Tmdb\Tmdb;
 
 it('can get movie details (tmdb id)', function () {
@@ -101,7 +102,7 @@ it('can get movie release dates', function () {
     expect($movie->getReleaseDates())->not()->toBeNull();
     $french = $movie->getReleaseDateSpecific('FR');
     expect($french)->toBeInstanceOf(TmdbReleaseDate::class);
-    expect($french->getIso31661())->toBe('FR');
+    expect($french->getIso3166())->toBe('FR');
     expect($french->getReleaseDates())->toBeArray();
     expect($french->getFirstReleaseDate())->toBeInstanceOf(TmdbReleaseDateItem::class);
     expect($french->getSpecificReleaseDate('Blu-Ray'))->toBeInstanceOf(TmdbReleaseDateItem::class);
@@ -190,8 +191,8 @@ it('can get movie videos', function () {
 
     $first = reset($videos);
     expect($first->getId())->toBeString();
-    expect($first->getIso6391())->toBeString();
-    expect($first->getIso31661())->toBeString();
+    expect($first->getIso639())->toBeString();
+    expect($first->getIso3166())->toBeString();
     expect($first->getKey())->toBeString();
     expect($first->getName())->toBeString();
     expect($first->getSite())->toBeString();
@@ -238,7 +239,7 @@ it('can get movie countries', function () {
     expect($countries)->each(fn (Pest\Expectation $country) => expect($country->value)->toBeInstanceOf(TmdbCountry::class));
 
     $first = reset($countries);
-    expect($first->getIso31661())->toBe('NZ');
+    expect($first->getIso3166())->toBe('NZ');
     expect($first->getName())->toBeString('New Zealand');
 });
 
@@ -284,4 +285,25 @@ it('can update properties', function () {
     expect($movie->getTitle())->toBe('The Lord of the Rings: The Fellowship of the Ring');
     $movie->__set('title', 'The Lord of the Rings: The Two Towers');
     expect($movie->getTitle())->toBe('The Lord of the Rings: The Two Towers');
+});
+
+it('can get translations', function () {
+    $movie = Tmdb::client(apiKey())
+        ->movies()
+        ->details(120, ['translations']);
+
+    $french = $movie->getTranslation('FR');
+    expect(count($movie->getTranslations()))->toBe(48);
+
+    expect($french)->toBeInstanceOf(TmdbTranslation::class);
+    expect($french->getEnglishName())->toBe('French');
+    expect($french->getIso639())->toBe('fr');
+    expect($french->getName())->toBe('Français');
+
+    expect($french->getData())->toBeArray();
+    expect($french->getDataKey('title'))->toBe("Le Seigneur des anneaux : La Communauté de l'anneau");
+    expect($french->getDataKey('overview'))->toBeString();
+    expect($french->getDataKey('tagline'))->toBeString();
+    expect($french->getDataKey('homepage'))->toBeString();
+    expect($french->getDataKey('runtime'))->toBeInt();
 });

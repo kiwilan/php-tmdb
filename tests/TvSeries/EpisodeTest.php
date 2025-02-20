@@ -2,6 +2,7 @@
 
 use Kiwilan\Tmdb\Models\Credits\TmdbCast;
 use Kiwilan\Tmdb\Models\Credits\TmdbCrew;
+use Kiwilan\Tmdb\Models\Translations\TmdbTranslation;
 use Kiwilan\Tmdb\Models\TvSeries\TmdbEpisode;
 use Kiwilan\Tmdb\Tmdb;
 
@@ -41,4 +42,22 @@ it('can find episode', function () {
     $path = mediaPath('/still-original.jpg');
     expect($episode->saveStillImage($path))->toBeTrue();
     expect(imageExists($path))->toBeTrue();
+});
+
+it('can get translations', function () {
+    $episode = Tmdb::client(apiKey())
+        ->tvEpisodes()
+        ->details(1399, 1, 1, ['translations']);
+
+    $french = $episode->getTranslation('FR');
+    expect(count($episode->getTranslations()))->toBe(50);
+
+    expect($french)->toBeInstanceOf(TmdbTranslation::class);
+    expect($french->getEnglishName())->toBe('French');
+    expect($french->getIso639())->toBe('fr');
+    expect($french->getName())->toBe('Français');
+
+    expect($french->getData())->toBeArray();
+    expect($french->getDataKey('name'))->toBeString();
+    expect($french->getDataKey('overview'))->toBeString();
 });

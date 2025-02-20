@@ -15,6 +15,7 @@ use Kiwilan\Tmdb\Traits;
 class TmdbMovie extends TmdbExtendedMedia
 {
     use Traits\TmdbTmdbUrl;
+    use Traits\TmdbTranslations;
 
     protected ?TmdbCollection $belongs_to_collection = null;
 
@@ -65,6 +66,7 @@ class TmdbMovie extends TmdbExtendedMedia
         $this->origin_country = $this->toArray('origin_country');
         $this->recommendations = $this->toModel('recommendations', MovieResults::class);
         $this->similar = $this->toModel('similar', MovieResults::class);
+        $this->translations = $this->parseTranslations();
     }
 
     /**
@@ -148,7 +150,7 @@ class TmdbMovie extends TmdbExtendedMedia
         }
 
         foreach ($this->release_dates as $release_date) {
-            if ($release_date->getIso31661() === $iso_3166_1) {
+            if ($release_date->getIso3166() === $iso_3166_1) {
                 return $release_date;
             }
         }

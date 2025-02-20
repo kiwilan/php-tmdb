@@ -3,6 +3,7 @@
 use Kiwilan\Tmdb\Models\Credits\TmdbCast;
 use Kiwilan\Tmdb\Models\Credits\TmdbCrew;
 use Kiwilan\Tmdb\Models\TmdbCredits;
+use Kiwilan\Tmdb\Models\Translations\TmdbTranslation;
 use Kiwilan\Tmdb\Models\TvSeries\TmdbEpisode;
 use Kiwilan\Tmdb\Models\TvSeries\TmdbSeason;
 use Kiwilan\Tmdb\Tmdb;
@@ -49,4 +50,22 @@ it('can find season credits', function () {
     expect($season->getCredits()->getCrew())->toBeArray();
     expect($season->getCredits()->getCrew())->not()->toBeEmpty();
     expect($season->getCredits()->getCrew())->each(fn (Pest\Expectation $crew) => expect($crew->value)->toBeInstanceOf(TmdbCrew::class));
+});
+
+it('can get translations', function () {
+    $season = Tmdb::client(apiKey())
+        ->tvSeasons()
+        ->details(1399, 1, ['translations']);
+
+    $french = $season->getTranslation('FR');
+    expect(count($season->getTranslations()))->toBe(50);
+
+    expect($french)->toBeInstanceOf(TmdbTranslation::class);
+    expect($french->getEnglishName())->toBe('French');
+    expect($french->getIso639())->toBe('fr');
+    expect($french->getName())->toBe('Français');
+
+    expect($french->getData())->toBeArray();
+    expect($french->getDataKey('name'))->toBeString();
+    expect($french->getDataKey('overview'))->toBeString();
 });

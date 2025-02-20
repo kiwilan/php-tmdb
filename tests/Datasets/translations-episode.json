@@ -1,0 +1,425 @@
+{
+    "id": 13535,
+    "translations": [
+      {
+        "iso_3166_1": "US",
+        "iso_639_1": "en",
+        "name": "English",
+        "english_name": "English",
+        "data": {
+          "name": "The Boy in the Iceberg",
+          "overview": "Two teenage siblings (Sokka and Katara) living in the South Pole discover a very strange boy (Aang), along with his pet flying bison Appa, in an iceberg. But can they trust him when he accidentally draws the war to their village's doorstep?"
+        }
+      },
+      {
+        "iso_3166_1": "PT",
+        "iso_639_1": "pt",
+        "name": "Português",
+        "english_name": "Portuguese",
+        "data": {
+          "name": "O rapaz no icebergue",
+          "overview": "Enquanto pescam, Katara e Sokka fazem uma descoberta incrível: um rapaz congelado dentro do gelo, completamente preservado e o mais surpreendente... vivo."
+        }
+      },
+      {
+        "iso_3166_1": "SE",
+        "iso_639_1": "sv",
+        "name": "svenska",
+        "english_name": "Swedish",
+        "data": {
+          "name": "Pojken i isberget",
+          "overview": "När en ung vattenbändare, vid namn Katara och hennes bror Sokka är ute och fiskar efter föda runt deras hem vid Sydpolen så ser dom ett stort isberg med en pojke inuti."
+        }
+      },
+      {
+        "iso_3166_1": "BG",
+        "iso_639_1": "bg",
+        "name": "български език",
+        "english_name": "Bulgarian",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "FR",
+        "iso_639_1": "fr",
+        "name": "Français",
+        "english_name": "French",
+        "data": {
+          "name": "Le garçon bloqué dans l'iceberg",
+          "overview": "Sokka et Katara, deux adolescents frères et sœurs vivants au pôle Sud, découvrent Aang et son bison volant, Appa, emprisonnés dans un iceberg. Après que Katara l'a libéré accidentellement, Aang apprend qu'il est le dernier maître de l'Air vivant.\n\nEntre temps, sa décongélation attire l'attention de Zuko de la nation du Feu."
+        }
+      },
+      {
+        "iso_3166_1": "IL",
+        "iso_639_1": "he",
+        "name": "עִבְרִית",
+        "english_name": "Hebrew",
+        "data": {
+          "name": "הילד בקרחון",
+          "overview": "קטארה וסאקה מגלים את אנג קפוא בתוך קרחון. הם מביאים אותו לשבט המים שלהם. הם לא יודעים עדיין כי אנג הוא האווטאר - שליט ארבעת האלמנטים שנעלם למשך מאה שנים."
+        }
+      },
+      {
+        "iso_3166_1": "NL",
+        "iso_639_1": "nl",
+        "name": "Nederlands",
+        "english_name": "Dutch",
+        "data": {
+          "name": "De Jongen in de IJsberg",
+          "overview": "Als een jonge waterbestuurder, Katara, en haar broer Sokka een enorme ijsberg ontdekken tijdens het vissen bij hun nederzetting op de Zuidpool, vinden ze een jongen met de naam Aang in de ijsberg."
+        }
+      },
+      {
+        "iso_3166_1": "ES",
+        "iso_639_1": "es",
+        "name": "Español",
+        "english_name": "Spanish",
+        "data": {
+          "name": "El muchacho en el iceberg",
+          "overview": "Katara y Sokka llevan a cabo un asombroso descubrimiento mientras pescan: un niño congelado en un iceberg, en perfectas condiciones y sorprendentemente vivo."
+        }
+      },
+      {
+        "iso_3166_1": "NO",
+        "iso_639_1": "no",
+        "name": "Norsk",
+        "english_name": "Norwegian",
+        "data": {
+          "name": "Gutten i isfjellet",
+          "overview": "Når en ung vanntemmer, med navnet Katara, og henns bror, Sokke oppdager et stort isfjell mens, de fiisker for å få tak i mat ved hjemstedet deres på Sørpolen, oppdager de at det er en gutt, med navnet Aang, inni isfjellet."
+        }
+      },
+      {
+        "iso_3166_1": "DE",
+        "iso_639_1": "de",
+        "name": "Deutsch",
+        "english_name": "German",
+        "data": {
+          "name": "Der Junge im Eisberg",
+          "overview": "Katara, die Wasserbändigerin, ist mit ihrem älteren Bruder Sokka unterwegs am Südpol. Dort ist ihre Heimat, die Heimat des Wasserstamms. Auf ihrer Reise entdecken sie einen gigantischen Eisberg. Doch damit nicht genug: In dem riesigen Brocken erblicken sie einen Jungen. Sein Name ist Aang – und wie Katara und Sokka später feststellen, ist Aang ein Luftbändiger. Doch die sind eigentlich ausgestorben, hieß es bislang. Zunächst müssen die Helden ihr Dorf retten, denn nach einer Reihe unglücklicher Ereignisse droht dort elementare Gefahr. Und jetzt erkennen Katara und Sokka, dass in dem Jungen aus dem Eisberg mehr steckt, als sie zunächst angenommen haben…"
+        }
+      },
+      {
+        "iso_3166_1": "BS",
+        "iso_639_1": "bs",
+        "name": "Bosanski",
+        "english_name": "Bosnian",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "HU",
+        "iso_639_1": "hu",
+        "name": "Magyar",
+        "english_name": "Hungarian",
+        "data": {
+          "name": "A jégbefagyott fiú",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "RU",
+        "iso_639_1": "ru",
+        "name": "Pусский",
+        "english_name": "Russian",
+        "data": {
+          "name": "Мальчик в айсберге",
+          "overview": "Первый эпизод мультсериала. В нём рассказывается о Катаре и Сокке, представителях Южного племени воды, которые во время рыбалки находят айсберг и замороженного в нём юного мага воздуха Аанга."
+        }
+      },
+      {
+        "iso_3166_1": "CZ",
+        "iso_639_1": "cs",
+        "name": "Český",
+        "english_name": "Czech",
+        "data": {
+          "name": "Chlapec v ledovci",
+          "overview": "Dva sourozenci Sokka a Katara, žijící v jižním vodním kmeni, objeví v ledovci velmi zvláštního chlapce, společně s jeho mazlíčkem – létajícím bizonem Appou."
+        }
+      },
+      {
+        "iso_3166_1": "RO",
+        "iso_639_1": "ro",
+        "name": "Română",
+        "english_name": "Romanian",
+        "data": {
+          "name": "Băiatul din Iceberg",
+          "overview": "Doi frați descoperă un băiat înghețat într-un aisberg care ar putea fi salvatorul de mult pierdut al lumii."
+        }
+      },
+      {
+        "iso_3166_1": "BR",
+        "iso_639_1": "pt",
+        "name": "Português",
+        "english_name": "Portuguese",
+        "data": {
+          "name": "O Garoto no Iceberg",
+          "overview": "Os mestres da água, Katara e Sokka, fazem uma descoberta impressionante numa pescaria: um menino congelado, totalmente preservado e, surpreendentemente, vivo."
+        }
+      },
+      {
+        "iso_3166_1": "DK",
+        "iso_639_1": "da",
+        "name": "Dansk",
+        "english_name": "Danish",
+        "data": {
+          "name": "Drengen i isbjerget",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "UA",
+        "iso_639_1": "uk",
+        "name": "Український",
+        "english_name": "Ukrainian",
+        "data": {
+          "name": "Хлопчик у айсбергу",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "TR",
+        "iso_639_1": "tr",
+        "name": "Türkçe",
+        "english_name": "Turkish",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "IT",
+        "iso_639_1": "it",
+        "name": "Italiano",
+        "english_name": "Italian",
+        "data": {
+          "name": "Il ragazzo nell'iceberg",
+          "overview": "Mentre pescano nelle acque fredde, Katara e Sokka, due fratelli della Tribù dell'acqua del sud, scoprono un ragazzo intrappolato in un iceberg che galleggia sul mare. Lo liberano e scoprono che il ragazzo si chiama Aang, un dominatore dell'aria proveniente dalla Nazione dell'aria. Ciò li sorprende, poiché si credeva che i Nomadi si fossero estinti da 100 anni. Aang, insieme al suo bisonte volante a sei zampe, Appa, torna con Katara e Sokka nel loro villaggio, dove diverte gli abitanti del villaggio con il suo dominio dell'aria. Nel frattempo, il principe Zuko della Nazione del fuoco, accompagnato dallo zio Iroh, pattuglia le acque circostanti alla ricerca disperata dell'Avatar, una leggendaria figura immensamente potente che può dominare tutti e quattro gli elementi, mentre tutti gli altri dominatori ereditano solo la capacità di dominare un elemento singolo. Katara confida in Aang e vorrebbe saperne di più su come usare le sue abilità, ma è ostacolata dal fatto che lei è l'unica dominatrice dell'acqua della sua tribù. Aang allora le promette di portarla alla Tribù dell'acqua del nord per addestrarla. Un incontro casuale con una nave della Nazione del fuoco abbandonata rivela che Aang non è a conoscenza della guerra che è stata combattuta tra la Nazione del fuoco e le altre tre nazioni del mondo per 100 anni, una guerra iniziata con l'apparente annientamento dei Nomadi dell'Aria. Da ciò deducono che Aang deve essere stato congelato almeno per così tanto tempo. La coppia accende accidentalmente una trappola sulla nave, avvisando Zuko, che già sospettava che l'Avatar si trovasse nelle vicinanze."
+        }
+      },
+      {
+        "iso_3166_1": "GR",
+        "iso_639_1": "el",
+        "name": "ελληνικά",
+        "english_name": "Greek",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "MX",
+        "iso_639_1": "es",
+        "name": "Español",
+        "english_name": "Spanish",
+        "data": {
+          "name": "El niño en el iceberg",
+          "overview": "Dos jóvenes hermanos (Sokka y Katara) que viven en el Polo Sur descubren un niño muy extraño junto con su bisonte volador y mascota Appa, en un iceberg. Pero, ¿pueden ellos confiar en él cuando él accidentalmente atrae la guerra a la puerta de su casa?."
+        }
+      },
+      {
+        "iso_3166_1": "KR",
+        "iso_639_1": "ko",
+        "name": "한국어/조선말",
+        "english_name": "Korean",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "LV",
+        "iso_639_1": "lv",
+        "name": "Latviešu",
+        "english_name": "Latvian",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "SK",
+        "iso_639_1": "sk",
+        "name": "Slovenčina",
+        "english_name": "Slovak",
+        "data": {
+          "name": "Kapitola 1: Chlapec v ľadovci",
+          "overview": "Katara a Sokka, brat a sestra z južného vodného kmeňa, objavujú dvanásťročného chlapca zamrznutého v ľadovci. Katara si kladie otázku, či je tento chlapec Avatar, na ktorého svet čaká už sto rokov."
+        }
+      },
+      {
+        "iso_3166_1": "PL",
+        "iso_639_1": "pl",
+        "name": "Polski",
+        "english_name": "Polish",
+        "data": {
+          "name": "Chłopiec w górze lodowej",
+          "overview": "Podczas łowienia ryb, rodzeństwo Katara i Sokka znajdują Aanga, chłopca zamrożonego w górze lodowej. Po uwolnieniu go i jego latającego bizona Appy, dowiadują się, że jest on magiem powietrza i zabierają go do swojego plemienia. Tymczasem po zobaczeniu promienia światła wydobywającego się zza lodu, Książę Zuko, wygnany książę Narodu Ognia, płynie w to miejsce, mając nadzieję na znalezienie Awatara. Podczas zabawy, Katara i Aang niechcący aktywują statek-pułapkę, który zdradza Zuko ich położenie."
+        }
+      },
+      {
+        "iso_3166_1": "CN",
+        "iso_639_1": "zh",
+        "name": "普通话",
+        "english_name": "Mandarin",
+        "data": {
+          "name": "冰川里的男孩",
+          "overview": "南方水族的卡塔拉和索卡在捕鱼时意外发现并打破了一个大冰团，发现了一个纹有气和纹身的小和尚安昂、飞天野牛阿柏。打破冰团产生的异变惊动了流浪中的火凤凰帝国王子苏科和艾洛皇叔，同时由于安昂和卡塔拉在火烈国废弃战舰上游玩时触发机关暴露了部落位置，苏科意识到失踪百年的神通再现人间，前往南方水族部落调查。"
+        }
+      },
+      {
+        "iso_3166_1": "JP",
+        "iso_639_1": "ja",
+        "name": "日本語",
+        "english_name": "Japanese",
+        "data": {
+          "name": "第1章 氷に閉じ込められた少年",
+          "overview": "その昔、世界は水、土、火、気の４つの国で成り立ち、各国には水、土、火、気それぞれの技を操るベンダー（使い手）たちがいた。その中でも４つの技すべてをマスターした者はアバターと呼ばれ、彼が各国のバランスを保つことで世界は平和だった。しかしある時、火の国が戦争を仕掛け、秩序が崩壊。唯一の頼みであるアバターは姿を消してしまった。"
+        }
+      },
+      {
+        "iso_3166_1": "TW",
+        "iso_639_1": "zh",
+        "name": "普通话",
+        "english_name": "Mandarin",
+        "data": {
+          "name": "冰川中的男孩",
+          "overview": "凱塔拉和蘇卡在釣魚時，發現令人詫異的景象：有個男孩被冰封在冰山裡，不僅毫髮無傷，而且竟然還活著。"
+        }
+      },
+      {
+        "iso_3166_1": "ES",
+        "iso_639_1": "ca",
+        "name": "Català",
+        "english_name": "Catalan",
+        "data": {
+          "name": "El nen de l'iceberg",
+          "overview": "Dos germans adolescents (Sokka i Katara) que viuen al pol sud descobreixen un nen molt estrany (Aang), juntament amb el seu bisó volador Appa, en un iceberg. Però poden confiar en ell quan accidentalment atrau la guerra a la porta del seu poble?"
+        }
+      },
+      {
+        "iso_3166_1": "HR",
+        "iso_639_1": "hr",
+        "name": "Hrvatski",
+        "english_name": "Croatian",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "VN",
+        "iso_639_1": "vi",
+        "name": "Tiếng Việt",
+        "english_name": "Vietnamese",
+        "data": {
+          "name": "Cậu bé trong tảng băng",
+          "overview": "Katara và Sokka có một phát hiện đáng kinh ngạc khi đi câu cá: một cậu bé bị đông cứng trong băng, cơ thể vẫn còn nguyên vẹn và – kì diệu là – còn sống."
+        }
+      },
+      {
+        "iso_3166_1": "RS",
+        "iso_639_1": "sr",
+        "name": "Srpski",
+        "english_name": "Serbian",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "SA",
+        "iso_639_1": "ar",
+        "name": "العربية",
+        "english_name": "Arabic",
+        "data": {
+          "name": "الفصل الأول: الفتى في الجبل الجليدي",
+          "overview": "blings (سوكا وكتارا) يكتشف مراهقان يعيشان في القطب الجنوبي صبيًا غريبًا جدًا (Aang) ، جنبًا إلى جنب مع حيوانه الأليف الذي يطير البيسون آبا ، في جبل جليدي.  لكن هل يمكنهم الوثوق به عندما يوجه الحرب بطريق الخطأ إلى عتبة قريتهم؟"
+        }
+      },
+      {
+        "iso_3166_1": "IR",
+        "iso_639_1": "fa",
+        "name": "فارسی",
+        "english_name": "Persian",
+        "data": {
+          "name": "پسری در کوه یخ",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "TH",
+        "iso_639_1": "th",
+        "name": "ภาษาไทย",
+        "english_name": "Thai",
+        "data": {
+          "name": "เด็กชายจากภูเขาน้ำแข็ง",
+          "overview": "ขณะกำลังหาปลา คาทารากับซ็อกกาต่างตกตะลึงเมื่อพบเด็กชายคนหนึ่งถูกแช่แข็งอยู่ข้างในภูเขาน้ำแข็ง และที่สำคัญเขายังไม่ตาย"
+        }
+      },
+      {
+        "iso_3166_1": "GE",
+        "iso_639_1": "ka",
+        "name": "ქართული",
+        "english_name": "Georgian",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "BE",
+        "iso_639_1": "nl",
+        "name": "Nederlands",
+        "english_name": "Dutch",
+        "data": {
+          "name": "De jongen in de ijsberg",
+          "overview": "Als een jonge waterbestuurder, Katara, en haar broer Sokka een enorme ijsberg ontdekken tijdens het vissen bij hun nederzetting op de Zuidpool, vinden ze een jongen met de naam Aang in de ijsberg."
+        }
+      },
+      {
+        "iso_3166_1": "FI",
+        "iso_639_1": "fi",
+        "name": "suomi",
+        "english_name": "Finnish",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "LT",
+        "iso_639_1": "lt",
+        "name": "Lietuvių",
+        "english_name": "Lithuanian",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      },
+      {
+        "iso_3166_1": "HK",
+        "iso_639_1": "zh",
+        "name": "普通话",
+        "english_name": "Mandarin",
+        "data": {
+          "name": "冰川中的男孩",
+          "overview": "凱塔拉和蘇卡在釣魚時，發現令人詫異的景象：有個男孩被冰封在冰山裡，不僅毫髮無傷，而且竟然還活著。"
+        }
+      },
+      {
+        "iso_3166_1": "AE",
+        "iso_639_1": "ar",
+        "name": "العربية",
+        "english_name": "Arabic",
+        "data": {
+          "name": "",
+          "overview": ""
+        }
+      }
+    ]
+  }

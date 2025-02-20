@@ -31,7 +31,7 @@ class TmdbAlternativeTitle extends TmdbModel
     /**
      * Get the ISO 3166-1, like `FI`.
      */
-    public function getIso31661(): ?string
+    public function getIso3166(): ?string
     {
         return $this->iso_3166_1;
     }
@@ -100,7 +100,7 @@ class TmdbAlternativeTitle extends TmdbModel
     // private function parse(string $iso): ?string
     // {
     //     $titles = array_filter($this->titles,
-    //         fn (\Tmdb\Model\Movie\AlternativeTitle|\Tmdb\Model\Tv\AlternativeTitle $title) => $title->getIso31661() === $iso);
+    //         fn (\Tmdb\Model\Movie\AlternativeTitle|\Tmdb\Model\Tv\AlternativeTitle $title) => $title->getIso3166() === $iso);
 
     //     /** @var \Tmdb\Model\Movie\AlternativeTitle|\Tmdb\Model\Tv\AlternativeTitle|null */
     //     $title = $titles[array_key_first($titles)];
