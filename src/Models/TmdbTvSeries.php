@@ -225,11 +225,11 @@ class TmdbTvSeries extends TmdbExtendedMedia
     public function getContentRatingSpecific(string $iso_3166_1): ?TmdbContentRating
     {
         $content_ratings = $this->content_ratings;
-        if (count($content_ratings) === 0) {
+        if ($content_ratings === null) {
             return null;
         }
 
-        if (! $content_ratings) {
+        if (count($content_ratings) === 0) {
             return null;
         }
 
