@@ -1,5 +1,6 @@
 <?php
 
+use Kiwilan\Tmdb\Models\Common\TmdbVideo;
 use Kiwilan\Tmdb\Models\Credits\TmdbCast;
 use Kiwilan\Tmdb\Models\Credits\TmdbCrew;
 use Kiwilan\Tmdb\Models\TmdbCredits;
@@ -68,4 +69,17 @@ it('can get translations', function () {
     expect($french->getData())->toBeArray();
     expect($french->getDataKey('name'))->toBeString();
     expect($french->getDataKey('overview'))->toBeString();
+});
+
+it('can get videos', function () {
+    $season = Tmdb::client(apiKey())
+        ->tvSeasons()
+        ->details(1399, 1, ['videos']);
+    expect($season->getVideos())->toBeArray();
+
+    $teaser = $season->getVideoTeaser();
+    expect($teaser)->toBeInstanceOf(TmdbVideo::class);
+    expect($teaser->getType())->toBe('Teaser');
+    expect($teaser)->not()->toBeNull();
+    expect($teaser->getYouTubeUrl())->toBeString();
 });

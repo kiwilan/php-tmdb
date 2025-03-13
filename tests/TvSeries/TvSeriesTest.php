@@ -5,6 +5,7 @@ use Kiwilan\Tmdb\Models\Common\TmdbCompany;
 use Kiwilan\Tmdb\Models\Common\TmdbCountry;
 use Kiwilan\Tmdb\Models\Common\TmdbGenre;
 use Kiwilan\Tmdb\Models\Common\TmdbSpokenLanguage;
+use Kiwilan\Tmdb\Models\Common\TmdbVideo;
 use Kiwilan\Tmdb\Models\Credits\TmdbCast;
 use Kiwilan\Tmdb\Models\Credits\TmdbCrew;
 use Kiwilan\Tmdb\Models\TmdbTvSeries;
@@ -203,4 +204,17 @@ it('can get translations', function () {
     expect($french->getDataKey('overview'))->toBeString();
     expect($french->getDataKey('tagline'))->toBe("L'hiver arrive.");
     expect($french->getDataKey('homepage'))->toBeString();
+});
+
+it('can get videos from 1399', function () {
+    $tvSerie = Tmdb::client(apiKey())
+        ->tvSeries()
+        ->details(series_id: 1399, append_to_response: ['videos']);
+    expect($tvSerie->getVideos())->toBeArray();
+
+    $teaser = $tvSerie->getVideoTeaser();
+    expect($teaser)->toBeInstanceOf(TmdbVideo::class);
+    expect($teaser->getType())->toBe('Teaser');
+    expect($teaser)->not()->toBeNull();
+    expect($teaser->getYouTubeUrl())->toBeString();
 });

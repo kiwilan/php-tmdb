@@ -312,6 +312,7 @@ it('can get videos from 696506', function () {
     $movie = Tmdb::client(apiKey())
         ->movies()
         ->details(movie_id: 696506, append_to_response: ['videos']);
+    expect($movie->getVideos())->toBeArray();
 
     $teaser = $movie->getVideoTeaser();
     expect($teaser)->toBeInstanceOf(TmdbVideo::class);

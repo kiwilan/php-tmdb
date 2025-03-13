@@ -61,3 +61,11 @@ it('can get translations', function () {
     expect($french->getDataKey('name'))->toBeString();
     expect($french->getDataKey('overview'))->toBeString();
 });
+
+it('can get videos', function () {
+    $episode = Tmdb::client(apiKey())
+        ->tvEpisodes()
+        ->details(1399, 1, 1, ['videos']);
+
+    expect($episode->getVideos())->toBeNull();
+});

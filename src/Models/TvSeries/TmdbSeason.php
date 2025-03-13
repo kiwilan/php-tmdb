@@ -3,6 +3,7 @@
 namespace Kiwilan\Tmdb\Models\TvSeries;
 
 use DateTime;
+use Kiwilan\Tmdb\Models\Common\TmdbVideo;
 use Kiwilan\Tmdb\Models\TmdbCredits;
 use Kiwilan\Tmdb\Models\TmdbModel;
 use Kiwilan\Tmdb\Traits;
@@ -34,6 +35,9 @@ class TmdbSeason extends TmdbModel
 
     protected ?float $vote_average = null;
 
+    /** @var TmdbVideo[]|null */
+    protected ?array $videos = null;
+
     public function __construct(?array $data, ?int $season_tv_show_id = null)
     {
         if (! $data) {
@@ -60,6 +64,7 @@ class TmdbSeason extends TmdbModel
 
         $this->season_tv_show_id = $season_tv_show_id;
         $this->translations = $this->parseTranslations();
+        $this->videos = $this->validateData('videos', fn (array $values) => $this->loopOn($values['results'] ?? null, TmdbVideo::class));
     }
 
     public function getAirDate(): ?DateTime
@@ -118,5 +123,35 @@ class TmdbSeason extends TmdbModel
     public function getCredits(): ?TmdbCredits
     {
         return $this->credits;
+    }
+
+    /**
+     * Get movie videos, `videos` must be requested.
+     *
+     * @return TmdbVideo[]|null
+     */
+    public function getVideos(): ?array
+    {
+        return $this->videos;
+    }
+
+    /**
+     * Get first teaser video, `videos` must be requested.
+     *
+     * Teaser video is a video with type `Teaser`, if there is no teaser video, it will return `null`.
+     */
+    public function getVideoTeaser(): ?TmdbVideo
+    {
+        if (! $this->videos || empty($this->videos)) {
+            return null;
+        }
+
+        foreach ($this->videos as $video) {
+            if ($video->getType() === 'Teaser') {
+                return $video;
+            }
+        }
+
+        return null;
     }
 }
