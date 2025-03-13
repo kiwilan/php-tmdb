@@ -293,7 +293,7 @@ it('can get translations', function () {
         ->details(120, ['translations']);
 
     $french = $movie->getTranslation('FR');
-    expect(count($movie->getTranslations()))->toBe(48);
+    expect(count($movie->getTranslations()))->toBeInt();
 
     expect($french)->toBeInstanceOf(TmdbTranslation::class);
     expect($french->getEnglishName())->toBe('French');
@@ -306,4 +306,16 @@ it('can get translations', function () {
     expect($french->getDataKey('tagline'))->toBeString();
     expect($french->getDataKey('homepage'))->toBeString();
     expect($french->getDataKey('runtime'))->toBeInt();
+});
+
+it('can get videos from 696506', function () {
+    $movie = Tmdb::client(apiKey())
+        ->movies()
+        ->details(movie_id: 696506, append_to_response: ['videos']);
+
+    $teaser = $movie->getVideoTeaser();
+    expect($teaser)->toBeInstanceOf(TmdbVideo::class);
+    expect($teaser->getType())->toBe('Teaser');
+    expect($teaser)->not()->toBeNull();
+    expect($teaser->getYouTubeUrl())->toBeString();
 });

@@ -131,6 +131,26 @@ class TmdbMovie extends TmdbExtendedMedia
     }
 
     /**
+     * Get first teaser video, `videos` must be requested.
+     *
+     * Teaser video is a video with type `Teaser`, if there is no teaser video, it will return `null`.
+     */
+    public function getVideoTeaser(): ?TmdbVideo
+    {
+        if (! $this->videos || empty($this->videos)) {
+            return null;
+        }
+
+        foreach ($this->videos as $video) {
+            if ($video->getType() === 'Teaser') {
+                return $video;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * @return Movie\TmdbReleaseDate[]|null
      */
     public function getReleaseDates(): ?array
