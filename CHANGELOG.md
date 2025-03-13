@@ -2,6 +2,10 @@
 
 All notable changes to `php-tmdb` will be documented in this file.
 
+## v0.1.08 - 2025-03-13
+
+Add `getVideoTeaser()` for `TmdbMovie`.
+
 ## v0.1.07 - 2025-02-20
 
 Fix fail `TmdbTvSeries` on `getContentRatingSpecific()`.
