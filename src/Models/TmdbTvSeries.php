@@ -19,6 +19,7 @@ class TmdbTvSeries extends TmdbExtendedMedia
 {
     use Traits\TmdbTmdbUrl;
     use Traits\TmdbTranslations;
+    use Traits\TmdbVideos;
 
     /** @var TmdbCrew[] */
     protected ?array $created_by = null;
@@ -60,9 +61,6 @@ class TmdbTvSeries extends TmdbExtendedMedia
     protected ?TvSerieResults $recommendations = null;
 
     protected ?TvSerieResults $similar = null;
-
-    /** @var TmdbVideo[]|null */
-    protected ?array $videos = null;
 
     public function __construct(?array $data)
     {
@@ -255,35 +253,5 @@ class TmdbTvSeries extends TmdbExtendedMedia
     public function getSimilar(): ?TvSerieResults
     {
         return $this->similar;
-    }
-
-    /**
-     * Get movie videos, `videos` must be requested.
-     *
-     * @return TmdbVideo[]|null
-     */
-    public function getVideos(): ?array
-    {
-        return $this->videos;
-    }
-
-    /**
-     * Get first teaser video, `videos` must be requested.
-     *
-     * Teaser video is a video with type `Teaser`, if there is no teaser video, it will return `null`.
-     */
-    public function getVideoTeaser(): ?TmdbVideo
-    {
-        if (! $this->videos || empty($this->videos)) {
-            return null;
-        }
-
-        foreach ($this->videos as $video) {
-            if ($video->getType() === 'Teaser') {
-                return $video;
-            }
-        }
-
-        return null;
     }
 }

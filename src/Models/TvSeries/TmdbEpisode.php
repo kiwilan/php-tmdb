@@ -19,6 +19,7 @@ class TmdbEpisode extends TmdbModel
     use Traits\TmdbStill;
     use Traits\TmdbTmdbUrl;
     use Traits\TmdbTranslations;
+    use Traits\TmdbVideos;
     use Traits\TmdbVotes;
 
     protected ?DateTime $air_date = null;
@@ -46,9 +47,6 @@ class TmdbEpisode extends TmdbModel
     protected ?int $season_number = null;
 
     protected ?TmdbCredits $credits = null;
-
-    /** @var TmdbVideo[]|null */
-    protected ?array $videos = null;
 
     public function __construct(?array $data, ?int $episode_tv_show_id = null, ?int $episode_season_number = null)
     {
@@ -119,35 +117,5 @@ class TmdbEpisode extends TmdbModel
     public function getCredits(): ?TmdbCredits
     {
         return $this->credits;
-    }
-
-    /**
-     * Get movie videos, `videos` must be requested.
-     *
-     * @return TmdbVideo[]|null
-     */
-    public function getVideos(): ?array
-    {
-        return $this->videos;
-    }
-
-    /**
-     * Get first teaser video, `videos` must be requested.
-     *
-     * Teaser video is a video with type `Teaser`, if there is no teaser video, it will return `null`.
-     */
-    public function getVideoTeaser(): ?TmdbVideo
-    {
-        if (! $this->videos || empty($this->videos)) {
-            return null;
-        }
-
-        foreach ($this->videos as $video) {
-            if ($video->getType() === 'Teaser') {
-                return $video;
-            }
-        }
-
-        return null;
     }
 }

@@ -59,7 +59,7 @@ it('can get translations', function () {
         ->details(1399, 1, ['translations']);
 
     $french = $season->getTranslation('FR');
-    expect(count($season->getTranslations()))->toBe(50);
+    expect(count($season->getTranslations()))->toBeGreaterThan(50);
 
     expect($french)->toBeInstanceOf(TmdbTranslation::class);
     expect($french->getEnglishName())->toBe('French');

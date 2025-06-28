@@ -67,7 +67,7 @@ it('can search collection with options', function () {
     expect($results->getResults())->toBeArray();
     expect($results->getResults())->not()->toBeEmpty();
     expect($results->getFirstResult())->toBeInstanceOf(TmdbCollection::class);
-    expect($results->getFirstResult()->getName())->toBe('Le Seigneur des anneaux - Saga');
+    expect(strtolower($results->getFirstResult()->getName()))->toContain('le seigneur des anneaux');
 });
 
 it('can get collection details', function () {

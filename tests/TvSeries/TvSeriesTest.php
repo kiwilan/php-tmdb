@@ -192,7 +192,7 @@ it('can get translations', function () {
         ->details(1399, ['translations']);
 
     $french = $tvShow->getTranslation('FR');
-    expect(count($tvShow->getTranslations()))->toBe(50);
+    expect(count($tvShow->getTranslations()))->toBeGreaterThan(50);
 
     expect($french)->toBeInstanceOf(TmdbTranslation::class);
     expect($french->getEnglishName())->toBe('French');

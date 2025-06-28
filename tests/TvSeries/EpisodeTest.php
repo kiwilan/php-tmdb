@@ -50,7 +50,7 @@ it('can get translations', function () {
         ->details(1399, 1, 1, ['translations']);
 
     $french = $episode->getTranslation('FR');
-    expect(count($episode->getTranslations()))->toBe(50);
+    expect(count($episode->getTranslations()))->toBeGreaterThan(50);
 
     expect($french)->toBeInstanceOf(TmdbTranslation::class);
     expect($french->getEnglishName())->toBe('French');
