@@ -2,6 +2,10 @@
 
 All notable changes to `php-tmdb` will be documented in this file.
 
+## v0.1.11 - 2025-09-11
+
+Add `external_ids` to `TmdbTvSeries`, `TmdbSeason` and `TmdbEpisode`.
+
 ## v0.1.10 - 2025-06-28
 
 Add new trait `TmdbVideos` with multiple methods to handle video-related API calls.
@@ -12,6 +16,7 @@ getVideoType(string $type): ?TmdbVideo
 getVideoTeaser(): ?TmdbVideo
 getVideoTrailer(): ?TmdbVideo
 getVideoPromo(): ?TmdbVideo # Trailer, Teaser or first video
+
 
 ```
 ## v0.1.09 - 2025-03-13
