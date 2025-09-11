@@ -13,6 +13,7 @@ use Kiwilan\Tmdb\Traits;
  */
 class TmdbSeason extends TmdbModel
 {
+    use Traits\TmdbExternalIds;
     use Traits\TmdbId;
     use Traits\TmdbPoster;
     use Traits\TmdbTmdbUrl;
@@ -63,6 +64,7 @@ class TmdbSeason extends TmdbModel
         $this->season_tv_show_id = $season_tv_show_id;
         $this->translations = $this->parseTranslations();
         $this->videos = $this->validateData('videos', fn (array $values) => $this->loopOn($values['results'] ?? null, TmdbVideo::class));
+        $this->setExternalIds();
     }
 
     public function getAirDate(): ?DateTime

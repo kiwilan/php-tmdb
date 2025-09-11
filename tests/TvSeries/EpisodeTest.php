@@ -1,5 +1,6 @@
 <?php
 
+use Kiwilan\Tmdb\Models\Common\TmdbExternalIds;
 use Kiwilan\Tmdb\Models\Credits\TmdbCast;
 use Kiwilan\Tmdb\Models\Credits\TmdbCrew;
 use Kiwilan\Tmdb\Models\Translations\TmdbTranslation;
@@ -68,4 +69,22 @@ it('can get videos', function () {
         ->details(1399, 1, 1, ['videos']);
 
     expect($episode->getVideos())->toBeNull();
+});
+
+it('can get external ids 39340', function () {
+    $episode = Tmdb::client(apiKey())
+        ->tvEpisodes()
+        ->details(series_id: 39340, season_number: 1, episode_number: 1, append_to_response: ['external_ids']);
+
+    $external_ids = $episode->getExternalIds();
+    expect($external_ids)->toBeInstanceOf(TmdbExternalIds::class);
+    expect($external_ids->getImdbId())->toBe('tt1980319');
+    expect($external_ids->getTvdbId())->toBe(4099506);
+    expect($external_ids->getFreebaseMid())->toBe('/m/0k6_726');
+    expect($external_ids->getFreebaseId())->toBeNull();
+    expect($external_ids->getTvrageId())->toBeNull();
+    expect($external_ids->getWikidataId())->toBeNull();
+    expect($external_ids->getFacebookId())->toBeNull();
+    expect($external_ids->getInstagramId())->toBeNull();
+    expect($external_ids->getTwitterId())->toBeNull();
 });

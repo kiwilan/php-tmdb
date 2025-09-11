@@ -17,6 +17,7 @@ use Kiwilan\Tmdb\Traits;
  */
 class TmdbTvSeries extends TmdbExtendedMedia
 {
+    use Traits\TmdbExternalIds;
     use Traits\TmdbTmdbUrl;
     use Traits\TmdbTranslations;
     use Traits\TmdbVideos;
@@ -102,6 +103,7 @@ class TmdbTvSeries extends TmdbExtendedMedia
         $this->content_ratings = $this->loopOn($content_ratings, TmdbContentRating::class);
         $this->translations = $this->parseTranslations();
         $this->videos = $this->validateData('videos', fn (array $values) => $this->loopOn($values['results'] ?? null, TmdbVideo::class));
+        $this->setExternalIds();
     }
 
     /**

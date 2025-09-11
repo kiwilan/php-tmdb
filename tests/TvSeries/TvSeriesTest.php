@@ -3,6 +3,7 @@
 use Kiwilan\Tmdb\Models\Common\TmdbAlternativeTitle;
 use Kiwilan\Tmdb\Models\Common\TmdbCompany;
 use Kiwilan\Tmdb\Models\Common\TmdbCountry;
+use Kiwilan\Tmdb\Models\Common\TmdbExternalIds;
 use Kiwilan\Tmdb\Models\Common\TmdbGenre;
 use Kiwilan\Tmdb\Models\Common\TmdbSpokenLanguage;
 use Kiwilan\Tmdb\Models\Common\TmdbVideo;
@@ -217,4 +218,22 @@ it('can get videos from 1399', function () {
     expect($teaser->getType())->toBe('Teaser');
     expect($teaser)->not()->toBeNull();
     expect($teaser->getYouTubeUrl())->toBeString();
+});
+
+it('can get external ids 39340', function () {
+    $tvSerie = Tmdb::client(apiKey())
+        ->tvSeries()
+        ->details(series_id: 39340, append_to_response: ['external_ids']);
+
+    $external_ids = $tvSerie->getExternalIds();
+    expect($external_ids)->toBeInstanceOf(TmdbExternalIds::class);
+    expect($external_ids->getImdbId())->toBe('tt1845307');
+    expect($external_ids->getFreebaseMid())->toBe('/m/0gtxh4v');
+    expect($external_ids->getFreebaseId())->toBeNull();
+    expect($external_ids->getTvdbId())->toBe(248741);
+    expect($external_ids->getTvrageId())->toBe(28416);
+    expect($external_ids->getWikidataId())->toBe('Q32488');
+    expect($external_ids->getFacebookId())->toBe('2BrokeGirls');
+    expect($external_ids->getInstagramId())->toBe('2brokegirlscbs');
+    expect($external_ids->getTwitterId())->toBe('2BrokeGirls');
 });
