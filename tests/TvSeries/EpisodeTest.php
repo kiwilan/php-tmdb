@@ -68,7 +68,7 @@ it('can get videos', function () {
         ->tvEpisodes()
         ->details(1399, 1, 1, ['videos']);
 
-    expect($episode->getVideos())->toBeNull();
+    expect($episode->getVideos())->not()->toBeNull();
 });
 
 it('can get external ids 39340', function () {
