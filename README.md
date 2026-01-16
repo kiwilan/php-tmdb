@@ -586,9 +586,9 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [ ] [Images](https://developer.themoviedb.org/reference/company-images)
 -   [x] Configuration
     -   [ ] [Details](https://developer.themoviedb.org/reference/configuration-details)
-    -   [x] [Countries](https://developer.themoviedb.org/reference/configuration-countries)
+    -   [x] ~~[Countries](https://developer.themoviedb.org/reference/configuration-countries)~~
     -   [ ] [Jobs](https://developer.themoviedb.org/reference/configuration-jobs)
-    -   [x] [Languages](https://developer.themoviedb.org/reference/configuration-languages)
+    -   [x] ~~[Languages](https://developer.themoviedb.org/reference/configuration-languages)~~
     -   [ ] [Primary Translations](https://developer.themoviedb.org/reference/configuration-primary-translations)
     -   [ ] [Timezones](https://developer.themoviedb.org/reference/configuration-timezones)
 -   [x] ~~Credits~~
