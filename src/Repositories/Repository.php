@@ -70,7 +70,11 @@ abstract class Repository
      */
     protected function setUrl(string $path, array $queryParams = []): string
     {
-        $this->url = TmdbUrl::API_V3_URL.TmdbUrl::fixUrl($path).'?'.http_build_query($queryParams);
+        if (! empty($queryParams)) {
+            $this->url = TmdbUrl::API_V3_URL.TmdbUrl::fixUrl($path).'?'.http_build_query($queryParams);
+        } else {
+            $this->url = TmdbUrl::API_V3_URL.TmdbUrl::fixUrl($path);
+        }
 
         return $this->url;
     }

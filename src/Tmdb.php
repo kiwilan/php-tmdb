@@ -62,6 +62,16 @@ class Tmdb
     }
 
     /**
+     * Use configuration repository
+     *
+     * @docs https://developer.themoviedb.org/reference/configuration-details
+     */
+    public function configuration(): Repositories\ConfigurationRepository
+    {
+        return new Repositories\ConfigurationRepository($this->apiKey);
+    }
+
+    /**
      * Use movie lists repository
      *
      * @docs https://developer.themoviedb.org/reference/movie-now-playing-list

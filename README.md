@@ -104,6 +104,32 @@ $company = Tmdb::client('API_KEY')
     ->details(company_id: 12); // ?\Kiwilan\Tmdb\Models\TmdbCompany
 ```
 
+### Configuration
+
+#### [Configuration: Countries](https://developer.themoviedb.org/reference/configuration-countries)
+
+Get the list of countries (ISO 3166-1 tags) used throughout TMDB.
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$company = Tmdb::client('API_KEY')
+    ->configuration()
+    ->countries(); // ?\Kiwilan\Tmdb\Models\Common\TmdbCountry[]
+```
+
+#### [Configuration: Languages](https://developer.themoviedb.org/reference/configuration-languages)
+
+Get the list of languages (ISO 639-1 tags) used throughout TMDB.
+
+```php
+use Kiwilan\Tmdb\Tmdb;
+
+$company = Tmdb::client('API_KEY')
+    ->configuration()
+    ->languages(); // ?\Kiwilan\Tmdb\Models\Common\TmdbLanguage[]
+```
+
 ### Credits
 
 #### [Credits: Details](https://developer.themoviedb.org/reference/credit-details)
@@ -558,7 +584,13 @@ A fix? A new feature? A typo? You're welcome to contribute to this project. Just
     -   [x] ~~[Details](https://developer.themoviedb.org/reference/company-details)~~
     -   [ ] [Alternative Names](https://developer.themoviedb.org/reference/company-alternative-names)
     -   [ ] [Images](https://developer.themoviedb.org/reference/company-images)
--   [ ] [Configuration](https://developer.themoviedb.org/reference/configuration-details)
+-   [x] Configuration
+    -   [ ] [Details](https://developer.themoviedb.org/reference/configuration-details)
+    -   [x] [Countries](https://developer.themoviedb.org/reference/configuration-countries)
+    -   [ ] [Jobs](https://developer.themoviedb.org/reference/configuration-jobs)
+    -   [x] [Languages](https://developer.themoviedb.org/reference/configuration-languages)
+    -   [ ] [Primary Translations](https://developer.themoviedb.org/reference/configuration-primary-translations)
+    -   [ ] [Timezones](https://developer.themoviedb.org/reference/configuration-timezones)
 -   [x] ~~Credits~~
     -   [x] ~~[Details](https://developer.themoviedb.org/reference/credit-details)~~
 -   [ ] Discover
